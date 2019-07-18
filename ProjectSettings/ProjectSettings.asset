@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
+  companyName: VikingMaxx
   productName: MochiGame
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -620,7 +620,17 @@ PlayerSettings:
   webGLCompressionFormat: 1
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    1: TextMeshPro
+    4: TextMeshPro
+    7: TextMeshPro
+    13: TextMeshPro
+    19: TextMeshPro
+    21: TextMeshPro
+    25: TextMeshPro
+    26: TextMeshPro
+    27: TextMeshPro
+    28: TextMeshPro
   platformArchitecture: {}
   scriptingBackend:
     Android: 1
