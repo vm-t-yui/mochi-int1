@@ -86,38 +86,10 @@ public sealed class UITitle : CmnMonoBehaviour
     }
 
     /// <summary>
-    /// ツイッターでシェア.
+    /// シェア.
     /// </summary>
-    public void ShareOnTwitter()
+    public void Share()
     {
-        ShareHelper.Inst.CaptureScreenShot();
-        ShareHelper.Inst.ShareOnTwitter(LibBridgeInfo.SHARE_TEXT + LibBridgeInfo.TWITTER_TAG, LibBridgeInfo.APP_URL);
-    }
-
-    /// <summary>
-    /// フェイスブックでシェア.
-    /// </summary>
-    public void ShareOnFaceBook()
-    {
-        ShareHelper.Inst.CaptureScreenShot();
-        ShareHelper.Inst.ShareOnFaceBook();
-    }
-
-    /// <summary>
-    /// LINEでシェア.
-    /// </summary>
-    public void ShareOnLine()
-    {
-        ShareHelper.Inst.CaptureScreenShot();
-        ShareHelper.Inst.ShareOnLine(LibBridgeInfo.SHARE_TEXT + "\n" + LibBridgeInfo.APP_URL);
-    }
-
-    /// <summary>
-    /// インスタグラムでシェア.
-    /// </summary>
-    public void ShareOnInstagram()
-    {
-        ShareHelper.Inst.CaptureScreenShot();
-        ShareHelper.Inst.ShareOnInstagram();
+        ShareHelper.Inst.Share(LibBridgeInfo.SHARE_TEXT + LibBridgeInfo.TWITTER_TAG, LibBridgeInfo.APP_URL);
     }
 }
