@@ -2,17 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-using GoogleMobileAds.Api;    // Google AdMob広告用
-
 /// <summary>
 /// 広告管理クラス
 /// </summary>
 public class AdManager : MonoBehaviour
 {
     [SerializeField]
-    AdBannerController         adBanner         = default;            // バナー広告コントロールクラス
-    [SerializeField]
-    AdInterstitialController   adInterstitial   = default;            // インタースティシャル広告コントロールクラス
+    AdMobManager adMob = default;                                     // AdMob広告管理クラス
     [SerializeField]
     NendInterstitialController nendInterstitial = default;            // nendインタースティシャル広告コントロールクラス
     [SerializeField]
@@ -22,8 +18,8 @@ public class AdManager : MonoBehaviour
     const string ShowCountKey = "ShowCount";                          // 表示回数データのキー
 
     const int OwnCompAdCount = 4;                                     // 自社広告使用時の表示回数
-    const int AdMobCount     = 3;                                     // AdMob使用時の表示回数
-    const int RewardCount    = 5;                                     // 動画リワード使用時の表示回数
+    const int AdMobCount = 3;                                         // AdMob使用時の表示回数
+    const int RewardCount = 5;                                        // 動画リワード使用時の表示回数
 
     const string AppId =                                              // アプリID
 #if UNITY_ANDROID
@@ -41,11 +37,10 @@ public class AdManager : MonoBehaviour
     /// <summary>
     /// ロード完了検知
     /// </summary>
-    /// <returns></returns>
     public bool IsLoaded()
     {
         // バナー、インタースティシャルどちらもロードが完了したらtrueを返す、オフラインの場合も同様
-        if (adBanner.IsLoaded && (adInterstitial.IsLoaded() || !isOnline))
+        if ((adMob.IsLoaded() && nendInterstitial.IsLoaded) || !isOnline)
         {
             return true;
         }
@@ -73,18 +68,9 @@ public class AdManager : MonoBehaviour
         // オフラインなら処理を抜ける
         if (!isOnline) { return; }
 
-        // Google Mobile Ads SDKを設定したアプリIDで初期化
-        MobileAds.Initialize(AppId);
-
-        // バナー広告を生成
-        adBanner.RequestBanner();
-
-	    // インタースティシャル広告を生成
-		adInterstitial.RequestInterstitial();
-		nendInterstitial.Load();
-
-        // 一度バナー広告を非表示にする
-        HideBanner();
+        // AdMobとnendの広告ロード
+        adMob.RequestAdMob();
+        nendInterstitial.Load();
     }
 
     /// <summary>
@@ -95,7 +81,7 @@ public class AdManager : MonoBehaviour
         // オフラインなら処理を抜ける
         if (!isOnline) { return; }
 
-        adBanner.Show();
+        adMob.ShowBanner();
     }
 
     /// <summary>
@@ -106,7 +92,7 @@ public class AdManager : MonoBehaviour
         // オフラインなら処理を抜ける
         if (!isOnline) { return; }
 
-        adBanner.Hide();
+        adMob.HideBanner();
     }
 
     /// <summary>
@@ -121,19 +107,15 @@ public class AdManager : MonoBehaviour
         showCount = PlayerPrefs.GetInt(ShowCountKey, 1);
 
         // 4回毎に自社広告を使用
-		if (showCount % OwnCompAdCount == 0)
-		{
+        if (showCount % OwnCompAdCount == 0)
+        {
             ownCompInterstitial.enabled = true;
-		}
+        }
         // 3回毎にAdMobを使用
-		else if (showCount % AdMobCount == 0)
-		{
-			// 閉じているなら表示する
-			if (adInterstitial.IsClosed)
-			{
-				adInterstitial.Show();
-			}
-		}
+        else if (showCount % AdMobCount == 0)
+        {
+            adMob.ShowInterstitial();
+        }
         // 上記以外ならnendを使用、5回毎の動画リワードを出す際は表示しない
         else if (showCount % RewardCount != 0)
         {
