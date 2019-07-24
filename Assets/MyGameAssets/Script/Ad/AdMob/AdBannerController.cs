@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,7 +11,14 @@ using GoogleMobileAds.Api;    // Google AdMob広告用
 /// </summary>
 public class AdBannerController : MonoBehaviour
 {
-    BannerView bannerView;                                              // バナー広告制御クラス
+    public enum BANNER
+    {
+        TOP,
+        BOTTOM,
+        MAX
+    }
+
+    BannerView[] bannerView;                                              // バナー広告制御クラス
 
     const string AdUnitId =                                             // 広告ユニットID（テスト用ID）
 #if UNITY_ANDROID
@@ -28,26 +36,20 @@ public class AdBannerController : MonoBehaviour
     /// </summary>
     public void RequestBanner()
     {
-        // リザルトの時のみ表示位置を上にする
-        if (SceneManager.GetActiveScene().name == "Result")
+        bannerView[0] = new BannerView(AdUnitId, AdSize.Banner, AdPosition.Top);
+        bannerView[1] = new BannerView(AdUnitId, AdSize.Banner, AdPosition.Bottom);
+
+        for (int i = 0; i < (int)BANNER.MAX; i++)
         {
-            // サイズ320 x 50、画面上部表示の設定で初期化
-            bannerView = new BannerView(AdUnitId, AdSize.Banner, AdPosition.Top);
+            // 空の広告リクエストを作成
+            AdRequest request = new AdRequest.Builder().Build();
+
+            // bannerViewにrequestをロード
+            bannerView[i].LoadAd(request);
+
+            // 表示状態で生成されるので非表示にする
+            bannerView[i].Hide();
         }
-        else
-        {
-            // サイズ320 x 50、画面下部表示の設定で初期化
-            bannerView = new BannerView(AdUnitId, AdSize.Banner, AdPosition.Bottom);
-        }
-
-        // 空の広告リクエストを作成
-        AdRequest request = new AdRequest.Builder().Build();
-
-        // bannerViewにrequestをロード
-        bannerView.LoadAd(request);
-
-        // 表示状態で生成されるので非表示にする
-        bannerView.Hide();
 
         IsLoaded = true;
     }
@@ -55,9 +57,16 @@ public class AdBannerController : MonoBehaviour
     /// <summary>
     /// 表示
     /// </summary>
-    public void Show()
+    public void Show(int posNum)
     {
-        bannerView.Show();
+        if (posNum == (int)BANNER.TOP)
+        {
+            bannerView[0].Show();
+        }
+        else
+        {
+            bannerView[1].Show();
+        }
     }
 
     /// <summary>
@@ -65,6 +74,7 @@ public class AdBannerController : MonoBehaviour
     /// </summary>
     public void Hide()
     {
-        bannerView.Hide();
+        bannerView[0].Hide();
+        bannerView[1].Hide();
     }
 }

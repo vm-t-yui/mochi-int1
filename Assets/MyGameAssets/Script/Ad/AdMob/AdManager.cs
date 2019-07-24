@@ -34,7 +34,7 @@ using VMUnityLib;
 /// <summary>
 /// 広告管理クラス
 /// </summary>
-public class AdManager : SingletonMonoBehaviour<AdMobManager>
+public class AdManager : SingletonMonoBehaviour<AdManager>
 {
     [SerializeField]
     AdMobManager adMob = default;                                     // AdMob広告管理クラス
@@ -117,12 +117,12 @@ public class AdManager : SingletonMonoBehaviour<AdMobManager>
     /// <summary>
     /// バナー広告表示
     /// </summary>
-    public void ShowBanner()
+    public void ShowBanner(int posNum)
     {
         // オフラインなら処理を抜ける
         if (!isOnline) { return; }
 
-        adMob.ShowBanner();
+        adMob.ShowBanner(posNum);
     }
 
     /// <summary>

@@ -65,9 +65,10 @@ public class AdMobManager : MonoBehaviour
     /// <summary>
     /// バナー広告表示
     /// </summary>
-    public void ShowBanner()
+    /// <param name="posNum">バナーの位置番号</param>
+    public void ShowBanner(int posNum)
     {
-        adBanner.Show();
+        adBanner.Show(posNum);
     }
 
     /// <summary>
