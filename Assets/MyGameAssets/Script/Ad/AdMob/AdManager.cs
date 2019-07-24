@@ -2,6 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//== ID一覧 ================================================================================//
+// アプリID               : Android
+// アプリID               : ios
+
+// アプリID（サンプル）     : Android    ca-app-pub-7073050807259252~7297201289
+// アプリID（サンプル）     : ios        ca-app-pub-7073050807259252~7875785788
+
+// AdMob banner          : Android 
+// AdMob banner          : ios   
+
+// AdMob Interstitial    : Android   
+// AdMob Interstitial    : ios  
+
+// Nend Interstitial     : Android   
+// Nend Interstitial     : ios   
+
+// AdMob Rewarded Video  : Android  
+// AdMob Rewarded Video  : ios      
+//=========================================================================================//
+
+// 必要な広告
+//・タイトルのバナー(下)
+//・タイトルのおすすめアプリ（ネイティブアド小）
+//・タイトルからメインへの偽ローディング画面（中央に表示されるnendネイティブ大）
+//・リザルト時および偽ロード時バナー（上）
+//・リザルト時インタースティシャル(nend -> nend -> nend -> adMob -> 自社 -> 非表示のループ)
+//・インタースティシャル非表示時の動画リワード広告
+
 /// <summary>
 /// 広告管理クラス
 /// </summary>
@@ -13,6 +41,8 @@ public class AdManager : MonoBehaviour
     NendInterstitialController nendInterstitial = default;            // nendインタースティシャル広告コントロールクラス
     [SerializeField]
     OwnCompAdInterstitialController ownCompInterstitial = default;    // 自社アプリインタースティシャル広告コントロールクラス
+    [SerializeField]
+    AdVideoRecommender adVideoRecommender = default;                  // 動画リワード広告クラス
 
     int showCount = 0;                                                // インタースティシャル用表示回数
     const string ShowCountKey = "ShowCount";                          // 表示回数データのキー
@@ -68,9 +98,19 @@ public class AdManager : MonoBehaviour
         // オフラインなら処理を抜ける
         if (!isOnline) { return; }
 
-        // AdMobとnendの広告ロード
+        // AdMobとnend動画リワード広告の広告ロード
         adMob.RequestAdMob();
         nendInterstitial.Load();
+        adVideoRecommender.Init();
+    }
+
+    /// <summary>
+    /// 更新処理
+    /// </summary>
+    void Update()
+    {
+        // 動画リワード広告動画終了待ち
+        adVideoRecommender.WaitTermination();
     }
 
     /// <summary>
@@ -93,6 +133,17 @@ public class AdManager : MonoBehaviour
         if (!isOnline) { return; }
 
         adMob.HideBanner();
+    }
+
+    /// <summary>
+    /// 動画リワード広告再生
+    /// </summary>
+    public void PlayAdVideo()
+    {
+        // オフラインなら処理を抜ける
+        if (!isOnline) { return; }
+
+        adVideoRecommender.PlayAdVideo();
     }
 
     /// <summary>

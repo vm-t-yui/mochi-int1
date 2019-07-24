@@ -13,8 +13,8 @@ public class AdVideoRecommender : MonoBehaviour
     [SerializeField]
     UnityAdsRewardController unityAdsVideo = default;         // UnityAds動画リワード広告クラス
 
-    [SerializeField]
-    PlayDataManager playData = default;                       // プレイデータ管理クラス
+    //[SerializeField]
+    //PlayDataManager playData = default;                       // プレイデータ管理クラス
 
     [SerializeField]
     GameObject recommendWindow = default;                     // 勧誘用カンバス
@@ -35,20 +35,20 @@ public class AdVideoRecommender : MonoBehaviour
     public void Init()
     {
         // プレイ回数が指定した値で割り切れたら
-        if (playData.PlayCount > 0 && playData.PlayCount % RecommendInterval == 0)
-        {
-            isAdMob = PlayerPrefs.GetInt(IsAdMobKey, 0) == 1 ? true : false;
-
-            // AdMobとUnityAdsを交互に表示
-            if (isAdMob)
-            {
-                // AdMob動画リワード広告を生成
-                adMobVideo.RequestRewardVideo();
-            }
-
-            // 勧誘を許可
-            isAble = true;
-        }
+        //if (playData.PlayCount > 0 && playData.PlayCount % RecommendInterval == 0)
+        //{
+        //    isAdMob = PlayerPrefs.GetInt(IsAdMobKey, 0) == 1 ? true : false;
+        //
+        //    // AdMobとUnityAdsを交互に表示
+        //    if (isAdMob)
+        //    {
+        //        // AdMob動画リワード広告を生成
+        //        adMobVideo.RequestRewardVideo();
+        //    }
+        //
+        //    // 勧誘を許可
+        //    isAble = true;
+        //}
     }
 
     /// <summary>
@@ -99,11 +99,11 @@ public class AdVideoRecommender : MonoBehaviour
     }
 
     /// <summary>
-    /// 更新
+    /// 動画終了待ち処理
     /// </summary>
-    void Update()
+    public void WaitTermination()
     {
-        // 勧誘していなければ処理を抜ける
+        // 勧誘されてなかったら処理を抜ける
         if (!IsRecommend) { return; }
 
         // 動画広告をスキップしたらスキップフラグを立てる
@@ -111,7 +111,7 @@ public class AdVideoRecommender : MonoBehaviour
         {
             IsVideoSkip = true;
 
-            playData.SetIsReward(false);
+            //playData.SetIsReward(false);
         }
 
         // 動画広告を閉じたら処理終了
@@ -119,7 +119,7 @@ public class AdVideoRecommender : MonoBehaviour
         {
             IsEnd = true;
 
-            playData.SetIsReward(true);
+            //playData.SetIsReward(true);
         }
     }
 }

@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VMUnityLib;
 using GoogleMobileAds.Api;    // Google AdMob広告用
 
 /// <summary>
 /// AdMob広告管理クラス
 /// </summary>
-public class AdMobManager : MonoBehaviour
+public class AdMobManager : SingletonMonoBehaviour<AdMobManager>
 {
     [SerializeField]
     AdBannerController adBanner             = default;            // バナー広告コントロールクラス
