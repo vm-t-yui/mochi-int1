@@ -12,12 +12,12 @@ public class TouchController : MonoBehaviour
     PlayerController player = default;  // プレイヤークラス
 
     bool isTouch = false;               //タッチフラグ
-	bool isSwipe = false;               //スワイプフラグ
+    bool isSwipe = false;               //スワイプフラグ
 
-	/// <summary>
-	/// 更新処理
-	/// </summary>
-	void Update()
+    /// <summary>
+    /// 更新処理
+    /// </summary>
+    void Update()
     {
         // プレイヤーが待機中なら入力を受け付ける
         if (Input.touchCount > 0 && player.IsWait())
@@ -27,13 +27,13 @@ public class TouchController : MonoBehaviour
             // タッチ
             if (touch.phase == TouchPhase.Began)
             {
-				isTouch = true;
-			}
+                isTouch = true;
+            }
             // スワイプ
             if (touch.deltaPosition.magnitude > 1.5f)
             {
-				isSwipe = true;
-			}
+                isSwipe = true;
+            }
         }
     }
 

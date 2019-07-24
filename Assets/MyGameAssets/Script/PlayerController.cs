@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // タイムアップになったら
-        if(timer.IsTimeup)
+        if (timer.IsTimeup)
         {
             // 大技開始
             SpecialArts();
@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour
     public bool IsWait()
     {
         // パンチも救助も大技をしていなかったら待機中
-        if(!IsPunch && !IsRescue && !IsSpecialArts)
+        if (!IsPunch && !IsRescue && !IsSpecialArts)
         {
             return true;
         }
