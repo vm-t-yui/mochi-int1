@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VMUnityLib;
 
 //== ID一覧 ================================================================================//
 // アプリID               : Android
@@ -33,7 +34,7 @@ using UnityEngine;
 /// <summary>
 /// 広告管理クラス
 /// </summary>
-public class AdManager : MonoBehaviour
+public class AdManager : SingletonMonoBehaviour<AdMobManager>
 {
     [SerializeField]
     AdMobManager adMob = default;                                     // AdMob広告管理クラス
