@@ -2,38 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 using VMUnityLib;
-using UnityEngine.UI;
 
 //== ID一覧 ================================================================================//
 // アプリID               : Android
 // アプリID               : ios
 
-// アプリID（サンプル）     : Android    ca-app-pub-3940256099942544~3347511713
-// アプリID（サンプル）     : ios        ca-app-pub-3940256099942544~1458002511
+// アプリID（サンプル）     : Android    ca-app-pub-7073050807259252~7297201289
+// アプリID（サンプル）     : ios        ca-app-pub-7073050807259252~7875785788
 
-// AdMob banner          : Android    ca-app-pub-3940256099942544/6300978111
-// AdMob banner          : ios        ca-app-pub-3940256099942544/2934735716
+// AdMob banner          : Android 
+// AdMob banner          : ios   
 
-// AdMob Interstitial    : Android    ca-app-pub-3940256099942544/1033173712
-// AdMob Interstitial    : ios        ca-app-pub-3940256099942544/4411468910
+// AdMob Interstitial    : Android   
+// AdMob Interstitial    : ios  
 
-// Nend Native (small)   : Android    Key : 16cb170982088d81712e63087061378c71e8aa5c
-//                                    ID  : 485516
-// Nend Native (small)   : ios        Key : 10d9088b5bd36cf43b295b0774e5dcf7d20a4071
-//                                    ID  : 485500
+// Nend Interstitial     : Android   
+// Nend Interstitial     : ios   
 
-// Nend Native (large)   : Android    Key : a88c0bcaa2646c4ef8b2b656fd38d6785762f2ff
-//                                    ID  : 485520
-// Nend Native (large)   : ios        Key : 30fda4b3386e793a14b27bedb4dcd29f03d638e5
-//                                    ID  : 485504
-
-// Nend Interstitial     : Android    Key : 8c278673ac6f676dae60a1f56d16dad122e23516
-//                                    ID  : 213206
-// Nend Interstitial     : ios        Key : 308c2499c75c4a192f03c02b2fcebd16dcb45cc9
-//                                    ID  : 213208
-
-// AdMob Rewarded Video  : Android    ca-app-pub-3940256099942544/5224354917
-// AdMob Rewarded Video  : ios        ca-app-pub-3940256099942544/1712485313
+// AdMob Rewarded Video  : Android  
+// AdMob Rewarded Video  : ios      
 //=========================================================================================//
 
 // 必要な広告
@@ -123,7 +110,6 @@ public class AdManager : SingletonMonoBehaviour<AdManager>
     /// </summary>
     void Update()
     {
-        IsLoaded();
         // 動画リワード広告動画終了待ち
         adVideoRecommender.WaitTermination();
     }
@@ -172,12 +158,8 @@ public class AdManager : SingletonMonoBehaviour<AdManager>
         // 表示回数をロード
         showCount = PlayerPrefs.GetInt(ShowCountKey, 1);
 
-        if (showCount % RewardCount == 0)
-        {
-            adVideoRecommender.Recommend();
-        }
         // 4回毎に自社広告を使用
-        else if (showCount % OwnCompAdCount == 0)
+        if (showCount % OwnCompAdCount == 0)
         {
             ownCompInterstitial.enabled = true;
         }
@@ -187,7 +169,7 @@ public class AdManager : SingletonMonoBehaviour<AdManager>
             adMob.ShowInterstitial();
         }
         // 上記以外ならnendを使用、5回毎の動画リワードを出す際は表示しない
-        else
+        else if (showCount % RewardCount != 0)
         {
             nendInterstitial.Show();
         }

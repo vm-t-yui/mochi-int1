@@ -18,14 +18,13 @@ public class AdBannerController : MonoBehaviour
         MAX
     }
 
-    BannerView bannerViewTop;                                           // バナー広告制御クラス(上)
-    BannerView bannerViewBottom;                                        // バナー広告制御クラス(下)
+    BannerView[] bannerView;                                              // バナー広告制御クラス
 
     const string AdUnitId =                                             // 広告ユニットID（テスト用ID）
 #if UNITY_ANDROID
-        "ca-app-pub-3940256099942544/6300978111";
+        /*"ca-app-pub-3940256099942544/6300978111"*/"ca-app-pub-7073050807259252/3521607807";
 #elif UNITY_IOS
-        "ca-app-pub-3940256099942544/2934735716";
+        /*"ca-app-pub-3940256099942544/2934735716"*/"ca-app-pub-7073050807259252/4695088676";
 #else
         "unexpected_platform";
 #endif
@@ -37,20 +36,20 @@ public class AdBannerController : MonoBehaviour
     /// </summary>
     public void RequestBanner()
     {
-        bannerViewTop = new BannerView(AdUnitId, AdSize.Banner, AdPosition.Top);
-        bannerViewBottom = new BannerView(AdUnitId, AdSize.Banner, AdPosition.Bottom);
+        bannerView[0] = new BannerView(AdUnitId, AdSize.Banner, AdPosition.Top);
+        bannerView[1] = new BannerView(AdUnitId, AdSize.Banner, AdPosition.Bottom);
 
-        // 上下バナーの空の広告リクエストを作成
-        AdRequest requestTop = new AdRequest.Builder().Build();
-        AdRequest requestBottom = new AdRequest.Builder().Build();
+        for (int i = 0; i < (int)BANNER.MAX; i++)
+        {
+            // 空の広告リクエストを作成
+            AdRequest request = new AdRequest.Builder().Build();
 
-        // それぞれのbannerViewにrequestをロード
-        bannerViewTop.LoadAd(requestTop);
-        bannerViewBottom.LoadAd(requestBottom);
+            // bannerViewにrequestをロード
+            bannerView[i].LoadAd(request);
 
-        // 表示状態で生成されるので非表示にする
-        bannerViewTop.Hide();
-        bannerViewBottom.Hide();
+            // 表示状態で生成されるので非表示にする
+            bannerView[i].Hide();
+        }
 
         IsLoaded = true;
     }
@@ -62,11 +61,11 @@ public class AdBannerController : MonoBehaviour
     {
         if (posNum == (int)BANNER.TOP)
         {
-            bannerViewTop.Show();
+            bannerView[0].Show();
         }
         else
         {
-            bannerViewBottom.Show();
+            bannerView[1].Show();
         }
     }
 
@@ -75,7 +74,7 @@ public class AdBannerController : MonoBehaviour
     /// </summary>
     public void Hide()
     {
-        bannerViewTop.Hide();
-        bannerViewBottom.Hide();
+        bannerView[0].Hide();
+        bannerView[1].Hide();
     }
 }

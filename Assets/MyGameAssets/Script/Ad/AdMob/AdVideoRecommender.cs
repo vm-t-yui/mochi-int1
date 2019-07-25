@@ -10,8 +10,8 @@ public class AdVideoRecommender : MonoBehaviour
     [SerializeField]
     AdRewardVideoController adMobVideo = default;             //　AdMob動画リワード広告クラス
 
-    //[SerializeField]
-    //UnityAdsRewardController unityAdsVideo = default;         // UnityAds動画リワード広告クラス
+    [SerializeField]
+    UnityAdsRewardController unityAdsVideo = default;         // UnityAds動画リワード広告クラス
 
     //[SerializeField]
     //PlayDataManager playData = default;                       // プレイデータ管理クラス
@@ -43,7 +43,7 @@ public class AdVideoRecommender : MonoBehaviour
         //    if (isAdMob)
         //    {
         //        // AdMob動画リワード広告を生成
-                adMobVideo.RequestRewardVideo();
+        //        adMobVideo.RequestRewardVideo();
         //    }
         //
         //    // 勧誘を許可
@@ -57,17 +57,17 @@ public class AdVideoRecommender : MonoBehaviour
     public void PlayAdVideo()
     {
         // AdMob再生
-        //if (isAdMob)
-        //{
+        if (isAdMob)
+        {
             adMobVideo.Play();
-            //isAdMob = false;
-        //}
+            isAdMob = false;
+        }
         // UnityAds再生
-        //else
-        //{
+        else
+        {
             //unityAdsVideo.Play();
-            //isAdMob = true;
-        //}
+            isAdMob = true;
+        }
 
         // AdMob使用フラグを更新してセーブ
         PlayerPrefs.SetInt(IsAdMobKey, isAdMob ? 1 : 0);
@@ -107,7 +107,7 @@ public class AdVideoRecommender : MonoBehaviour
         if (!IsRecommend) { return; }
 
         // 動画広告をスキップしたらスキップフラグを立てる
-        if ((adMobVideo.IsSkipped && adMobVideo.IsClosed) )//|| unityAdsVideo.IsSkipped)
+        if ((adMobVideo.IsSkipped && adMobVideo.IsClosed) || unityAdsVideo.IsSkipped)
         {
             IsVideoSkip = true;
 
@@ -115,7 +115,7 @@ public class AdVideoRecommender : MonoBehaviour
         }
 
         // 動画広告を閉じたら処理終了
-        if ((adMobVideo.IsCompleted && adMobVideo.IsClosed))// || unityAdsVideo.IsFinished)
+        if ((adMobVideo.IsCompleted && adMobVideo.IsClosed) || unityAdsVideo.IsFinished)
         {
             IsEnd = true;
 

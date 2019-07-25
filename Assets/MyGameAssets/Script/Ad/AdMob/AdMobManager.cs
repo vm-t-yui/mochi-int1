@@ -17,9 +17,9 @@ public class AdMobManager : MonoBehaviour
 
     const string AppId =                                          // アプリID
 #if UNITY_ANDROID
-        "ca-app-pub-3940256099942544~3347511713";
+        "ca-app-pub-7073050807259252~7297201289";
 #elif UNITY_IOS
-        "ca-app-pub-3940256099942544~1458002511";
+        "ca-app-pub-7073050807259252~7875785788";
 #else
         "unexpected_platform";
 #endif
