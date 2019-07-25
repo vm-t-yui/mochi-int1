@@ -11,6 +11,7 @@ using GoogleMobileAds.Api;    // Google AdMob広告用
 /// </summary>
 public class AdBannerController : MonoBehaviour
 {
+    // バナーの位置
     public enum BANNER
     {
         TOP,
@@ -18,13 +19,14 @@ public class AdBannerController : MonoBehaviour
         MAX
     }
 
-    BannerView[] bannerView;                                              // バナー広告制御クラス
+    BannerView bannerViewTop;                                           // バナー広告制御クラス(上)
+    BannerView bannerViewBottom;                                        // バナー広告制御クラス(下)
 
     const string AdUnitId =                                             // 広告ユニットID（テスト用ID）
 #if UNITY_ANDROID
-        /*"ca-app-pub-3940256099942544/6300978111"*/"ca-app-pub-7073050807259252/3521607807";
+        "ca-app-pub-3940256099942544/6300978111";
 #elif UNITY_IOS
-        /*"ca-app-pub-3940256099942544/2934735716"*/"ca-app-pub-7073050807259252/4695088676";
+        "ca-app-pub-3940256099942544/2934735716";
 #else
         "unexpected_platform";
 #endif
@@ -36,20 +38,20 @@ public class AdBannerController : MonoBehaviour
     /// </summary>
     public void RequestBanner()
     {
-        bannerView[0] = new BannerView(AdUnitId, AdSize.Banner, AdPosition.Top);
-        bannerView[1] = new BannerView(AdUnitId, AdSize.Banner, AdPosition.Bottom);
+        bannerViewTop = new BannerView(AdUnitId, AdSize.Banner, AdPosition.Top);
+        bannerViewBottom = new BannerView(AdUnitId, AdSize.Banner, AdPosition.Bottom);
 
-        for (int i = 0; i < (int)BANNER.MAX; i++)
-        {
-            // 空の広告リクエストを作成
-            AdRequest request = new AdRequest.Builder().Build();
+        // 上下バナーの空の広告リクエストを作成
+        AdRequest requestTop = new AdRequest.Builder().Build();
+        AdRequest requestBottom = new AdRequest.Builder().Build();
 
-            // bannerViewにrequestをロード
-            bannerView[i].LoadAd(request);
+        // それぞれのbannerViewにrequestをロード
+        bannerViewTop.LoadAd(requestTop);
+        bannerViewBottom.LoadAd(requestBottom);
 
-            // 表示状態で生成されるので非表示にする
-            bannerView[i].Hide();
-        }
+        // 表示状態で生成されるので非表示にする
+        bannerViewTop.Hide();
+        bannerViewBottom.Hide();
 
         IsLoaded = true;
     }
@@ -61,11 +63,11 @@ public class AdBannerController : MonoBehaviour
     {
         if (posNum == (int)BANNER.TOP)
         {
-            bannerView[0].Show();
+            bannerViewTop.Show();
         }
         else
         {
-            bannerView[1].Show();
+            bannerViewBottom.Show();
         }
     }
 
@@ -74,7 +76,7 @@ public class AdBannerController : MonoBehaviour
     /// </summary>
     public void Hide()
     {
-        bannerView[0].Hide();
-        bannerView[1].Hide();
+        bannerViewTop.Hide();
+        bannerViewBottom.Hide();
     }
 }
