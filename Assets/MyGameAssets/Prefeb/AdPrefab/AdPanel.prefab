@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5176295145955704768
 RectTransform:
   m_ObjectHideFlags: 0
@@ -126,11 +126,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   account:
     android:
-      apiKey: f43a81f3adf3b9a1b46c06a4d4ba40763b2fe9fa
-      spotID: 961859
+      apiKey: a88c0bcaa2646c4ef8b2b656fd38d6785762f2ff
+      spotID: 485520
     iOS:
-      apiKey: f35cec08b54698361681df9a8b1d6e431c69fefb
-      spotID: 961858
+      apiKey: 30fda4b3386e793a14b27bedb4dcd29f03d638e5
+      spotID: 485504
   loadWhenActivated: 1
   enableAutoReload: 0
   reloadInterval: 0
