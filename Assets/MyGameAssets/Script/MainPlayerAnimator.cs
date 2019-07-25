@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// プレイヤーのアニメーションクラス
+/// メインゲーム時のプレイヤーのアニメーション管理クラス
 /// </summary>
-public class PlayerAnimationController : MonoBehaviour
+public class MainPlayerAnimator : MonoBehaviour
 {
     // アニメーションの種類
     public enum AnimKind
     {
-        Right,      // 右パンチ
-        Left,       // 左パンチ
-        Rescue,     // うさぎ救助
-        SpecialArts,// 最後の大技
-        Lenght,     // enumの長さ
+        RightPunch,     // 右パンチ
+        LeftPunch,      // 左パンチ
+        Rescue,         // うさぎ救助
+        SpecialArts,    // 最後の大技
+        Lenght,         // enumの長さ
     }
 
     [SerializeField]
@@ -30,14 +30,14 @@ public class PlayerAnimationController : MonoBehaviour
     public void AnimStart(int kind)
     {
         // アニメーションの種類が右パンチなら右パンチのアニメーションスタート
-        if (kind == (int)AnimKind.Right)
+        if (kind == (int)AnimKind.RightPunch)
         {
-            playerAnim.SetBool("RPunch", true);
+            playerAnim.SetTrigger("RPunch");
         }
         // 左パンチなら左パンチのアニメーションスタート
-        if (kind == (int)AnimKind.Left)
+        if (kind == (int)AnimKind.LeftPunch)
         {
-            playerAnim.SetBool("LPunch", true);
+            playerAnim.SetTrigger("LPunch");
         }
         // うさぎ救助ならうさぎ救助のアニメーションスタート
         if (kind == (int)AnimKind.Rescue)
@@ -60,7 +60,7 @@ public class PlayerAnimationController : MonoBehaviour
     /// </summary>
     public void PunchEnd()
     {
-        playerAnim.SetBool("RPunch", false);
-        playerAnim.SetBool("LPunch", false);
+        playerAnim.ResetTrigger("RPunch");
+        playerAnim.ResetTrigger("LPunch");
     }
 }

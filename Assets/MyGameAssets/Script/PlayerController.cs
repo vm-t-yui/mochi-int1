@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// メインゲーム時のアニメーションクラスのenum
+using MainAnim = MainPlayerAnimator.AnimKind;
+
 /// <summary>
 /// プレイヤークラス
 /// </summary>
@@ -14,13 +17,13 @@ public class PlayerController : MonoBehaviour
     Timer timer = default;                                          // タイマークラス
 
     [SerializeField]
-    PlayerAnimationController playerAnim = default;                 // プレイヤーのアニメーションクラス
+    MainPlayerAnimator playerAnim = default;                        // プレイヤーのアニメーションクラス
 
     public bool IsPunch { get; private set; } = false;              // パンチフラグ
     public bool IsRescue { get; private set; } = false;             // 救助フラグ
     public bool IsSpecialArts { get; private set; } = false;        // 救助フラグ
 
-    int punchSide = (int)PlayerAnimationController.AnimKind.Right;  // パンチの種類
+    int punchSide = (int)MainAnim.RightPunch;    // パンチの種類
 
     /// <summary>
     /// 更新処理
@@ -57,13 +60,13 @@ public class PlayerController : MonoBehaviour
     void Punch()
     {
         // 右なら左、左なら右のパンチに変更
-        if (punchSide == (int)PlayerAnimationController.AnimKind.Right)
+        if (punchSide == (int)MainAnim.RightPunch)
         {
-            punchSide = (int)PlayerAnimationController.AnimKind.Left;
+            punchSide = (int)MainAnim.LeftPunch;
         }
         else
         {
-            punchSide = (int)PlayerAnimationController.AnimKind.Right;
+            punchSide = (int)MainAnim.RightPunch;
         }
 
         // アニメーション開始
@@ -77,7 +80,7 @@ public class PlayerController : MonoBehaviour
     void Rescue()
     {
         // アニメーション開始
-        playerAnim.AnimStart((int)PlayerAnimationController.AnimKind.Rescue);
+        playerAnim.AnimStart((int)MainAnim.Rescue);
         IsRescue = true;
     }
 
@@ -87,7 +90,7 @@ public class PlayerController : MonoBehaviour
     void SpecialArts()
     {
         // アニメーション開始
-        playerAnim.AnimStart((int)PlayerAnimationController.AnimKind.SpecialArts);
+        playerAnim.AnimStart((int)MainAnim.SpecialArts);
         IsSpecialArts = true;
     }
 

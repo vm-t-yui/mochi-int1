@@ -28,7 +28,7 @@ public class Timer : MonoBehaviour
         if (!IsTimeup)
         {
             // 今の秒数のカウント
-            float nowTime = seconds - Time.time;
+            float nowTime = seconds - Time.timeSinceLevelLoad;
 
             // 指定の秒数を数え終わったらタイムアップ
             if (nowTime < 0)

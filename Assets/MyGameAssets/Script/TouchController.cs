@@ -11,8 +11,8 @@ public class TouchController : MonoBehaviour
     [SerializeField]
     PlayerController player = default;  // プレイヤークラス
 
-    bool isTouch = false;               //タッチフラグ
-    bool isSwipe = false;               //スワイプフラグ
+    bool isTouch = false;               // タッチフラグ
+    bool isSwipe = false;               // スワイプフラグ
 
     /// <summary>
     /// 更新処理
