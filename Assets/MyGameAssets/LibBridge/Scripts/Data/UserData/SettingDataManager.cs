@@ -66,6 +66,24 @@ public class SettingDataManager : MonoBehaviour
     }
 
     /// <summary>
+    /// BGMボリュームスライダー動作時の音量設定関数
+    /// </summary>
+    /// <param name="slider">使用するスライダー</param>
+    public void SetBgmVolume(Slider slider)
+    {
+        GameDataManager.Inst.SettingData.BgmVolume = slider.value;
+    }
+
+    /// <summary>
+    /// SEボリュームスライダー動作時の音量設定関数
+    /// </summary>
+    /// <param name="slider">使用するスライダー</param>
+    public void SetSeVolume(Slider slider)
+    {
+        GameDataManager.Inst.SettingData.SeVolume = slider.value;
+    }
+
+    /// <summary>
     /// 使用中スキン表示テキスト変更
     /// </summary>
     /// <param name="skinType">餅スキンの種類</param>
