@@ -11,7 +11,6 @@ using GoogleMobileAds.Api;    // Google AdMob広告用
 /// </summary>
 public class AdBannerController : MonoBehaviour
 {
-    // バナーの位置
     public enum BANNER
     {
         TOP,
