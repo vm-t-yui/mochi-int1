@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 7367088618461943817}
   - component: {fileID: -6710191026062310461}
   m_Layer: 0
-  m_Name: Pools
+  m_Name: SoundPools
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2a913f65ccae69498173cb4090db41d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  comment: "root\u30B7\u30FC\u30F3\u306B\u3053\u306E\u30D7\u30EC\u30CF\u30D6\u3092\u914D\u7F6E\u3057\u3066\u304F\u3060\u3055\u3044"
+  comment: "title\u30B7\u30FC\u30F3\u306B\u3053\u306E\u30D7\u30EC\u30CF\u30D6\u3092\u914D\u7F6E\u3057\u3066\u304F\u3060\u3055\u3044"
 --- !u!1 &7367088618481067053
 GameObject:
   m_ObjectHideFlags: 0
