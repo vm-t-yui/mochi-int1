@@ -38,23 +38,22 @@ public class SceneAdNativeDisplay : MonoBehaviour
         // フェードイン
         while (canvas.alpha < 1)
         {
-            // 徐々に
+            // 徐々に(0.01秒ごとに)フェードイン
             canvas.alpha += 0.1f;
-
             yield return new WaitForSeconds(0.01f);
         }
 
         // シーンをプッシュ
         sceneChanger.PushScene();
 
+        // シーンプッシュ中(4秒間)表示
         yield return new WaitForSeconds(4.0f);
 
         // フェードアウト
         while (canvas.alpha > 0)
         {
-            // 徐々に
+            // 徐々に(0.01秒ごとに)フェードアウト
             canvas.alpha -= 0.1f;
-
             yield return new WaitForSeconds(0.01f);
         }
 
