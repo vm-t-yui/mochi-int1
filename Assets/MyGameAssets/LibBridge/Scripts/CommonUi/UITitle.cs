@@ -7,6 +7,9 @@ using System.Collections;
 using System.Collections.Generic;
 using VMUnityLib;
 
+/// <summary>
+/// タイトルのUIクラス
+/// </summary>
 public sealed class UITitle : CmnMonoBehaviour
 {
 #if USE_TWEEN
@@ -23,6 +26,9 @@ public sealed class UITitle : CmnMonoBehaviour
     /// </summary>
     public override void Start()
     {
+        // バナー表示
+        AdManager.Inst.ShowBanner((int)AdBannerController.BANNER.TOP);
+
         GameServiceUtil.Auth();
 #if USE_TWEEN
         tweenAlphe = GetComponent<uTweenAlpha>();
