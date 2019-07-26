@@ -11,10 +11,9 @@ using TMPro;
 public class UIResult : CmnMonoBehaviour
 {
     [SerializeField]
-    TextMeshProUGUI scoreText = default;
+    TextMeshProUGUI scoreText = default;    // スコア用テキスト
 
     // 処理なし。メッセージ受信エラー避け.
-    protected override void FixedUpdate() { }
     protected override void InitSceneChange() { }
     protected override void OnSceneDeactive() { }
 
@@ -35,8 +34,9 @@ public class UIResult : CmnMonoBehaviour
     /// <summary>
     /// 更新処理
     /// </summary>
-    void Update()
+    protected override void FixedUpdate()
     {
+        // スコアをテキストに
         scoreText.text = ScoreCounter.Inst.DisplayBreakNum.ToString();
     }
 

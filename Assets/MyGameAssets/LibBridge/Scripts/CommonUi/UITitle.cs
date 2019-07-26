@@ -7,6 +7,9 @@ using System.Collections;
 using System.Collections.Generic;
 using VMUnityLib;
 
+/// <summary>
+/// タイトルのUIクラス
+/// </summary>
 public sealed class UITitle : CmnMonoBehaviour
 {
 #if USE_TWEEN
