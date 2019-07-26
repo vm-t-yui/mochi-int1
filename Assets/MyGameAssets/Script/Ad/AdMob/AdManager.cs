@@ -1,11 +1,52 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VMUnityLib;
+
+//== ID一覧 ================================================================================//
+// アプリID               : Android
+// アプリID               : ios
+
+// アプリID（サンプル）     : Android    ca-app-pub-3940256099942544~3347511713
+// アプリID（サンプル）     : ios        ca-app-pub-3940256099942544~1458002511
+
+// AdMob banner          : Android    ca-app-pub-3940256099942544/6300978111
+// AdMob banner          : ios        ca-app-pub-3940256099942544/2934735716
+
+// AdMob Interstitial    : Android    ca-app-pub-3940256099942544/1033173712
+// AdMob Interstitial    : ios        ca-app-pub-3940256099942544/4411468910
+
+// Nend Native (small)   : Android    Key : 16cb170982088d81712e63087061378c71e8aa5c
+//                                    ID  : 485516
+// Nend Native (small)   : ios        Key : 10d9088b5bd36cf43b295b0774e5dcf7d20a4071
+//                                    ID  : 485500
+
+// Nend Native (large)   : Android    Key : a88c0bcaa2646c4ef8b2b656fd38d6785762f2ff
+//                                    ID  : 485520
+// Nend Native (large)   : ios        Key : 30fda4b3386e793a14b27bedb4dcd29f03d638e5
+//                                    ID  : 485504
+
+// Nend Interstitial     : Android    Key : 8c278673ac6f676dae60a1f56d16dad122e23516
+//                                    ID  : 213206
+// Nend Interstitial     : ios        Key : 308c2499c75c4a192f03c02b2fcebd16dcb45cc9
+//                                    ID  : 213208
+
+// AdMob Rewarded Video  : Android    ca-app-pub-3940256099942544/5224354917
+// AdMob Rewarded Video  : ios        ca-app-pub-3940256099942544/1712485313
+//=========================================================================================//
+
+// 必要な広告
+//・タイトルのバナー(下)
+//・タイトルのおすすめアプリ（ネイティブアド小）
+//・タイトルからメインへの偽ローディング画面（中央に表示されるnendネイティブ大）
+//・リザルト時および偽ロード時バナー（上）
+//・リザルト時インタースティシャル(nend -> nend -> nend -> adMob -> 自社 -> 非表示のループ)
+//・インタースティシャル非表示時の動画リワード広告
 
 /// <summary>
 /// 広告管理クラス
 /// </summary>
-public class AdManager : MonoBehaviour
+public class AdManager : SingletonMonoBehaviour<AdManager>
 {
     [SerializeField]
     AdMobManager adMob = default;                                     // AdMob広告管理クラス
@@ -13,6 +54,8 @@ public class AdManager : MonoBehaviour
     NendInterstitialController nendInterstitial = default;            // nendインタースティシャル広告コントロールクラス
     [SerializeField]
     OwnCompAdInterstitialController ownCompInterstitial = default;    // 自社アプリインタースティシャル広告コントロールクラス
+    [SerializeField]
+    AdVideoRecommender adVideoRecommender = default;                  // 動画リワード広告クラス
 
     int showCount = 0;                                                // インタースティシャル用表示回数
     const string ShowCountKey = "ShowCount";                          // 表示回数データのキー
@@ -68,20 +111,30 @@ public class AdManager : MonoBehaviour
         // オフラインなら処理を抜ける
         if (!isOnline) { return; }
 
-        // AdMobとnendの広告ロード
+        // AdMobとnend動画リワード広告の広告ロード
         adMob.RequestAdMob();
         nendInterstitial.Load();
+        adVideoRecommender.Init();
+    }
+
+    /// <summary>
+    /// 更新処理
+    /// </summary>
+    void Update()
+    {
+        // 動画リワード広告動画終了待ち
+        adVideoRecommender.WaitTermination();
     }
 
     /// <summary>
     /// バナー広告表示
     /// </summary>
-    public void ShowBanner()
+    public void ShowBanner(int posNum)
     {
         // オフラインなら処理を抜ける
         if (!isOnline) { return; }
 
-        adMob.ShowBanner();
+        adMob.ShowBanner(posNum);
     }
 
     /// <summary>
@@ -96,6 +149,17 @@ public class AdManager : MonoBehaviour
     }
 
     /// <summary>
+    /// 動画リワード広告再生
+    /// </summary>
+    public void PlayAdVideo()
+    {
+        // オフラインなら処理を抜ける
+        if (!isOnline) { return; }
+
+        adVideoRecommender.PlayAdVideo();
+    }
+
+    /// <summary>
     /// インタースティシャル広告表示
     /// </summary>
     public void ShowInterstitial()
@@ -106,8 +170,13 @@ public class AdManager : MonoBehaviour
         // 表示回数をロード
         showCount = PlayerPrefs.GetInt(ShowCountKey, 1);
 
+        // 5回毎の動画リワードを表示
+        if (showCount % RewardCount == 0)
+        {
+            adVideoRecommender.Recommend();
+        }
         // 4回毎に自社広告を使用
-        if (showCount % OwnCompAdCount == 0)
+        else if (showCount % OwnCompAdCount == 0)
         {
             ownCompInterstitial.enabled = true;
         }
@@ -116,8 +185,8 @@ public class AdManager : MonoBehaviour
         {
             adMob.ShowInterstitial();
         }
-        // 上記以外ならnendを使用、5回毎の動画リワードを出す際は表示しない
-        else if (showCount % RewardCount != 0)
+        // 上記以外ならnendを使用
+        else
         {
             nendInterstitial.Show();
         }

@@ -17,9 +17,9 @@ public class AdMobManager : MonoBehaviour
 
     const string AppId =                                          // アプリID
 #if UNITY_ANDROID
-        "ca-app-pub-7073050807259252~7297201289";
+        "ca-app-pub-3940256099942544~3347511713";
 #elif UNITY_IOS
-        "ca-app-pub-7073050807259252~7875785788";
+        "ca-app-pub-3940256099942544~1458002511";
 #else
         "unexpected_platform";
 #endif
@@ -65,9 +65,10 @@ public class AdMobManager : MonoBehaviour
     /// <summary>
     /// バナー広告表示
     /// </summary>
-    public void ShowBanner()
+    /// <param name="posNum">バナーの位置番号</param>
+    public void ShowBanner(int posNum)
     {
-        adBanner.Show();
+        adBanner.Show(posNum);
     }
 
     /// <summary>
