@@ -12,7 +12,7 @@ public class OwnCompAdInterstitialController : MonoBehaviour
     [SerializeField]
     GameObject[] adImages = default;          // 広告画像オブジェクト
 
-    const int OwnCompAdNum = 3;               // 自社広告の総数
+    const int OwnCompAdNum = 4;               // 自社広告の総数
 
     int useAdNum = 0;                         // 使用する広告番号
     const string UseAdNumKey = "UseAdNum";    // 使用する広告番号のデータキー
@@ -29,9 +29,19 @@ public class OwnCompAdInterstitialController : MonoBehaviour
         // 取得した広告番号に応じた自社広告を表示
         adImages[useAdNum].SetActive(true);
 
+        // 前の自社広告を非表示
+        if (useAdNum == 0)
+        {
+            adImages[OwnCompAdNum - 1].SetActive(false);
+        }
+        else
+        {
+            adImages[useAdNum - 1].SetActive(false);
+        }
+
         // 次回使用する広告番号をセットしてセーブ
         useAdNum++;
-        if (useAdNum > OwnCompAdNum)
+        if (useAdNum >= OwnCompAdNum)
         {
             useAdNum = 0;
         }

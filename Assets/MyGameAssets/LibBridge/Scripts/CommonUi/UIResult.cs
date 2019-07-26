@@ -1,17 +1,17 @@
-/******************************************************************************/
-/*!    \brief  タイトルシーン.
-*******************************************************************************/
-
-using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
 using VMUnityLib;
+using TMPro;
 
-public sealed class UITitle : CmnMonoBehaviour
+/// <summary>
+/// リザルト用UI
+/// </summary>
+public class UIResult : CmnMonoBehaviour
 {
-#if USE_TWEEN
-    uTweenAlpha tweenAlphe;
-#endif
+    [SerializeField]
+    TextMeshProUGUI scoreText = default;
 
     // 処理なし。メッセージ受信エラー避け.
     protected override void FixedUpdate() { }
@@ -24,12 +24,20 @@ public sealed class UITitle : CmnMonoBehaviour
     public override void Start()
     {
         // バナー表示
-        AdManager.Inst.ShowBanner((int)AdBannerController.BANNER.TOP);
+        AdManager.Inst.ShowBanner((int)AdBannerController.BANNER.BOTTOM);
+
+        // スコアカウントアップ開始
+        ScoreCounter.Inst.ScoreCountUp();
 
         GameServiceUtil.Auth();
-#if USE_TWEEN
-        tweenAlphe = GetComponent<uTweenAlpha>();
-#endif
+    }
+
+    /// <summary>
+    /// 更新処理
+    /// </summary>
+    void Update()
+    {
+        scoreText.text = ScoreCounter.Inst.DisplayBreakNum.ToString();
     }
 
     /// <summary>
@@ -64,9 +72,9 @@ public sealed class UITitle : CmnMonoBehaviour
     }
 
     /// <summary>
-    /// ゲーム開始.
+    /// ゲーム終了
     /// </summary>
-    public void StartGame()
+    public void EndGame()
     {
     }
 
@@ -94,5 +102,21 @@ public sealed class UITitle : CmnMonoBehaviour
     public void Share()
     {
         ShareHelper.Inst.Share(LibBridgeInfo.SHARE_TEXT + LibBridgeInfo.TWITTER_TAG, LibBridgeInfo.APP_URL);
+    }
+
+    /// <summary>
+    /// インタースティシャル広告表示
+    /// </summary>
+    public void ShowInterstitial()
+    {
+        AdManager.Inst.ShowInterstitial();
+    }
+
+    /// <summary>
+    /// 動画リワード広告表示
+    /// </summary>
+    public void PlayAdVideo()
+    {
+        AdManager.Inst.PlayAdVideo();
     }
 }
