@@ -2,9 +2,9 @@
 using VMUnityLib;
 
 /// <summary>
-/// SE管理クラス
+/// SEの種類ごとに再生を管理するクラス
 /// </summary>
-public class SeManager : MonoBehaviour
+public class SePlayFunctions : MonoBehaviour
 {
     [SerializeField]
     SePlayer sePlayer = default;   // SE再生クラス
