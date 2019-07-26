@@ -65,6 +65,8 @@ public class SettingDataManager : MonoBehaviour
         ChangeUseSkinText(GameDataManager.Inst.SettingData.UseSkin);
     }
 
+    /// NOTE: m.tanaka 以下4つの関数はスライダー等のValue Changedで呼んでください
+
     /// <summary>
     /// BGMボリュームスライダー動作時の音量設定関数
     /// </summary>
@@ -73,7 +75,14 @@ public class SettingDataManager : MonoBehaviour
     {
         GameDataManager.Inst.SettingData.BgmVolume = slider.value;
     }
-
+    /// <summary>
+    /// BGMミュートトグル変更時のミュートフラグ設定関数
+    /// </summary>
+    /// <param name="toggle"></param>
+    public void SetBgmMute(Toggle toggle)
+    {
+        GameDataManager.Inst.SettingData.IsBgmMute = toggle.isOn;
+    }
     /// <summary>
     /// SEボリュームスライダー動作時の音量設定関数
     /// </summary>
@@ -81,6 +90,14 @@ public class SettingDataManager : MonoBehaviour
     public void SetSeVolume(Slider slider)
     {
         GameDataManager.Inst.SettingData.SeVolume = slider.value;
+    }
+    /// <summary>
+    /// SEミュートトグル変更時のミュートフラグ設定関数
+    /// </summary>
+    /// <param name="toggle"></param>
+    public void SetSeMute(Toggle toggle)
+    {
+        GameDataManager.Inst.SettingData.IsSeMute = toggle.isOn;
     }
 
     /// <summary>
