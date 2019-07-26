@@ -4,7 +4,6 @@
 
 using UnityEngine;
 using PathologicalGames;
-using System.Collections.Generic;
 
 namespace VMUnityLib
 {
