@@ -16,6 +16,7 @@ public class UIResult : CmnMonoBehaviour
     // 処理なし。メッセージ受信エラー避け.
     protected override void InitSceneChange() { }
     protected override void OnSceneDeactive() { }
+    protected override void OnFadeInEnd() { }
 
     /// <summary>
     /// 初期化.
@@ -38,44 +39,6 @@ public class UIResult : CmnMonoBehaviour
     {
         // スコアをテキストに
         scoreText.text = ScoreCounter.Inst.DisplayBreakNum.ToString();
-    }
-
-    /// <summary>
-    /// フェードイン終了.
-    /// </summary>
-    protected override void OnFadeInEnd()
-    {
-#if USE_TWEEN
-        tweenAlphe.Play(PlayDirection.Forward);
-
-        //if (PlayerPrefs.GetInt(ReviewIndictor.REVIEW_FLAG_NAME, 0) == 0)
-        //{
-        //    int reviewCnt = PlayerPrefs.GetInt(ReviewIndictor.REVIEW_CNT_NAME, 0);
-
-        //    if (reviewCnt >= 1)
-        //    {
-        //        PlayerPrefs.SetInt(ReviewIndictor.REVIEW_CNT_NAME, 0);
-        //        review.gameObject.SetActive(true);
-        //        review.FadeIn();
-        //    }
-        //    else
-        //    {
-        //        PlayerPrefs.SetInt(ReviewIndictor.REVIEW_CNT_NAME, reviewCnt + 1);
-        //    }
-        //}
-
-#if USE_NEND
-        NendAdController.Inst.ShowBottomBanner(true);
-        NendAdController.Inst.ShowTopBanner(true);
-#endif
-#endif
-    }
-
-    /// <summary>
-    /// ゲーム終了
-    /// </summary>
-    public void EndGame()
-    {
     }
 
     /// <summary>
