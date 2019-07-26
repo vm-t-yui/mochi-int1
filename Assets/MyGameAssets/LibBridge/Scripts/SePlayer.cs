@@ -3,80 +3,82 @@
 *******************************************************************************/
 
 using UnityEngine;
-#if USE_POOL_MANAGER
 using PathologicalGames;
-#endif
 using System.Collections.Generic;
+
 namespace VMUnityLib
 {
     public sealed class SePlayer : MonoBehaviour
     {
-#if USE_POOL_MANAGER
-        [SerializeField]
-        SpawnPool sePool;
-#endif
+        SpawnPool sePool;    // プールマネージャー
 
-        [SerializeField]
-        GameObject sePrefab;
+        List<AudioSource> endWatchSeList = new List<AudioSource>();    // 再生終了チェックリスト
 
-#if USE_POOL_MANAGER && USE_ADX
-        List<CriAtomSource> endWatchSeList = new List<CriAtomSource>();
-#endif
+        /// <summary>
+        /// 起動処理.
+        /// </summary>
+        void Awake()
+        {
+            // SEのプールをセット
+            sePool = GameObject.Find("SePool").GetComponent<SpawnPool>();
+        }
 
         /// <summary>
         /// 再生.
         /// </summary>
-        public void PlaySe(string cueName, float volume = 1, float pitch = 0)
+        public void PlaySe(string id, float volume = 1, float randomPitchBand = 0)
         {
-#if USE_POOL_MANAGER && USE_ADX
-            GameObject prefab = sePrefab;
+            // 指定した音をスポーン
+            Transform spawnedSeTrans = sePool.Spawn(id);
 
-            Transform spawnedSeTrans;
-            spawnedSeTrans = sePool.Spawn(prefab);
-            CriAtomSource spawnedSe = spawnedSeTrans.GetComponent<CriAtomSource>();
+            // AudioSourceを取得
+            AudioSource spawnedSe = spawnedSeTrans.GetComponent<AudioSource>();
 
-            // 一つ目、二つ目のfloatパラメータをそれぞれボリュームとピッチに設定.
+            // 第3引数が0でない場合はランダムなピッチを設定
+            if (randomPitchBand > 0)
+            {
+                spawnedSe.pitch += Random.Range(-randomPitchBand * 0.5f, randomPitchBand * 0.5f);
+            }
+
+            // ボリュームを設定し、再生
             spawnedSe.volume = volume;
-            spawnedSe.pitch = pitch;
-            spawnedSe.cueName = cueName;
             spawnedSe.Play();
 
+            // 再生終了チェックリストに追加
             endWatchSeList.Add(spawnedSe);
-#else
-            Debug.LogError("you need pool manager and cri");
-#endif
         }
-
 
         /// <summary>
         /// 再生終了したものをすべて削除する.
         /// </summary>
         void LateUpdate()
         {
-#if USE_POOL_MANAGER && USE_ADX
-            List<CriAtomSource> removeSeList = endWatchSeList.FindAll(se => (se.status == CriAtomSource.Status.PlayEnd));
+            // 再生が終了しているすべての音を取得
+            List<AudioSource> removeSeList = endWatchSeList.FindAll(se => !se.isPlaying);
+
+            // 取得したすべての音をデスポーン
             foreach (var item in removeSeList)
             {
                 sePool.Despawn(item.transform);
+
+                // 再生終了チェックリストから削除
                 endWatchSeList.Remove(item);
             }
-#endif
         }
+
         /// <summary>
         /// 全ての音を停止させる.
         /// </summary>
         public void StopSeAll()
         {
-#if USE_POOL_MANAGER && USE_ADX
-            List<CriAtomSource> removeSeList = endWatchSeList.FindAll(se => (se.status == CriAtomSource.Status.Playing));
+            // 再生中のすべての音を取得
+            List<AudioSource> removeSeList = endWatchSeList.FindAll(se => se.isPlaying);
+
+            // 取得したすべての音を停止
             foreach (var item in removeSeList)
             {
                 item.Stop();
             }
-        }
-#else
-            Debug.LogError("you need pool manager and cri");
-#endif
         }
     }
 }
