@@ -19,8 +19,8 @@ public class TouchController : MonoBehaviour
 	/// </summary>
 	void Update()
     {
-        // プレイヤーが待機中なら入力を受け付ける
-        if (Input.touchCount > 0 && player.IsWait())
+        // ゲームがスタートしていて、プレイヤーが待機中なら入力を受け付ける
+        if (Input.touchCount > 0 && player.IsWait() && Timer.Inst.IsStart)
         {
             Touch touch = Input.GetTouch(0);
 

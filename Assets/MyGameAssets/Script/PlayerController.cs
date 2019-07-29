@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
             SpecialArts();
         }
         // まだ時間が余っていたら
-        else
+        else 
         {
             // タッチされたら
             if (touch.GetIsTouch())

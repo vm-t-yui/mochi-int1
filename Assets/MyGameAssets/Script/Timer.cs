@@ -11,17 +11,22 @@ using VMUnityLib;
 public class Timer : SingletonMonoBehaviour<Timer>
 {
     [SerializeField]
-    TextMeshProUGUI timer = default;                    // タイマー用テキスト
+    TextMeshProUGUI timer = default;                        // タイマー用テキスト
 
     [SerializeField]
-    float seconds = 0;                                  // 数える秒数
+    float startTime = 0;                                    // ゲームスタートまでの秒数
 
     [SerializeField]
-    float plusSeconds = 0;                              // プラスする秒数
+    float gameTime = 0;                                     // ゲーム内の秒数
 
-    public bool IsTimeup { get; private set; } = false; // タイムアップフラグ
+    [SerializeField]
+    float plusSeconds = 0;                                  // プラスする秒数
 
-    float oldTime = 0;                                  // 非起動時の秒数
+    public bool IsTimeup { get; private set; } = false;     // タイムアップフラグ
+
+    public bool IsStart { get; private set; } = false;  // ゲームスタートまでのカウントダウンフラグ
+
+    float oldTime = 0;                                      // 非起動時の秒数
 
     /// <summary>
     /// 起動処理
@@ -39,20 +44,35 @@ public class Timer : SingletonMonoBehaviour<Timer>
     {
         if (!IsTimeup)
         {
-            // 今の秒数のカウント
-            // NOTE:非起動時にもTime.timeSinceLevelLoadはカウントし続けているため、
-            //      非起動時の秒数を引くことにより、0からカウントさせるようにしている。
-            float nowTime = seconds - (Time.timeSinceLevelLoad - oldTime);
-
-            // 指定の秒数を数え終わったらタイムアップ
-            if (nowTime < 0)
+            // ゲームスタートまでのカウントダウン開始
+            if (!IsStart)
             {
-                IsTimeup = true;
+                float countDown = gameTime - (Time.timeSinceLevelLoad - oldTime);
+
+                // カウントダウンが終わったらゲーム開始
+                if (countDown < 0)
+                {
+                    IsStart = true;
+                }
             }
-            // 数え終わってない場合は、数え続ける
+            // ゲーム開始されたらゲーム内のカウントダウン開始
             else
             {
-                timer.text = nowTime.ToString("f2");
+                // 今の秒数のカウント
+                // NOTE:非起動時にもTime.timeSinceLevelLoadはカウントし続けているため、
+                //      非起動時の秒数を引くことにより、0からカウントさせるようにしている。
+                float nowTime = gameTime - (Time.timeSinceLevelLoad - oldTime);
+
+                // 指定の秒数を数え終わったらタイムアップ
+                if (nowTime < 0)
+                {
+                    IsTimeup = true;
+                }
+                // 数え終わってない場合は、数え続ける
+                else
+                {
+                    timer.text = nowTime.ToString("f2");
+                }
             }
         }
     }
@@ -62,6 +82,6 @@ public class Timer : SingletonMonoBehaviour<Timer>
     /// </summary>
     public void TimePlus()
     {
-        seconds += plusSeconds;
+        gameTime += plusSeconds;
     }
 }
