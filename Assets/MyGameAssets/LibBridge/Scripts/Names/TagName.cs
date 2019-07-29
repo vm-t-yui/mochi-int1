@@ -11,6 +11,8 @@ public static class TagName
     public const string MainCamera = "MainCamera";
     public const string Player = "Player";
     public const string GameController = "GameController";
+    public const string Mochi = "Mochi";
+    public const string Rabbit = "Rabbit";
     
     /// <summary>
     /// タグ名の配列を取得
@@ -25,6 +27,8 @@ public static class TagName
         tagNames.Add(TagName.MainCamera);
         tagNames.Add(TagName.Player);
         tagNames.Add(TagName.GameController);
+        tagNames.Add(TagName.Mochi);
+        tagNames.Add(TagName.Rabbit);
         return tagNames.ToArray();
     }
 }
