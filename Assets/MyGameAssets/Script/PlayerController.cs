@@ -14,14 +14,13 @@ public class PlayerController : MonoBehaviour
     TouchController touch = default;                                // タッチクラス
 
     [SerializeField]
-    Timer timer = default;                                          // タイマークラス
-
-    [SerializeField]
     MainPlayerAnimator playerAnim = default;                        // プレイヤーのアニメーションクラス
 
     public bool IsPunch { get; private set; } = false;              // パンチフラグ
     public bool IsRescue { get; private set; } = false;             // 救助フラグ
-    public bool IsSpecialArts { get; private set; } = false;        // 救助フラグ
+    public bool IsSpecialArts { get; private set; } = false;        // 大技フラグ
+
+    public bool IsTimeup { get; private set; } = false;             // タイムアップフラグ
 
     int punchSide = (int)MainAnim.RightPunch;    // パンチの種類
 
@@ -31,7 +30,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // タイムアップになったら
-        if(timer.IsTimeup)
+        if(IsTimeup)
         {
             // 大技開始
             SpecialArts();

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using VMUnityLib;
 using TMPro;
+using scoreNum = ScoreCounter.TargetObject;
 
 /// <summary>
 /// リザルト用UI
@@ -11,7 +12,9 @@ using TMPro;
 public class UIResult : CmnMonoBehaviour
 {
     [SerializeField]
-    TextMeshProUGUI scoreText = default;    // スコア用テキスト
+    TextMeshProUGUI[] scoreText = default;    // スコア用テキスト
+
+    bool isCountUp = false;
 
     // 処理なし。メッセージ受信エラー避け.
     protected override void InitSceneChange() { }
@@ -26,9 +29,6 @@ public class UIResult : CmnMonoBehaviour
         // バナー表示
         AdManager.Inst.ShowBanner((int)AdBannerController.BANNER.BOTTOM);
 
-        // スコアカウントアップ開始
-        ScoreCounter.Inst.ScoreCountUp();
-
         GameServiceUtil.Auth();
     }
 
@@ -37,8 +37,20 @@ public class UIResult : CmnMonoBehaviour
     /// </summary>
     protected override void FixedUpdate()
     {
-        // スコアをテキストに
-        scoreText.text = ScoreCounter.Inst.DisplayBreakNum.ToString();
+        if (!isCountUp)
+        {
+            // スコアカウントアップ開始
+            for (int i = 0; i < (int)scoreNum.Length; i++)
+            {
+                scoreText[i].text = ScoreCounter.Inst.ScoreCountUp(i).ToString();
+            }
+
+            // カウントを終わらせる
+            if (ScoreCounter.Inst.IsCountUp[(int)scoreNum.Mochi] && ScoreCounter.Inst.IsCountUp[(int)scoreNum.Rabbit])
+            {
+                isCountUp = true;
+            }
+        }
     }
 
     /// <summary>
@@ -73,6 +85,23 @@ public class UIResult : CmnMonoBehaviour
     public void ShowInterstitial()
     {
         AdManager.Inst.ShowInterstitial();
+    }
+
+    /// <summary>
+    /// バナーの非表示
+    /// </summary>
+    public void HideBanner()
+    {
+        AdManager.Inst.HideBanner();
+    }
+
+    /// <summary>
+    /// スコアのリセット
+    /// </summary>
+    public void ScoreReset()
+    {
+        ScoreCounter.Inst.Reset();
+        isCountUp = false;
     }
 
     /// <summary>
