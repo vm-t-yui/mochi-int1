@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using VMUnityLib;
 
 /// <summary>
 /// タイマークラス
 /// </summary>
-public class Timer : MonoBehaviour
+public class Timer : SingletonMonoBehaviour<Timer>
 {
     [SerializeField]
     TextMeshProUGUI timer = default;                    // タイマー用テキスト
@@ -20,6 +21,17 @@ public class Timer : MonoBehaviour
 
     public bool IsTimeup { get; private set; } = false; // タイムアップフラグ
 
+    float oldTime = 0;                                  // 非起動時の秒数
+
+    /// <summary>
+    /// 起動処理
+    /// </summary>
+    void OnEnable()
+    {
+        // 非起動時の秒数を更新
+        oldTime = Time.timeSinceLevelLoad;
+    }
+
     /// <summary>
     /// 更新処理
     /// </summary>
@@ -28,7 +40,9 @@ public class Timer : MonoBehaviour
         if (!IsTimeup)
         {
             // 今の秒数のカウント
-            float nowTime = seconds - Time.timeSinceLevelLoad;
+            // NOTE:非起動時にもTime.timeSinceLevelLoadはカウントし続けているため、
+            //      非起動時の秒数を引くことにより、0からカウントさせるようにしている。
+            float nowTime = seconds - (Time.timeSinceLevelLoad - oldTime);
 
             // 指定の秒数を数え終わったらタイムアップ
             if (nowTime < 0)

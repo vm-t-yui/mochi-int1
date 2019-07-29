@@ -79,14 +79,6 @@ public sealed class UITitle : CmnMonoBehaviour
     }
 
     /// <summary>
-    /// アイテムボックス
-    /// </summary>
-    public void ShowItem()
-    {
-
-    }
-
-    /// <summary>
     /// リーダーボード表示.
     /// </summary>
     public void ShowLeaderboard()

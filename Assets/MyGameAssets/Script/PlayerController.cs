@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // タイムアップになったら
-        if(IsTimeup)
+        if(Timer.Inst.IsTimeup)
         {
             // 大技開始
             SpecialArts();

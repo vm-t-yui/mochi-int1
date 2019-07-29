@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using VMUnityLib;
 using TMPro;
+
+// スコアのターゲットのenum
 using scoreNum = ScoreCounter.TargetObject;
 
 /// <summary>
@@ -12,9 +14,9 @@ using scoreNum = ScoreCounter.TargetObject;
 public class UIResult : CmnMonoBehaviour
 {
     [SerializeField]
-    TextMeshProUGUI[] scoreText = default;    // スコア用テキスト
+    TextMeshProUGUI[] scoreText = default;      // スコア用テキスト
 
-    bool isCountUp = false;
+    bool isCountUp = false;                     //カウントアップ完了フラグ
 
     // 処理なし。メッセージ受信エラー避け.
     protected override void InitSceneChange() { }
@@ -37,6 +39,7 @@ public class UIResult : CmnMonoBehaviour
     /// </summary>
     protected override void FixedUpdate()
     {
+        // まだカウントアップが終わってないなら
         if (!isCountUp)
         {
             // スコアカウントアップ開始
@@ -45,7 +48,7 @@ public class UIResult : CmnMonoBehaviour
                 scoreText[i].text = ScoreCounter.Inst.ScoreCountUp(i).ToString();
             }
 
-            // カウントを終わらせる
+            // 両方のカウントが済んだならカウントアップ終了
             if (ScoreCounter.Inst.IsCountUp[(int)scoreNum.Mochi] && ScoreCounter.Inst.IsCountUp[(int)scoreNum.Rabbit])
             {
                 isCountUp = true;
