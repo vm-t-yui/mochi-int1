@@ -10,7 +10,7 @@ namespace VMUnityLib
 {
     public sealed class SePlayer : MonoBehaviour
     {
-        SpawnPool sePool;    // プールマネージャー
+        SpawnPool sePool;    // SEのプール
 
         List<AudioSource> endWatchSeList = new List<AudioSource>();    // 再生終了チェックリスト
 
@@ -40,8 +40,15 @@ namespace VMUnityLib
                 spawnedSe.pitch += Random.Range(-randomPitchBand * 0.5f, randomPitchBand * 0.5f);
             }
 
-            // ボリュームを設定し、再生
-            spawnedSe.volume = volume;
+            // ボリュームを設定し、再生。ミュート時はボリューム0
+            if (GameDataManager.Inst.SettingData.IsSeMute)
+            {
+                spawnedSe.volume = 0;
+            }
+            else
+            {
+                spawnedSe.volume = volume;
+            }
             spawnedSe.Play();
 
             // 再生終了チェックリストに追加
