@@ -16,10 +16,14 @@ public sealed class UITitle : CmnMonoBehaviour
     uTweenAlpha tweenAlphe;
 #endif
 
+    [SerializeField]
+    Animator tabAnim = default; // タブのアニメーション
+    
+
     // 処理なし。メッセージ受信エラー避け.
-    protected override void FixedUpdate() { }
     protected override void InitSceneChange() { }
     protected override void OnSceneDeactive() { }
+    protected override void FixedUpdate() { }
 
     /// <summary>
     /// 初期化.
@@ -27,7 +31,7 @@ public sealed class UITitle : CmnMonoBehaviour
     public override void Start()
     {
         // バナー表示
-        AdManager.Inst.ShowBanner((int)AdBannerController.BANNER.TOP);
+        AdManager.Inst.ShowBanner((int)AdBannerController.BANNER.BOTTOM);
 
         GameServiceUtil.Auth();
 #if USE_TWEEN
@@ -67,10 +71,11 @@ public sealed class UITitle : CmnMonoBehaviour
     }
 
     /// <summary>
-    /// ゲーム開始.
+    /// タブのスライド
     /// </summary>
-    public void StartGame()
+    public void SlideTab()
     {
+        tabAnim.SetTrigger("Slide");
     }
 
     /// <summary>
@@ -89,6 +94,14 @@ public sealed class UITitle : CmnMonoBehaviour
     {
         GameServiceUtil.Auth();
         GameServiceUtil.ShowAchivementUI();
+    }
+
+    /// <summary>
+    /// バナーの非表示
+    /// </summary>
+    public void HideBanner()
+    {
+        AdManager.Inst.HideBanner();
     }
 
     /// <summary>
