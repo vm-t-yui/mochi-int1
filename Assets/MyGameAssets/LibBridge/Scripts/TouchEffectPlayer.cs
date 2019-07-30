@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 /// <summary>
 /// タップ・スワイプ時のエフェクト再生クラス
+/// NOTO: m.tanaka 今のところ最初にタップした指のみエフェクトが出るようになってます。
 /// </summary>
 public class TouchEffectPlayer : MonoBehaviour
 {
@@ -29,7 +30,8 @@ public class TouchEffectPlayer : MonoBehaviour
     const string TapEffectID   = "TapEffect";                                   // タップエフェクトのID
     const string SwipeEffectID = "SwipeEffect";                                 // スワイプエフェクトのID
 
-    readonly Vector3 EffectZ = Vector3.forward * 7;                             // エフェクトのZ軸座標
+    [SerializeField]
+    float EffectZ = 7.0f;                                                       // エフェクトのZ軸座標
 
     /// <summary>
     /// 起動処理.
@@ -55,7 +57,7 @@ public class TouchEffectPlayer : MonoBehaviour
     {
 #if UNITY_EDITOR
         // マウスの位置からタップ位置を取得
-        Vector3 touchPos = viewCamera.ScreenToWorldPoint(Input.mousePosition * textureScale + EffectZ);
+        Vector3 touchPos = viewCamera.ScreenToWorldPoint(Input.mousePosition * textureScale + Vector3.forward * EffectZ);
 
         // クリックされた時
         if (Input.GetMouseButtonDown(0))
@@ -83,7 +85,7 @@ public class TouchEffectPlayer : MonoBehaviour
         if (Input.touchCount > 0)
         {
             // タップ位置取得
-            Vector3 touchPos = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position * textureScale) + EffectZ;
+            Vector3 touchPos = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position * textureScale) + Vector3.forward * EffectZ;
 
             // タップされた時
             if (Input.GetTouch(0).phase == TouchPhase.Began)
