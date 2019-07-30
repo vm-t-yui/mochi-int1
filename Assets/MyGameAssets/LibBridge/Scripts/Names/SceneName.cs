@@ -8,6 +8,5 @@ public static class SceneName
 	public const string demo = "demo";
 	public const string title = "title";
 	public const string stage1 = "stage1";
-	public const string stage2 = "stage2";
-	public const string stage3 = "stage3";
+	public const string Result = "Result";
 }
