@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     public bool IsPunch { get; private set; } = false;              // パンチフラグ
     public bool IsRescue { get; private set; } = false;             // 救助フラグ
     public bool IsSpecialArts { get; private set; } = false;        // 大技フラグ
+    public bool IsWait { get; private set; } = false;               // 待機中フラグ
 
     public bool IsTimeup { get; private set; } = false;             // タイムアップフラグ
 
@@ -30,13 +31,13 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // タイムアップになったら
-        if(Timer.Inst.IsTimeup)
+        if (Timer.Inst.IsTimeup)
         {
             // 大技開始
             SpecialArts();
         }
         // まだ時間が余っていたら
-        else 
+        else
         {
             // タッチされたら
             if (touch.GetIsTouch())
@@ -70,6 +71,7 @@ public class PlayerController : MonoBehaviour
 
         // アニメーション開始
         playerAnim.AnimStart(punchSide);
+
         IsPunch = true;
     }
 
@@ -96,19 +98,20 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// 待機中かどうか
+    /// 待機状態を解除
     /// </summary>
-    /// <returns></returns>
-    public bool IsWait()
+    void NotWait()
     {
-        // パンチも救助も大技をしていなかったら待機中
-        if(!IsPunch && !IsRescue && !IsSpecialArts)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        IsWait = false;
+    }
+
+    /// <summary>
+    /// フラグリセット
+    /// </summary>
+    void Reset()
+    {
+        IsWait = true;
+        IsPunch = false;
+        IsRescue = false;
     }
 }
