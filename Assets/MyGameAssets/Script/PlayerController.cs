@@ -16,9 +16,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     MainPlayerAnimator playerAnim = default;                        // プレイヤーのアニメーションクラス
 
-    public bool IsPunch { get; private set; } = false;              // パンチフラグ
-    public bool IsRescue { get; private set; } = false;             // 救助フラグ
-    public bool IsSpecialArts { get; private set; } = false;        // 大技フラグ
+    public bool isPunch = false;                                    // パンチフラグ
+    public bool isRescue = false;                                   // 救助フラグ
+    public bool isSpecialArts = false;                              // 大技フラグ
+    public bool IsWait { get; private set; } = false;               // 待機中フラグ
 
     public bool IsTimeup { get; private set; } = false;             // タイムアップフラグ
 
@@ -30,13 +31,13 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // タイムアップになったら
-        if(Timer.Inst.IsTimeup)
+        if (Timer.Inst.IsTimeup)
         {
             // 大技開始
             SpecialArts();
         }
         // まだ時間が余っていたら
-        else 
+        else
         {
             // タッチされたら
             if (touch.GetIsTouch())
@@ -70,7 +71,8 @@ public class PlayerController : MonoBehaviour
 
         // アニメーション開始
         playerAnim.AnimStart(punchSide);
-        IsPunch = true;
+
+        isPunch = true;
     }
 
     /// <summary>
@@ -81,7 +83,7 @@ public class PlayerController : MonoBehaviour
         // アニメーション開始
         playerAnim.AnimStart((int)MainAnim.Rescue);
 
-        IsRescue = true;
+        isRescue = true;
     }
 
     /// <summary>
@@ -92,23 +94,58 @@ public class PlayerController : MonoBehaviour
         // アニメーション開始
         playerAnim.AnimStart((int)MainAnim.SpecialArts);
 
-        IsSpecialArts = true;
+        isSpecialArts = true;
     }
 
     /// <summary>
-    /// 待機中かどうか
+    /// 待機状態を解除(アニメーションイベント用)
     /// </summary>
-    /// <returns></returns>
-    public bool IsWait()
+    void NotWait()
     {
-        // パンチも救助も大技をしていなかったら待機中
-        if(!IsPunch && !IsRescue && !IsSpecialArts)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        IsWait = false;
+    }
+
+    /// <summary>
+    /// 待機状態に入る(アニメーションイベント用)
+    /// </summary>
+    void Wait()
+    {
+        IsWait = true;
+    }
+
+    /// <summary>
+    /// パンチフラグのゲット＋リセット関数
+    /// </summary>
+    /// <returns>パンチフラグの値</returns>
+    public bool GetIsPunch()
+    {
+        bool returnflg = isPunch;
+        isPunch = false;
+
+        return returnflg;
+    }
+
+    /// <summary>
+    /// 救助フラグのゲット＋リセット関数
+    /// </summary>
+    /// <returns>救助フラグの値</returns>
+    public bool GetIsRescue()
+    {
+        bool returnflg = isRescue;
+        isRescue = false;
+
+        return returnflg;
+    }
+
+    /// <summary>
+    /// 大技フラグのゲット＋リセット関数
+    /// </summary>
+    /// <returns>大技フラグの値</returns>
+    public bool GetIsSpecialArts()
+    {
+        bool returnflg = isSpecialArts;
+        isSpecialArts = false;
+
+        return returnflg;
     }
 }
