@@ -20,9 +20,6 @@ public class MainPlayerAnimator : MonoBehaviour
     [SerializeField]
     Animator playerAnim = default;          // アニメーター
 
-    [SerializeField]
-    PlayerController player = default;      // プレイヤークラス
-
     /// <summary>
     ///  アニメーション再生
     /// </summary>

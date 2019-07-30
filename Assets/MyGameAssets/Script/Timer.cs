@@ -24,7 +24,7 @@ public class Timer : SingletonMonoBehaviour<Timer>
 
     public bool IsTimeup { get; private set; } = false;     // タイムアップフラグ
 
-    public bool IsStart { get; private set; } = false;  // ゲームスタートまでのカウントダウンフラグ
+    public bool IsStart { get; private set; } = false;      // ゲームスタートまでのカウントダウンフラグ
 
     float oldTime = 0;                                      // 非起動時の秒数
 
@@ -47,12 +47,21 @@ public class Timer : SingletonMonoBehaviour<Timer>
             // ゲームスタートまでのカウントダウン開始
             if (!IsStart)
             {
-                float countDown = gameTime - (Time.timeSinceLevelLoad - oldTime);
+                // ゲームスタートまでのカウントダウン
+                // NOTE:非起動時にもTime.timeSinceLevelLoadはカウントし続けているため、
+                //      非起動時の秒数を引くことにより、0からカウントさせるようにしている。
+                float countDown = startTime - (Time.timeSinceLevelLoad - oldTime);
 
                 // カウントダウンが終わったらゲーム開始
                 if (countDown < 0)
                 {
                     IsStart = true;
+                    oldTime = Time.timeSinceLevelLoad;
+                }
+                // 数え終わってない場合は、数え続ける
+                else
+                {
+                    timer.text = countDown.ToString("f2");
                 }
             }
             // ゲーム開始されたらゲーム内のカウントダウン開始

@@ -1,100 +1,37 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using VMUnityLib;
 using TMPro;
+using VMUnityLib;
 
 /// <summary>
 /// スコアクラス
 /// </summary>
-public class ScoreCounter : SingletonMonoBehaviour<ScoreCounter>
+public class ScoreCounter : MonoBehaviour
 {
-    // 対象のオブジェクトのenum
-    public enum TargetObject
-    {
-        Mochi,     // もち
-        Rabbit,    // うさぎ
-        Length,    // enumの長さ
-    }
-
-    // [SerializeField]
-    // MochiSample mochi = default;                                                         // もちクラスのサンプル
-
-    [SerializeField]
-    TextMeshProUGUI[] countText = default;                                                  // もちカウント用テキスト
-
-    int[] getNum = new int[(int)TargetObject.Length];                                       // 壊した数の合計
-    public int[] DisplayGetNum { get; private set; } = new int[(int)TargetObject.Length];   // 壊した数の合計(表示用)
-
-    public bool[] IsCountUp { get; private set; } = new bool[(int)TargetObject.Length];     // カウントフラグ
-
-    /// <summary>
-    /// 開始処理
-    /// </summary>
-    void Start()
-    {
-        for (int i = 0; i < (int)TargetObject.Length; i++)
-        {
-            getNum[i] = 60;
-            DisplayGetNum[i] = 0;
-            IsCountUp[i] = false;
-        }
-    }
-
-    /// <summary>
-    /// スコアリセット
-    /// </summary>
-    public void Reset()
-    {
-        for (int i = 0; i < (int)TargetObject.Length; i++)
-        {
-            getNum[i] = 0;
-            DisplayGetNum[i] = 0;
-            IsCountUp[i] = false;
-        }
-    }
-
-    /// <summary>
-    /// 更新処理
-    /// </summary>
-    void Update()
-    {
-        // 壊した数をカウント
-        // getNum = mochi.getNum;
-        // DisplayGetNum = getNum;
-        for (int i = 0; i < (int)TargetObject.Length; i++)
-        {
-            countText[i].text = getNum[i].ToString();
-        }
-    }
+    public int NowScore { get; private set; } = 0;
 
     /// <summary>
     /// スコアのカウントアップ
     /// </summary>
-    public int ScoreCountUp(int targetNum)
+    public void ScoreCountUp(int maxScore)
     {
         // カウントアップのコルーチン開始
-        StartCoroutine(CountUp(targetNum));
-
-        return DisplayGetNum[targetNum];
+        StartCoroutine(CountUp(maxScore));
     }
 
     /// <summary>
     /// スコアのカウントアップのコルーチン
     /// </summary>
     /// <returns></returns>
-    IEnumerator CountUp(int targetNum)
+    IEnumerator CountUp(int maxScore)
     {
         // カウントアップが終了するまで
-        while (getNum[targetNum] > DisplayGetNum[targetNum])
+        while (maxScore > NowScore)
         {
-            // カウント
-            DisplayGetNum[targetNum]++;
+            NowScore++;
 
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.1f);
         }
-
-        // カウント終了
-        IsCountUp[targetNum] = true;
     }
 }

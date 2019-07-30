@@ -5,23 +5,16 @@ using UnityEngine.UI;
 using VMUnityLib;
 using TMPro;
 
-// スコアのターゲットのenum
-using scoreNum = ScoreCounter.TargetObject;
-
 /// <summary>
 /// リザルト用UI
 /// </summary>
 public class UIResult : CmnMonoBehaviour
 {
-    [SerializeField]
-    TextMeshProUGUI[] scoreText = default;      // スコア用テキスト
-
-    bool isCountUp = false;                     //カウントアップ完了フラグ
-
     // 処理なし。メッセージ受信エラー避け.
     protected override void InitSceneChange() { }
     protected override void OnSceneDeactive() { }
     protected override void OnFadeInEnd() { }
+    protected override void FixedUpdate() { }
 
     /// <summary>
     /// 初期化.
@@ -32,28 +25,6 @@ public class UIResult : CmnMonoBehaviour
         AdManager.Inst.ShowBanner((int)AdBannerController.BANNER.BOTTOM);
 
         GameServiceUtil.Auth();
-    }
-
-    /// <summary>
-    /// 更新処理
-    /// </summary>
-    protected override void FixedUpdate()
-    {
-        // まだカウントアップが終わってないなら
-        if (!isCountUp)
-        {
-            // スコアカウントアップ開始
-            for (int i = 0; i < (int)scoreNum.Length; i++)
-            {
-                scoreText[i].text = ScoreCounter.Inst.ScoreCountUp(i).ToString();
-            }
-
-            // 両方のカウントが済んだならカウントアップ終了
-            if (ScoreCounter.Inst.IsCountUp[(int)scoreNum.Mochi] && ScoreCounter.Inst.IsCountUp[(int)scoreNum.Rabbit])
-            {
-                isCountUp = true;
-            }
-        }
     }
 
     /// <summary>
@@ -96,15 +67,6 @@ public class UIResult : CmnMonoBehaviour
     public void HideBanner()
     {
         AdManager.Inst.HideBanner();
-    }
-
-    /// <summary>
-    /// スコアのリセット
-    /// </summary>
-    public void ScoreReset()
-    {
-        ScoreCounter.Inst.Reset();
-        isCountUp = false;
     }
 
     /// <summary>

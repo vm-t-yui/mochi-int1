@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
 
     public bool IsTimeup { get; private set; } = false;             // タイムアップフラグ
 
-    int punchSide = (int)MainAnim.RightPunch;    // パンチの種類
+    int punchSide = (int)MainAnim.RightPunch;                       // パンチの種類
 
     /// <summary>
     /// 更新処理
