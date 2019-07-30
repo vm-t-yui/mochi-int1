@@ -12,9 +12,9 @@ public class ScoreCounter : SingletonMonoBehaviour<ScoreCounter>
     // 対象のオブジェクトのenum
     public enum TargetObject
     {
-        Mochi,
-        Rabbit,
-        Length,
+        Mochi,     // もち
+        Rabbit,    // うさぎ
+        Length,    // enumの長さ
     }
 
     // [SerializeField]
@@ -26,7 +26,7 @@ public class ScoreCounter : SingletonMonoBehaviour<ScoreCounter>
     int[] getNum = new int[(int)TargetObject.Length];                                       // 壊した数の合計
     public int[] DisplayGetNum { get; private set; } = new int[(int)TargetObject.Length];   // 壊した数の合計(表示用)
 
-    public bool[] IsCountUp { get; private set; } = new bool[(int)TargetObject.Length];                                                                  // カウントフラグ
+    public bool[] IsCountUp { get; private set; } = new bool[(int)TargetObject.Length];     // カウントフラグ
 
     /// <summary>
     /// 開始処理
