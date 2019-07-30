@@ -10,13 +10,11 @@ using TMPro;
 /// </summary>
 public class UIResult : CmnMonoBehaviour
 {
-    [SerializeField]
-    TextMeshProUGUI scoreText = default;    // スコア用テキスト
-
     // 処理なし。メッセージ受信エラー避け.
     protected override void InitSceneChange() { }
     protected override void OnSceneDeactive() { }
     protected override void OnFadeInEnd() { }
+    protected override void FixedUpdate() { }
 
     /// <summary>
     /// 初期化.
@@ -26,19 +24,7 @@ public class UIResult : CmnMonoBehaviour
         // バナー表示
         AdManager.Inst.ShowBanner((int)AdBannerController.BANNER.BOTTOM);
 
-        // スコアカウントアップ開始
-        ScoreCounter.Inst.ScoreCountUp();
-
         GameServiceUtil.Auth();
-    }
-
-    /// <summary>
-    /// 更新処理
-    /// </summary>
-    protected override void FixedUpdate()
-    {
-        // スコアをテキストに
-        scoreText.text = ScoreCounter.Inst.DisplayBreakNum.ToString();
     }
 
     /// <summary>
@@ -73,6 +59,14 @@ public class UIResult : CmnMonoBehaviour
     public void ShowInterstitial()
     {
         AdManager.Inst.ShowInterstitial();
+    }
+
+    /// <summary>
+    /// バナーの非表示
+    /// </summary>
+    public void HideBanner()
+    {
+        AdManager.Inst.HideBanner();
     }
 
     /// <summary>
