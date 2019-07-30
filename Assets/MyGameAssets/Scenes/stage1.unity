@@ -192,6 +192,16 @@ PrefabInstance:
       propertyPath: touch
       value: 
       objectReference: {fileID: 1046922539}
+    - target: {fileID: 3557069400648256724, guid: ce680b18036564afdbbd65044be67212,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3557069401706797530, guid: ce680b18036564afdbbd65044be67212,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce680b18036564afdbbd65044be67212, type: 3}
 --- !u!114 &7310337 stripped
