@@ -50,7 +50,7 @@ MonoBehaviour:
   _dontDestroyOnLoad: 0
   logMessages: 0
   _perPrefabPoolOptions:
-  - prefab: {fileID: 6563339144676708303, guid: 13357b24a30191e4e9fb65c760806a9e,
+  - prefab: {fileID: 3205040277041438108, guid: 4a61626ce3c3de245994272e58c527af,
       type: 3}
     preloadAmount: 5
     preloadTime: 0
@@ -65,7 +65,7 @@ MonoBehaviour:
     cullMaxPerPass: 5
     _logMessages: 0
     spawnPool: {fileID: 0}
-  - prefab: {fileID: 6563339144676708303, guid: c3ca5220b87f2574babe0ce5d4d65fa4,
+  - prefab: {fileID: 3205040277041438108, guid: 3e9ae8c599a7cb54c863181fca31b162,
       type: 3}
     preloadAmount: 5
     preloadTime: 0
@@ -80,7 +80,7 @@ MonoBehaviour:
     cullMaxPerPass: 5
     _logMessages: 0
     spawnPool: {fileID: 0}
-  - prefab: {fileID: 6563339144676708303, guid: 5c1c9ce31de23cd40b4c1968ff0b026d,
+  - prefab: {fileID: 3205040277041438108, guid: ab8a9d3abfdd2ee43ac5d84ae9fbfc6a,
       type: 3}
     preloadAmount: 5
     preloadTime: 0
@@ -95,7 +95,7 @@ MonoBehaviour:
     cullMaxPerPass: 5
     _logMessages: 0
     spawnPool: {fileID: 0}
-  - prefab: {fileID: 6563339144676708303, guid: 319efad9a0b922e4c902de694574284a,
+  - prefab: {fileID: 3205040277041438108, guid: 5bbd31ab3787d104caf221e6cfe96b8d,
       type: 3}
     preloadAmount: 5
     preloadTime: 0
@@ -110,7 +110,7 @@ MonoBehaviour:
     cullMaxPerPass: 5
     _logMessages: 0
     spawnPool: {fileID: 0}
-  - prefab: {fileID: 6563339144676708303, guid: deebf885e4ded174fa12c3205e2a84a6,
+  - prefab: {fileID: 3205040277041438108, guid: 082ed7c7b511c56469c8a46fa85ab0d2,
       type: 3}
     preloadAmount: 5
     preloadTime: 0
@@ -125,9 +125,9 @@ MonoBehaviour:
     cullMaxPerPass: 5
     _logMessages: 0
     spawnPool: {fileID: 0}
-  - prefab: {fileID: 6563339144676708303, guid: e3901da0a954de44eb2d9df9c3ee511f,
+  - prefab: {fileID: 3205040277041438108, guid: 04ea8d08528c4c1488bc83b3557f5cf5,
       type: 3}
-    preloadAmount: 1
+    preloadAmount: 5
     preloadTime: 0
     preloadFrames: 2
     preloadDelay: 0
@@ -141,6 +141,68 @@ MonoBehaviour:
     _logMessages: 0
     spawnPool: {fileID: 0}
   maxParticleDespawnTime: 300
+--- !u!1 &2961112686230121045
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5694864741792544827}
+  - component: {fileID: 4026947311019216309}
+  - component: {fileID: 452762143509089019}
+  m_Layer: 0
+  m_Name: ObjectSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5694864741792544827
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2961112686230121045}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.04, y: -16.26, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3001194755703834644}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4026947311019216309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2961112686230121045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eada0ae74e0b0cc4f8aaece4ddf602ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectTypeLotteryMachine: {fileID: 8238931746521208206}
+  rabbitLotteryMachine: {fileID: 4693596854946315485}
+  mochiSpawnPool: {fileID: 2700076526512641449}
+  rabbitSpawnPool: {fileID: 7024668247501201793}
+  spawnHeightInterval: 1.5
+--- !u!114 &452762143509089019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2961112686230121045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e8996281e47a048850aca27d4c773c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerObjectSpawner: {fileID: 4026947311019216309}
 --- !u!1 &3001194755703834647
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,6 +235,7 @@ Transform:
   m_Children:
   - {fileID: 23056774455636474}
   - {fileID: 1801718243418715878}
+  - {fileID: 5694864741792544827}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -267,83 +330,7 @@ MonoBehaviour:
   _dontDestroyOnLoad: 0
   logMessages: 0
   _perPrefabPoolOptions:
-  - prefab: {fileID: 8438853668439932308, guid: 29b47e2441748ee4087515b3a71b6767,
-      type: 3}
-    preloadAmount: 5
-    preloadTime: 0
-    preloadFrames: 2
-    preloadDelay: 0
-    limitInstances: 0
-    limitAmount: 100
-    limitFIFO: 0
-    cullDespawned: 0
-    cullAbove: 50
-    cullDelay: 60
-    cullMaxPerPass: 5
-    _logMessages: 0
-    spawnPool: {fileID: 0}
-  - prefab: {fileID: 8438853668439932308, guid: 23edab4b3e1e0aa4e987b8a386fa4038,
-      type: 3}
-    preloadAmount: 5
-    preloadTime: 0
-    preloadFrames: 2
-    preloadDelay: 0
-    limitInstances: 0
-    limitAmount: 100
-    limitFIFO: 0
-    cullDespawned: 0
-    cullAbove: 50
-    cullDelay: 60
-    cullMaxPerPass: 5
-    _logMessages: 0
-    spawnPool: {fileID: 0}
-  - prefab: {fileID: 8438853668439932308, guid: 6228c0a051536c94d9130e957b14ec9a,
-      type: 3}
-    preloadAmount: 5
-    preloadTime: 0
-    preloadFrames: 2
-    preloadDelay: 0
-    limitInstances: 0
-    limitAmount: 100
-    limitFIFO: 0
-    cullDespawned: 0
-    cullAbove: 50
-    cullDelay: 60
-    cullMaxPerPass: 5
-    _logMessages: 0
-    spawnPool: {fileID: 0}
-  - prefab: {fileID: 8438853668439932308, guid: 6f40246e5d4149d4a91692731365148e,
-      type: 3}
-    preloadAmount: 5
-    preloadTime: 0
-    preloadFrames: 2
-    preloadDelay: 0
-    limitInstances: 0
-    limitAmount: 100
-    limitFIFO: 0
-    cullDespawned: 0
-    cullAbove: 50
-    cullDelay: 60
-    cullMaxPerPass: 5
-    _logMessages: 0
-    spawnPool: {fileID: 0}
-  - prefab: {fileID: 8438853668439932308, guid: b6a6cbc46c05686419ab4c25718fae2b,
-      type: 3}
-    preloadAmount: 5
-    preloadTime: 0
-    preloadFrames: 2
-    preloadDelay: 0
-    limitInstances: 0
-    limitAmount: 100
-    limitFIFO: 0
-    cullDespawned: 0
-    cullAbove: 50
-    cullDelay: 60
-    cullMaxPerPass: 5
-    _logMessages: 0
-    spawnPool: {fileID: 0}
-  - prefab: {fileID: 8438853668439932308, guid: d4127e54a0bec234897265af8efeb71a,
-      type: 3}
+  - prefab: {fileID: 795459450353610624, guid: b4eeb399bf7fffc49818284cdec2a027, type: 3}
     preloadAmount: 1
     preloadTime: 0
     preloadFrames: 2
