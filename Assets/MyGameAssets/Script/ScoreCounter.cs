@@ -10,6 +10,7 @@ using VMUnityLib;
 public class ScoreCounter : MonoBehaviour
 {
     public int NowScore { get; private set; } = 0;
+    public bool IsEnd { get; private set; } = false;
 
     /// <summary>
     /// スコアのカウントアップ
@@ -33,5 +34,16 @@ public class ScoreCounter : MonoBehaviour
 
             yield return new WaitForSeconds(0.1f);
         }
+
+        // カウントダウン終了
+        IsEnd = true;
+    }
+
+    /// <summary>
+    /// リセット
+    /// </summary>
+    public void Reset()
+    {
+        IsEnd = false;
     }
 }

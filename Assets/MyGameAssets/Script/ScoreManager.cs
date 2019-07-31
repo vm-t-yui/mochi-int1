@@ -21,24 +21,31 @@ public class ScoreManager : MonoBehaviour
     TextMeshProUGUI countText = default;                // もちカウント用テキスト
 
     [SerializeField]
-    ScoreCounter counter = default;                     // もちカウント用テキスト
+    ScoreCounter counter = default;                     // もちカウントアップ用カウンター
 
     int getNum = 60;                                    // 壊した数の合計
     
     public int DisplayGetNum { get; private set; } = 0; // 壊した数の合計(表示用)
+
+    public const int GoodScore = 60;
 
     /// <summary>
     /// 起動処理
     /// </summary>
     void OnEnable()
     {
+        // カウンターがなければ初期化
         if (counter == null)
         {
             // 初期化
             Reset();
         }
+        // カウンターがあればカウントアップ開始前処理
         else
         {
+            // カウンターリセット
+            counter.Reset();
+
             // データから最終スコアを持ってくる
             getNum = GameDataManager.Inst.PlayData.LastScore;
 
@@ -62,6 +69,7 @@ public class ScoreManager : MonoBehaviour
     /// </summary>
     void Update()
     {
+        // カウンターがなければもちの数をカウント
         if (counter == null)
         {
             // 壊した数をカウント
@@ -69,10 +77,18 @@ public class ScoreManager : MonoBehaviour
             // DisplayGetNum = getNum;
             countText.text = getNum.ToString();
         }
+        // カウンターがあればカウントアップ
         else
         {
             // カウントアップ中のテキスト表示
             countText.text = counter.NowScore.ToString();
+
+            // カウントアップが終わったら
+            if(counter.IsEnd)
+            {
+                // スコアに応じたリザルトアニメーション開始
+                ResultPlayerAnimator.Inst.AnimStart((int)ResultPlayerAnimator.AnimKind.ScoreResult);
+            }
         }
     }
 

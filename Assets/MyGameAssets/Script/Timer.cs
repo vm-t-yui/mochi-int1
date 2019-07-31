@@ -22,9 +22,6 @@ public class Timer : SingletonMonoBehaviour<Timer>
     [SerializeField]
     float plusSeconds = 0;                                  // プラスする秒数
 
-    [SerializeField]
-    SceneChanger sceneChanger = default;                    // シーンチェンジャー
-
     public bool IsTimeup { get; private set; } = false;     // タイムアップフラグ
 
     public bool IsStart { get; private set; } = false;      // ゲームスタートまでのカウントダウンフラグ
@@ -71,26 +68,20 @@ public class Timer : SingletonMonoBehaviour<Timer>
                 }
             }
             // ゲーム開始されたらゲーム内のカウントダウン開始
-            else
+            else if(!IsTimeup)
             {
                 // 今の秒数のカウント
                 // NOTE:非起動時にもTime.timeSinceLevelLoadはカウントし続けているため、
                 //      非起動時の秒数を引くことにより、0からカウントさせるようにしている。
                 float nowTime = gameTime - (Time.timeSinceLevelLoad - oldTime);
 
+                // 小数点第2位まで表示
+                timer.text = nowTime.ToString("f2");
+
                 // 指定の秒数を数え終わったらタイムアップ
                 if (nowTime < 0)
                 {
                     IsTimeup = true;
-
-                    // シーン切り替え
-                    // TODO:プレイヤーのフィニッシュの演出ができたらそちらで呼びます
-                    sceneChanger.ChangeScene();
-                }
-                // 数え終わってない場合は、数え続ける
-                else
-                {
-                    timer.text = nowTime.ToString("f2");
                 }
             }
         }
