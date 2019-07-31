@@ -27,12 +27,12 @@ public class SettingData
     /// </summary>
     public enum SkinType
     {
-        Nomal = 0,     // 普通の餅
-        RedWhite,      // 紅白餅
-        Yomogi,        // よもぎ餅
-        Strawberry,    // いちご大福
-        Kashiwa,       // 柏餅
-        Isobe,         // 磯部餅
+        NormalMochi = 0,  // 普通の餅
+        KouhakuMochi,     // 紅白餅
+        YomogiMochi,      // よもぎ餅
+        IchigoDaihuku,    // いちご大福
+        KashiwaMochi,     // 柏餅
+        IsobeMochi,       // 磯部餅
     }
 
     [SerializeField]
@@ -46,7 +46,7 @@ public class SettingData
     [SerializeField]
     LanguageType useLanguage = LanguageType.Japanese;    // 使用中の言語
     [SerializeField]
-    SkinType     useSkin     = SkinType.Nomal;           // 使用中の餅のスキン
+    SkinType     useSkin     = SkinType.NormalMochi;     // 使用中の餅のスキン
 
     /// <summary>
     /// 各データのプロパティ
