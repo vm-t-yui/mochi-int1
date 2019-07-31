@@ -29,6 +29,8 @@ public class ScoreManager : MonoBehaviour
 
     public const int GoodScore = 60;
 
+    bool isCountUpEnd = false;                          // カウントアップ終了フラグ
+
     /// <summary>
     /// 起動処理
     /// </summary>
@@ -52,6 +54,8 @@ public class ScoreManager : MonoBehaviour
             // カウントアップ開始
             counter.ScoreCountUp(getNum);
         }
+
+        isCountUpEnd = false;
     }
 
     /// <summary>
@@ -84,8 +88,11 @@ public class ScoreManager : MonoBehaviour
             countText.text = counter.NowScore.ToString();
 
             // カウントアップが終わったら
-            if(counter.IsEnd)
+            if(counter.IsEnd && !isCountUpEnd)
             {
+                // カウントアップ終了
+                isCountUpEnd = true;
+
                 // スコアに応じたリザルトアニメーション開始
                 ResultPlayerAnimator.Inst.AnimStart((int)ResultPlayerAnimator.AnimKind.ScoreResult);
             }
