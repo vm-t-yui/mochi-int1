@@ -76,14 +76,15 @@ public class TowerObjectController : MonoBehaviour
     void ControlDespawn()
     {
         // プレイヤーがパンチしたら
-        if (Input.GetKeyDown(KeyCode.A))
+        if (playerController.GetIsPunch())
         {
             // タワーの下のオブジェクトを取得
             (Transform, string) underObject = stackedObjects.Dequeue();
             // パンチされたオブジェクトを消す
             towerObjectSpawner.Despawn(underObject.Item2, underObject.Item1,0);
         }
-        else if (Input.GetKeyDown(KeyCode.S))
+        // プレイヤーが助けたら
+        else if (playerController.GetIsRescue())
         {
             // タワーの下のオブジェクトを取得
             (Transform, string) underObject = stackedObjects.Dequeue();
@@ -105,8 +106,8 @@ public class TowerObjectController : MonoBehaviour
                 towerObjectSpawner.Despawn(underObject.Item2, underObject.Item1, 0);
             }
         }
-        
-        else if (Input.GetKeyDown(KeyCode.D))
+        // プレイヤーが大技を決めたら
+        else if (playerController.GetIsSpecialArts())
         {
             // タワーのオブジェクトを全て消す
             foreach((Transform, string) stackedObject in stackedObjects)
