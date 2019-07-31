@@ -13,28 +13,41 @@ public class TouchController : MonoBehaviour
 
     bool isTouch = false;               // タッチフラグ
     bool isSwipe = false;               // スワイプフラグ
+    bool isTouchPermission = true;      // タッチの許可フラグ
+    bool isSwipePermission = true;      // スワイプの許可フラグ
 
-	/// <summary>
-	/// 更新処理
-	/// </summary>
-	void Update()
+    /// <summary>
+    /// 更新処理
+    /// </summary>
+    void Update()
     {
         // ゲームがスタートしていて、プレイヤーが待機中なら入力を受け付ける
         if (Input.touchCount > 0 && player.IsWait && Timer.Inst.IsStart)
         {
             Touch touch = Input.GetTouch(0);
 
-            // タッチ
-            if (touch.phase == TouchPhase.Began)
+            // タッチ(タッチの許可がされてあればタッチを取得)
+            if (touch.phase == TouchPhase.Began && isTouchPermission)
             {
 				isTouch = true;
-			}
-            // スワイプ
-            if (touch.deltaPosition.magnitude > 1.5f)
+                isTouchPermission = false;
+            }
+            // スワイプ(スワイプの許可がされてあればタッチを取得)
+            if (touch.deltaPosition.magnitude > 1.5f && isSwipePermission)
             {
 				isSwipe = true;
-			}
+                isSwipePermission = false;
+            }
         }
+    }
+
+    /// <summary>
+    /// フラグを再許可
+    /// </summary>
+    public void ResetPermission()
+    {
+        isTouchPermission = true;
+        isSwipePermission = true;
     }
 
     /// <summary>

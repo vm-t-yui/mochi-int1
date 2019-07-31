@@ -13,13 +13,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     TouchController touch = default;                                // タッチクラス
 
-    [SerializeField]
-    MainPlayerAnimator playerAnim = default;                        // プレイヤーのアニメーションクラス
-
     public bool isPunch = false;                                    // パンチフラグ
     public bool isRescue = false;                                   // 救助フラグ
     public bool isSpecialArts = false;                              // 大技フラグ
-    public bool IsWait { get; private set; } = false;               // 待機中フラグ
+    public bool IsWait { get; private set; } = true;                // 待機中フラグ
 
     public bool IsTimeup { get; private set; } = false;             // タイムアップフラグ
 
@@ -70,7 +67,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // アニメーション開始
-        playerAnim.AnimStart(punchSide);
+        MainPlayerAnimator.Inst.AnimStart(punchSide);
 
         isPunch = true;
     }
@@ -81,7 +78,7 @@ public class PlayerController : MonoBehaviour
     void Rescue()
     {
         // アニメーション開始
-        playerAnim.AnimStart((int)MainAnim.Rescue);
+        MainPlayerAnimator.Inst.AnimStart((int)MainAnim.Rescue);
 
         isRescue = true;
     }
@@ -92,7 +89,7 @@ public class PlayerController : MonoBehaviour
     void SpecialArts()
     {
         // アニメーション開始
-        playerAnim.AnimStart((int)MainAnim.SpecialArts);
+        MainPlayerAnimator.Inst.AnimStart((int)MainAnim.SpecialArts);
 
         isSpecialArts = true;
     }
@@ -111,6 +108,7 @@ public class PlayerController : MonoBehaviour
     void Wait()
     {
         IsWait = true;
+        touch.ResetPermission();
     }
 
     /// <summary>
