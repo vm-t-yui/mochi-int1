@@ -31,7 +31,7 @@ public class MainPlayerAnimator : SingletonMonoBehaviour<MainPlayerAnimator>
     /// </summary>
     void OnEnable()
     {
-        // 開始時にリザルトアニメーション開始
+        // 開始時にメインの待機モーションへ移動させる
         playerAnim.SetTrigger("Main");
     }
 
@@ -51,11 +51,15 @@ public class MainPlayerAnimator : SingletonMonoBehaviour<MainPlayerAnimator>
             case (int)AnimKind.OrangeCatch:
                 if (GameDataManager.Inst.PlayData.LastScore >= ScoreManager.GoodScore)
                 {
-                    playerAnim.SetTrigger("LowScore"); break;
+                    playerAnim.SetTrigger("LowScore");
                 }
                 {
-                    playerAnim.SetTrigger("HighScore"); break;
+                    playerAnim.SetTrigger("HighScore"); 
                 }
+
+                // NOTE:初回起動処理時はもともと待機モーションに入っており、
+                //      トリガーが残ってしまっているのでここでリセットを挟んでいます。
+                playerAnim.ResetTrigger("Main"); break;
         }
     }
 

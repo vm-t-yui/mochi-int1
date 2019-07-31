@@ -22,7 +22,7 @@ public class TitlePlayerAnimator : SingletonMonoBehaviour<TitlePlayerAnimator>
     /// </summary>
     void OnEnable()
     {
-        // 開始時にタイトルアニメーション開始
+        // 開始時にタイトルの待機モーションへ移動させる
         playerAnim.SetTrigger("Title");
     }
 }

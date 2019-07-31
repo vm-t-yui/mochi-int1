@@ -25,7 +25,7 @@ public class ResultPlayerAnimator : SingletonMonoBehaviour<ResultPlayerAnimator>
     /// </summary>
     void OnEnable()
     {
-        // リザルトの待機開始
+        // 開始時にリザルトの待機モーションへ移動させる
         playerAnim.SetTrigger("Result");
     }
 

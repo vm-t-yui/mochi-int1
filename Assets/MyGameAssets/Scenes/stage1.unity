@@ -706,7 +706,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: {fileID: 1172636030}
   startTime: 5
-  gameTime: 20
+  gameTime: 5
   plusSeconds: 5
 --- !u!114 &1172636030
 MonoBehaviour:
@@ -5816,7 +5816,6 @@ GameObject:
   - component: {fileID: 1647739455}
   - component: {fileID: 1647739457}
   - component: {fileID: 1647739456}
-  - component: {fileID: 1647739458}
   m_Layer: 5
   m_Name: MochiCount
   m_TagString: Untagged
@@ -5963,18 +5962,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1647739454}
   m_CullTransparentMesh: 0
---- !u!114 &1647739458
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1647739454}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7495dc32652c542118675487634da115, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1750253934
 GameObject:
   m_ObjectHideFlags: 0
@@ -6027,7 +6014,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countText: {fileID: 1647739456}
-  counter: {fileID: 1647739458}
+  counter: {fileID: 0}
 --- !u!114 &1750253937
 MonoBehaviour:
   m_ObjectHideFlags: 0
