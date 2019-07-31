@@ -16,16 +16,24 @@ public class TowerObjectController : MonoBehaviour
     // 積みあがったオブジェクト
     Queue<(Transform, string)> stackedObjects = new Queue<(Transform, string)>();
 
+    // プレイヤーコントローラー
     [SerializeField]
     PlayerController playerController = default;
 
     // スポーンさせる数
     [SerializeField] int spawnNum = 0;
 
-    // プレイヤーのアクションを表すテキスト
-    // NOTE : 実機でもプレイヤーがどのアクションを行ったかが分かるようにするためのテキストです。
-    //        アクションごとのイベントが完成したら消します。
-    [SerializeField] Text testActionText = default;
+    // 終了フラグ
+    bool isFinish = false;
+
+    /// <summary>
+    /// 起動処理
+    /// </summary>
+    void OnEnable()
+    {
+        // 終了フラグをオフにする
+        isFinish = false;
+    }
 
     /// <summary>
     /// 更新
@@ -44,8 +52,9 @@ public class TowerObjectController : MonoBehaviour
     /// </summary>
     void ControlSpawn()
     {
-        // 現在のオブジェクトの数がスポーンさせる数を下回ったら、新たにスポーンさせる
-        if (stackedObjects.Count < spawnNum)
+        // 現在のオブジェクトの数がスポーンさせる数を下回っていて、かつ終了していなければ
+        // 新たにオブジェクトを生成する
+        if (stackedObjects.Count < spawnNum　&& !isFinish)
         {
             // スポーンしたオブジェクト
             IEnumerable<(Transform, string)> spawnedObjects;
@@ -53,6 +62,7 @@ public class TowerObjectController : MonoBehaviour
             // オブジェクトをスポーンする
             spawnedObjects = towerObjectSpawner.Spawn(spawnNum);
 
+            // 指定の数だけオブジェクトを新たに生成する
             foreach ((Transform, string) spawnedObject in spawnedObjects)
             {
                 stackedObjects.Enqueue(spawnedObject);
@@ -71,40 +81,41 @@ public class TowerObjectController : MonoBehaviour
             // タワーの下のオブジェクトを取得
             (Transform, string) underObject = stackedObjects.Dequeue();
             // パンチされたオブジェクトを消す
-            towerObjectSpawner.Despawn(underObject.Item2, underObject.Item1);
-
-            // モチにパンチしたら
-            if (underObject.Item2 == TagName.Mochi)
-            {
-                // テスト用テキスト表示
-                testActionText.text = "モチにパンチ！";
-            }
-            // ウサギにパンチしたら
-            else
-            {
-                // テスト用テキスト表示
-                testActionText.text = "ウサギにパンチ！";
-            }
+            towerObjectSpawner.Despawn(underObject.Item2, underObject.Item1,0);
         }
+        // プレイヤーが助けたら
         else if (playerController.GetIsRescue())
         {
             // タワーの下のオブジェクトを取得
             (Transform, string) underObject = stackedObjects.Dequeue();
-            // パンチされたオブジェクトを消す
-            towerObjectSpawner.Despawn(underObject.Item2, underObject.Item1);
 
-            // モチにパンチしたら
-            if (underObject.Item2 == TagName.Mochi)
+            if (underObject.Item2 == TagName.Rabbit)
             {
-                // テスト用テキスト表示
-                testActionText.text = "モチを助けた？";
+                // アニメーターのコンポーネントを取得
+                Animator rabbitAnim = underObject.Item1.GetChild(0).GetComponent<Animator>();
+                // 救出アニメーションを再生する
+                rabbitAnim.SetTrigger("RabbitRescue");
+
+                
+                // パンチされたオブジェクトを消す
+                towerObjectSpawner.Despawn(underObject.Item2, underObject.Item1, 2);
             }
-            // ウサギにパンチしたら
             else
             {
-                // テスト用テキスト表示
-                testActionText.text = "ウサギを助けた！";
+                // パンチされたオブジェクトを消す
+                towerObjectSpawner.Despawn(underObject.Item2, underObject.Item1, 0);
             }
+        }
+        // プレイヤーが大技を決めたら
+        else if (playerController.GetIsSpecialArts())
+        {
+            // タワーのオブジェクトを全て消す
+            foreach((Transform, string) stackedObject in stackedObjects)
+            {
+                towerObjectSpawner.Despawn(stackedObject.Item2, stackedObject.Item1,0);
+            }
+            // 終了フラグをオンにする
+            isFinish = true;
         }
     }
 }
