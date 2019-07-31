@@ -110,22 +110,22 @@ public class SettingDataManager : MonoBehaviour
         // TODO: 仮で作った機能なので要らない場合は削除します。そのまま使えそうならローカライズにも対応させます。
         switch (skinType)
         {
-            case SettingData.SkinType.Nomal:
+            case SettingData.SkinType.NormalMochi:
                 UseSkin.text = "普通の餅";
                 break;
-            case SettingData.SkinType.RedWhite:
+            case SettingData.SkinType.KouhakuMochi:
                 UseSkin.text = "紅白餅";
                 break;
-            case SettingData.SkinType.Yomogi:
+            case SettingData.SkinType.YomogiMochi:
                 UseSkin.text = "よもぎ餅";
                 break;
-            case SettingData.SkinType.Strawberry:
+            case SettingData.SkinType.IchigoDaihuku:
                 UseSkin.text = "いちご大福";
                 break;
-            case SettingData.SkinType.Kashiwa:
+            case SettingData.SkinType.KashiwaMochi:
                 UseSkin.text = "柏餅";
                 break;
-            case SettingData.SkinType.Isobe:
+            case SettingData.SkinType.IsobeMochi:
                 UseSkin.text = "磯部餅";
                 break;
         }

@@ -118,7 +118,7 @@ public class TowerObjectSpawner : MonoBehaviour
     /// </summary>
     /// <param name="objectType">消すオブジェクトの種類</param>
     /// <param name="instance">消すオブジェクトのインスタンス</param>
-    void Despawn(string objectType,Transform instance)
+    public void Despawn(string objectType,Transform instance)
     {
         // モチだった場合
         if (objectType == TagName.Mochi)
