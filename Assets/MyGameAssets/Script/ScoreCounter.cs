@@ -32,7 +32,7 @@ public class ScoreCounter : MonoBehaviour
         {
             NowScore++;
 
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
         }
 
         // カウントダウン終了
@@ -44,6 +44,7 @@ public class ScoreCounter : MonoBehaviour
     /// </summary>
     public void Reset()
     {
+        NowScore = 0;
         IsEnd = false;
     }
 }
