@@ -5,8 +5,6 @@ using UnityEngine.UI;
 using TMPro;
 using VMUnityLib;
 
-using animKind = MainPlayerAnimator.AnimKind;
-
 /// <summary>
 /// タイマークラス
 /// </summary>
