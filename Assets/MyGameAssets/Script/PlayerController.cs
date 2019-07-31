@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     public bool isPunch = false;                                    // パンチフラグ
     public bool isRescue = false;                                   // 救助フラグ
     public bool isSpecialArts = false;                              // 大技フラグ
-    public bool IsWait { get; private set; } = false;               // 待機中フラグ
+    public bool IsWait { get; private set; } = true;                // 待機中フラグ
 
     public bool IsTimeup { get; private set; } = false;             // タイムアップフラグ
 
@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
         if (Timer.Inst.IsTimeup)
         {
             // 大技開始
-            SpecialArts();
+            //SpecialArts();
         }
         // まだ時間が余っていたら
         else
@@ -111,6 +111,7 @@ public class PlayerController : MonoBehaviour
     void Wait()
     {
         IsWait = true;
+        touch.ResetPermission();
     }
 
     /// <summary>

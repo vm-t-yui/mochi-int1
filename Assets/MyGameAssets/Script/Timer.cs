@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using TMPro;
 using VMUnityLib;
 
+using animKind = MainPlayerAnimator.AnimKind;
+
 /// <summary>
 /// タイマークラス
 /// </summary>
@@ -14,6 +16,9 @@ public class Timer : SingletonMonoBehaviour<Timer>
     TextMeshProUGUI timer = default;                        // タイマー用テキスト
 
     [SerializeField]
+    MainPlayerAnimator mainAnim = default;                  // メインのプレイヤーアニメータークラス
+
+    [SerializeField]
     float startTime = 0;                                    // ゲームスタートまでの秒数
 
     [SerializeField]
@@ -21,9 +26,6 @@ public class Timer : SingletonMonoBehaviour<Timer>
 
     [SerializeField]
     float plusSeconds = 0;                                  // プラスする秒数
-
-    [SerializeField]
-    SceneChanger sceneChanger = default;                    // シーンチェンジャー
 
     public bool IsTimeup { get; private set; } = false;     // タイムアップフラグ
 
@@ -71,26 +73,23 @@ public class Timer : SingletonMonoBehaviour<Timer>
                 }
             }
             // ゲーム開始されたらゲーム内のカウントダウン開始
-            else
+            else if(!IsTimeup)
             {
                 // 今の秒数のカウント
                 // NOTE:非起動時にもTime.timeSinceLevelLoadはカウントし続けているため、
                 //      非起動時の秒数を引くことにより、0からカウントさせるようにしている。
                 float nowTime = gameTime - (Time.timeSinceLevelLoad - oldTime);
 
+                // 小数点第2位まで表示
+                timer.text = nowTime.ToString("f2");
+
                 // 指定の秒数を数え終わったらタイムアップ
                 if (nowTime < 0)
                 {
                     IsTimeup = true;
 
-                    // シーン切り替え
-                    // TODO:プレイヤーのフィニッシュの演出ができたらそちらで呼びます
-                    sceneChanger.ChangeScene();
-                }
-                // 数え終わってない場合は、数え続ける
-                else
-                {
-                    timer.text = nowTime.ToString("f2");
+                    // みかんキャッチ開始
+                    mainAnim.AnimStart((int)animKind.SpecialArts);
                 }
             }
         }

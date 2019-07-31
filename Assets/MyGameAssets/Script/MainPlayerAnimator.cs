@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VMUnityLib;
 
 /// <summary>
 /// メインゲーム時のプレイヤーのアニメーション管理クラス
@@ -10,15 +11,29 @@ public class MainPlayerAnimator : MonoBehaviour
     // アニメーションの種類
     public enum AnimKind
     {
-        RightPunch,     // 右パンチ
-        LeftPunch,      // 左パンチ
-        Rescue,         // うさぎ救助
-        SpecialArts,    // 最後の大技
-        Lenght,         // enumの長さ
+        Main,                               // メイン
+        RightPunch,                         // 右パンチ
+        LeftPunch,                          // 左パンチ
+        Rescue,                             // うさぎ救助
+        SpecialArts,                        // 最後の大技
+        OrangeCatch,                        // ハイスコア時のみかんキャッチ
+        Lenght,                             // enumの長さ
     }
 
     [SerializeField]
     Animator playerAnim = default;          // アニメーター
+
+    [SerializeField]
+    SceneChanger sceneChanger = default;    // シーンチェンジャー
+
+    /// <summary>
+    /// 起動処理
+    /// </summary>
+    void OnEnable()
+    {
+        // 開始時にリザルトアニメーション開始
+        playerAnim.SetTrigger("Main");
+    }
 
     /// <summary>
     ///  アニメーション再生
@@ -26,29 +41,21 @@ public class MainPlayerAnimator : MonoBehaviour
     /// <param name="kind">アニメーションの種類</param>
     public void AnimStart(int kind)
     {
-        // アニメーションの種類が右パンチなら右パンチのアニメーションスタート
-        if (kind == (int)AnimKind.RightPunch)
+        // 種類に応じたアニメーション開始
+        switch(kind)
         {
-            playerAnim.SetTrigger("RPunch");
-        }
-        // 左パンチなら左パンチのアニメーションスタート
-        if (kind == (int)AnimKind.LeftPunch)
-        {
-            playerAnim.SetTrigger("LPunch");
-        }
-        // うさぎ救助ならうさぎ救助のアニメーションスタート
-        if (kind == (int)AnimKind.Rescue)
-        {
-            // パンチを中断して救出へ
-            PunchEnd();
-            playerAnim.SetTrigger("Rescue");
-        }
-        // 最後の大技なら最後の大技のアニメーションスタート
-        if (kind == (int)AnimKind.SpecialArts)
-        {
-            // パンチを中断して救出へ
-            PunchEnd();
-            playerAnim.SetTrigger("SpecialArts");
+            case (int)AnimKind.RightPunch: playerAnim.SetTrigger("RPunch"); break;
+            case (int)AnimKind.LeftPunch: playerAnim.SetTrigger("LPunch"); break;
+            case (int)AnimKind.Rescue: playerAnim.SetTrigger("Rescue"); break;
+            case (int)AnimKind.SpecialArts: playerAnim.SetTrigger("SpecialArts"); break;
+            case (int)AnimKind.OrangeCatch:
+                if (GameDataManager.Inst.PlayData.LastScore >= ScoreManager.GoodScore)
+                {
+                    playerAnim.SetTrigger("LowScore"); break;
+                }
+                {
+                    playerAnim.SetTrigger("HighScore"); break;
+                }
         }
     }
 
@@ -59,5 +66,15 @@ public class MainPlayerAnimator : MonoBehaviour
     {
         playerAnim.ResetTrigger("RPunch");
         playerAnim.ResetTrigger("LPunch");
+    }
+
+    /// <summary>
+    /// シーンチェンジ
+    /// </summary>
+    /// NOTE:メインゲームシーン時のみかんキャッチ後に呼ぶアニメーションイベント用関数です。
+    public void ChangeScene()
+    {
+        // シーン切り替え
+        sceneChanger.ChangeScene();
     }
 }
