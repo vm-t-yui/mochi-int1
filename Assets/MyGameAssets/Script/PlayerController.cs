@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
         if (Timer.Inst.IsTimeup)
         {
             // 大技開始
-            //SpecialArts();
+            SpecialArts();
         }
         // まだ時間が余っていたら
         else

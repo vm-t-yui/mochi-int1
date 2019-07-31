@@ -16,9 +16,6 @@ public class Timer : SingletonMonoBehaviour<Timer>
     TextMeshProUGUI timer = default;                        // タイマー用テキスト
 
     [SerializeField]
-    MainPlayerAnimator mainAnim = default;                  // メインのプレイヤーアニメータークラス
-
-    [SerializeField]
     float startTime = 0;                                    // ゲームスタートまでの秒数
 
     [SerializeField]
@@ -87,9 +84,6 @@ public class Timer : SingletonMonoBehaviour<Timer>
                 if (nowTime < 0)
                 {
                     IsTimeup = true;
-
-                    // みかんキャッチ開始
-                    mainAnim.AnimStart((int)animKind.SpecialArts);
                 }
             }
         }
