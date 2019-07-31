@@ -66,7 +66,7 @@ public class TowerObjectController : MonoBehaviour
     void ControlDespawn()
     {
         // プレイヤーがパンチしたら
-        if (playerController.IsPunch)
+        if (playerController.GetIsPunch())
         {
             // タワーの下のオブジェクトを取得
             (Transform, string) underObject = stackedObjects.Dequeue();
@@ -86,7 +86,7 @@ public class TowerObjectController : MonoBehaviour
                 testActionText.text = "ウサギにパンチ！";
             }
         }
-        else if (playerController.IsRescue)
+        else if (playerController.GetIsRescue())
         {
             // タワーの下のオブジェクトを取得
             (Transform, string) underObject = stackedObjects.Dequeue();
