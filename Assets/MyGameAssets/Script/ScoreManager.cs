@@ -34,9 +34,6 @@ public class ScoreManager : MonoBehaviour
     /// </summary>
     void OnEnable()
     {
-        // カウンターリセット
-        counter.Reset();
-
         // カウンターがなければ初期化
         if (counter == null)
         {
@@ -46,6 +43,9 @@ public class ScoreManager : MonoBehaviour
         // カウンターがあればカウントアップ開始前処理
         else
         {
+            // カウンターリセット
+            counter.Reset();
+
             // データから最終スコアを持ってくる
             getNum = GameDataManager.Inst.PlayData.LastScore;
 
