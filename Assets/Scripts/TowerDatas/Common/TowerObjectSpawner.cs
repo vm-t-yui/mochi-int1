@@ -118,7 +118,8 @@ public class TowerObjectSpawner : MonoBehaviour
     /// </summary>
     /// <param name="objectType">消すオブジェクトの種類</param>
     /// <param name="instance">消すオブジェクトのインスタンス</param>
-    public void Despawn(string objectType,Transform instance)
+    /// <param name="seconds">削除までの遅延（秒）</param>
+    public void Despawn(string objectType,Transform instance,float seconds)
     {
         // モチだった場合
         if (objectType == TagName.Mochi)
@@ -130,7 +131,7 @@ public class TowerObjectSpawner : MonoBehaviour
         else if (objectType == TagName.Rabbit)
         {
             // ウサギを削除
-            rabbitSpawnPool.Despawn(instance);
+            rabbitSpawnPool.Despawn(instance,1);
         }
         // それ以外だったらエラー
         else
