@@ -6,7 +6,7 @@ using VMUnityLib;
 /// <summary>
 /// タイトル時のプレイヤーのアニメーション管理クラス
 /// </summary>
-public class TitlePlayerAnimator : MonoBehaviour
+public class TitlePlayerAnimator : SingletonMonoBehaviour<TitlePlayerAnimator>
 {
     // アニメーションの種類
     public enum AnimKind

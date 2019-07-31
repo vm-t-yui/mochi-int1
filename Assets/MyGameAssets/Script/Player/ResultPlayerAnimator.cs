@@ -6,15 +6,15 @@ using VMUnityLib;
 /// <summary>
 /// リザルト時のプレイヤーのアニメーション管理クラス
 /// </summary>
-public class ResultPlayerAnimator : MonoBehaviour
+public class ResultPlayerAnimator : SingletonMonoBehaviour<ResultPlayerAnimator>
 {
     // アニメーションの種類
     public enum AnimKind
     {
         Title,              // タイトル
         Main,               // メイン
-        HighScoreResult,    // リザルト
-        LowScoreResult,     // リザルト
+        Result,             // リザルトの待機アニメーション
+        ScoreResult,        // リザルトのスコア発表のアニメーション
     }
 
     [SerializeField]
@@ -25,13 +25,8 @@ public class ResultPlayerAnimator : MonoBehaviour
     /// </summary>
     void OnEnable()
     {
-        if (GameDataManager.Inst.PlayData.LastScore >= ScoreManager.GoodScore)
-        {
-            playerAnim.SetTrigger("LowScore"); 
-        }
-        {
-            playerAnim.SetTrigger("HighScore");
-        }
+        // リザルトの待機開始
+        playerAnim.SetTrigger("Result");
     }
 
     /// <summary>
@@ -45,6 +40,16 @@ public class ResultPlayerAnimator : MonoBehaviour
         {
             case (int)AnimKind.Title: playerAnim.SetTrigger("Title"); break;
             case (int)AnimKind.Main: playerAnim.SetTrigger("Main"); break;
+            case (int)AnimKind.ScoreResult:
+                // スコアに応じたアニメーション
+                if (GameDataManager.Inst.PlayData.LastScore >= ScoreManager.GoodScore)
+                {
+                    playerAnim.SetTrigger("LowScore");
+                }
+                {
+                    playerAnim.SetTrigger("HighScore");
+                }
+                break;
         }
     }
 }
