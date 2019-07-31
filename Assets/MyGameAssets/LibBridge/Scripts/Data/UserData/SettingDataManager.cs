@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using VMUnityLib;
+using TMPro;
 
 /// <summary>
 /// ゲームの設定データ管理クラス
@@ -8,18 +9,18 @@ using VMUnityLib;
 public class SettingDataManager : MonoBehaviour
 {
     [SerializeField]
-    Slider   BgmVolume      = default,    // BGMのボリューム調整スライダー
-             SeVolume       = default;    // SEのボリューム調整スライダー
+    Slider   BgmVolume          = default,    // BGMのボリューム調整スライダー
+             SeVolume           = default;    // SEのボリューム調整スライダー
 
     [SerializeField]
-    Toggle   BgmMute        = default,    // BGMのミュート切替トグル
-             SeMute         = default;    // SEのミュート切替トグル
+    Toggle   BgmMute            = default,    // BGMのミュート切替トグル
+             SeMute             = default;    // SEのミュート切替トグル
 
     [SerializeField]
-    Dropdown LanguageSelect = default;    // 使用言語切替ドロップダウン
+    TMP_Dropdown LanguageSelect = default;    // 使用言語切替ドロップダウン
 
     [SerializeField]
-    Text     UseSkin        = default;    // 使用中の餅スキン表示テキスト
+    Text     UseSkin            = default;    // 使用中の餅スキン表示テキスト
 
     /// <summary>
     /// 起動処理
