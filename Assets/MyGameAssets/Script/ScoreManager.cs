@@ -27,7 +27,7 @@ public class ScoreManager : MonoBehaviour
     
     public int DisplayGetNum { get; private set; } = 0; // 壊した数の合計(表示用)
 
-    public const int GoodScore = 60;
+    public const int GoodScore = 60;                    // 良スコアの目標
 
     bool isCountUpEnd = false;                          // カウントアップ終了フラグ
 
