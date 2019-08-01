@@ -25,10 +25,17 @@ public class ResultJunction : MonoBehaviour
     /// </summary>
     void OnEnable()
     {
-        // データから分岐情報を持ってくる
-        isJunction = GameDataManager.Inst.resultKindData.IsJunction;
+        // うさぎを殴った回数が３回以上なら分岐させる
+        if (GameDataManager.Inst.PunchRabbit.PunchCount >= 3)
+        {
+            isJunction = true;
+        }
+        else
+        {
+            isJunction = false;
+        }
 
-        // リザルト状態に応じた処理
+        // リザルトの分岐状態に応じた処理
         if (!isJunction)
         {
             // 良い時

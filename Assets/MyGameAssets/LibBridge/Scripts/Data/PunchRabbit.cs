@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ResultKindData
+public class PunchRabbit
 {
     [SerializeField]
-    bool isJunction = false;    // リザルトの分岐フラグ
+    int punchCount = 0;    // リザルトの分岐フラグ
 
     /// <summary>
     /// 各データのプロパティ
     /// </summary>
-    public bool IsJunction { get { return isJunction; } set { isJunction = value; } }
+    public int PunchCount { get { return punchCount; } set { punchCount = value; } }
 }

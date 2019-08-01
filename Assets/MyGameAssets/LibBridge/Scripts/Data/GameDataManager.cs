@@ -12,7 +12,7 @@ public class GameDataManager : Singleton<GameDataManager>
     public UserData    UserData    { get; set; }
     public PlayData    PlayData    { get; set; }            // プレイデータ
     public SettingData SettingData { get; set; }            // 設定データ
-    public ResultKindData resultKindData { get; set; }      // リザルトの分岐データ
+    public PunchRabbit PunchRabbit { get; set; }            // うさぎのパンチした回数データ
 
     public IdentifiedDataManager<EffectData> EffectDataManager { get; set; }
     public IdentifiedDataManager<VoiceData> VoiceDataManager { get; set; }
@@ -57,12 +57,12 @@ public class GameDataManager : Singleton<GameDataManager>
 
         PlayData = new PlayData();
         SettingData = new SettingData();
-        resultKindData = new ResultKindData();
+        PunchRabbit = new PunchRabbit();
 
         // 各セーブデータがあればロードする
         PlayData = JsonDataSaver.FileExists(PlayData) ? JsonDataSaver.Load(PlayData) : PlayData;
         SettingData = JsonDataSaver.FileExists(SettingData) ? JsonDataSaver.Load(SettingData) : SettingData;
-        resultKindData = JsonDataSaver.FileExists(resultKindData) ? JsonDataSaver.Load(resultKindData) : resultKindData;
+        PunchRabbit = JsonDataSaver.FileExists(PunchRabbit) ? JsonDataSaver.Load(PunchRabbit) : PunchRabbit;
     }
 
     /// <summary>
