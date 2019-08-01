@@ -168,7 +168,7 @@ public class AdManager : SingletonMonoBehaviour<AdManager>
         if (!isOnline) { return; }
 
         // 表示回数をロード
-        showCount = PlayerPrefs.GetInt(ShowCountKey, 1);
+        showCount = GameDataManager.Inst.PlayData.PlayCount;
 
         // 5回毎の動画リワードを表示
         if (showCount % RewardCount == 0)
