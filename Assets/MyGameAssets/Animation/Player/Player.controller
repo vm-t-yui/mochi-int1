@@ -653,7 +653,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Rescue
-  m_Speed: 1
+  m_Speed: 1.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101444450312778426}
@@ -680,7 +680,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: LeftPunch
-  m_Speed: 1
+  m_Speed: 1.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101181069610360390}
@@ -708,7 +708,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: RightPunch
-  m_Speed: 1
+  m_Speed: 1.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101873054514355464}
@@ -773,10 +773,10 @@ AnimatorStateMachine:
     m_Position: {x: 432, y: 216, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102673392845984400}
-    m_Position: {x: 120, y: 216, z: 0}
+    m_Position: {x: 120, y: 220, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102188210169932826}
-    m_Position: {x: 276, y: 324, z: 0}
+    m_Position: {x: 280, y: 330, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102979968950126756}
     m_Position: {x: 310, y: -230, z: 0}
