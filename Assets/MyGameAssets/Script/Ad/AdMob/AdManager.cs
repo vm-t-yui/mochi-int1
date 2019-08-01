@@ -190,17 +190,5 @@ public class AdManager : SingletonMonoBehaviour<AdManager>
         {
             nendInterstitial.Show();
         }
-
-        // 表示回数をカウント
-        showCount++;
-        // 5回毎(動画リワードの番が来るたび)に初期化
-        if (showCount > RewardCount)
-        {
-            showCount = 1;
-        }
-
-        // 表示回数をセーブ
-        PlayerPrefs.SetInt(ShowCountKey, showCount);
-        PlayerPrefs.Save();
     }
 }
