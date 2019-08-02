@@ -26,13 +26,27 @@ public sealed class UITitle : CmnMonoBehaviour
     protected override void FixedUpdate() { }
 
     /// <summary>
+    /// 起動処理
+    /// </summary>
+    void OnEnable()
+    {
+        // バナー表示
+        AdManager.Inst.ShowBanner((int)AdBannerController.BANNER.BOTTOM);
+    }
+
+    /// <summary>
+    /// 終了処理
+    /// </summary>
+    void OnDisable()
+    {
+        HideBanner();
+    }
+
+    /// <summary>
     /// 初期化.
     /// </summary>
     public override void Start()
     {
-        // バナー表示
-        AdManager.Inst.ShowBanner((int)AdBannerController.BANNER.BOTTOM);
-
         GameServiceUtil.Auth();
 #if USE_TWEEN
         tweenAlphe = GetComponent<uTweenAlpha>();

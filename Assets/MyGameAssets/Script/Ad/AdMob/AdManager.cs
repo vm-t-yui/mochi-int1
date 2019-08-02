@@ -77,6 +77,8 @@ public class AdManager : SingletonMonoBehaviour<AdManager>
 
     bool isOnline = false;                                            // オンラインかどうか
 
+    public bool isRewardEnd { get; private set; } = false;            // リワード広告をスキップせずに見終わったかどうか
+
     /// <summary>
     /// ロード完了検知
     /// </summary>
@@ -149,20 +151,9 @@ public class AdManager : SingletonMonoBehaviour<AdManager>
     }
 
     /// <summary>
-    /// 動画リワード広告再生
+    /// リザルトの広告表示
     /// </summary>
-    public void PlayAdVideo()
-    {
-        // オフラインなら処理を抜ける
-        if (!isOnline) { return; }
-
-        adVideoRecommender.PlayAdVideo();
-    }
-
-    /// <summary>
-    /// インタースティシャル広告表示
-    /// </summary>
-    public void ShowInterstitial()
+    public void ShowResultAd()
     {
         // オフラインなら処理を抜ける
         if (!isOnline) { return; }
@@ -190,5 +181,30 @@ public class AdManager : SingletonMonoBehaviour<AdManager>
         {
             nendInterstitial.Show();
         }
+    }
+
+    /// <summary>
+    /// 動画広告終了フラグ(スキップ無し)セット
+    /// </summary>
+    public void SetIsRewardEnd()
+    {
+        isRewardEnd = true;
+    }
+
+    /// <summary>
+    /// 動画広告終了フラグ(スキップ無し)受け渡し処理
+    /// </summary>
+    public bool GetIsRewardEnd()
+    {
+        bool returnflg = false;
+
+        // trueなら受け渡し
+        if(isRewardEnd)
+        {
+            returnflg = isRewardEnd;
+            isRewardEnd = false;
+        }
+
+        return returnflg;
     }
 }

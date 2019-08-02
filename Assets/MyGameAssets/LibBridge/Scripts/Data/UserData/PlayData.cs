@@ -16,6 +16,8 @@ public class PlayData
     int lastScore = 0;    // 最終プレイ時のスコア
     [SerializeField]
     int punchCount = 0;   // パンチされたうさぎの数
+    [SerializeField]
+    bool isReward = false;    // リワードフラグ
 
     /// <summary>
     /// 各データのプロパティ
@@ -24,4 +26,5 @@ public class PlayData
     public int HighScore { get { return highScore; } set { highScore = value; } }
     public int LastScore { get { return lastScore; } set { lastScore = value; } }
     public int PunchCount { get { return punchCount; } set { punchCount = value; } }
+    public bool IsReward { get { return isReward; } set { isReward = value; } }
 }

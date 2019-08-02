@@ -869,6 +869,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: PlaySelectSE
       objectReference: {fileID: 0}
+    - target: {fileID: 11407504, guid: bd1df978bfc2efd42a396a490575694f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd1df978bfc2efd42a396a490575694f, type: 3}
 --- !u!114 &1387121191 stripped
