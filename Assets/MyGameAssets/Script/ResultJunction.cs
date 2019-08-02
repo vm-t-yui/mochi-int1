@@ -26,7 +26,7 @@ public class ResultJunction : MonoBehaviour
     void OnEnable()
     {
         // うさぎを殴った回数が３回以上なら分岐させる
-        if (GameDataManager.Inst.PunchRabbit.PunchCount >= 3)
+        if (GameDataManager.Inst.PlayData.PunchCount >= 3)
         {
             isJunction = true;
         }
