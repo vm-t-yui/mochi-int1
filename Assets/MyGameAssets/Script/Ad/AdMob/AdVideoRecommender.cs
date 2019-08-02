@@ -28,11 +28,8 @@ public class AdVideoRecommender : MonoBehaviour
     /// </summary>
     public void Init()
     {
-        // AdMobの方を使うかどうか判断し、使うならAdMob動画リワード広告を生成を生成
-        //if (IsUseAdMob(GameDataManager.Inst.PlayData.PlayCount))
-        {
-            adMobVideo.RequestRewardVideo();
-        }
+        // AdMob動画リワード広告を生成を生成
+        adMobVideo.RequestRewardVideo();
     }
 
     /// <summary>
@@ -103,9 +100,6 @@ public class AdVideoRecommender : MonoBehaviour
         {
             // リワード無し
             GameDataManager.Inst.PlayData.IsReward = false;
-
-            // リワードフラグをセーブして次の広告を生成
-            JsonDataSaver.Save(GameDataManager.Inst.PlayData);
         }
 
         // 動画広告を閉じたら処理終了
@@ -113,9 +107,9 @@ public class AdVideoRecommender : MonoBehaviour
         {
             // リワードあり
             GameDataManager.Inst.PlayData.IsReward = true;
-
-            // リワードフラグをセーブして次の広告を生成
-            JsonDataSaver.Save(GameDataManager.Inst.PlayData);
         }
+
+        // リワードフラグをセーブして次の広告を生成
+        JsonDataSaver.Save(GameDataManager.Inst.PlayData);
     }
 }
