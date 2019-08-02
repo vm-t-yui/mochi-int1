@@ -1,0 +1,788 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f0b0c553be8edd4682e9180fdd13e37, type: 3}
+  m_Name: I2Languages
+  m_EditorClassIdentifier: 
+  mSource:
+    UserAgreesToHaveItOnTheScene: 0
+    UserAgreesToHaveItInsideThePluginsFolder: 0
+    GoogleLiveSyncIsUptoDate: 1
+    mTerms:
+    - Term: Start
+      TermType: 0
+      Description: "Start\u306E\u30C6\u30AD\u30B9\u30C8"
+      Languages:
+      - "\u30BF\u30C3\u30D7\u3067\u306F\u3058\u3081\u308B"
+      - Tap to start
+      - Zum Starten tippen
+      - Tocca per iniziare
+      - Appuyez pour commencer
+      - "\u70B9\u6309\u5F00\u59CB"
+      - Toca para comenzar
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Setting/Volume
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u97F3\u91CF"
+      - Volume
+      - Volumen
+      - Volume
+      - Le volume
+      - "\u97F3\u91CF"
+      - Volumen
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Setting/Language
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u8A00\u8A9E"
+      - Language
+      - Sprache
+      - linguaggio
+      - La langue
+      - "\u8BED\u8A00"
+      - Idioma
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: PictureBook/Rabbit picture book
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u3046\u3055\u304E\u56F3\u9451"
+      - Rabbit picture book
+      - Kaninchen Bilderbuch
+      - Libro illustrato di coniglio
+      - Livre d'images de lapin
+      - "\u5154\u5B50\u56FE\u753B\u4E66"
+      - Libro ilustrado de conejos
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Font/UsedFont
+      TermType: 9
+      Description: 
+      Languages:
+      - Fonts/NotoSansCJKjp-Regular SDF
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: OfferWall/ButtonText
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u304A\u3059\u3059\u3081\u30A2\u30D7\u30EA"
+      - Rec'd Apps
+      - Rec'd Apps
+      - Rec'd Apps
+      - Rec'd Apps
+      - "\u63A8\u8350\u5E94\u7528"
+      - Rec'd Apps
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/Normal
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u3046\u3055\u304E"
+      - Rabbit
+      - Hase
+      - Coniglio
+      - Lapin
+      - "\u5154"
+      - Conejo
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/Black
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u9ED2\u3046\u3055\u304E"
+      - Black Rabbit
+      - Schwarzer Hase
+      - Coniglio nero
+      - Lapin noir
+      - "\u9ED1\u5154"
+      - Conejo negro
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/Rabi Red
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u30E9\u30D3\u30EC\u30C3\u30C9"
+      - Rabi Red
+      - Rabi Red
+      - Rabi Red
+      - Rabi Red
+      - Rabi Red
+      - Rabi Red
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/Rabi Blue
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u30E9\u30D3\u30D6\u30EB\u30FC"
+      - Rabi Blue
+      - Rabi Blue
+      - Rabi Blue
+      - Rabi Blue
+      - Rabi Blue
+      - Rabi Blue
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/Rabi Yellow
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u30E9\u30D3\u30A4\u30A8\u30ED\u30FC"
+      - Rabi Yellow
+      - Rabi Yellow
+      - Rabi Yellow
+      - Rabi Yellow
+      - Rabi Yellow
+      - Rabi Yellow
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/Rabi Green
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u30E9\u30D3\u30B0\u30EA\u30FC\u30F3"
+      - Rabi Green
+      - Rabi Green
+      - Rabi Green
+      - Rabi Green
+      - Rabi Green
+      - Rabi Green
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/Rabi Pink
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u30E9\u30D3\u30D4\u30F3\u30AF"
+      - Rabi Pink
+      - Rabi Pink
+      - Rabi Pink
+      - Rabi Pink
+      - Rabi Pink
+      - Rabi Pink
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/Office worker
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u30EA\u30FC\u30DE\u30F3\u3046\u3055\u304E"
+      - Office worker rabbit
+      - "B\xFCroangestellter Kaninchen"
+      - Coniglio impiegato
+      - "Lapin employ\xE9 de bureau"
+      - "\u4E0A\u73ED\u65CF\u5154"
+      - Empleado de oficina conejo
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/Kagami-mochi
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u93E1\u3082\u3061\u3046\u3055\u304E"
+      - Kagami-mochi rabbit
+      - Kagami-mochi rabbit
+      - Kagami-mochi rabbit
+      - Kagami-mochi rabbit
+      - Kagami-mochi rabbit
+      - Kagami-mochi rabbit
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/Sumo
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u529B\u58EB\u3046\u3055\u304E"
+      - Wrestler rabbit
+      - Wrestler-Kaninchen
+      - Coniglio da lottatore
+      - Lapin lutteur
+      - "\u6454\u8DE4\u5154"
+      - Luchador conejo
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/Wood
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u6728\u5F6B\u308A\u306E\u3046\u3055\u304E"
+      - Wood carving rabbit
+      - Holzschnitzerei Kaninchen
+      - Coniglio intaglio del legno
+      - Lapin de sculpture sur bois
+      - "\u6728\u96D5\u5154"
+      - Conejo tallado en madera
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/Samurai
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u6B66\u8005\u3046\u3055\u304E"
+      - Samurai rabbit
+      - Samurai-Kaninchen
+      - Samurai Rabbit
+      - "Samoura\xEF lapin"
+      - "\u6B66\u58EB\u5154"
+      - Conejo samurai
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/Boss
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u7D44\u9577"
+      - Boss
+      - Boss
+      - Capo
+      - Patron
+      - "\u8001\u677F"
+      - Jefe
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/Unko
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u30C1\u30E7\u30B3\u30BD\u30D5\u30C8\u2026\uFF1F"
+      - "Chocolate soft cream\u2026\uFF1F"
+      - "Schokoladencreme\u2026\uFF1F"
+      - "Crema al cioccolato\u2026\uFF1F"
+      - "Cr\xE8me molle au chocolat\u2026\uFF1F"
+      - "\u5DE7\u514B\u529B\u8F6F\u5976\u6CB9\u2026\uFF1F"
+      - "Crema suave de chocolate\u2026\uFF1F"
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/Diamond
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u30C0\u30A4\u30A2\u30E2\u30F3\u30C9\u306E\u3046\u3055\u304E"
+      - Diamond rabbit
+      - Diamant-Hase
+      - Coniglio diamante
+      - Lapin diamant
+      - "\u94BB\u77F3\u5154"
+      - Conejo diamante
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/Mechanical
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u30E1\u30AB\u3046\u3055\u304E"
+      - Mechanical rabbit
+      - Mechanisches Kaninchen
+      - Coniglio meccanico
+      - "Lapin m\xE9canique"
+      - "\u673A\u68B0\u5154"
+      - "Conejo mec\xE1nico"
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/Zombie
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u30BE\u30F3\u30D3\u3046\u3055\u304E"
+      - Zombie rabbit
+      - Zombie-Kaninchen
+      - Coniglio Zombi
+      - Lapin zombie
+      - "\u50F5\u5C38\u5154"
+      - Conejo zombie
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/Ghost
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u3086\u3046\u308C\u3044\u3046\u3055\u304E"
+      - Ghost rabbit
+      - Geisterhase
+      - Coniglio fantasma
+      - "Lapin fant\xF4me"
+      - "\u9B3C\u5154"
+      - Conejo fantasma
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/Zarigan
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u30B6\u30EA\u30AC\u30F3\u3046\u3055\u304E"
+      - Zarigan rabbit
+      - Zarigan-Kaninchen
+      - Coniglio Zarigan
+      - Zarigan lapin
+      - "\u624E\u91CC\u6839\u5154"
+      - Conejo Zarigan
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/Space
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u30B9\u30DA\u30FC\u30B9\u30E9\u30D3\u30C3\u30C8"
+      - Space rabbit
+      - Space Rabbit
+      - Coniglio spaziale
+      - Lapin de l'espace
+      - "\u592A\u7A7A\u5154"
+      - Conejo espacial
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/Golgo
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u514E \u5341\u4E09\u90CE"
+      - Usagi Jusaburo
+      - Usagi Jusaburo
+      - Usagi Jusaburo
+      - Usagi Jusaburo
+      - Usagi Jusaburo
+      - Usagi Jusaburo
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/Maid
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u30E1\u30A4\u30C9\u3046\u3055\u304E"
+      - Maid rabbit
+      - Magd Kaninchen
+      - Maid Rabbit
+      - "Lapin de m\xE9nage"
+      - "\u4F63\u4EBA\u5154"
+      - Criada conejo
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/RabiMan
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u30E9\u30D3\u30DE\u30F3"
+      - Rabi-Man
+      - Rabi-Man
+      - Rabi-Man
+      - Rabi-Man
+      - Rabi-Man
+      - Rabi-Man
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/Joyson
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u30B8\u30E7\u30A4\u30BD\u30F3"
+      - Joyson
+      - Joyson
+      - Joyson
+      - Joyson
+      - Joyson
+      - Joyson
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/NormalText
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u6708\u306B\u751F\u606F\u3059\u308B\u767D\u3044\u3046\u3055\u304E\u3002\n\u3082\u3061\u304C\u5927\u597D\u7269\u3002"
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/BlackText
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u6708\u306B\u751F\u606F\u3059\u308B\u9ED2\u3044\u3046\u3055\u304E\u3002\n\u5927\u798F\u306F\u3064\u3076\u3042\u3093\u6D3E\u3002"
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/Office workerText
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u682A\u5F0F\u4F1A\u793EPanamochic\u306B\u52E4\u3081\u308B\u4F1A\u793E\u54E1\u3002\n\u3084\u308A\u624B\u306E\u55B6\u696D\u30DE\u30F3\u3002"
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/SumoText
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u3046\u3055\u304E\u754C\u3067\u3082\u540D\u306E\u77E5\u308C\u305F\u529B\u58EB\u3002\n\u597D\u7269\u306F\u3061\u3083\u3093\u3053\u934B\u3067\u306F\u306A\u304F\u3001\u304A\u96D1\u716E\u3002"
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/WoodText
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u795E\u6728\u3067\u3067\u304D\u305F\u3046\u3055\u304E\u3002\n\u795E\u306E\u52A0\u8B77\u306B\u3088\u308A\u547D\u304C\u5BBF\u3063\u305F\u3002"
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/JoysonText
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u6050\u308D\u3057\u3044\u30DE\u30B9\u30AF\u3092\u88AB\u3063\u305F\u3046\u3055\u304E\u3002\n\u30DE\u30B9\u30AF\u306F\u9A5A\u304F\u307B\u3069\u306E\u7F8E\u984F\u3092\u96A0\u3059\u305F\u3081\u3002"
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/ZombieText
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u3068\u3042\u308B\u4F1A\u793E\u306E\u9670\u8B00\u306B\u3088\u308A\u30BE\u30F3\u30D3\u306B\u306A\u3063\u3066\u3057\u307E\u3063\u305F\u3046\u3055\u304E\u3002\n\u3082\u3061\u3057\u304B\u565B\u307E\u306A\u3044\u306E\u3067\u5272\u3068\u7121\u5BB3\u3002"
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/GhostText
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u3055\u307E\u3088\u3046\u3046\u3046\u3055\u304E\u306E\u9B42\u3002\n\u307E\u3060\u9905\u3092\u98DF\u3079\u305F\u3044\u3068\u3044\u3046\u672A\u7DF4\u3067\u6210\u4ECF\u3067\u304D\u3066\u3044\u306A\u3044\u3002"
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/SpaceText
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u5B87\u5B99\u670D\u3092\u7740\u305F\u3046\u3055\u304E\u3002\n\u3053\u306E\u5B87\u5B99\u670D\u306F\u4EE5\u524D\u5730\u7403\u304B\u3089\u3084\u3063\u3066\u304D\u305F\u5B87\u5B99\u98DB\u884C\u58EB\u304B\u3089\u3082\u3089\u3063\u305F\u3002"
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/Rabi RedText
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u8DF3\u8E8D\u6226\u968A\u30E9\u30D3\u30EC\u30F3\u30B8\u30E3\u30FC\u306E\u30EA\u30FC\u30C0\u30FC\u3002\n\u71B1\u8840\u6F22\u3067\u4EF2\u9593\u601D\u3044\u306E\u30A4\u30A4\u30E4\u30C4\u3002"
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/Rabi BlueText
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u8DF3\u8E8D\u6226\u968A\u30E9\u30D3\u30EC\u30F3\u30B8\u30E3\u30FC\u306E\u30CA\u30EB\u30B7\u30B9\u30C8\u3002\n\u982D\u306F\u60AA\u3044\u306E\u3067\u30BF\u30C0\u306E\u75DB\u3044\u30E4\u30C4\u3002"
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/Rabi YellowText
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u8DF3\u8E8D\u6226\u968A\u30E9\u30D3\u30EC\u30F3\u30B8\u30E3\u30FC\u306E\u5927\u98DF\u3044\u62C5\u5F53\u3002\n\u5927\u98DF\u3044\u5927\u4F1A\u306F\u3044\u3064\u3082\u30C8\u30C3\u30D7\u3002"
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/Rabi GreenText
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u8DF3\u8E8D\u6226\u968A\u30E9\u30D3\u30EC\u30F3\u30B8\u30E3\u30FC\u306E\u30C9\u30B8\u3063\u5B50\u3002\n\u6C7A\u3081\u30DD\u30FC\u30BA\u304C\u6C7A\u307E\u3089\u306A\u3044\u306E\u306F\u3044\u3064\u3082\u306E\u3053\u3068\u3002"
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/Rabi PinkText
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u8DF3\u8E8D\u6226\u968A\u30E9\u30D3\u30EC\u30F3\u30B8\u30E3\u30FC\u306E\u30C8\u30E9\u30D6\u30EB\u30E1\u30FC\u30AB\u30FC\u3002\n\u5E38\u306B\u30C8\u30E9\u30D6\u30EB\u306E\u6E26\u4E2D\u306B\u3044\u308B\u3002"
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/MechanicalText
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u682A\u5F0F\u4F1A\u793EPanamochic\u306E\u6700\u9AD8\u5091\u4F5C\u3002\n1\u65E5\u306B1000\u500B\u306E\u9905\u3092\u4F5C\u308B\u3053\u3068\u304C\u3067\u304D\u308B\u3002"
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/ZariganText
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u60AA\u306E\u7D44\u7E54\u306B\u3042\u3053\u304C\u308C\u308B\u3046\u3055\u304E\u3002\n\u300C\u7C73\u306A\u3069\u3057\u3087\u305B\u3093\u2026\u990C\u3088\uFF01\u300D"
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/Kagami-mochiText
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u4E0A\u304B\u3089\u964D\u3063\u3066\u304D\u305F\u93E1\u3082\u3061\u306B\u306F\u307E\u3063\u3066\u3057\u307E\u3063\u305F\u3046\u3055\u304E\u3002\n\u610F\u5916\u3068\u5FEB\u9069\u3002"
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/SamuraiText
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/UnkoText
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u4E0A\u304B\u3089\u964D\u3063\u3066\u304D\u305F\u30C1\u30E7\u30B3\u30BD\u30D5\u30C8\uFF08\uFF1F\uFF09\u306B\u306F\u307E\u3063\u3066\u3057\u307E\u3063\u305F\u3046\u3055\u304E\u3002\n\u2026\u305F\u3076\u3093\u30C1\u30E7\u30B3\u30BD\u30D5\u30C8\u3002"
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/BossText
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u3046\u3055\u304E\u754C\u3092\u53D6\u308A\u4ED5\u5207\u308B\u7D44\u9577\u3002\n\u307F\u3093\u306A\u304C\u7F8E\u5473\u3057\u304F\u3082\u3061\u304C\u98DF\u3079\u308C\u308B\u3088\u3046\u306B\u5E38\u65E5\u9803\u8003\u3048\u3066\u3044\u308B\u3002"
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/DiamondText
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/GolgoText
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u767E\u767A\u767E\u4E2D\u306E\u30B9\u30CA\u30A4\u30D1\u30FC\u3002\n\u304A\u796D\u308A\u306B\u8DB3\u3092\u904B\u3093\u3067\u306F\u3001\u5C04\u7684\u306E\u666F\u54C1\u3092\u72EC\u308A\u5360\u3081\u306B\u3057\u3066\u3044\u308B\u3002"
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/MaidText
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/RabiManText
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/RabiOji
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u30E9\u30D3\u304A\u3058"
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/RabiOjiText
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      Flags: 00000000000000
+      Languages_Touch: []
+    CaseInsensitiveTerms: 0
+    OnMissingTranslation: 1
+    mTerm_AppName: 
+    mLanguages:
+    - Name: Japanese
+      Code: ja
+      Flags: 0
+    - Name: English
+      Code: en
+      Flags: 0
+    - Name: German
+      Code: de
+      Flags: 0
+    - Name: Italian
+      Code: it
+      Flags: 0
+    - Name: French
+      Code: fr
+      Flags: 0
+    - Name: Chinese
+      Code: zh
+      Flags: 0
+    - Name: Spanish
+      Code: es
+      Flags: 0
+    IgnoreDeviceLanguage: 0
+    _AllowUnloadingLanguages: 0
+    Google_WebServiceURL: 
+    Google_SpreadsheetKey: 
+    Google_SpreadsheetName: 
+    Google_LastUpdatedVersion: 
+    Google_Password: change_this
+    GoogleUpdateFrequency: 3
+    GoogleInEditorCheckFrequency: 2
+    GoogleUpdateSynchronization: 1
+    GoogleUpdateDelay: 0
+    Assets: []
+    Spreadsheet_LocalFileName: 
+    Spreadsheet_LocalCSVSeparator: ','
+    Spreadsheet_LocalCSVEncoding: utf-8
+    Spreadsheet_SpecializationAsRows: 1

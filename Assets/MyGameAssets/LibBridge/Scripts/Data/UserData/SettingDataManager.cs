@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using VMUnityLib;
 using TMPro;
+using I2.Loc;
 
 /// <summary>
 /// ゲームの設定データ管理クラス
@@ -128,6 +129,46 @@ public class SettingDataManager : MonoBehaviour
                 break;
             case SettingData.SkinType.IsobeMochi:
                 UseSkin.text = "磯部餅";
+                break;
+        }
+    }
+
+    /// <summary>
+    /// 使用言語の切り替え
+    /// NOTO: m.tanaka ドロップダウンの値変更時に呼んでます
+    /// </summary>
+    public void ChangeLanguage()
+    {
+        // 選択されたドロップダウンの番号に応じて言語を切り替える
+        switch (LanguageSelect.value)
+        {
+            // 日本語
+            case (int)SettingData.LanguageType.Japanese:
+                LocalizationManager.CurrentLanguage = SettingData.LanguageType.Japanese.ToString();
+                break;
+            // 英語
+            case (int)SettingData.LanguageType.English:
+                LocalizationManager.CurrentLanguage = SettingData.LanguageType.English.ToString();
+                break;
+            // ドイツ語
+            case (int)SettingData.LanguageType.German:
+                LocalizationManager.CurrentLanguage = SettingData.LanguageType.German.ToString();
+                break;
+            // イタリア語
+            case (int)SettingData.LanguageType.Italian:
+                LocalizationManager.CurrentLanguage = SettingData.LanguageType.Italian.ToString();
+                break;
+            // フランス語
+            case (int)SettingData.LanguageType.French:
+                LocalizationManager.CurrentLanguage = SettingData.LanguageType.French.ToString();
+                break;
+            // 中国語
+            case (int)SettingData.LanguageType.Chinese:
+                LocalizationManager.CurrentLanguage = SettingData.LanguageType.Chinese.ToString();
+                break;
+            // スペイン語
+            case (int)SettingData.LanguageType.Spanish:
+                LocalizationManager.CurrentLanguage = SettingData.LanguageType.Spanish.ToString();
                 break;
         }
     }
