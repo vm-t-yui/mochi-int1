@@ -12,6 +12,7 @@ public class MainPlayerAnimator : SingletonMonoBehaviour<MainPlayerAnimator>
     public enum AnimKind
     {
         Main,                               // メイン
+        Wait,                               // 待機
         RightPunch,                         // 右パンチ
         LeftPunch,                          // 左パンチ
         Rescue,                             // うさぎ救助
@@ -44,12 +45,13 @@ public class MainPlayerAnimator : SingletonMonoBehaviour<MainPlayerAnimator>
         // 種類に応じたアニメーション開始
         switch(kind)
         {
+            case (int)AnimKind.Wait: playerAnim.SetTrigger("Wait"); break;
             case (int)AnimKind.RightPunch: playerAnim.SetTrigger("RPunch"); break;
             case (int)AnimKind.LeftPunch: playerAnim.SetTrigger("LPunch"); break;
             case (int)AnimKind.Rescue: playerAnim.SetTrigger("Rescue"); break;
             case (int)AnimKind.SpecialArts: playerAnim.SetTrigger("SpecialArts"); break;
             case (int)AnimKind.OrangeCatch:
-                if (GameDataManager.Inst.PlayData.LastScore >= ScoreManager.GoodScore)
+                if (GameDataManager.Inst.PlayData.LastScore < ScoreManager.GoodScore)
                 {
                     playerAnim.SetTrigger("LowScore");
                 }
@@ -80,5 +82,9 @@ public class MainPlayerAnimator : SingletonMonoBehaviour<MainPlayerAnimator>
     {
         // シーン切り替え
         sceneChanger.ChangeScene();
+
+        // プレイ回数をセーブ
+        GameDataManager.Inst.PlayData.PlayCount = GameDataManager.Inst.PlayData.PlayCount++;
+        JsonDataSaver.Save(GameDataManager.Inst.PlayData);
     }
 }

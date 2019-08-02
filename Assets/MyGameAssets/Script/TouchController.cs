@@ -8,37 +8,107 @@ using UnityEngine.UI;
 /// </summary>
 public class TouchController : MonoBehaviour
 {
-    [SerializeField]
-    PlayerController player = default;  // プレイヤークラス
+    // 入力の種類
+    enum InputKind
+    {
+        Touch,      // タッチ
+        Swipe,      // スワイプ
+        Lenght      // enumの長さ
+    }
 
-    bool isTouch = false;               // タッチフラグ
-    bool isSwipe = false;               // スワイプフラグ
-    bool isTouchPermission = true;      // タッチの許可フラグ
-    bool isSwipePermission = true;      // スワイプの許可フラグ
+    Touch touch = default;                                  // 入力のクラス
+
+    [SerializeField]
+    PlayerController player = default;                      // プレイヤークラス
+
+    [SerializeField]
+    int maxJudgeCount = 5;                                 // ジャッジ処理の最大カウント
+
+    int nowJudgeCount = 0;                                  // ジャッジ処理の経過カウント
+
+    bool isInputJudge = false;                              // タッチかスワイプかを判断する開始フラグ
+    bool[] isInput = new bool[(int)InputKind.Lenght];       // 判断中のどちらの入力が入ったかを入れるフラグ
+    bool isTouch = false;                                   // タッチフラグ
+    bool isSwipe = false;                                   // スワイプフラグ
+    bool isInputPermission = true;                          // タッチの許可フラグ
 
     /// <summary>
     /// 更新処理
     /// </summary>
     void Update()
     {
-        // ゲームがスタートしていて、プレイヤーが待機中なら入力を受け付ける
-        if (Input.touchCount > 0 && player.IsWait && Timer.Inst.IsStart)
+        // 入力を受けたら入力情報を取得し、入力処理のジャッジに移行
+        if (Input.touchCount == 1 && Timer.Inst.IsStart && !isInputJudge && isInputPermission)
         {
-            Touch touch = Input.GetTouch(0);
+            touch = Input.GetTouch(0);
 
-            // タッチ(タッチの許可がされてあればタッチを取得)
-            if (touch.phase == TouchPhase.Began && isTouchPermission)
+            // 入力直後ならジャッジに入る
+            if (touch.phase == TouchPhase.Began)
             {
-				isTouch = true;
-                isTouchPermission = false;
-            }
-            // スワイプ(スワイプの許可がされてあればタッチを取得)
-            if (touch.deltaPosition.magnitude > 1.5f && isSwipePermission)
-            {
-				isSwipe = true;
-                isSwipePermission = false;
+                // 入力処理のジャッジ開始
+                StartCoroutine(InputJudge());
             }
         }
+    }
+
+    /// <summary>
+    /// 入力がタッチなのかスワイプなのか判断
+    /// </summary>
+    IEnumerator InputJudge()
+    {
+        // ジャッジの経過時間が最大を超えるまで
+        while (nowJudgeCount < maxJudgeCount)
+        {
+            // ジャッジの経過時間をカウント
+            nowJudgeCount++;
+
+            // タッチ(タッチの許可がされてあればタッチを取得)
+            if (touch.phase == TouchPhase.Began)
+            {
+                isInput[(int)InputKind.Touch] = true;
+            }
+            // スワイプ(スワイプの許可がされてあればタッチを取得)
+            if (touch.deltaPosition.magnitude > 2f)
+            {
+                isInput[(int)InputKind.Touch] = false;
+                isInput[(int)InputKind.Swipe] = true;
+            }
+            if (touch.phase == TouchPhase.Ended)
+            {
+                nowJudgeCount = maxJudgeCount;
+            }
+
+            yield return new WaitForSeconds(0.001f);
+        }
+
+        // 超えたらフラグを出力
+        if (isInput[(int)InputKind.Touch])
+        {
+            isTouch = true;
+            isSwipe = false;
+        }
+        else
+        {
+            isTouch = false;
+            isSwipe = true;
+        }
+
+        // モーションが終わるまで処理に入らせないようにする
+        isInputPermission = false;
+
+        // 各フラグのリセット
+        FlagReset();
+    }
+
+    /// <summary>
+    /// 各フラグのリセット
+    /// </summary>
+    void FlagReset()
+    {
+        isInputJudge = false;
+        isInput[(int)InputKind.Touch] = false;
+        isInput[(int)InputKind.Swipe] = false;
+        nowJudgeCount = 0;
     }
 
     /// <summary>
@@ -46,8 +116,7 @@ public class TouchController : MonoBehaviour
     /// </summary>
     public void ResetPermission()
     {
-        isTouchPermission = true;
-        isSwipePermission = true;
+        isInputPermission = true;
     }
 
     /// <summary>

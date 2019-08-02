@@ -16,7 +16,8 @@ public class PlayerController : MonoBehaviour
     public bool isPunch = false;                                    // パンチフラグ
     public bool isRescue = false;                                   // 救助フラグ
     public bool isSpecialArts = false;                              // 大技フラグ
-    public bool IsWait { get; private set; } = true;                // 待機中フラグ
+
+    bool isEnd = false;                                             // 処理終了フラグ
 
     int punchSide = (int)MainAnim.RightPunch;                       // パンチの種類
 
@@ -29,7 +30,7 @@ public class PlayerController : MonoBehaviour
         isPunch = false;
         isRescue = false;
         isSpecialArts = false;
-        IsWait = true;
+        isEnd = false;
     }
 
     /// <summary>
@@ -38,25 +39,26 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // タイムアップになったら
-        if (Timer.Inst.IsTimeup && !isSpecialArts)
+        if (Timer.Inst.IsTimeup && !isEnd)
         {
             // 大技開始
             SpecialArts();
+            isEnd = true;
         }
         // まだ時間が余っていたら
         else
         {
-            // タッチされたら
-            if (touch.GetIsTouch())
-            {
-                // パンチ開始
-                Punch();
-            }
             // スワイプされたら
             if (touch.GetIsSwipe())
             {
                 // うさぎ救助開始
                 Rescue();
+            }
+            // タッチされたら
+            else if (touch.GetIsTouch())
+            {
+                // パンチ開始
+                Punch();
             }
         }
     }
@@ -105,19 +107,10 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// 待機状態を解除(アニメーションイベント用)
+    /// 入力待ち状態に入る(アニメーションイベント用)
     /// </summary>
-    void NotWait()
+    void InputWait()
     {
-        IsWait = false;
-    }
-
-    /// <summary>
-    /// 待機状態に入る(アニメーションイベント用)
-    /// </summary>
-    void Wait()
-    {
-        IsWait = true;
         touch.ResetPermission();
     }
 

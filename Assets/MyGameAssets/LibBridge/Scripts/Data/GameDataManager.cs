@@ -10,8 +10,8 @@ using System.Collections.Generic;
 public class GameDataManager : Singleton<GameDataManager>
 {
     public UserData    UserData    { get; set; }
-    public PlayData    PlayData    { get; set; }    // プレイデータ
-    public SettingData SettingData { get; set; }    // 設定データ
+    public PlayData    PlayData    { get; set; }            // プレイデータ
+    public SettingData SettingData { get; set; }            // 設定データ
 
     public IdentifiedDataManager<EffectData> EffectDataManager { get; set; }
     public IdentifiedDataManager<VoiceData> VoiceDataManager { get; set; }
@@ -56,6 +56,7 @@ public class GameDataManager : Singleton<GameDataManager>
 
         PlayData = new PlayData();
         SettingData = new SettingData();
+
         // 各セーブデータがあればロードする
         PlayData = JsonDataSaver.FileExists(PlayData) ? JsonDataSaver.Load(PlayData) : PlayData;
         SettingData = JsonDataSaver.FileExists(SettingData) ? JsonDataSaver.Load(SettingData) : SettingData;
