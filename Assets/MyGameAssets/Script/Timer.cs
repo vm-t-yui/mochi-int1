@@ -88,6 +88,15 @@ public class Timer : SingletonMonoBehaviour<Timer>
     }
 
     /// <summary>
+    /// 終了処理
+    /// </summary>
+    void OnDisable()
+    {
+        IsTimeup = false;
+        IsStart = false;
+    }
+
+    /// <summary>
     /// うさぎを助けた時のタイムプラス
     /// </summary>
     public void TimePlus()
