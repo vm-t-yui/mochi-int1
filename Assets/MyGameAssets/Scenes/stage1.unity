@@ -481,8 +481,8 @@ Transform:
   m_LocalPosition: {x: -135.35393, y: -22.144186, z: -17.423786}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 1080134910}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1046922538
 GameObject:
@@ -514,6 +514,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 7310337}
+  maxJudgeCount: 10
 --- !u!4 &1046922540
 Transform:
   m_ObjectHideFlags: 0
