@@ -14,17 +14,38 @@ public class UIResult : CmnMonoBehaviour
     protected override void InitSceneChange() { }
     protected override void OnSceneDeactive() { }
     protected override void OnFadeInEnd() { }
-    protected override void FixedUpdate() { }
+
+    [SerializeField]
+    ResultPlayerAnimator resultPlayerAnimator = default;    // リザルトプレイヤーアニメータークラス
+
+    bool isInterstitial = false;                            // インタースティシャル表示フラグ
+
 
     /// <summary>
     /// 初期化.
     /// </summary>
     public override void Start()
     {
+        // 表示フラグをリセット
+        isInterstitial = false;
+
         // バナー表示
         AdManager.Inst.ShowBanner((int)AdBannerController.BANNER.BOTTOM);
 
         GameServiceUtil.Auth();
+    }
+
+    /// <summary>
+    /// 更新処理
+    /// </summary>
+    protected override void FixedUpdate()
+    {
+        // プレイヤーのアニメーションが終わったら
+        if(resultPlayerAnimator.IsEnd && !isInterstitial)
+        {
+            // インタースティシャル表示
+            ShowInterstitial();
+        }
     }
 
     /// <summary>
@@ -59,6 +80,9 @@ public class UIResult : CmnMonoBehaviour
     public void ShowInterstitial()
     {
         AdManager.Inst.ShowInterstitial();
+
+        // 連続で表示しないようにする
+        isInterstitial = true;
     }
 
     /// <summary>

@@ -80,5 +80,9 @@ public class MainPlayerAnimator : SingletonMonoBehaviour<MainPlayerAnimator>
     {
         // シーン切り替え
         sceneChanger.ChangeScene();
+
+        // プレイ回数をセーブ
+        GameDataManager.Inst.PlayData.PlayCount = GameDataManager.Inst.PlayData.PlayCount++;
+        JsonDataSaver.Save(GameDataManager.Inst.PlayData);
     }
 }
