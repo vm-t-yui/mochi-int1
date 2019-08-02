@@ -12,6 +12,7 @@ public class MainPlayerAnimator : SingletonMonoBehaviour<MainPlayerAnimator>
     public enum AnimKind
     {
         Main,                               // メイン
+        Wait,                               // 待機
         RightPunch,                         // 右パンチ
         LeftPunch,                          // 左パンチ
         Rescue,                             // うさぎ救助
@@ -44,6 +45,7 @@ public class MainPlayerAnimator : SingletonMonoBehaviour<MainPlayerAnimator>
         // 種類に応じたアニメーション開始
         switch(kind)
         {
+            case (int)AnimKind.Wait: playerAnim.SetTrigger("Wait"); break;
             case (int)AnimKind.RightPunch: playerAnim.SetTrigger("RPunch"); break;
             case (int)AnimKind.LeftPunch: playerAnim.SetTrigger("LPunch"); break;
             case (int)AnimKind.Rescue: playerAnim.SetTrigger("Rescue"); break;
