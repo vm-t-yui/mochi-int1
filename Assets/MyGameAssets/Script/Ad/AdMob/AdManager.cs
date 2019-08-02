@@ -151,7 +151,7 @@ public class AdManager : SingletonMonoBehaviour<AdManager>
     }
 
     /// <summary>
-    /// インタースティシャル広告表示
+    /// リザルトの広告表示
     /// </summary>
     public void ShowResultAd()
     {
