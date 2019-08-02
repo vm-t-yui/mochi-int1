@@ -242,6 +242,11 @@ PrefabInstance:
       propertyPath: resultPlayerAnimator
       value: 
       objectReference: {fileID: 1225688886732000202}
+    - target: {fileID: 6835369214017663140, guid: e3708c942552346639722a502ab9495b,
+        type: 3}
+      propertyPath: sceneChanger
+      value: 
+      objectReference: {fileID: 538473432}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3708c942552346639722a502ab9495b, type: 3}
 --- !u!224 &82080621 stripped
@@ -1269,6 +1274,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ResultObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 9115723301915178188, guid: ac50695a8a08348119c67f7542420b1c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9115723301568473002, guid: ac50695a8a08348119c67f7542420b1c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 511359070883017384, guid: ac50695a8a08348119c67f7542420b1c,
         type: 3}

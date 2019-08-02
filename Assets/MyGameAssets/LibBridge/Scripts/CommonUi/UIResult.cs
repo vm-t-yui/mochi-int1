@@ -18,20 +18,36 @@ public class UIResult : CmnMonoBehaviour
     [SerializeField]
     ResultPlayerAnimator resultPlayerAnimator = default;    // リザルトプレイヤーアニメータークラス
 
-    bool isInterstitial = false;                            // インタースティシャル表示フラグ
+    [SerializeField]
+    SceneChanger sceneChanger = default;                    // シーンチェンジクラス
 
+    bool isShowAd = false;                                  // リザルト広告表示フラグ
+
+    /// <summary>
+    /// 起動処理
+    /// </summary>
+    void OnEnable()
+    {
+        // 表示フラグをリセット
+        isShowAd = false;
+
+        // バナー表示
+        AdManager.Inst.ShowBanner((int)AdBannerController.BANNER.BOTTOM);
+    }
+
+    /// <summary>
+    /// 終了処理
+    /// </summary>
+    void OnDisable()
+    {
+        HideBanner();
+    }
 
     /// <summary>
     /// 初期化.
     /// </summary>
     public override void Start()
     {
-        // 表示フラグをリセット
-        isInterstitial = false;
-
-        // バナー表示
-        AdManager.Inst.ShowBanner((int)AdBannerController.BANNER.BOTTOM);
-
         GameServiceUtil.Auth();
     }
 
@@ -41,10 +57,16 @@ public class UIResult : CmnMonoBehaviour
     protected override void FixedUpdate()
     {
         // プレイヤーのアニメーションが終わったら
-        if(resultPlayerAnimator.IsEnd && !isInterstitial)
+        if(resultPlayerAnimator.IsEnd && !isShowAd)
         {
-            // インタースティシャル表示
-            ShowInterstitial();
+            // インタースティシャルか動画広告表示
+            ShowAd();
+        }
+
+        // スッキプせずに動画広告を見終わったらシーンを切り替える
+        if(AdManager.Inst.GetIsRewardEnd())
+        {
+            sceneChanger.ChangeScene();
         }
     }
 
@@ -75,14 +97,14 @@ public class UIResult : CmnMonoBehaviour
     }
 
     /// <summary>
-    /// インタースティシャル広告表示
+    ///  インタースティシャルか動画広告表示
     /// </summary>
-    public void ShowInterstitial()
+    public void ShowAd()
     {
-        AdManager.Inst.ShowInterstitial();
+        AdManager.Inst.ShowResultAd();
 
         // 連続で表示しないようにする
-        isInterstitial = true;
+        isShowAd = true;
     }
 
     /// <summary>
@@ -91,13 +113,5 @@ public class UIResult : CmnMonoBehaviour
     public void HideBanner()
     {
         AdManager.Inst.HideBanner();
-    }
-
-    /// <summary>
-    /// 動画リワード広告表示
-    /// </summary>
-    public void PlayAdVideo()
-    {
-        AdManager.Inst.PlayAdVideo();
     }
 }
