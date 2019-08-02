@@ -107,11 +107,10 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// 待機状態に入る(アニメーションイベント用)
+    /// 入力待ち状態に入る(アニメーションイベント用)
     /// </summary>
-    void Wait()
+    void InputWait()
     {
-        MainPlayerAnimator.Inst.AnimStart((int)MainAnim.Wait);
         touch.ResetPermission();
     }
 

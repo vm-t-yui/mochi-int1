@@ -1064,15 +1064,8 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.06666667
-    functionName: NotWait
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
   - time: 2.4333334
-    functionName: Wait
+    functionName: InputWait
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

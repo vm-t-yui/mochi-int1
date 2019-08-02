@@ -734,7 +734,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.033333335
-    functionName: Wait
+    functionName: InputWait
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
