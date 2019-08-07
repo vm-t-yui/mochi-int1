@@ -11,6 +11,9 @@ using MainAnim = MainPlayerAnimator.AnimKind;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
+    Timer timer = default;                                          // タイマークラス
+
+    [SerializeField]
     TouchController touch = default;                                // タッチクラス
 
     public bool isPunch = false;                                    // パンチフラグ
@@ -39,7 +42,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // タイムアップになったら
-        if (Timer.Inst.IsTimeup && !isEnd)
+        if (timer.IsTimeup && !isEnd)
         {
             // 大技開始
             SpecialArts();
