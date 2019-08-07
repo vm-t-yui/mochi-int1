@@ -8,13 +8,8 @@ using VMUnityLib;
 /// <summary>
 /// タイマークラス
 /// </summary>
-public class Timer : CmnMonoBehaviour
+public class Timer : SingletonMonoBehaviour<Timer>
 {
-    // 処理なし。メッセージ受信エラー避け.
-    public override void Start() { }
-    protected override void InitSceneChange() { }
-    protected override void OnSceneDeactive() { }
-
     [SerializeField]
     TextMeshProUGUI timer = default;                        // タイマー用テキスト
 
@@ -34,14 +29,13 @@ public class Timer : CmnMonoBehaviour
     float oldTime = 0;                                      // 非起動時の秒数
 
     /// <summary>
-    /// フェード終了時
+    /// 起動処理
     /// </summary>
-    protected override void OnFadeInEnd()
+    void OnEnable()
     {
         // 非起動時の秒数を更新
         oldTime = Time.timeSinceLevelLoad;
 
-        // 各フラグのリセット
         IsTimeup = false;
         IsStart = false;
     }
@@ -49,7 +43,7 @@ public class Timer : CmnMonoBehaviour
     /// <summary>
     /// 更新処理
     /// </summary>
-    protected override void FixedUpdate()
+    void Update()
     {
         if (!IsTimeup)
         {
@@ -74,7 +68,7 @@ public class Timer : CmnMonoBehaviour
                 }
             }
             // ゲーム開始されたらゲーム内のカウントダウン開始
-            else
+            else if(!IsTimeup)
             {
                 // 今の秒数のカウント
                 // NOTE:非起動時にもTime.timeSinceLevelLoadはカウントし続けているため、
@@ -87,11 +81,19 @@ public class Timer : CmnMonoBehaviour
                 // 指定の秒数を数え終わったらタイムアップ
                 if (nowTime < 0)
                 {
-                    timer.text = "Time UP";
                     IsTimeup = true;
                 }
             }
         }
+    }
+
+    /// <summary>
+    /// 終了処理
+    /// </summary>
+    void OnDisable()
+    {
+        IsTimeup = false;
+        IsStart = false;
     }
 
     /// <summary>
