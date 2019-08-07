@@ -28,10 +28,7 @@ public class MainPlayerAnimator : SingletonMonoBehaviour<MainPlayerAnimator>
     SceneChanger sceneChanger = default;    // シーンチェンジャー
 
     [SerializeField]
-    Animator cameraAnim = default;
-
-    [SerializeField]
-    GameObject punchEffect = default;
+    Animator cameraAnim = default;          // カメラのアニメーター
 
     /// <summary>
     /// 起動処理
@@ -100,21 +97,5 @@ public class MainPlayerAnimator : SingletonMonoBehaviour<MainPlayerAnimator>
     public void StartSpecialArtsCameraAnim()
     {
         cameraAnim.SetTrigger("SpecialArts");
-    }
-
-    /// <summary>
-    /// パンチエフェクト表示
-    /// </summary>
-    public void ActivePunchEffect()
-    {
-        punchEffect.SetActive(true);
-    }
-
-    /// <summary>
-    /// パンチエフェクト非表示
-    /// </summary>
-    public void InactivePunchEffects()
-    {
-        punchEffect.SetActive(false);
     }
 }
