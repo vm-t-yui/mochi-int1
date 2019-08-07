@@ -6,7 +6,7 @@ using VMUnityLib;
 /// <summary>
 /// タワー関連のオブジェクトを保存しておくコンテナクラス
 /// </summary>
-public class TowerObjectContainer : SingletonMonoBehaviour<TowerObjectContainer>
+public class TowerObjectDataManager : SingletonMonoBehaviour<TowerObjectDataManager>
 {
     // モチのデータパス
     [SerializeField]
