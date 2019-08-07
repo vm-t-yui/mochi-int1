@@ -11,15 +11,18 @@ using MainAnim = MainPlayerAnimator.AnimKind;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
-    TouchController touch = default;                                // タッチクラス
+    TouchController touch = default;            // タッチクラス
 
-    public bool isPunch = false;                                    // パンチフラグ
-    public bool isRescue = false;                                   // 救助フラグ
-    public bool isSpecialArts = false;                              // 大技フラグ
+    [SerializeField]
+    Timer timer = default;                      // タイマークラス
 
-    bool isEnd = false;                                             // 処理終了フラグ
+    public bool isPunch = false;                // パンチフラグ
+    public bool isRescue = false;               // 救助フラグ
+    public bool isSpecialArts = false;          // 大技フラグ
 
-    int punchSide = (int)MainAnim.RightPunch;                       // パンチの種類
+    bool isEnd = false;                         // 処理終了フラグ
+
+    int punchSide = (int)MainAnim.RightPunch;   // パンチの種類
 
     /// <summary>
     /// 起動処理
@@ -39,7 +42,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // タイムアップになったら
-        if (Timer.Inst.IsTimeup && !isEnd)
+        if (timer.IsTimeup && !isEnd)
         {
             // 大技開始
             SpecialArts();

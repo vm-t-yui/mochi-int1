@@ -22,7 +22,10 @@ public class TouchController : MonoBehaviour
     PlayerController player = default;                      // プレイヤークラス
 
     [SerializeField]
-    int maxJudgeCount = 5;                                 // ジャッジ処理の最大カウント
+    Timer timer = default;                                  // タイマークラス
+
+    [SerializeField]
+    int maxJudgeCount = 5;                                  // ジャッジ処理の最大カウント
 
     int nowJudgeCount = 0;                                  // ジャッジ処理の経過カウント
 
@@ -38,7 +41,7 @@ public class TouchController : MonoBehaviour
     void Update()
     {
         // 入力を受けたら入力情報を取得し、入力処理のジャッジに移行
-        if (Input.touchCount == 1 && Timer.Inst.IsStart && !isInputJudge && isInputPermission)
+        if (Input.touchCount == 1 && timer.IsStart && !isInputJudge && isInputPermission)
         {
             touch = Input.GetTouch(0);
 
