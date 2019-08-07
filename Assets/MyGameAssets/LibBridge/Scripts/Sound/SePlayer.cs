@@ -14,6 +14,9 @@ namespace VMUnityLib
 
         List<AudioSource> endWatchSeList = new List<AudioSource>();    // 再生終了チェックリスト
 
+        [SerializeField]
+        float RandomPitchBand = default;    // ピッチのランダム値の計算に使用
+
         /// <summary>
         /// 起動処理.
         /// </summary>
@@ -26,18 +29,40 @@ namespace VMUnityLib
         /// <summary>
         /// 再生.
         /// </summary>
-        public void PlaySe(string id, float volume = 1, float randomPitchBand = 0)
+        public void PlaySe(string id)
+        {
+            AudioSource spawnedSe;
+
+            // スポーンして、再生
+            SpawnSe(id, out spawnedSe, 0);
+        }
+
+        /// <summary>
+        /// ランダムなピッチで再生.
+        /// </summary>
+        public void PlaySeRandomPitch(string id)
+        {
+            AudioSource spawnedSe;
+
+            // スポーンして、再生
+            SpawnSe(id, out spawnedSe, RandomPitchBand);
+        }
+
+        /// <summary>
+        /// SEをスポーンして再生
+        /// </summary>
+        void SpawnSe(string id, out AudioSource spawnedSe, float pitchBand)
         {
             // 指定した音をスポーン
             Transform spawnedSeTrans = sePool.Spawn(id);
 
             // AudioSourceを取得
-            AudioSource spawnedSe = spawnedSeTrans.GetComponent<AudioSource>();
+            spawnedSe = spawnedSeTrans.GetComponent<AudioSource>();
 
             // 第3引数が0でない場合はランダムなピッチを設定
-            if (randomPitchBand > 0)
+            if (pitchBand > 0)
             {
-                spawnedSe.pitch += Random.Range(-randomPitchBand * 0.5f, randomPitchBand * 0.5f);
+                spawnedSe.pitch += Random.Range(-pitchBand * 0.5f, pitchBand * 0.5f);
             }
 
             // ボリュームを設定し、再生。ミュート時はボリューム0
@@ -47,7 +72,7 @@ namespace VMUnityLib
             }
             else
             {
-                spawnedSe.volume = volume;
+                spawnedSe.volume = GameDataManager.Inst.SettingData.SeVolume;
             }
             spawnedSe.Play();
 
@@ -85,6 +110,11 @@ namespace VMUnityLib
             foreach (var item in removeSeList)
             {
                 item.Stop();
+
+                sePool.Despawn(item.transform);
+
+                // 再生終了チェックリストから削除
+                endWatchSeList.Remove(item);
             }
         }
     }
