@@ -370,35 +370,40 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5802217174181155568, guid: 34e60736b952eee4dba2263ecaaa2597,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2242710007955976163, guid: 34e60736b952eee4dba2263ecaaa2597,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2142290299034309324, guid: 34e60736b952eee4dba2263ecaaa2597,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1096761049339558869, guid: 34e60736b952eee4dba2263ecaaa2597,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5141634085333177664, guid: 34e60736b952eee4dba2263ecaaa2597,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8797231736005624886, guid: 34e60736b952eee4dba2263ecaaa2597,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7149785060958504085, guid: 34e60736b952eee4dba2263ecaaa2597,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34e60736b952eee4dba2263ecaaa2597, type: 3}

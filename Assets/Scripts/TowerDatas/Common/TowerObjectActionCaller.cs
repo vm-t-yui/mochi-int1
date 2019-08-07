@@ -56,13 +56,13 @@ public class TowerObjectActionCaller : MonoBehaviour
         else if (playerController.GetIsRescue())
         {
             // 救出されたときのコールバック
-            objectController.OnPlayerPunched();
+            objectController.OnPlayerRescued();
         }
         // プレイヤーから最後の大技を受けたとき
         else if (playerController.GetIsSpecialArts())
         {
             // 大技を受けたときのコールバック
-            objectController.OnPlayerPunched();
+            objectController.OnPlayerSpecialArts();
         }
     }
 }
