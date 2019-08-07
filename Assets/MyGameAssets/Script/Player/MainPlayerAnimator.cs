@@ -27,6 +27,12 @@ public class MainPlayerAnimator : SingletonMonoBehaviour<MainPlayerAnimator>
     [SerializeField]
     SceneChanger sceneChanger = default;    // シーンチェンジャー
 
+    [SerializeField]
+    Animator cameraAnim = default;
+
+    [SerializeField]
+    GameObject punchEffect = default;
+
     /// <summary>
     /// 起動処理
     /// </summary>
@@ -86,5 +92,29 @@ public class MainPlayerAnimator : SingletonMonoBehaviour<MainPlayerAnimator>
         // プレイ回数をセーブ
         GameDataManager.Inst.PlayData.PlayCount = GameDataManager.Inst.PlayData.PlayCount++;
         JsonDataSaver.Save(GameDataManager.Inst.PlayData);
+    }
+
+    /// <summary>
+    /// 大技時のカメラ兄ミメーションスタート関数
+    /// </summary>
+    public void StartSpecialArtsCameraAnim()
+    {
+        cameraAnim.SetTrigger("SpecialArts");
+    }
+
+    /// <summary>
+    /// パンチエフェクト表示
+    /// </summary>
+    public void ActivePunchEffect()
+    {
+        punchEffect.SetActive(true);
+    }
+
+    /// <summary>
+    /// パンチエフェクト非表示
+    /// </summary>
+    public void InactivePunchEffects()
+    {
+        punchEffect.SetActive(false);
     }
 }
