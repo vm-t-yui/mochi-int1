@@ -17,6 +17,10 @@ public class TowerObjectSpawner : MonoBehaviour
     [SerializeField]
     RabbitLotteryMachine rabbitLotteryMachine = default;
 
+    // 積み上げられてたオブジェクトを制御するクラス
+    [SerializeField]
+    Transform stackedObjectParent = default;
+
     // モチのスポーンプール
     [SerializeField]
     SpawnPool mochiSpawnPool = default;
@@ -49,10 +53,10 @@ public class TowerObjectSpawner : MonoBehaviour
     /// </summary>
     /// <param name="spawnNum">スポーンする数</param>
     /// <returns>スポーンしたオブジェクトのTransformを返す</returns>
-    public IEnumerable<(Transform,string)> Spawn(int spawnNum)
+    public void Spawn(int spawnNum)
     {
         // スポーンしたオブジェクト
-        (Transform, string) spawnedObject;
+        Transform spawnedObject;
 
         // 指定の数だけ繰り返し抽選を行い、スポーンしていく
         for (int spawnCount = 0; spawnCount < spawnNum;)
@@ -67,10 +71,11 @@ public class TowerObjectSpawner : MonoBehaviour
             if (towerObjectType == TagName.Mochi)
             {
                 // スポーンプールからモチのオブジェクトをスポーンさせる
-                spawnedObject.Item1 = mochiSpawnPool.Spawn(mochiSkinType.ToString(), spawnPos, Quaternion.identity);
-                // スポーンしたオブジェクトをモチとして登録
-                spawnedObject.Item2 = TagName.Mochi;
-                
+                spawnedObject = mochiSpawnPool.Spawn(mochiSkinType.ToString(), spawnPos, Quaternion.identity,stackedObjectParent);
+                // 生成したオブジェクトをオンにする
+                // NOTE : 何故か自動でオンになってくれないときがあるため
+                spawnedObject.gameObject.SetActive(true);
+
                 // 前回スポーンしたオブジェクトをモチとして登録する
                 prevSpawnObjectType = TagName.Mochi;
             }
@@ -81,18 +86,16 @@ public class TowerObjectSpawner : MonoBehaviour
                 if (prevSpawnObjectType == TagName.Rabbit) { continue; }
                 
                 // ウサギの抽選を行う
-                string rabbitId = LotteryRabbit();
+                string rabbitId = rabbitLotteryMachine.LotteryRabbit();
                 // 決定したウサギをスポーンさせる
-                spawnedObject.Item1 = rabbitSpawnPool.Spawn(rabbitId, spawnPos,Quaternion.identity);
-                // スポーンしたオブジェクトをウサギとして登録
-                spawnedObject.Item2 = TagName.Rabbit;
-                
+                spawnedObject = rabbitSpawnPool.Spawn(rabbitId, spawnPos,Quaternion.identity,stackedObjectParent);
+                // 生成したオブジェクトをオンにする
+                // NOTE : 何故か自動でオンになってくれないときがあるため
+                spawnedObject.gameObject.SetActive(true);
+
                 // 前回スポーンしたオブジェクトをウサギとして登録する
                 prevSpawnObjectType = TagName.Rabbit; ;
             }
-
-            // スポーンしたオブジェクトを返す
-            yield return spawnedObject;
 
             // カウンター
             spawnCount++;
@@ -100,43 +103,51 @@ public class TowerObjectSpawner : MonoBehaviour
     }
 
     /// <summary>
-    /// ウサギの抽選を行う
-    /// </summary>
-    public string LotteryRabbit()
-    {
-        // ウサギのレアリティの抽選を行う
-        string rarityId = rabbitLotteryMachine.LotteryRarity();
-        // 決定したレアリティに属しているウサギで再度抽選を行う
-        string rabbitId = rabbitLotteryMachine.LotterySpawnRabbit(rarityId);
-
-        // 最終的に決定したウサギのIDを返す
-        return rabbitId;
-    }
-
-    /// <summary>
-    /// スポーンしたオブジェクトを消す
+    /// 指定したオブジェクトを消す
     /// </summary>
     /// <param name="objectType">消すオブジェクトの種類</param>
     /// <param name="instance">消すオブジェクトのインスタンス</param>
-    /// <param name="seconds">削除までの遅延（秒）</param>
-    public void Despawn(string objectType,Transform instance,float seconds)
+    public void Despawn(Transform spawnedObject)
     {
         // モチだった場合
-        if (objectType == TagName.Mochi)
+        if (spawnedObject.tag == TagName.Mochi)
         {
             // モチを削除
-            mochiSpawnPool.Despawn(instance);
+            mochiSpawnPool.Despawn(spawnedObject);
         }
         // ウサギだった場合
-        else if (objectType == TagName.Rabbit)
+        else if (spawnedObject.tag == TagName.Rabbit)
         {
             // ウサギを削除
-            rabbitSpawnPool.Despawn(instance,1);
+            rabbitSpawnPool.Despawn(spawnedObject);
         }
         // それ以外だったらエラー
         else
         {
-            Debug.LogError("ObjectType : " + objectType + " not found.");
+            Debug.LogError("ObjectType : " + spawnedObject.tag + " not found.");
+        }
+    }
+
+    /// <summary>
+    /// 生成されたオブジェクトの親を元に戻す
+    /// </summary>
+    /// <param name="spawnedObject">元に戻すオブジェクト</param>
+    public void UndoParent(Transform spawnedObject)
+    {
+        // モチだった場合
+        if (spawnedObject.tag == TagName.Mochi)
+        {
+            spawnedObject.SetParent(mochiSpawnPool.transform);
+        }
+        // ウサギだった場合
+        else if (spawnedObject.tag == TagName.Rabbit)
+        {
+            spawnedObject.SetParent(rabbitSpawnPool.transform);
+        }
+        // それ以外だったらエラー
+        else
+        {
+            Debug.LogError("ObjectType : " + spawnedObject.tag + " not found.");
         }
     }
 }

@@ -29,9 +29,9 @@ public class RabbitLotteryMachine : MonoBehaviour
         Random.InitState(System.DateTime.Now.Millisecond);
 
         // データマネージャーから全てのレアリティのデータを取得する
-        rabbitRarityDatas = TowerObjectContainer.Inst.RabbitRarityDataManager.GetAllData();
+        rabbitRarityDatas = TowerObjectDataManager.Inst.RabbitRarityDataManager.GetAllData();
         // データマネージャーから全てのウサギのデータを取得する
-        rabbitDatas = TowerObjectContainer.Inst.RabbitDataManager.GetAllData();
+        rabbitDatas = TowerObjectDataManager.Inst.RabbitDataManager.GetAllData();
     }
 
     /// <summary>
@@ -97,6 +97,20 @@ public class RabbitLotteryMachine : MonoBehaviour
     }
 
     /// <summary>
+    /// ウサギの抽選を行う
+    /// </summary>
+    public string LotteryRabbit()
+    {
+        // ウサギのレアリティの抽選を行う
+        string rarityId = LotteryRarity();
+        // 決定したレアリティに属しているウサギで再度抽選を行う
+        string rabbitId = LotterySpawnRabbit(rarityId);
+
+        // 最終的に決定したウサギのIDを返す
+        return rabbitId;
+    }
+
+    /// <summary>
     /// 指定のレアリティに属しているウサギのデータを取得する
     /// </summary>
     /// <param name="rarityId">指定のレアリティ</param>
@@ -105,7 +119,7 @@ public class RabbitLotteryMachine : MonoBehaviour
     {
         // レアリティのデータを取得
         RabbitRarityData rarityData;
-        TowerObjectContainer.Inst.RabbitRarityDataManager.GetData(rarityId,out rarityData);
+        TowerObjectDataManager.Inst.RabbitRarityDataManager.GetData(rarityId,out rarityData);
 
         // 指定のレアリティに属しているウサギをIDで判定して取得していく
         foreach(string rabbitId in rarityData.RabbitIds)
