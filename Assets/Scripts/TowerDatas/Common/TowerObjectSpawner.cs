@@ -52,7 +52,6 @@ public class TowerObjectSpawner : MonoBehaviour
     /// オブジェクトのスポーンを行う
     /// </summary>
     /// <param name="spawnNum">スポーンする数</param>
-    /// <returns>スポーンしたオブジェクトのTransformを返す</returns>
     public void Spawn(int spawnNum)
     {
         // スポーンしたオブジェクト

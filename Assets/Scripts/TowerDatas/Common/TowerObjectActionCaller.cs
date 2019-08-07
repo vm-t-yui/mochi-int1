@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// タワーオブジェクトの消滅の制御を行う
+/// プレイヤーのアクションをもとにオブジェクトのアクションをコールする関数
 /// </summary>
-public class TowerObjectDespawnController : MonoBehaviour
+public class TowerObjectActionCaller : MonoBehaviour
 {
+    // プレイヤーの制御クラス
     [SerializeField]
     PlayerController playerController = default;
 
@@ -27,10 +28,13 @@ public class TowerObjectDespawnController : MonoBehaviour
     /// </summary>
     void Update()
     {
+        // プレイヤーのそれぞれのアクションのフラグを取得する
+        bool isPaunched = playerController.GetIsPunch();
+        bool isRescued = playerController.GetIsRescue();
+        bool isSpecialArts = playerController.GetIsSpecialArts();
+
         // プレイヤーが何らかのアクションを起こしたときのみ、以下の処理を行う
-        if (!playerController.GetIsPunch()   || 
-            !playerController.GetIsRescue()  ||
-            !playerController.GetIsSpecialArts())
+        if (!isPaunched && !isRescued && !isSpecialArts)
         {
             return;
         }
