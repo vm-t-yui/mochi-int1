@@ -11,7 +11,7 @@ public class BtmanController : MonoBehaviour
 
     bool isFly = true;                                      // 飛べるかどうかのフラグ
 
-    Vector3 initPos = new Vector3(10.0f, -40.0f, 100.0f); 　// 初期位置
+    Vector3 initPos = new Vector3(10.0f, -60.0f, 100.0f); 　// 初期位置
 
     [SerializeField]
     GameObject flyParticle = default;                       // 飛んでる時の煙パーティクル
@@ -64,6 +64,9 @@ public class BtmanController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 落下開始処理
+    /// </summary>
     void Fall()
     {
         isFly = false;
