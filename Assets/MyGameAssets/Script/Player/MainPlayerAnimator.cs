@@ -27,6 +27,9 @@ public class MainPlayerAnimator : SingletonMonoBehaviour<MainPlayerAnimator>
     [SerializeField]
     SceneChanger sceneChanger = default;    // シーンチェンジャー
 
+    [SerializeField]
+    Animator cameraAnim = default;          // カメラのアニメーター
+
     /// <summary>
     /// 起動処理
     /// </summary>
@@ -86,5 +89,13 @@ public class MainPlayerAnimator : SingletonMonoBehaviour<MainPlayerAnimator>
         // プレイ回数をセーブ
         GameDataManager.Inst.PlayData.PlayCount = GameDataManager.Inst.PlayData.PlayCount++;
         JsonDataSaver.Save(GameDataManager.Inst.PlayData);
+    }
+
+    /// <summary>
+    /// 大技時のカメラアニメーションスタート関数
+    /// </summary>
+    public void StartSpecialArtsCameraAnim()
+    {
+        cameraAnim.SetTrigger("SpecialArts");
     }
 }
