@@ -92,7 +92,7 @@ public class MainPlayerAnimator : SingletonMonoBehaviour<MainPlayerAnimator>
     }
 
     /// <summary>
-    /// 大技時のカメラ兄ミメーションスタート関数
+    /// 大技時のカメラアニメーションスタート関数
     /// </summary>
     public void StartSpecialArtsCameraAnim()
     {
