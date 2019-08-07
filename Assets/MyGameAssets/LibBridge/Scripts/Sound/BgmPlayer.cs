@@ -9,9 +9,12 @@ namespace VMUnityLib
 {
     public class BgmPlayer : MonoBehaviour
     {
-        SpawnPool bgmPool;    // BGMのプール
+        SpawnPool bgmPool;                             // BGMのプール
 
         AudioSource spawnedBgm = new AudioSource();    // 再生中のBGM
+
+        bool isResult       = false;                   // リザルトフラグ
+        bool isPlayedResult = false;                   // リザルトBGM再生完了フラグ
 
         /// <summary>
         /// 起動処理.
@@ -44,6 +47,16 @@ namespace VMUnityLib
         }
 
         /// <summary>
+        /// 再生（リザルト用）.
+        /// </summary>
+        public void PlayResultBgm(string id)
+        {
+            isResult = true;
+
+            PlayBgm(id);
+        }
+
+        /// <summary>
         /// ミュート時はボリューム0、非ミュート時は設定データの値を反映.
         /// </summary>
         void LateUpdate()
@@ -59,6 +72,20 @@ namespace VMUnityLib
             {
                 spawnedBgm.volume = GameDataManager.Inst.SettingData.BgmVolume;
             }
+
+            // リザルト時
+            if (isResult)
+            {
+                // 最初に再生した
+                if (!spawnedBgm.isPlaying && !isPlayedResult)
+                {
+                    StopBgm();
+
+                    PlayBgm(BgmID.Result);
+
+                    isPlayedResult = true;
+                }
+            }
         }
 
         /// <summary>
@@ -67,6 +94,8 @@ namespace VMUnityLib
         public void StopBgm()
         {
             spawnedBgm.Stop();
+
+            bgmPool.Despawn(spawnedBgm.transform);
         }
     }
 }
