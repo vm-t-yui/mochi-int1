@@ -76,11 +76,12 @@ namespace VMUnityLib
             // リザルト時
             if (isResult)
             {
-                // 最初に再生した
+                // ジングルが終了したら
                 if (!spawnedBgm.isPlaying && !isPlayedResult)
                 {
                     StopBgm();
 
+                    // リザルトBGMを再生
                     PlayBgm(BgmID.Result);
 
                     isPlayedResult = true;

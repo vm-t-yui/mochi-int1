@@ -111,7 +111,10 @@ namespace VMUnityLib
             {
                 item.Stop();
 
-                sePool.DespawnAll();
+                sePool.Despawn(item.transform);
+
+                // 再生終了チェックリストから削除
+                endWatchSeList.Remove(item);
             }
         }
     }
