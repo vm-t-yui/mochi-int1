@@ -29,9 +29,14 @@ public class TowerObjectSpawner : MonoBehaviour
     [SerializeField]
     SpawnPool rabbitSpawnPool = default;
 
+    // オブジェクトの基準の位置
+    [SerializeField]
+    Vector3 baseSpawnPosition = Vector3.zero;
+
     // スポーン時のオブジェクト間の高さの間隔
     [SerializeField]
     float spawnHeightInterval = 0;
+    public float SpawnHeightInterval { get { return spawnHeightInterval; } }
 
     // 前回スポーンしたオブジェクトの種類
     string prevSpawnObjectType = null;
@@ -46,6 +51,11 @@ public class TowerObjectSpawner : MonoBehaviour
     {
         // 現在のモチのスキンを取得する
         mochiSkinType = GameDataManager.Inst.SettingData.UseSkin;
+
+        // スポーンの基準位置から最初のオブジェクトのスポーン位置を決定する（スポーン高さ = 地面の高さ * 1.5f）
+        transform.position = new Vector3(baseSpawnPosition.x,
+                                         baseSpawnPosition.y + spawnHeightInterval * 1.5f,
+                                         baseSpawnPosition.z);
     }
 
     /// <summary>
@@ -57,11 +67,14 @@ public class TowerObjectSpawner : MonoBehaviour
         // スポーンしたオブジェクト
         Transform spawnedObject;
 
+        // 基準のスポーン位置を取得
+        Vector3 baseSpawnPos = GetBaseSpawnPos();
+
         // 指定の数だけ繰り返し抽選を行い、スポーンしていく
         for (int spawnCount = 0; spawnCount < spawnNum;)
         {
             // スポーン位置の計算
-            Vector3 spawnPos = new Vector3(transform.position.x, transform.position.y + spawnHeightInterval * spawnCount, transform.position.z);
+            Vector3 spawnPos = new Vector3(baseSpawnPos.x, baseSpawnPos.y + spawnHeightInterval * spawnCount, baseSpawnPos.z);
 
             // モチかウサギかの抽選を行う
             string towerObjectType = objectTypeLotteryMachine.SpawnLotteryMochiAndRabbit();
@@ -125,6 +138,24 @@ public class TowerObjectSpawner : MonoBehaviour
         {
             Debug.LogError("ObjectType : " + spawnedObject.tag + " not found.");
         }
+    }
+
+    /// <summary>
+    /// 基準のスポーン位置を取得
+    /// </summary>
+    /// <returns></returns>
+    Vector3 GetBaseSpawnPos()
+    {
+        // タワーのオブジェクトが存在していなければ、最初のオブジェクトのスポーン位置を返す
+        if (stackedObjectParent.childCount <= 0)
+        {
+            return transform.position;
+        }
+
+        // タワーの一番上のオブジェクトを取得
+        Transform topObject = stackedObjectParent.GetChild(stackedObjectParent.childCount - 1);
+        // 一番上のオブジェクトのひとつ上の位置を基準のスポーン位置にする
+        return new Vector3(topObject.position.x, topObject.position.y + spawnHeightInterval, topObject.position.z);
     }
 
     /// <summary>

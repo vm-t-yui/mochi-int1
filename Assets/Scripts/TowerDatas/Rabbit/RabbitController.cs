@@ -7,6 +7,10 @@ using UnityEngine;
 /// </summary>
 public class RabbitController : ObjectControllerBase
 {
+    // オブジェクトのスポーンクラス
+    [SerializeField]
+    TowerObjectSpawner towerObjectSpawner = default;
+
     // アニメーターコンポーネント
     [SerializeField]
     Animator animator = default;
@@ -34,5 +38,16 @@ public class RabbitController : ObjectControllerBase
     public override void OnPlayerSpecialArts()
     {
 
+    }
+
+    /// <summary>
+    /// オブジェクトのアクションが終了したときに呼ぶコールバック
+    /// </summary>
+    public void OnControlFinished()
+    {
+        // オブジェクト自信をデスポーンする
+        towerObjectSpawner.Despawn(this.transform);
+        // アニメーションを待機に変更
+        animator.Play("Stay");
     }
 }

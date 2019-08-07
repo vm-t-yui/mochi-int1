@@ -7,6 +7,10 @@ using UnityEngine;
 /// </summary>
 public class MochiController : ObjectControllerBase
 {
+    // オブジェクトのスポーンクラス
+    [SerializeField]
+    TowerObjectSpawner towerObjectSpawner = default;
+
     // TODO : 以下の関数にそれぞれのアクションに対応したオブジェクトの処理を実装する
 
     /// <summary>
@@ -30,5 +34,14 @@ public class MochiController : ObjectControllerBase
     public override void OnPlayerSpecialArts()
     {
 
+    }
+
+    /// <summary>
+    /// オブジェクトのアクションが終了したときに呼ぶコールバック
+    /// </summary>
+    public void OnControlFinished()
+    {
+        // オブジェクト自信をデスポーンする
+        towerObjectSpawner.Despawn(this.transform);
     }
 }
