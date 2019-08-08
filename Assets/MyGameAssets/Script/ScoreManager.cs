@@ -55,8 +55,8 @@ public class ScoreManager : SingletonMonoBehaviour<ScoreManager>
     /// 壊した数の更新
     /// </summary>
     /// <param name="num"></param>
-    public void UpdateGetNum(int num)
+    public void UpdateGetNum()
     {
-        NowBreakNum = num;
+        NowBreakNum++;
     }
 }
