@@ -18,6 +18,8 @@ public class MochiController : ObjectControllerBase
     /// </summary>
     public override void OnPlayerPunched()
     {
+        // モチの終了処理
+        OnControlFinished();
     }
 
     /// <summary>
@@ -25,7 +27,8 @@ public class MochiController : ObjectControllerBase
     /// </summary>
     public override void OnPlayerRescued()
     {
-
+        // モチの終了処理
+        OnControlFinished();
     }
 
     /// <summary>

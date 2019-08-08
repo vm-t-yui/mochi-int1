@@ -723,7 +723,7 @@ MonoBehaviour:
   stackedObjectParent: {fileID: 1212671296861333797}
   mochiSpawnPool: {fileID: 2700076526512641449}
   rabbitSpawnPool: {fileID: 7024668247501201793}
-  groundSurfacePos: {x: 0, y: 0, z: 0}
+  baseSpawnPosition: {x: 0, y: 0, z: 0}
   spawnHeightInterval: 5
 --- !u!114 &7076311089230414547
 MonoBehaviour:
@@ -784,7 +784,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerObjectSpawner: {fileID: 1897852783884773167}
   stackedObjectParent: {fileID: 1212671296861333797}
-  fallingLerpRate: 0.5
+  fallingLerpRate: 0.4
 --- !u!1 &3654277507259388085
 GameObject:
   m_ObjectHideFlags: 0

@@ -22,6 +22,8 @@ public class RabbitController : ObjectControllerBase
     /// </summary>
     public override void OnPlayerPunched()
     {
+        // ウサギが吹っ飛ぶアニメーションを再生
+        animator.SetTrigger("RabbitFling");
     }
 
     /// <summary>
@@ -29,7 +31,8 @@ public class RabbitController : ObjectControllerBase
     /// </summary>
     public override void OnPlayerRescued()
     {
-
+        // ウサギが救出されるアニメーションを再生
+        animator.SetTrigger("RabbitRescued");
     }
 
     /// <summary>
