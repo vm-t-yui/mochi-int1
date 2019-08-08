@@ -13,7 +13,7 @@ public class ResultSoundManager : MonoBehaviour
     SePlayer     sePlayer     = default;    // SE再生クラス
 
     [SerializeField]
-    ScoreCounter scoreCounter = default;    // スコアカウントクラス
+    ScoreCountUpper scoreCountUpper = default;    // スコアカウントクラス
 
     const float  WaitTimeBgm  = 1.8f;       // BGMを再生するまでの待ち時間
 
@@ -43,7 +43,7 @@ public class ResultSoundManager : MonoBehaviour
         }
 
         // スコアのカウントアップが終わったら
-        if (scoreCounter.IsEnd && !isPlayed)
+        if (scoreCountUpper.IsEnd && !isPlayed)
         {
             // 一度すべての効果音を停止
             sePlayer.StopSeAll();

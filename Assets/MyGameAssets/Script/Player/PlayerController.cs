@@ -16,9 +16,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     TouchController touch = default;                                // タッチクラス
 
-    public bool isPunch = false;                                    // パンチフラグ
-    public bool isRescue = false;                                   // 救助フラグ
-    public bool isSpecialArts = false;                              // 大技フラグ
+    bool isPunch = false;                                           // パンチフラグ
+    bool isRescue = false;                                          // 救助フラグ
+    bool isSpecialArts = false;                                     // 大技フラグ
 
     bool isEnd = false;                                             // 処理終了フラグ
 

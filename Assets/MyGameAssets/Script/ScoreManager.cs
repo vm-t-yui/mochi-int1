@@ -4,7 +4,10 @@ using UnityEngine;
 using TMPro;
 using VMUnityLib;
 
-public class ScoreManager : MonoBehaviour
+/// <summary>
+/// スコアのマネージャークラス
+/// </summary>
+public class ScoreManager : SingletonMonoBehaviour<ScoreManager>
 {
     // 対象のオブジェクトのenum
     public enum TargetObject
@@ -14,89 +17,18 @@ public class ScoreManager : MonoBehaviour
         Length,    // enumの長さ
     }
 
-    // [SerializeField]
-    // MochiSample mochi = default;                     // もちクラスのサンプル
-
-    [SerializeField]
-    TextMeshProUGUI countText = default;                // もちカウント用テキスト
-
-    [SerializeField]
-    ScoreCounter counter = default;                     // もちカウントアップ用カウンター
-
-    int getNum = 60;                                    // 壊した数の合計
+    public int NowBreakNum { get; private set; } = 0;     // 壊した数の合計
     
-    public int DisplayGetNum { get; private set; } = 0; // 壊した数の合計(表示用)
+    public int MaxBreakNum { get; private set; } = 0;     // 壊した数の合計(表示用)
 
-    public const int GoodScore = 60;                    // 良スコアの目標
-
-    bool isCountUpEnd = false;                          // カウントアップ終了フラグ
+    public const int GoodScore = 60;                      // 良スコアの目標
 
     /// <summary>
     /// 起動処理
     /// </summary>
     void OnEnable()
     {
-        // カウンターがなければ初期化
-        if (counter == null)
-        {
-            // 初期化
-            Reset();
-        }
-        // カウンターがあればカウントアップ開始前処理
-        else
-        {
-            // カウンターリセット
-            counter.Reset();
-
-            // データから最終スコアを持ってくる
-            getNum = GameDataManager.Inst.PlayData.LastScore;
-
-            // カウントアップ開始
-            counter.ScoreCountUp(getNum);
-        }
-
-        isCountUpEnd = false;
-    }
-
-    /// <summary>
-    /// 終了処理
-    /// </summary>
-    void OnDisable()
-    {
-        // スコアをデータに入れセーブ
-        GameDataManager.Inst.PlayData.LastScore = getNum;
-        JsonDataSaver.Save(GameDataManager.Inst.PlayData);
-    }
-
-    /// <summary>
-    /// 更新処理
-    /// </summary>
-    void Update()
-    {
-        // カウンターがなければもちの数をカウント
-        if (counter == null)
-        {
-            // 壊した数をカウント
-            // getNum = mochi.getNum;
-            // DisplayGetNum = getNum;
-            countText.text = getNum.ToString();
-        }
-        // カウンターがあればカウントアップ
-        else
-        {
-            // カウントアップ中のテキスト表示
-            countText.text = counter.NowScore.ToString();
-
-            // カウントアップが終わったら
-            if(counter.IsEnd && !isCountUpEnd)
-            {
-                // カウントアップ終了
-                isCountUpEnd = true;
-
-                // スコアに応じたリザルトアニメーション開始
-                ResultPlayerAnimator.Inst.AnimStart((int)ResultPlayerAnimator.AnimKind.ScoreResult);
-            }
-        }
+        MaxBreakNum = GameDataManager.Inst.PlayData.HighScore;
     }
 
     /// <summary>
@@ -104,11 +36,27 @@ public class ScoreManager : MonoBehaviour
     /// </summary>
     public void Reset()
     {
-        // 各値リセット
-        for (int i = 0; i < (int)TargetObject.Length; i++)
+        // 前回のスコアとハイスコアを更新
+        if(GameDataManager.Inst.PlayData.LastScore < NowBreakNum)
         {
-            getNum = 60;
-            DisplayGetNum = 0;
+            GameDataManager.Inst.PlayData.HighScore = NowBreakNum;
         }
+        GameDataManager.Inst.PlayData.LastScore = NowBreakNum;
+
+        // データセーブ
+        JsonDataSaver.Save(GameDataManager.Inst.PlayData);
+
+        // データをリセット
+        NowBreakNum = 0;
+        MaxBreakNum = GameDataManager.Inst.PlayData.HighScore;
+    }
+
+    /// <summary>
+    /// 壊した数の更新
+    /// </summary>
+    /// <param name="num"></param>
+    public void UpdateGetNum(int num)
+    {
+        NowBreakNum = num;
     }
 }

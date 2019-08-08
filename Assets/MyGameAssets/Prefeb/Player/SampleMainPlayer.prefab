@@ -9916,10 +9916,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c4181efa9ec144b0b3b381ac790450d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: {fileID: 0}
   touch: {fileID: 0}
-  isPunch: 0
-  isRescue: 0
-  isSpecialArts: 0
 --- !u!114 &3557069402416809499
 MonoBehaviour:
   m_ObjectHideFlags: 0
