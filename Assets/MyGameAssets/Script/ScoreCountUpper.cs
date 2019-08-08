@@ -1,18 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 /// <summary>
 /// スコアカウントアップクラス
 /// </summary>
 public class ScoreCountUpper : MonoBehaviour
 {
-    public int NowScore { get; private set; } = 0;
-    public bool IsEnd { get; private set; } = false;
-    bool isStart = false;
+    int nowCount = 0;                   // 現在のカウント
+    bool isEnd = false;                 // 終了フラグ 
+    bool isStart = false;               // 開始フラグ
 
     [SerializeField]
-    float waitTime = 5.0f;
+    float waitTime = 5.0f;              // カウントにかかるの時間
+
+    [SerializeField]
+    TextMeshProUGUI text = default;     // テキスト
 
     /// <summary>
     /// 起動処理
@@ -28,16 +32,19 @@ public class ScoreCountUpper : MonoBehaviour
     void Update()
     {
         // カウント開始されたらスコアをカウントアップ
-        if (isStart && !IsEnd)
+        if (isStart && !isEnd)
         {
-            NowScore += (int)(ScoreManager.Inst.NowBreakNum * (Time.deltaTime / waitTime));
+            nowCount += (int)(ScoreManager.Inst.NowBreakNum * (Time.deltaTime / waitTime));
 
-            if (ScoreManager.Inst.NowBreakNum <= NowScore)
+            if (ScoreManager.Inst.NowBreakNum <= nowCount)
             {
                 // カウントダウン終了
-                IsEnd = true;
+                isEnd = true;
             }
         }
+
+        // テキストにセット
+        text.text = nowCount.ToString();
     }
 
     /// <summary>
@@ -46,8 +53,8 @@ public class ScoreCountUpper : MonoBehaviour
     void OnDisable()
     {
         // リセット
-        NowScore = 0;
-        IsEnd = false;
+        nowCount = 0;
+        isEnd = false;
         ScoreManager.Inst.Reset();
     }
 }
