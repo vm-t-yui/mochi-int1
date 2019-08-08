@@ -7,6 +7,6 @@ public class BgmID
     public const string Main        = "MainBGM";              // メインゲーム
     public const string GoodScore   = "GoodScoreJingle";      // グッドスコア時のジングル
     public const string LowScore    = "LowScoreJingle";       // 低スコア時のジングル
-    public const string PunchRabbit = "RabbitPunchJingle";    // うさぎ3回パンチ時のジングル
+    public const string Bad         = "BadJingle";            // うさぎ3回パンチ時のジングル
     public const string Result      = "ResultBGM";            // リザルト
 }
