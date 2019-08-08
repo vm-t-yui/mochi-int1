@@ -9,7 +9,7 @@ public class BtmanController : MonoBehaviour
 {
     float flyTime = 0;                                      // 飛べる時間
 
-    bool isFly = true;                                      // 飛べるかどうかのフラグ
+    bool canFly = true;                                      // 飛べるかどうかのフラグ
 
     Vector3 initPos = new Vector3(10.0f, -60.0f, 100.0f); 　// 初期位置
 
@@ -36,7 +36,7 @@ public class BtmanController : MonoBehaviour
         // 各値初期化
         transform.position = initPos;
         flyTime = Random.Range(minTime, maxTime);
-        isFly = true;
+        canFly = true;
         flyParticle.SetActive(true);
     }
 
@@ -46,7 +46,7 @@ public class BtmanController : MonoBehaviour
     void Update()
     {
         // 飛べない状態なら落下
-        if (!isFly)
+        if (!canFly)
         {
             transform.position += Vector3.down;
         }
@@ -69,7 +69,7 @@ public class BtmanController : MonoBehaviour
     /// </summary>
     void Fall()
     {
-        isFly = false;
+        canFly = false;
         flyParticle.SetActive(false);
         btmanAnim.SetTrigger("Fall");
     }
