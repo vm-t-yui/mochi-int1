@@ -28,13 +28,45 @@ public class TowerObjectActionCaller : MonoBehaviour
     /// </summary>
     void Update()
     {
+#if UNITY_EDITOR
+        // デバッグ用のプレイヤーアクション
+        // A : パンチ
+        // S : 救出
+
+        bool punch = false;
+        bool rescue = false;
+
+        punch = Input.GetKeyDown(KeyCode.A);
+        rescue = Input.GetKeyDown(KeyCode.S);
+
+        if (punch || rescue)
+        {
+            // タワーの一番下のオブジェクトを取得
+            Transform obj = stackedObjectParent.GetChild(0);
+            // オブジェクトの親を元に戻す
+            towerObjectSpawner.UndoParent(obj);
+            // 取得したオブジェクトの名前から制御クラスを取得
+            ObjectControllerBase objCtrl = objectControllerList.ObjectControllers[obj.gameObject.name];
+
+            if (punch)
+            {
+                // パンチされたときのコールバック
+                objCtrl.OnPlayerPunched();
+            }
+            else if (rescue)
+            {
+                // 救出されたときのコールバック
+                objCtrl.OnPlayerRescued();
+            }
+        }
+#endif
+
         // プレイヤーのそれぞれのアクションのフラグを取得する
         bool isPaunched = playerController.GetIsPunch();
         bool isRescued = playerController.GetIsRescue();
-        bool isSpecialArts = playerController.GetIsSpecialArts();
 
         // プレイヤーが何らかのアクションを起こしたときのみ、以下の処理を行う
-        if (!isPaunched && !isRescued && !isSpecialArts)
+        if (!isPaunched && !isRescued)
         {
             return;
         }
@@ -47,22 +79,16 @@ public class TowerObjectActionCaller : MonoBehaviour
         ObjectControllerBase objectController = objectControllerList.ObjectControllers[underObject.gameObject.name];
 
         // プレイヤーからパンチされたとき
-        if (playerController.GetIsPunch())
+        if (punch)
         {
             // パンチされたときのコールバック
             objectController.OnPlayerPunched();
         }
         // プレイヤーから救出されたとき
-        else if (playerController.GetIsRescue())
+        else if (rescue)
         {
             // 救出されたときのコールバック
             objectController.OnPlayerRescued();
-        }
-        // プレイヤーから最後の大技を受けたとき
-        else if (playerController.GetIsSpecialArts())
-        {
-            // 大技を受けたときのコールバック
-            objectController.OnPlayerSpecialArts();
         }
     }
 }
