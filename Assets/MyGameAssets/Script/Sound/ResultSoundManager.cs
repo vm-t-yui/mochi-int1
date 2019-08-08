@@ -65,7 +65,7 @@ public class ResultSoundManager : MonoBehaviour
         // うさぎを3回以上殴った時
         if (GameDataManager.Inst.PlayData.PunchCount > 3)
         {
-            bgmPlayer.PlayResultBgm(BgmID.PunchRabbit);
+            bgmPlayer.PlayResultBgm(BgmID.Bad);
         }
         // グッドスコア時
         if (GameDataManager.Inst.PlayData.LastScore >= ScoreManager.GoodScore)
