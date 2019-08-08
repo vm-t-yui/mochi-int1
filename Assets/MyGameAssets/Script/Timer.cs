@@ -1,97 +1,102 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
-using VMUnityLib;
 
 /// <summary>
 /// タイマークラス
 /// </summary>
-public class Timer : CmnMonoBehaviour
+public class Timer : MonoBehaviour
 {
-    // 処理なし。メッセージ受信エラー避け.
-    public override void Start() { }
-    protected override void InitSceneChange() { }
-    protected override void OnSceneDeactive() { }
+    [SerializeField]
+    Animator        animator = default;                    // アニメーター
+    [SerializeField]
+    TextMeshProUGUI timer    = default;                    // タイマー用テキスト
 
     [SerializeField]
-    TextMeshProUGUI timer = default;                        // タイマー用テキスト
-
+    float startTime   = 0;                                 // ゲームスタートまでの秒数
     [SerializeField]
-    float startTime = 0;                                    // ゲームスタートまでの秒数
-
+    float gameTime    = 0;                                 // ゲーム内の秒数
     [SerializeField]
-    float gameTime = 0;                                     // ゲーム内の秒数
+    float plusSeconds = 0;                                 // プラスする秒数
 
-    [SerializeField]
-    float plusSeconds = 0;                                  // プラスする秒数
+    float countTime = 0;                                   // 計測用変数
 
-    public bool IsTimeup { get; private set; } = false;     // タイムアップフラグ
+    bool isAble = false;                                   // 処理許可フラグ
 
-    public bool IsStart { get; private set; } = false;      // ゲームスタートまでのカウントダウンフラグ
-
-    float oldTime = 0;                                      // 非起動時の秒数
+    public bool IsTimeup { get; private set; } = false;    // タイムアップフラグ
+    public bool IsStart  { get; private set; } = false;    // ゲームスタートまでのカウントダウンフラグ
 
     /// <summary>
-    /// フェード終了時
+    /// カウント開始処理
+    /// NOTE: m.tanaka メインのフェードアウトが終わったら呼ばれるようになってます
     /// </summary>
-    protected override void OnFadeInEnd()
+    public void CountStart()
     {
-        // 非起動時の秒数を更新
-        oldTime = Time.timeSinceLevelLoad;
+        // すぐカウントダウンが始まってしまうため少し遅らせる
+        Invoke("_CountStart", 0.5f);
+    }
+    void _CountStart()
+    {
+        // 処理を許可
+        isAble = true;
 
-        // 各フラグのリセット
+        // 各フラグをリセット
         IsTimeup = false;
         IsStart = false;
-    }
 
+        // ゲーム開始前のカウントをセット
+        countTime = startTime;
+
+        // カウントダウンアニメーション再生
+        animator.SetBool("IsCountDown", true);
+    }
 
     /// <summary>
     /// 更新処理
     /// </summary>
-    protected override void FixedUpdate()
+    void Update()
     {
-        if (!IsTimeup)
-        {
-            // ゲームスタートまでのカウントダウン開始
-            if (!IsStart)
-            {
-                // ゲームスタートまでのカウントダウン
-                // NOTE:非起動時にもTime.timeSinceLevelLoadはカウントし続けているため、
-                //      非起動時の秒数を引くことにより、0からカウントさせるようにしている。
-                float countDown = startTime - (Time.timeSinceLevelLoad - oldTime);
+        // 処理が許可されていない or タイムアップしているなら処理を抜ける
+        if (!isAble || IsTimeup) { return; }
 
-                // カウントダウンが終わったらゲーム開始
-                if (countDown < 0)
-                {
-                    IsStart = true;
-                    oldTime = Time.timeSinceLevelLoad;
-                }
-                // 数え終わってない場合は、数え続ける
-                else
-                {
-                    timer.text = ((int)countDown).ToString();
-                }
+        // カウントダウン
+        countTime -= Time.deltaTime;
+
+        // ゲームスタートまでのカウントダウン開始
+        if (!IsStart)
+        {
+            // カウントダウンが終わったらゲーム開始
+            if (countTime < 1)
+            {
+                IsStart = true;
+                countTime = gameTime;
+                animator.SetBool("IsCountDown", false);
             }
-            // ゲーム開始されたらゲーム内のカウントダウン開始
+            // 数え終わってない場合は、数え続ける
             else
             {
-                // 今の秒数のカウント
-                // NOTE:非起動時にもTime.timeSinceLevelLoadはカウントし続けているため、
-                //      非起動時の秒数を引くことにより、0からカウントさせるようにしている。
-                float nowTime = gameTime - (Time.timeSinceLevelLoad - oldTime);
+                timer.text = ((int)countTime).ToString();
+            }
+        }
+        // ゲーム開始されたらゲーム内のカウントダウン開始
+        else
+        {
+            // 小数点第2位まで表示
+            timer.text = countTime.ToString("f2");
 
-                // 小数点第2位まで表示
-                timer.text = nowTime.ToString("f2");
+            if (countTime <= 10.0f)
+            {
+                animator.SetBool("IsTimeLimit", true);
+            }
 
-                // 指定の秒数を数え終わったらタイムアップ
-                if (nowTime < 0)
-                {
-                    timer.text = "Time UP";
+            // 指定の秒数を数え終わったらタイムアップ
+            if (countTime < 0)
+            {
+                timer.text = "Time UP";
 
-                    IsTimeup = true;
-                }
+                animator.SetBool("IsTimeLimit", false);
+
+                IsTimeup = true;
+                isAble = false;
             }
         }
     }
