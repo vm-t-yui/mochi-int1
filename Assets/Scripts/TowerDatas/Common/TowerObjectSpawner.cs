@@ -106,7 +106,7 @@ public class TowerObjectSpawner : MonoBehaviour
                 spawnedObject.gameObject.SetActive(true);
 
                 // 前回スポーンしたオブジェクトをウサギとして登録する
-                prevSpawnObjectType = TagName.Rabbit; ;
+                prevSpawnObjectType = TagName.Rabbit;
             }
 
             // カウンター
@@ -117,8 +117,6 @@ public class TowerObjectSpawner : MonoBehaviour
     /// <summary>
     /// 指定したオブジェクトを消す
     /// </summary>
-    /// <param name="objectType">消すオブジェクトの種類</param>
-    /// <param name="instance">消すオブジェクトのインスタンス</param>
     public void Despawn(Transform spawnedObject)
     {
         // モチだった場合

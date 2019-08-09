@@ -23,6 +23,10 @@ public class TowerObjectActionCaller : MonoBehaviour
     [SerializeField]
     Transform stackedObjectParent = default;
 
+    // タイマークラス
+    [SerializeField]
+    Timer timer = default;
+
     /// <summary>
     /// 更新
     /// </summary>
@@ -52,9 +56,19 @@ public class TowerObjectActionCaller : MonoBehaviour
             {
                 // パンチされたときのコールバック
                 objCtrl.OnPlayerPunched();
+                // 餅だったらスコアプラス
+                if (objCtrl.tag == TagName.Mochi)
+                {
+                    ScoreManager.Inst.UpdateGetNum();
+                }
             }
             else if (rescue)
             {
+                // ウサギだったらタイムプラス
+                if (objCtrl.tag == TagName.Rabbit)
+                {
+                    timer.TimePlus();
+                }
                 // 救出されたときのコールバック
                 objCtrl.OnPlayerRescued();
             }
@@ -62,11 +76,11 @@ public class TowerObjectActionCaller : MonoBehaviour
 #endif
 
         // プレイヤーのそれぞれのアクションのフラグを取得する
-        bool isPaunched = playerController.GetIsPunch();
+        bool isPunched = playerController.GetIsPunch();
         bool isRescued = playerController.GetIsRescue();
 
         // プレイヤーが何らかのアクションを起こしたときのみ、以下の処理を行う
-        if (!isPaunched && !isRescued)
+        if (!isPunched && !isRescued)
         {
             return;
         }
@@ -79,14 +93,24 @@ public class TowerObjectActionCaller : MonoBehaviour
         ObjectControllerBase objectController = objectControllerList.ObjectControllers[underObject.gameObject.name];
 
         // プレイヤーからパンチされたとき
-        if (punch)
+        if (isPunched)
         {
+            // 餅だったらスコアプラス
+            if (underObject.tag == TagName.Mochi)
+            {
+                ScoreManager.Inst.UpdateGetNum();
+            }
             // パンチされたときのコールバック
             objectController.OnPlayerPunched();
         }
         // プレイヤーから救出されたとき
-        else if (rescue)
+        else if (isRescued)
         {
+            // ウサギだったらタイムプラス
+            if (underObject.tag == TagName.Rabbit)
+            {
+                timer.TimePlus();
+            }
             // 救出されたときのコールバック
             objectController.OnPlayerRescued();
         }

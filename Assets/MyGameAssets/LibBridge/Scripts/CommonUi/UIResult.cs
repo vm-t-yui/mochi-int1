@@ -40,6 +40,8 @@ public class UIResult : CmnMonoBehaviour
     /// </summary>
     void OnDisable()
     {
+        // 広告非表示
+        AdManager.Inst.HideResultAd();
         HideBanner();
     }
 

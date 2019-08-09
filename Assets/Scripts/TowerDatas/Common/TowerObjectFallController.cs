@@ -34,19 +34,22 @@ public class TowerObjectFallController : MonoBehaviour
     /// </summary>
     void Update()
     {
-        // 前フレームのオブジェクト数と比較して、タワーオブジェクトの数が変動したかチェック
-        if (stackedObjectParent.childCount != prevStackedObjectNum)
+        if (!isFalling)
         {
-            // オブジェクトのスポーン間隔の幅を落下移動距離として取得
-            fallDistance = towerObjectSpawner.SpawnHeightInterval;
+            // 前フレームのオブジェクト数と比較して、タワーオブジェクトの数が変動したかチェック
+            if (stackedObjectParent.childCount != prevStackedObjectNum)
+            {
+                // オブジェクトのスポーン間隔の幅を落下移動距離として取得
+                fallDistance = towerObjectSpawner.SpawnHeightInterval;
 
-            // 親オブジェクトの移動先の位置を算出
-            fallEndPosition = new Vector3(stackedObjectParent.position.x,
-                                          stackedObjectParent.position.y - fallDistance,
-                                          stackedObjectParent.position.z);
+                // 親オブジェクトの移動先の位置を算出
+                fallEndPosition = new Vector3(stackedObjectParent.position.x,
+                                              stackedObjectParent.position.y - fallDistance,
+                                              stackedObjectParent.position.z);
 
-            // 落下フラグをオンにする
-            isFalling = true;
+                // 落下フラグをオンにする
+                isFalling = true;
+            }
         }
 
         // フラグがオンであれば落下処理を行う

@@ -25,15 +25,26 @@ public class Timer : MonoBehaviour
     public bool IsTimeup { get; private set; } = false;    // タイムアップフラグ
     public bool IsStart  { get; private set; } = false;    // ゲームスタートまでのカウントダウンフラグ
 
-    /// <summary>
-    /// カウント開始処理
-    /// NOTE: m.tanaka メインのフェードアウトが終わったら呼ばれるようになってます
-    /// </summary>
-    public void CountStart()
+     void OnEnable()
     {
         // すぐカウントダウンが始まってしまうため少し遅らせる
         Invoke("_CountStart", 0.5f);
     }
+
+    /// <summary>
+    /// カウント開始処理呼び出し関数
+    /// NOTE: m.tanaka メインのフェードアウトが終わったら呼ばれるようになってます
+    ///       k.oishi  UTweenAlphaの呼びたしが一度しかされないためとりあえずOnEnableで呼ぶようにしました
+    /// </summary>
+    public void CountStart()
+    {
+        // すぐカウントダウンが始まってしまうため少し遅らせる
+        //Invoke("_CountStart", 0.5f);
+    }
+
+    /// <summary>
+    /// カウント開始処理
+    /// </summary>
     void _CountStart()
     {
         // 処理を許可
@@ -102,10 +113,18 @@ public class Timer : MonoBehaviour
     }
 
     /// <summary>
+    /// 停止処理
+    /// </summary>
+    void OnDisable()
+    {
+        IsTimeup = false;
+    }
+
+    /// <summary>
     /// うさぎを助けた時のタイムプラス
     /// </summary>
     public void TimePlus()
     {
-        gameTime += plusSeconds;
+        countTime += plusSeconds;
     }
 }
