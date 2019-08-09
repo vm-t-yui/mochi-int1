@@ -17,16 +17,16 @@ public class TowerFlyController : MonoBehaviour
     [SerializeField]
     int flyTime = 0;
 
-    // 時間カウント
-    int flyTimeCount = 0;
+    // 初期位置
+    Vector3 initPos = Vector3.zero;
 
     /// <summary>
-    /// 開始
+    /// 開始処理
     /// </summary>
-    void OnEnable()
+    void Start()
     {
-        // カウントを初期化
-        flyTimeCount = 0;
+        // 初期位置を設定
+        initPos = stackedObjectParent.transform.position;
     }
 
     /// <summary>
@@ -36,11 +36,18 @@ public class TowerFlyController : MonoBehaviour
     {
         // タワーを上に飛ばす
         stackedObjectParent.Translate(0, flySpeed, 0);
+    }
 
-        // カウントが指定時間を超えたら終了
-        if (flyTimeCount > flyTime)
-        {
-            enabled = false;
-        }
+    /// <summary>
+    /// 停止処理
+    /// </summary>
+    void OnDisable()
+    {
+        // ポジションをリセットして非アクティブにする
+        stackedObjectParent.localPosition = initPos;
+
+        // NOTE: このスクリプトを持っている親オブジェクト自体が非アクティブの状態になっても、
+        //       このスクリプト自体が非アクティブになるわけではないのでenabled = false;をつけました。
+        enabled = false;
     }
 }
