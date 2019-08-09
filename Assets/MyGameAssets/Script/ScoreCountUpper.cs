@@ -41,7 +41,8 @@ public class ScoreCountUpper : MonoBehaviour
         if (isStart && !IsEnd)
         {
             nowCount += (ScoreManager.Inst.NowBreakNum * (Time.deltaTime / waitTime));
-            Debug.Log(nowCount);
+
+            // カウントし終わったら
             if (ScoreManager.Inst.NowBreakNum <= nowCount)
             {
                 // カウントダウン終了
