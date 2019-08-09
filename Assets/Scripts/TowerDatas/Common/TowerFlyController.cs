@@ -34,6 +34,9 @@ public class TowerFlyController : MonoBehaviour
     /// </summary>
     void Update()
     {
+        // タワーを上に飛ばす
+        stackedObjectParent.Translate(0, flySpeed, 0);
+
         // カウントが指定時間を超えたら終了
         if (flyTimeCount > flyTime)
         {
