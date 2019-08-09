@@ -8,15 +8,21 @@ using TMPro;
 /// </summary>
 public class ScoreCountUpper : MonoBehaviour
 {
-    int nowCount = 0;                   // 現在のカウント
-    bool isEnd = false;                 // 終了フラグ 
-    bool isStart = false;               // 開始フラグ
+    float nowCount = 0;                                   // 現在のカウント
+    public bool IsEnd { get; private set; } = false;    // 終了フラグ 
+    bool isStart = false;                               // 開始フラグ
 
     [SerializeField]
-    float waitTime = 5.0f;              // カウントにかかるの時間
+    float waitTime = 5.0f;                              // カウントにかかるの時間
 
     [SerializeField]
-    TextMeshProUGUI text = default;     // テキスト
+    TextMeshProUGUI text = default;                     // テキスト
+
+    [SerializeField]
+    GameObject buttons = default;                       // ボタンのオブジェクト
+
+    [SerializeField]
+    ResultPlayerAnimator playerAnim = default;          // プレイヤーのアニメーション
 
     /// <summary>
     /// 起動処理
@@ -32,19 +38,21 @@ public class ScoreCountUpper : MonoBehaviour
     void Update()
     {
         // カウント開始されたらスコアをカウントアップ
-        if (isStart && !isEnd)
+        if (isStart && !IsEnd)
         {
-            nowCount += (int)(ScoreManager.Inst.NowBreakNum * (Time.deltaTime / waitTime));
-
+            nowCount += (ScoreManager.Inst.NowBreakNum * (Time.deltaTime / waitTime));
+            Debug.Log(nowCount);
             if (ScoreManager.Inst.NowBreakNum <= nowCount)
             {
                 // カウントダウン終了
-                isEnd = true;
+                IsEnd = true;
+                buttons.SetActive(true);
+                playerAnim.AnimStart((int)ResultPlayerAnimator.AnimKind.ScoreResult);
             }
         }
 
         // テキストにセット
-        text.text = nowCount.ToString();
+        text.text = ((int)nowCount).ToString();
     }
 
     /// <summary>
@@ -54,7 +62,8 @@ public class ScoreCountUpper : MonoBehaviour
     {
         // リセット
         nowCount = 0;
-        isEnd = false;
+        IsEnd = false;
+        buttons.SetActive(false);
         ScoreManager.Inst.Reset();
     }
 }

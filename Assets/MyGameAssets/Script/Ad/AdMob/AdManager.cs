@@ -57,6 +57,11 @@ public class AdManager : SingletonMonoBehaviour<AdManager>
     [SerializeField]
     AdVideoRecommender adVideoRecommender = default;                  // 動画リワード広告クラス
 
+    [SerializeField]
+    Animator adVideoRecommenderAnim = default;                        //
+    [SerializeField]
+    Animator OwnCompAdCanvasAnim = default;                           //
+
     int showCount = 0;                                                // インタースティシャル用表示回数
     const string ShowCountKey = "ShowCount";                          // 表示回数データのキー
 
@@ -180,6 +185,23 @@ public class AdManager : SingletonMonoBehaviour<AdManager>
         else
         {
             nendInterstitial.Show();
+        }
+    }
+
+    /// <summary>
+    /// リサルト広告の非表示
+    /// </summary>
+    public void HideResultAd()
+    {
+        // 5回毎の動画リワードを非表示
+        if (showCount % RewardCount == 0)
+        {
+            adVideoRecommenderAnim.SetTrigger("Small");
+        }
+        // それ以外
+        else
+        {
+            OwnCompAdCanvasAnim.SetTrigger("FadeOut");
         }
     }
 

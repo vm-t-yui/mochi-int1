@@ -30,14 +30,8 @@ public class MainPlayerAnimator : SingletonMonoBehaviour<MainPlayerAnimator>
     [SerializeField]
     Animator cameraAnim = default;          // カメラのアニメーター
 
-    /// <summary>
-    /// 起動処理
-    /// </summary>
-    void OnEnable()
-    {
-        // 開始時にメインの待機モーションへ移動させる
-        playerAnim.SetTrigger("Main");
-    }
+    [SerializeField]
+    TowerFlyController towerFly = default;  // タワーを吹っ飛ばすクラス
 
     /// <summary>
     ///  アニメーション再生
@@ -97,5 +91,13 @@ public class MainPlayerAnimator : SingletonMonoBehaviour<MainPlayerAnimator>
     public void StartSpecialArtsCameraAnim()
     {
         cameraAnim.SetTrigger("SpecialArts");
+    }
+
+    /// <summary>
+    /// タワーを吹っ飛ばすアニメーションイベント用関数
+    /// </summary>
+    public void TowerFly()
+    {
+        towerFly.enabled = true;
     }
 }
