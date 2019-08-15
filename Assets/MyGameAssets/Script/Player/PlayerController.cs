@@ -8,68 +8,14 @@ using MainAnim = MainPlayerAnimator.AnimKind;
 /// <summary>
 /// プレイヤークラス
 /// </summary>
-public class PlayerController : MonoBehaviour
+public class PlayerController : PlayerActionBase
 {
-    [SerializeField]
-    Timer timer = default;                                          // タイマークラス
-
-    [SerializeField]
-    TouchController touch = default;                                // タッチクラス
-
-    bool isPunch = false;                                           // パンチフラグ
-    bool isRescue = false;                                          // 救助フラグ
-    bool isSpecialArts = false;                                     // 大技フラグ
-
-    bool isEnd = false;                                             // 処理終了フラグ
-
-    int punchSide = (int)MainAnim.RightPunch;                       // パンチの種類
+    int punchSide = (int)MainAnim.RightPunch;   // パンチの種類
 
     /// <summary>
-    /// 起動処理
+    /// パンチ処理
     /// </summary>
-    void OnEnable()
-    {
-        // フラグリセット
-        isPunch = false;
-        isRescue = false;
-        isSpecialArts = false;
-        isEnd = false;
-    }
-
-    /// <summary>
-    /// 更新処理
-    /// </summary>
-    void Update()
-    {
-        // タイムアップになったら
-        if (timer.IsTimeup && !isEnd)
-        {
-            // 大技開始
-            SpecialArts();
-            isEnd = true;
-        }
-        // まだ時間が余っていたら
-        else
-        {
-            // スワイプされたら
-            if (touch.GetIsSwipe())
-            {
-                // うさぎ救助開始
-                Rescue();
-            }
-            // タッチされたら
-            else if (touch.GetIsTouch())
-            {
-                // パンチ開始
-                Punch();
-            }
-        }
-    }
-
-    /// <summary>
-    /// パンチ
-    /// </summary>
-    void Punch()
+    public override void OnPunch()
     {
         // 右なら左、左なら右のパンチに変更
         if (punchSide == (int)MainAnim.RightPunch)
@@ -84,72 +30,28 @@ public class PlayerController : MonoBehaviour
         // アニメーション開始
         MainPlayerAnimator.Inst.AnimStart(punchSide);
 
-        isPunch = true;
+        throw new System.NotImplementedException();
     }
 
     /// <summary>
-    /// うさぎ救助
+    /// うさぎ救助処理
     /// </summary>
-    void Rescue()
+    public override void OnRescue()
     {
         // アニメーション開始
         MainPlayerAnimator.Inst.AnimStart((int)MainAnim.Rescue);
 
-        isRescue = true;
+        throw new System.NotImplementedException();
     }
 
     /// <summary>
-    /// 最後の大技
+    /// 大技処理
     /// </summary>
-    void SpecialArts()
+    public override void OnSpecialArts()
     {
         // アニメーション開始
         MainPlayerAnimator.Inst.AnimStart((int)MainAnim.SpecialArts);
 
-        isSpecialArts = true;
-    }
-
-    /// <summary>
-    /// 入力待ち状態に入る(アニメーションイベント用)
-    /// </summary>
-    void InputWait()
-    {
-        touch.ResetPermission();
-    }
-
-    /// <summary>
-    /// パンチフラグのゲット＋リセット関数
-    /// </summary>
-    /// <returns>パンチフラグの値</returns>
-    public bool GetIsPunch()
-    {
-        bool returnflg = isPunch;
-        isPunch = false;
-
-        return returnflg;
-    }
-
-    /// <summary>
-    /// 救助フラグのゲット＋リセット関数
-    /// </summary>
-    /// <returns>救助フラグの値</returns>
-    public bool GetIsRescue()
-    {
-        bool returnflg = isRescue;
-        isRescue = false;
-
-        return returnflg;
-    }
-
-    /// <summary>
-    /// 大技フラグのゲット＋リセット関数
-    /// </summary>
-    /// <returns>大技フラグの値</returns>
-    public bool GetIsSpecialArts()
-    {
-        bool returnflg = isSpecialArts;
-        isSpecialArts = false;
-
-        return returnflg;
+        throw new System.NotImplementedException();
     }
 }

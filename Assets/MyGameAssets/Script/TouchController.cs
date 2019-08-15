@@ -33,7 +33,6 @@ public class TouchController : MonoBehaviour
     bool[] isInput = new bool[(int)InputKind.Lenght];       // 判断中のどちらの入力が入ったかを入れるフラグ
     bool isTouch = false;                                   // タッチフラグ
     bool isSwipe = false;                                   // スワイプフラグ
-    bool isInputPermission = true;                          // タッチの許可フラグ
 
     /// <summary>
     /// 更新処理
@@ -41,7 +40,7 @@ public class TouchController : MonoBehaviour
     void Update()
     {
         // 入力を受けたら入力情報を取得し、入力処理のジャッジに移行
-        if (Input.touchCount == 1 && timer.IsStart && !isInputJudge && isInputPermission)
+        if (Input.touchCount == 1 && timer.IsStart && !isInputJudge)
         {
             touch = Input.GetTouch(0);
 
@@ -96,9 +95,6 @@ public class TouchController : MonoBehaviour
             isSwipe = true;
         }
 
-        // モーションが終わるまで処理に入らせないようにする
-        isInputPermission = false;
-
         // 各フラグのリセット
         FlagReset();
     }
@@ -112,14 +108,6 @@ public class TouchController : MonoBehaviour
         isInput[(int)InputKind.Touch] = false;
         isInput[(int)InputKind.Swipe] = false;
         nowJudgeCount = 0;
-    }
-
-    /// <summary>
-    /// フラグを再許可
-    /// </summary>
-    public void ResetPermission()
-    {
-        isInputPermission = true;
     }
 
     /// <summary>
