@@ -8,14 +8,14 @@ using MainAnim = MainPlayerAnimator.AnimKind;
 /// <summary>
 /// プレイヤークラス
 /// </summary>
-public class PlayerController : PlayerActionBase
+public class PlayerController : MonoBehaviour
 {
     int punchSide = (int)MainAnim.RightPunch;   // パンチの種類
 
     /// <summary>
     /// パンチ処理
     /// </summary>
-    public override void OnPunch()
+    public void OnPunch()
     {
         // 右なら左、左なら右のパンチに変更
         if (punchSide == (int)MainAnim.RightPunch)
@@ -36,7 +36,7 @@ public class PlayerController : PlayerActionBase
     /// <summary>
     /// うさぎ救助処理
     /// </summary>
-    public override void OnRescue()
+    public void OnRescue()
     {
         // アニメーション開始
         MainPlayerAnimator.Inst.AnimStart((int)MainAnim.Rescue);
@@ -47,7 +47,7 @@ public class PlayerController : PlayerActionBase
     /// <summary>
     /// 大技処理
     /// </summary>
-    public override void OnSpecialArts()
+    public void OnSpecialArts()
     {
         // アニメーション開始
         MainPlayerAnimator.Inst.AnimStart((int)MainAnim.SpecialArts);
