@@ -20,6 +20,8 @@ public class Timer : MonoBehaviour
 
     float countTime = 0;                                   // 計測用変数
 
+    const float AlertTime = 10.0f;                         // タイムリミット迫り演出開始時間
+
     bool isAble = false;                                   // 処理許可フラグ
 
     public bool IsTimeup { get; private set; } = false;    // タイムアップフラグ
@@ -94,9 +96,15 @@ public class Timer : MonoBehaviour
             // 小数点第2位まで表示
             timer.text = countTime.ToString("f2");
 
-            if (countTime <= 10.0f)
+            // 制限時間が指定時間を下回ったら警告アニメーション再生
+            if (countTime <= AlertTime)
             {
                 animator.SetBool("IsTimeLimit", true);
+            }
+            // 上回っているなら停止
+            else
+            {
+                animator.SetBool("IsTimeLimit", false);
             }
 
             // 指定の秒数を数え終わったらタイムアップ
