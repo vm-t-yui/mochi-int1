@@ -9,6 +9,8 @@ public class SpriteName
     public const string SettingButton = "setting";
     public const string LeaderboardButton = "leaderboard";
     public const string ShareButton = "share";
+    public const string SkinButton = "skin";
+    public const string OfferWallButton = "offerWall";
     public const string Rarity1 = "rarity1";
     public const string Rarity2 = "rarity2";
     public const string Rarity3 = "rarity3";

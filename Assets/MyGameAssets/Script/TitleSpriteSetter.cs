@@ -20,6 +20,10 @@ public class TitleSpriteSetter : MonoBehaviour
     Image leaderboardButton = default;    // リーダーボードボタン
     [SerializeField]
     Image shareButton       = default;    // 共有ボタン
+    [SerializeField]
+    Image skinButton        = default;    // スキンボタン
+    [SerializeField]
+    Image offerWallButton   = default;    // おすすめアプリボタン
 
     [SerializeField]
     Image   rarity0         = default;    // 非解放用レアリティ
@@ -40,6 +44,8 @@ public class TitleSpriteSetter : MonoBehaviour
         settingButton.sprite     = atlas.GetSprite(SpriteName.SettingButton);
         leaderboardButton.sprite = atlas.GetSprite(SpriteName.LeaderboardButton);
         shareButton.sprite       = atlas.GetSprite(SpriteName.ShareButton);
+        skinButton.sprite        = atlas.GetSprite(SpriteName.SkinButton);
+        offerWallButton.sprite   = atlas.GetSprite(SpriteName.OfferWallButton);
         rarity0.sprite           = atlas.GetSprite(SpriteName.Rarity0);
         SetRaritySprite(rarity1, SpriteName.Rarity1);
         SetRaritySprite(rarity2, SpriteName.Rarity2);

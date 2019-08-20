@@ -41,12 +41,16 @@ SpriteAtlas:
     - {fileID: 2800000, guid: 4604f8aee3a59b840924963f808f34b1, type: 3}
     - {fileID: 2800000, guid: 138e408fc7842784fafb414086d98950, type: 3}
     - {fileID: 2800000, guid: 42748e6f5d2da1c448594aa5cbdd9f11, type: 3}
-    totalSpriteSurfaceArea: 2293760
+    - {fileID: 2800000, guid: 5684b5302bf69402d8242e0a0d67d8e2, type: 3}
+    - {fileID: 2800000, guid: da4148055d94547b4abecb0b53a94fa1, type: 3}
+    totalSpriteSurfaceArea: 2424832
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 21300000, guid: 5684b5302bf69402d8242e0a0d67d8e2, type: 3}
   - {fileID: 21300000, guid: f3e52741ac89d3c41ae38aa68d29906a, type: 3}
   - {fileID: 21300000, guid: 5ab1e55191dc68a4e8476fd0d703cf2b, type: 3}
+  - {fileID: 21300000, guid: da4148055d94547b4abecb0b53a94fa1, type: 3}
   - {fileID: 21300000, guid: 0bf684a6813a0d044aef82eb17898ddc, type: 3}
   - {fileID: 21300000, guid: c3ae3eb70f0b5e6438b4642e0cff125c, type: 3}
   - {fileID: 21300000, guid: 51015668b6d21a44193c9a0d44711030, type: 3}
@@ -57,8 +61,10 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 42748e6f5d2da1c448594aa5cbdd9f11, type: 3}
   - {fileID: 21300000, guid: 138e408fc7842784fafb414086d98950, type: 3}
   m_PackedSpriteNamesToIndex:
+  - offerWall
   - pictureBook
   - volume
+  - skin
   - setting
   - rarity1
   - rarity3
