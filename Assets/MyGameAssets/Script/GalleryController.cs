@@ -6,7 +6,10 @@
 public class GalleryController : MonoBehaviour
 {
     [SerializeField]
-    RectTransform rect = default;
+    RectTransform rect  = default;
+
+    [SerializeField]
+    Timer         timer = default;       // タイマークラス
 
     [SerializeField]
     float jumpVec         = 3f;          // ジャンプ力
@@ -28,6 +31,8 @@ public class GalleryController : MonoBehaviour
     /// </summary>
     void OnEnable()
     {
+        gameObject.SetActive(true);
+
         Invoke("JumpStart", Random.Range(0.1f, 0.3f));
     }
     /// <summary>
@@ -62,6 +67,12 @@ public class GalleryController : MonoBehaviour
 
         // ジャンプ処理
         Jump();
+
+        // タイムアップ時に非表示にする
+        if (timer.IsTimeup)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     /// <summary>
