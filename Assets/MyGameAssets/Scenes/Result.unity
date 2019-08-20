@@ -242,6 +242,15 @@ PrefabInstance:
       propertyPath: resultPlayerAnimator
       value: 
       objectReference: {fileID: 1930507437}
+    - target: {fileID: 7640226529962006200, guid: e3708c942552346639722a502ab9495b,
+        type: 3}
+      propertyPath: playerAnim
+      value: 
+      objectReference: {fileID: 1930507437}
+    - target: {fileID: 682178450, guid: e3708c942552346639722a502ab9495b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 538473429, guid: e3708c942552346639722a502ab9495b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
