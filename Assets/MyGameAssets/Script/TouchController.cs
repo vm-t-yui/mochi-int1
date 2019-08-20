@@ -25,7 +25,10 @@ public class TouchController : MonoBehaviour
     Timer timer = default;                                  // タイマークラス
 
     [SerializeField]
-    int maxJudgeCount = 5;                                  // ジャッジ処理の最大カウント
+    float swipeSensitivity = 0;                             // スワイプの感度
+
+    [SerializeField]
+    int maxJudgeCount = 0;                                  // ジャッジ処理の最大カウント
 
     int nowJudgeCount = 0;                                  // ジャッジ処理の経過カウント
 
@@ -70,7 +73,7 @@ public class TouchController : MonoBehaviour
                 isInput[(int)InputKind.Touch] = true;
             }
             // スワイプ(スワイプの許可がされてあればタッチを取得)
-            if (touch.deltaPosition.magnitude > 2f)
+            if (touch.deltaPosition.magnitude > swipeSensitivity)
             {
                 isInput[(int)InputKind.Touch] = false;
                 isInput[(int)InputKind.Swipe] = true;
