@@ -15,10 +15,6 @@ public class TowerObjectSpawnController : MonoBehaviour
     // スポーンさせる数
     [SerializeField] int spawnNum = 0;
 
-    // 積み上げられてたオブジェクトを制御するクラス
-    [SerializeField]
-    Transform stackedObjectParent = default;
-
     /// <summary>
     /// 更新
     /// </summary>
@@ -26,7 +22,7 @@ public class TowerObjectSpawnController : MonoBehaviour
     {
         // 現在のオブジェクトの数がスポーンさせる数を下回っていて、かつ終了していなければ
         // 新たにオブジェクトを生成する
-        if (stackedObjectParent.childCount < spawnNum)
+        if (towerObjectSpawner.StackedObjects.Count < spawnNum)
         {
             // オブジェクトをスポーンする
             towerObjectSpawner.Spawn(spawnNum);
