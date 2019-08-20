@@ -18,7 +18,7 @@ public class Timer : MonoBehaviour
     [SerializeField]
     float plusSeconds = 0;                                 // プラスする秒数
 
-    float countTime = 0;                                   // 計測用変数
+    public float CountTime { get; private set; } = 0;      // 計測用変数
 
     const float AlertTime = 10.0f;                         // タイムリミット迫り演出開始時間
 
@@ -57,7 +57,7 @@ public class Timer : MonoBehaviour
         IsStart = false;
 
         // ゲーム開始前のカウントをセット
-        countTime = startTime;
+        CountTime = startTime;
 
         // カウントダウンアニメーション再生
         animator.SetBool("IsCountDown", true);
@@ -72,32 +72,32 @@ public class Timer : MonoBehaviour
         if (!isAble || IsTimeup) { return; }
 
         // カウントダウン
-        countTime -= Time.deltaTime;
+        CountTime -= Time.deltaTime;
 
         // ゲームスタートまでのカウントダウン開始
         if (!IsStart)
         {
             // カウントダウンが終わったらゲーム開始
-            if (countTime < 1)
+            if (CountTime < 1)
             {
                 IsStart = true;
-                countTime = gameTime;
+                CountTime = gameTime;
                 animator.SetBool("IsCountDown", false);
             }
             // 数え終わってない場合は、数え続ける
             else
             {
-                timer.text = ((int)countTime).ToString();
+                timer.text = ((int)CountTime).ToString();
             }
         }
         // ゲーム開始されたらゲーム内のカウントダウン開始
         else
         {
             // 小数点第2位まで表示
-            timer.text = countTime.ToString("f2");
+            timer.text = CountTime.ToString("f2");
 
             // 制限時間が指定時間を下回ったら警告アニメーション再生
-            if (countTime <= AlertTime)
+            if (CountTime <= AlertTime)
             {
                 animator.SetBool("IsTimeLimit", true);
             }
@@ -108,7 +108,7 @@ public class Timer : MonoBehaviour
             }
 
             // 指定の秒数を数え終わったらタイムアップ
-            if (countTime < 0)
+            if (CountTime < 0)
             {
                 timer.text = "Time UP";
 
@@ -133,6 +133,6 @@ public class Timer : MonoBehaviour
     /// </summary>
     public void TimePlus()
     {
-        countTime += plusSeconds;
+        CountTime += plusSeconds;
     }
 }

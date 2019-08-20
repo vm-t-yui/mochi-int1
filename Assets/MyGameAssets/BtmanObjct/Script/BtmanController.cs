@@ -7,37 +7,44 @@ using UnityEngine;
 /// </summary>
 public class BtmanController : MonoBehaviour
 {
-    float flyTime = 0;                                      // 飛べる時間
-
-    bool canFly = true;                                      // 飛べるかどうかのフラグ
-
-    Vector3 initPos = new Vector3(10.0f, -60.0f, 100.0f); 　// 初期位置
+    Vector3 initPos = new Vector3(0, 15, 60);
 
     [SerializeField]
-    GameObject flyParticle = default;                       // 飛んでる時の煙パーティクル
+    Animator btmanPosAnim = default;    // バッタマンのポジションのアニメーター
 
     [SerializeField]
-    Animator btmanAnim = default;                           // バッタマンのアニメーター
+    Animator btmanAnim = default;       // バッタマンのアニメーター
 
     [SerializeField]
-    int minTime = 0;                                        // 飛べる時間の最小
+    Timer timer = default;              // タイマークラス
 
     [SerializeField]
-    int maxTime = 0;                                        // 飛べる時間の最大
+    float apperTimeMin = 0;             // 出現するまでの秒数(最大)
 
     [SerializeField]
-    Timer timer = default;                                  // タイマークラス
+    float apperTimeMax = 0;             // 出現するまでの秒数(最小)
+
+    [SerializeField]
+    float fallTimeMin = 0;              // 落下するまでの秒数(最大)
+
+    [SerializeField]
+    float fallTimeMax = 0;              // 落下するまでの秒数(最小)
+
+    float apperTime = 0;                // 出現するまでの秒数(確定)
+    float fallTime = 0;                 // 落下するまでの秒数(確定)
 
     /// <summary>
     /// 起動処理
     /// </summary>
     void OnEnable()
     {
-        // 各値初期化
+        // 初期位置設定
         transform.position = initPos;
-        flyTime = Random.Range(minTime, maxTime);
-        canFly = true;
-        flyParticle.SetActive(true);
+        transform.localScale = Vector3.zero;
+
+        // 出現、落下までの時間をランダムで設定
+        apperTime = Random.Range(apperTimeMin, apperTimeMax);
+        fallTime = Random.Range(fallTimeMin, fallTimeMax);
     }
 
     /// <summary>
@@ -45,32 +52,32 @@ public class BtmanController : MonoBehaviour
     /// </summary>
     void Update()
     {
-        // 飛べない状態なら落下
-        if (!canFly)
+        // 出現までの時間をすぎたらバッタマン出現
+        if (timer.IsStart && timer.CountTime < apperTime)
         {
-            transform.position += Vector3.down;
-        }
-        // 飛べる状態なら時間をマイナスしていきながら上昇
-        else if (timer.IsStart)
-        {
-            transform.position += Vector3.up;
-            flyTime--;
-
-            // 時間がマイナスになるか、タイムアップになったら落下開始
-            if (flyTime < 0 || timer.IsTimeup)
+            // まだアニメーターを起動していなかったら起動
+            if (!btmanPosAnim.enabled)
             {
-                Fall();
+                btmanPosAnim.enabled = true;
+            }
+
+            // 落下までの時間をすぎたら落下
+            if (fallTime < timer.CountTime - apperTime)
+            {
+                btmanPosAnim.SetTrigger("Fall");
+                btmanAnim.SetTrigger("Fall");
             }
         }
     }
 
     /// <summary>
-    /// 落下開始処理
+    /// 停止処理
     /// </summary>
-    void Fall()
+    void OnDisable()
     {
-        canFly = false;
-        flyParticle.SetActive(false);
-        btmanAnim.SetTrigger("Fall");
+        // 停止時に初期化
+        btmanAnim.ResetTrigger("Fall");
+        btmanPosAnim.ResetTrigger("Fall");
+        btmanPosAnim.enabled = false;
     }
 }
