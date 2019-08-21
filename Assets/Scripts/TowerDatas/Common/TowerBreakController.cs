@@ -58,5 +58,7 @@ public class TowerBreakController : MonoBehaviour
     {
         // 方向を格納したリストを全削除
         objectFlyDirections.Clear();
+        // 吹き飛ばしの処理を止める
+        enabled = false;
     }
 }
