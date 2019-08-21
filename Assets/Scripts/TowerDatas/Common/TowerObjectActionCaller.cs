@@ -9,6 +9,16 @@ using System.Linq;
 /// </summary>
 public class TowerObjectActionCaller : MonoBehaviour
 {
+    /// <summary>
+    /// プレイヤーのアクションの種類
+    /// </summary>
+    enum PlayerActionType
+    {
+        Punch,          // パンチ
+        Rescue,         // レスキュー
+        SpecialArts,    // 最後の大技
+    }
+
     // プレイヤーの制御クラス
     [SerializeField]
     PlayerController playerController = default;
@@ -34,18 +44,8 @@ public class TowerObjectActionCaller : MonoBehaviour
     /// </summary>
     public void OnPunched()
     {
-        // 一番下のオブジェクトを取得
-        Transform bottomObject = towerObjectSpawner.StackedObjects.First();
-        // 一番下のオブジェクトの制御クラスを取得
-        MoveControllerBase moveController = moveControllerList.MoveControllers[bottomObject.name];
-
-        if (!objectFallingController.IsFalling)
-        {
-            // 一番下のオブジェクトをリストから削除
-            towerObjectSpawner.RemoveTowerBottomObject();
-            // 制御クラスのコールバックを呼ぶ
-            moveController.OnPlayerPunched();
-        }
+        // オブジェクトのアクションをコールする
+        CallObjectAction(PlayerActionType.Punch);
     }
 
     /// <summary>
@@ -53,18 +53,8 @@ public class TowerObjectActionCaller : MonoBehaviour
     /// </summary>
     public void OnRescued()
     {
-        // 一番下のオブジェクトを取得
-        Transform bottomObject = towerObjectSpawner.StackedObjects.First();
-        // 一番下のオブジェクトの制御クラスを取得
-        MoveControllerBase moveController = moveControllerList.MoveControllers[bottomObject.name];
-
-        if (!objectFallingController.IsFalling)
-        {
-            // 一番下のオブジェクトをリストから削除
-            towerObjectSpawner.RemoveTowerBottomObject();
-            // 制御クラスのコールバックを呼ぶ
-            moveController.OnPlayerRescued();
-        }
+        // オブジェクトのアクションをコールする
+        CallObjectAction(PlayerActionType.Rescue);
     }
 
     /// <summary>
@@ -72,17 +62,46 @@ public class TowerObjectActionCaller : MonoBehaviour
     /// </summary>
     public void OnSpecialArtsed()
     {
+        // オブジェクトのアクションをコールする
+        CallObjectAction(PlayerActionType.SpecialArts);
+    }
+
+    /// <summary>
+    /// オブジェクトのアクションをコールする
+    /// NOTE : プレイヤー側のアクションによって、コールするアクションを分ける
+    /// </summary>
+    /// <param name="actionType">プレイヤー側のアクション</param>
+    void CallObjectAction(PlayerActionType actionType)
+    {
         // 一番下のオブジェクトを取得
         Transform bottomObject = towerObjectSpawner.StackedObjects.First();
         // 一番下のオブジェクトの制御クラスを取得
         MoveControllerBase moveController = moveControllerList.MoveControllers[bottomObject.name];
 
+        // タワーが落下中じゃなければ、プレイヤーからのアクションを受け付ける
         if (!objectFallingController.IsFalling)
         {
             // 一番下のオブジェクトをリストから削除
             towerObjectSpawner.RemoveTowerBottomObject();
-            // 制御クラスのコールバックを呼ぶ
-            moveController.OnPlayerSpecialArts();
+
+            // パンチを受けたとき
+            if (actionType == PlayerActionType.Punch)
+            {
+                // 制御クラスのコールバックを呼ぶ
+                moveController.OnPlayerPunched();
+            }
+            // 救助されたとき
+            else if (actionType == PlayerActionType.Rescue)
+            {
+                // 制御クラスのコールバックを呼ぶ
+                moveController.OnPlayerRescued();
+            }
+            // 最後の大技を受けたとき
+            else
+            {
+                // 制御クラスのコールバックを呼ぶ
+                moveController.OnPlayerSpecialArts();
+            }
         }
     }
 }

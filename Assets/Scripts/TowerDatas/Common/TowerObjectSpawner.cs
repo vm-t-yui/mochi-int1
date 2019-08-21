@@ -50,9 +50,6 @@ public class TowerObjectSpawner : MonoBehaviour
     // 現在のモチのスキン
     SettingData.SkinType mochiSkinType = SettingData.SkinType.NormalMochi;
 
-    List<Transform> spawnedMochiList = new List<Transform>();
-    List<Transform> spawnedRabbitList = new List<Transform>();
-    
     /// <summary>
     /// 開始
     /// </summary>
@@ -88,14 +85,8 @@ public class TowerObjectSpawner : MonoBehaviour
             {
                 // スポーンプールからモチのオブジェクトをスポーンさせる
                 spawnedObject = mochiSpawnPool.Spawn(mochiSkinType.ToString(), spawnPos, Quaternion.identity);
-                // 生成したオブジェクトをオンにする
-                // NOTE : 何故か自動でオンになってくれないときがあるため
-                spawnedObject.gameObject.SetActive(true);
-                // 生成したオブジェクトをリストに追加
-                stackedObjects.Add(spawnedObject.transform);
                 // 前回スポーンしたオブジェクトをモチとして登録する
                 prevSpawnObjectType = TagName.Mochi;
-                spawnedMochiList.Add(spawnedObject);
             }
             // ウサギだった場合
             else
@@ -106,15 +97,15 @@ public class TowerObjectSpawner : MonoBehaviour
                 string rabbitId = rabbitLotteryMachine.LotteryRabbit();
                 // 決定したウサギをスポーンさせる
                 spawnedObject = rabbitSpawnPool.Spawn(rabbitId, spawnPos, Quaternion.identity);
-                // 生成したオブジェクトをオンにする
-                // NOTE : 何故か自動でオンになってくれないときがあるため
-                spawnedObject.gameObject.SetActive(true);
-                // 生成したオブジェクトをリストに追加
-                stackedObjects.Add(spawnedObject.transform);
                 // 前回スポーンしたオブジェクトをウサギとして登録する
                 prevSpawnObjectType = TagName.Rabbit;
-                spawnedRabbitList.Add(spawnedObject);
             }
+
+            // 生成したオブジェクトをオンにする
+            // NOTE : 何故か自動でオンになってくれないときがあるため
+            spawnedObject.gameObject.SetActive(true);
+            // 生成したオブジェクトをリストに追加
+            stackedObjects.Add(spawnedObject.transform);
 
             // カウンター
             spawnCount++;
@@ -131,14 +122,12 @@ public class TowerObjectSpawner : MonoBehaviour
         {
             // モチを削除
             mochiSpawnPool.Despawn(spawnedObject);
-            spawnedMochiList.Remove(spawnedObject);
         }
         // ウサギだった場合
         else if (spawnedObject.tag == TagName.Rabbit)
         {
             // ウサギを削除
             rabbitSpawnPool.Despawn(spawnedObject);
-            spawnedRabbitList.Remove(spawnedObject);
         }
         // それ以外だったらエラー
         else
@@ -177,19 +166,10 @@ public class TowerObjectSpawner : MonoBehaviour
     /// </summary>
     void OnDisable()
     {
-        List<Transform> removeList = spawnedMochiList;
-        foreach (var item in removeList)
-        {
-            item.SetParent(mochiSpawnPool.transform);
-        }
-        removeList = spawnedRabbitList;
-        foreach (var item in removeList)
-        {
-            item.SetParent(rabbitSpawnPool.transform);
-        }
-        spawnedMochiList.Clear();
-        spawnedRabbitList.Clear();
+        // 積み上げられたオブジェクトを全てデスポーンする
         mochiSpawnPool.DespawnAll();
         rabbitSpawnPool.DespawnAll();
+        // 積み上げられたオブジェクトのデータを管理したリストを全て削除する
+        stackedObjects.Clear();
     }
 }
