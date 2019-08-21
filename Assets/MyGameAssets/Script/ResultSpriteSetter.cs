@@ -13,8 +13,10 @@ public class ResultSpriteSetter : MonoBehaviour
 	Image leaderboardButton = default;      // リーダーボードボタン
 	[SerializeField]
 	Image shareButton = default;            // 共有ボタン
+    [SerializeField]
+    Image[] buttons = default;              // ボタン自体のスプライト
 
-	[SerializeField]
+    [SerializeField]
 	Image rarity0 = default;                // 非解放用レアリティ
 	[SerializeField]
 	Image[] rarity1 = default,              // ★１群
@@ -38,7 +40,11 @@ public class ResultSpriteSetter : MonoBehaviour
 		SetRaritySprite(rarity3, SpriteName.Rarity3);
 		SetRaritySprite(rarity4, SpriteName.Rarity4);
 		SetRaritySprite(rarity5, SpriteName.Rarity5);
-	}
+        for (int i = 0; i < buttons.Length; i++)
+        {
+            buttons[i].sprite = atlas.GetSprite(SpriteName.NormalMochi);
+        }
+    }
 
 	/// <summary>
 	/// レアリティ用スプライトセッター

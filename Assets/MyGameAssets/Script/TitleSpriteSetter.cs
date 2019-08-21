@@ -24,6 +24,8 @@ public class TitleSpriteSetter : MonoBehaviour
     Image skinButton        = default;    // スキンボタン
     [SerializeField]
     Image offerWallButton   = default;    // おすすめアプリボタン
+    [SerializeField]
+    Image[] buttons         = default;    // ボタン自体のスプライト
 
     [SerializeField]
     Image   rarity0         = default;    // 非解放用レアリティ
@@ -52,6 +54,10 @@ public class TitleSpriteSetter : MonoBehaviour
         SetRaritySprite(rarity3, SpriteName.Rarity3);
         SetRaritySprite(rarity4, SpriteName.Rarity4);
         SetRaritySprite(rarity5, SpriteName.Rarity5);
+        for (int i = 0; i < buttons.Length; i++)
+        {
+            buttons[i].sprite = atlas.GetSprite(SpriteName.NormalMochi);
+        }
     }
 
     /// <summary>

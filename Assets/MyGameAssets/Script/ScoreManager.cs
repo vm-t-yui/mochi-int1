@@ -37,7 +37,7 @@ public class ScoreManager : SingletonMonoBehaviour<ScoreManager>
     public void Reset()
     {
         // 前回のスコアとハイスコアを更新
-        if(GameDataManager.Inst.PlayData.LastScore < NowBreakNum)
+        if(GameDataManager.Inst.PlayData.HighScore < NowBreakNum)
         {
             GameDataManager.Inst.PlayData.HighScore = NowBreakNum;
         }
@@ -54,7 +54,6 @@ public class ScoreManager : SingletonMonoBehaviour<ScoreManager>
     /// <summary>
     /// 壊した数の更新
     /// </summary>
-    /// <param name="num"></param>
     public void UpdateGetNum()
     {
         NowBreakNum++;
