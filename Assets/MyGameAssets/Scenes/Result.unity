@@ -275,6 +275,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1862862830}
+    - target: {fileID: 82080626, guid: e3708c942552346639722a502ab9495b, type: 3}
+      propertyPath: wood.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 82080626, guid: e3708c942552346639722a502ab9495b, type: 3}
+      propertyPath: wood.Array.data[1]
+      value: 
+      objectReference: {fileID: 82080622}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3708c942552346639722a502ab9495b, type: 3}
 --- !u!224 &82080621 stripped
@@ -283,6 +291,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 82080620}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &82080622 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 21738707, guid: e3708c942552346639722a502ab9495b,
+    type: 3}
+  m_PrefabInstance: {fileID: 82080620}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &82080623 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7640226529962006200, guid: e3708c942552346639722a502ab9495b,

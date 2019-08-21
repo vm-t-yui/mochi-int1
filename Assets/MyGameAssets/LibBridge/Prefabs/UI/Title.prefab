@@ -249,6 +249,10 @@ MonoBehaviour:
   - {fileID: 786958246}
   - {fileID: 936972472}
   - {fileID: 8349857013328458556}
+  - {fileID: 3174272441001031314}
+  - {fileID: 1020947268}
+  - {fileID: 1572484614}
+  - {fileID: 1313363232051857292}
   rarity0: {fileID: 1816662944}
   rarity1:
   - {fileID: 8120882815479046163}
@@ -42633,6 +42637,18 @@ RectTransform:
 --- !u!114 &8349857013328458556 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8349857013116920895, guid: 1c37ea3bdda9c46fd9efec028882f65a,
+    type: 3}
+  m_PrefabInstance: {fileID: 480007939}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1313363232051857292 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1313363232246648975, guid: 1c37ea3bdda9c46fd9efec028882f65a,
     type: 3}
   m_PrefabInstance: {fileID: 480007939}
   m_PrefabAsset: {fileID: 0}
