@@ -17,4 +17,8 @@ public class SpriteName
     public const string Rarity4 = "rarity4";
     public const string Rarity5 = "rarity5";
     public const string Rarity0 = "rarity0";
+    public const string NormalMochi = "normalMochi";
+    public const string RedMochi = "redMochi";
+    public const string YomogiMochi = "yomogiMochi";
+    public const string Galley = "rabbitGallery";
 }

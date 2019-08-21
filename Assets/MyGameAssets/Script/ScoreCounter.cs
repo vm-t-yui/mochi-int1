@@ -17,6 +17,6 @@ public class ScoreCounter : MonoBehaviour
     void Update()
     {
         // 現在のスコアをテキストに反映
-        text.text = ScoreManager.Inst.NowBreakNum.ToString();
+        text.text = "× " + ScoreManager.Inst.NowBreakNum.ToString();
     }
 }
