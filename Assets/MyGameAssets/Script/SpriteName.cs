@@ -21,4 +21,8 @@ public class SpriteName
     public const string RedMochi = "redMochi";
     public const string YomogiMochi = "yomogiMochi";
     public const string Galley = "rabbitGallery";
+    public const string Page = "page";
+    public const string Memo = "memo";
+    public const string Wood = "wood";
+    public const string Dish = "dish";
 }

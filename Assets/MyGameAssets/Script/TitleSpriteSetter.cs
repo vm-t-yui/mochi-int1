@@ -25,7 +25,16 @@ public class TitleSpriteSetter : MonoBehaviour
     [SerializeField]
     Image offerWallButton   = default;    // おすすめアプリボタン
     [SerializeField]
+    Image page              = default;    // うさぎ図鑑用ノート
+    [SerializeField]
+    Image dish              = default;    // スキン画面用お皿
+    [SerializeField]
+    Image[] memo            = default;    // メモ
+    [SerializeField]
     Image[] buttons         = default;    // ボタン自体のスプライト
+
+    [SerializeField]
+    Image[] wood        　　 = default;    // ウィンドウ用木目
 
     [SerializeField]
     Image   rarity0         = default;    // 非解放用レアリティ
@@ -48,6 +57,8 @@ public class TitleSpriteSetter : MonoBehaviour
         shareButton.sprite       = atlas.GetSprite(SpriteName.ShareButton);
         skinButton.sprite        = atlas.GetSprite(SpriteName.SkinButton);
         offerWallButton.sprite   = atlas.GetSprite(SpriteName.OfferWallButton);
+        page.sprite              = atlas.GetSprite(SpriteName.Page);
+        dish.sprite              = atlas.GetSprite(SpriteName.Dish);
         rarity0.sprite           = atlas.GetSprite(SpriteName.Rarity0);
         SetRaritySprite(rarity1, SpriteName.Rarity1);
         SetRaritySprite(rarity2, SpriteName.Rarity2);
@@ -57,6 +68,14 @@ public class TitleSpriteSetter : MonoBehaviour
         for (int i = 0; i < buttons.Length; i++)
         {
             buttons[i].sprite = atlas.GetSprite(SpriteName.NormalMochi);
+        }
+        for (int i = 0; i < memo.Length; i++)
+        {
+            memo[i].sprite = atlas.GetSprite(SpriteName.Memo);
+        }
+        for (int i = 0; i < wood.Length; i++)
+        {
+            wood[i].sprite = atlas.GetSprite(SpriteName.Wood);
         }
     }
 
