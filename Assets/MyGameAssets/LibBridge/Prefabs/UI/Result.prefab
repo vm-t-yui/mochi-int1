@@ -22096,7 +22096,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1303164144}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -34632,12 +34632,41 @@ MonoBehaviour:
   pictureBookButton: {fileID: 66405364}
   leaderboardButton: {fileID: 1627494493}
   shareButton: {fileID: 1440677727}
+  page: {fileID: 935454284}
+  memo:
+  - {fileID: 1612759729}
+  - {fileID: 695208910}
+  - {fileID: 1008712490}
+  - {fileID: 821444097}
+  - {fileID: 1474917558}
+  - {fileID: 380128604}
+  - {fileID: 2069195021}
+  - {fileID: 2089049517}
+  - {fileID: 1513076975}
+  - {fileID: 1111024113}
+  - {fileID: 1385528034}
+  - {fileID: 1762822573}
+  - {fileID: 1852707548}
+  - {fileID: 255467433}
+  - {fileID: 1789906632}
+  - {fileID: 540157661}
+  - {fileID: 588649740}
+  - {fileID: 1123178508}
+  - {fileID: 1656842876}
+  - {fileID: 25306905}
+  - {fileID: 426007718}
+  - {fileID: 362455383}
+  - {fileID: 1192851544}
+  - {fileID: 205022867}
+  - {fileID: 1929227188}
   buttons:
   - {fileID: 1274332541}
   - {fileID: 280590450}
   - {fileID: 464167069}
   - {fileID: 538473430}
   - {fileID: 876045770}
+  wood:
+  - {fileID: 2106584725}
   rarity0: {fileID: 1833280460}
   rarity1:
   - {fileID: 1303519601}
