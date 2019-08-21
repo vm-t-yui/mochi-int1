@@ -12,7 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb4228d2e2faaf543aebac520032889a, type: 3}
   m_Name: RabbitRarity2Data
   m_EditorClassIdentifier: 
-  lotteryRate: 10
+  lotteryRate: 25
   rabbitIds:
-  - MetalRabbit
-  - DiamondRabbit
+  - RedRabbit
+  - BlueRabbit
+  - YellowRabbit
+  - GreenRabbit
+  - PinkRabbit
+  - MechaRabbit
+  - ZariganRabbit

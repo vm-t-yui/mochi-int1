@@ -1,12 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PathologicalGames;
+using System.Linq;
 
 /// <summary>
-/// プレイヤーのアクションをもとにオブジェクトのアクションをコールする関数
+/// プレイヤーのアクションをもとにオブジェクトのアクションをコールするクラス
 /// </summary>
 public class TowerObjectActionCaller : MonoBehaviour
 {
+    /// <summary>
+    /// プレイヤーのアクションの種類
+    /// </summary>
+    enum PlayerActionType
+    {
+        Punch,          // パンチ
+        Rescue,         // レスキュー
+        SpecialArts,    // 最後の大技
+    }
+
     // プレイヤーの制御クラス
     [SerializeField]
     PlayerController playerController = default;
@@ -17,102 +29,79 @@ public class TowerObjectActionCaller : MonoBehaviour
 
     // オブジェクトの制御クラスを管理するクラス
     [SerializeField]
-    ObjectControllerList objectControllerList = default;
+    MoveControllerList moveControllerList = default;
 
-    // 積み上げられてたオブジェクトを制御するクラス
+    // オブジェクトの落下制御クラス
     [SerializeField]
-    Transform stackedObjectParent = default;
+    ObjectFallingController objectFallingController = default;
 
     // タイマークラス
     [SerializeField]
     Timer timer = default;
 
     /// <summary>
-    /// 更新
+    /// パンチされたとき
     /// </summary>
-    void Update()
+    public void OnPunched()
     {
-#if UNITY_EDITOR
-        // デバッグ用のプレイヤーアクション
-        // A : パンチ
-        // S : 救出
+        // オブジェクトのアクションをコールする
+        CallObjectAction(PlayerActionType.Punch);
+    }
 
-        bool punch = false;
-        bool rescue = false;
+    /// <summary>
+    /// 救出されたとき
+    /// </summary>
+    public void OnRescued()
+    {
+        // オブジェクトのアクションをコールする
+        CallObjectAction(PlayerActionType.Rescue);
+    }
 
-        punch = Input.GetKeyDown(KeyCode.A);
-        rescue = Input.GetKeyDown(KeyCode.S);
+    /// <summary>
+    /// 最後の大技を受けたとき
+    /// </summary>
+    public void OnSpecialArtsed()
+    {
+        // オブジェクトのアクションをコールする
+        CallObjectAction(PlayerActionType.SpecialArts);
+    }
 
-        if (punch || rescue)
+    /// <summary>
+    /// オブジェクトのアクションをコールする
+    /// NOTE : プレイヤー側のアクションによって、コールするアクションを分ける
+    /// </summary>
+    /// <param name="actionType">プレイヤー側のアクション</param>
+    void CallObjectAction(PlayerActionType actionType)
+    {
+        // 一番下のオブジェクトを取得
+        Transform bottomObject = towerObjectSpawner.StackedObjects.First();
+        // 一番下のオブジェクトの制御クラスを取得
+        MoveControllerBase moveController = moveControllerList.MoveControllers[bottomObject.name];
+
+        // タワーが落下中じゃなければ、プレイヤーからのアクションを受け付ける
+        if (!objectFallingController.IsFalling)
         {
-            // タワーの一番下のオブジェクトを取得
-            Transform obj = stackedObjectParent.GetChild(0);
-            // オブジェクトの親を元に戻す
-            towerObjectSpawner.UndoParent(obj);
-            // 取得したオブジェクトの名前から制御クラスを取得
-            ObjectControllerBase objCtrl = objectControllerList.ObjectControllers[obj.gameObject.name];
+            // 一番下のオブジェクトをリストから削除
+            towerObjectSpawner.RemoveTowerBottomObject();
 
-            if (punch)
+            // パンチを受けたとき
+            if (actionType == PlayerActionType.Punch)
             {
-                // パンチされたときのコールバック
-                objCtrl.OnPlayerPunched();
-                // 餅だったらスコアプラス
-                if (objCtrl.tag == TagName.Mochi)
-                {
-                    ScoreManager.Inst.UpdateGetNum();
-                }
+                // 制御クラスのコールバックを呼ぶ
+                moveController.OnPlayerPunched();
             }
-            else if (rescue)
+            // 救助されたとき
+            else if (actionType == PlayerActionType.Rescue)
             {
-                // ウサギだったらタイムプラス
-                if (objCtrl.tag == TagName.Rabbit)
-                {
-                    timer.TimePlus();
-                }
-                // 救出されたときのコールバック
-                objCtrl.OnPlayerRescued();
+                // 制御クラスのコールバックを呼ぶ
+                moveController.OnPlayerRescued();
             }
-        }
-#endif
-
-        // プレイヤーのそれぞれのアクションのフラグを取得する
-        bool isPunched = playerController.GetIsPunch();
-        bool isRescued = playerController.GetIsRescue();
-
-        // プレイヤーが何らかのアクションを起こしたときのみ、以下の処理を行う
-        if (!isPunched && !isRescued)
-        {
-            return;
-        }
-
-        // タワーの一番下のオブジェクトを取得
-        Transform underObject = stackedObjectParent.GetChild(0);
-        // オブジェクトの親を元に戻す
-        towerObjectSpawner.UndoParent(underObject);
-        // 取得したオブジェクトの名前から制御クラスを取得
-        ObjectControllerBase objectController = objectControllerList.ObjectControllers[underObject.gameObject.name];
-
-        // プレイヤーからパンチされたとき
-        if (isPunched)
-        {
-            // 餅だったらスコアプラス
-            if (underObject.tag == TagName.Mochi)
+            // 最後の大技を受けたとき
+            else
             {
-                ScoreManager.Inst.UpdateGetNum();
+                // 制御クラスのコールバックを呼ぶ
+                moveController.OnPlayerSpecialArts();
             }
-            // パンチされたときのコールバック
-            objectController.OnPlayerPunched();
-        }
-        // プレイヤーから救出されたとき
-        else if (isRescued)
-        {
-            // ウサギだったらタイムプラス
-            if (underObject.tag == TagName.Rabbit)
-            {
-                timer.TimePlus();
-            }
-            // 救出されたときのコールバック
-            objectController.OnPlayerRescued();
         }
     }
 }

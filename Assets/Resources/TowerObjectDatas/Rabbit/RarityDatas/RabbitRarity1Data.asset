@@ -12,8 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb4228d2e2faaf543aebac520032889a, type: 3}
   m_Name: RabbitRarity1Data
   m_EditorClassIdentifier: 
-  lotteryRate: 100
+  lotteryRate: 50
   rabbitIds:
   - NormalRabbit
+  - BlackRabbit
+  - LehmanRabbit
+  - SumouRabbit
   - WoodRabbit
-  - RockRabbit
+  - JoysonRabbit
+  - ZombieRabbit
+  - GhostRabbit
+  - SpaceRabbit
