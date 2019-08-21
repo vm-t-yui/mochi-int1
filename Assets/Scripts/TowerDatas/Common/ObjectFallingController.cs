@@ -34,8 +34,13 @@ public class ObjectFallingController : MonoBehaviour
     /// </summary>
     void FixedUpdate()
     {
+        // 一番下のオブジェクトを取得
+        Transform bottomObject = towerObjectSpawner.StackedObjects.FirstOrDefault();
+        // 取得した要素がnullであれば、そのまま関数を抜ける
+        if (bottomObject == null) { return; }
+
         // 現在と前フレームの一番下のオブジェクトを比較して、変更があれば落下処理を行う
-        if (towerObjectSpawner.StackedObjects.First().name != prevBottomObjectName)
+        if (bottomObject.name != prevBottomObjectName)
         {
             // 一番上のオブジェクトを取得
             Transform topObject = towerObjectSpawner.StackedObjects.Last();
@@ -56,7 +61,7 @@ public class ObjectFallingController : MonoBehaviour
         if (IsFalling) { Falling(); }
 
         // 現在の一番下のオブジェクトの名前を前フレームとして登録
-        prevBottomObjectName = towerObjectSpawner.StackedObjects.First().name;
+        prevBottomObjectName = bottomObject.name;
     }
 
     /// <summary>
@@ -64,11 +69,8 @@ public class ObjectFallingController : MonoBehaviour
     /// </summary>
     void Falling()
     {
-        for (int i = 0; i < towerObjectSpawner.StackedObjects.Count; i++)
+        foreach (Transform towerObject in towerObjectSpawner.StackedObjects)
         {
-            // オブジェクトを取得
-            Transform towerObject = towerObjectSpawner.StackedObjects[i];
-
             // Lerpを利用してオブジェクトの落下移動を行う
             towerObject.position = new Vector3(0, towerObject.position.y - (fallDistance / fallingLerpRate), 0);
         }
