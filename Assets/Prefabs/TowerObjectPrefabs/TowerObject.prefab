@@ -443,7 +443,7 @@ GameObject:
   - component: {fileID: 3377954771210222407}
   - component: {fileID: 5453935015121662753}
   - component: {fileID: 8573013637784283682}
-  - component: {fileID: 806764593277433677}
+  - component: {fileID: 8096097067289301091}
   m_Layer: 0
   m_Name: TowerObject
   m_TagString: Untagged
@@ -585,7 +585,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerObjectSpawner: {fileID: 6233680672232218299}
   fallingLerpRate: 10
---- !u!114 &806764593277433677
+--- !u!114 &8096097067289301091
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -597,8 +597,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f73315bd825259343a9c822b59f7ec3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flySpeed: 5
-  flyTime: 600
+  towerObjectSpawner: {fileID: 6233680672232218299}
+  objectFlySpeed: 5
+  objectFlyTime: 180
 --- !u!1 &9106954157072050465
 GameObject:
   m_ObjectHideFlags: 0
