@@ -57,6 +57,15 @@ public class RabbitMoveController : MoveControllerBase
     }
 
     /// <summary>
+    /// ウサギが耐えられなくなったとき
+    /// </summary>
+    public override void OnCrashed()
+    {
+        // ウサギが耐えられなくなったときのアニメーションを再生
+        animator.SetTrigger("RabbitCrash");
+    }
+
+    /// <summary>
     /// オブジェクトのアクションが終了したときに呼ぶコールバック
     /// </summary>
     public void OnControlFinished()

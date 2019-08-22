@@ -16,11 +16,10 @@ public class ObjectFallingController : MonoBehaviour
     [SerializeField]
     float fallingLerpRate = 0;
 
-    // 前フレームのオブジェクトの数
-    int prevStackedObjectNum = 0;
-
     // 落下距離
     float fallDistance = 0;
+    // 一番上のオブジェクト
+    Transform topObject = null;
     // 一番上のオブジェクトの落下終了位置
     Vector3 topObjectFallEndPosition = Vector3.zero;
     // 落下中かどうか
@@ -39,22 +38,30 @@ public class ObjectFallingController : MonoBehaviour
         // 取得した要素がnullであれば、そのまま関数を抜ける
         if (bottomObject == null) { return; }
 
-        // 現在と前フレームの一番下のオブジェクトを比較して、変更があれば落下処理を行う
-        if (bottomObject.name != prevBottomObjectName)
+        if (prevBottomObjectName == null)
         {
-            // 一番上のオブジェクトを取得
-            Transform topObject = towerObjectSpawner.StackedObjects.Last();
+            prevBottomObjectName = bottomObject.name;
+        }
 
-            // オブジェクトのスポーン間隔の幅を落下移動距離として取得
-            fallDistance = towerObjectSpawner.SpawnHeightInterval;
+        if (!IsFalling)
+        {
+            // 現在と前フレームの一番下のオブジェクトを比較して、変更があれば落下処理を行う
+            if (bottomObject.name != prevBottomObjectName)
+            {
+                // 二個目のオブジェクトを取得
+                topObject = towerObjectSpawner.StackedObjects.Last();
 
-            // 親オブジェクトの移動先の位置を算出
-            topObjectFallEndPosition = new Vector3(topObject.position.x,
-                                                   topObject.position.y - fallDistance,
-                                                   topObject.position.z);
+                // オブジェクトのスポーン間隔の幅を落下移動距離として取得
+                fallDistance = towerObjectSpawner.SpawnHeightInterval;
 
-            // 落下フラグをオンにする
-            IsFalling = true;
+                // 親オブジェクトの移動先の位置を算出
+                topObjectFallEndPosition = new Vector3(topObject.position.x,
+                                                       topObject.position.y - fallDistance,
+                                                       topObject.position.z);
+
+                // 落下フラグをオンにする
+                IsFalling = true;
+            }
         }
 
         // フラグがオンであれば落下処理を行う
@@ -62,6 +69,7 @@ public class ObjectFallingController : MonoBehaviour
 
         // 現在の一番下のオブジェクトの名前を前フレームとして登録
         prevBottomObjectName = bottomObject.name;
+        
     }
 
     /// <summary>
@@ -72,16 +80,14 @@ public class ObjectFallingController : MonoBehaviour
         foreach (Transform towerObject in towerObjectSpawner.StackedObjects)
         {
             // Lerpを利用してオブジェクトの落下移動を行う
-            towerObject.position = new Vector3(0, towerObject.position.y - (fallDistance / fallingLerpRate), 0);
+            towerObject.position = new Vector3(towerObject.position.x, towerObject.position.y - (fallDistance / fallingLerpRate), towerObject.position.z);
         }
 
-        // 一番上のオブジェクトを取得
-        Transform topObject = towerObjectSpawner.StackedObjects.Last();
         // 現在の位置と終了位置との距離を算出
-        float currentPosToEndPosDist = Vector3.Magnitude(topObjectFallEndPosition - topObject.position);
+        float currentPosToEndPosDist = (topObject.position - topObjectFallEndPosition).magnitude;
 
         // Lerpの移動量が0.01以下になったら落下終了とみなす
-        if (currentPosToEndPosDist <= 0.01f)
+        if (currentPosToEndPosDist < 0.01f)
         {
             IsFalling = false;
         }
