@@ -12,9 +12,11 @@ public class RabbitCrashedCaller : MonoBehaviour
     [SerializeField]
     RabbitEndureGauge rabbitEndureGauge = default;
 
+    // スポナークラス
     [SerializeField]
     TowerObjectSpawner towerObjectSpawner = default;
 
+    // 制御クラスの管理クラス
     [SerializeField]
     MoveControllerList moveControllerList = default;
 

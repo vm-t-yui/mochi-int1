@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// ウサギの耐久時間の計算を行うクラス
+/// </summary>
 public class RabbitEndureTimeCalculator : MonoBehaviour
 {
     [SerializeField]
@@ -33,13 +36,16 @@ public class RabbitEndureTimeCalculator : MonoBehaviour
     /// </summary>
     void OnEnable()
     {
-        difference      = MaxEnduranceTime - MinEnduranceTime;
-
-        decTime         = ReachTime  / DivisionNum;
+        // 最大と最小の減少時間の差分を取得
+        difference = MaxEnduranceTime - MinEnduranceTime;
+        // ゲージの減少間隔時間の計算
+        decTime = ReachTime / DivisionNum;
+        // ゲージの減少率の計算
         decEnduranceNum = difference / DivisionNum;
-
+        // 現在の耐久時間を最大時間で初期化
         NowEnduranceTime = MaxEnduranceTime;
 
+        // 現在の減少間隔時間と減少率をログに表示
         Debug.Log(decTime.ToString() + "秒毎に" + decEnduranceNum.ToString() + "減らす");
     }
 
