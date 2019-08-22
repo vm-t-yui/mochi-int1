@@ -48,7 +48,7 @@ public class MainPlayerAnimator : SingletonMonoBehaviour<MainPlayerAnimator>
             case (int)AnimKind.Rescue: playerAnim.SetTrigger("Rescue"); break;
             case (int)AnimKind.SpecialArts: playerAnim.SetTrigger("SpecialArts"); break;
             case (int)AnimKind.OrangeCatch:
-                if (GameDataManager.Inst.PlayData.LastScore < ScoreManager.GoodScore)
+                if (GameDataManager.Inst.PlayData.LastScore < ScoreManager.NormalScore)
                 {
                     playerAnim.SetTrigger("LowScore");
                 }
