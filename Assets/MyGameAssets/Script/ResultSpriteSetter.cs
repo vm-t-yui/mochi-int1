@@ -2,6 +2,9 @@
 using UnityEngine.U2D;
 using UnityEngine.UI;
 
+/// <summary>
+/// リザルトシーンのスプライトセットクラス
+/// </summary>
 public class ResultSpriteSetter : MonoBehaviour
 {
 	[SerializeField]

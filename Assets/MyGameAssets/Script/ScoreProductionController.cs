@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// スコアカウント時の演出管理クラス
+/// </summary>
 public class ScoreProductionController : MonoBehaviour
 {
     [SerializeField]
