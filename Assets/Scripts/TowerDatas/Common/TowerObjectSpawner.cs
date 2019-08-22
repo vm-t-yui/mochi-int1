@@ -34,11 +34,7 @@ public class TowerObjectSpawner : MonoBehaviour
     // ウサギのスポーンプール
     [SerializeField]
     SpawnPool rabbitSpawnPool = default;
-    
-    // オブジェクトの基準の位置
-    [SerializeField]
-    Vector3 baseSpawnPosition = Vector3.zero;
-    
+
     // スポーン時のオブジェクト間の高さの間隔
     [SerializeField]
     float spawnHeightInterval = 0;
@@ -58,9 +54,9 @@ public class TowerObjectSpawner : MonoBehaviour
         // 現在のモチのスキンを取得する
         mochiSkinType = GameDataManager.Inst.SettingData.UseSkin;
         // スポーンの基準位置から最初のオブジェクトのスポーン位置を決定する（スポーン高さ = 地面の高さ * 1.5f）
-        transform.position = new Vector3(baseSpawnPosition.x,
-                                        (baseSpawnPosition.y + spawnHeightInterval * 1.5f),
-                                         baseSpawnPosition.z);
+        transform.position = new Vector3(transform.position.x,
+                                        (transform.position.y + spawnHeightInterval * 1.5f) - spawnHeightInterval,
+                                         transform.position.z);
     }
 
     /// <summary>
@@ -77,7 +73,7 @@ public class TowerObjectSpawner : MonoBehaviour
         for (int spawnCount = 0; spawnCount < spawnNum;)
         {
             // スポーン位置の計算
-            Vector3 spawnPos = new Vector3(baseSpawnPos.x, baseSpawnPos.y + spawnHeightInterval * spawnCount, baseSpawnPos.z);
+            Vector3 spawnPos = new Vector3(baseSpawnPos.x, baseSpawnPos.y + (spawnHeightInterval * spawnCount), baseSpawnPos.z);
             // モチかウサギかの抽選を行う
             string towerObjectType = objectTypeLotteryMachine.SpawnLotteryMochiAndRabbit();
             // モチだった場合

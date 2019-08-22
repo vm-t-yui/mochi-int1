@@ -13,6 +13,9 @@ public class MochiMoveController : MoveControllerBase
 
     // TODO : 以下の関数にそれぞれのアクションに対応したオブジェクトの処理を実装する
 
+    // NOTE : モチのほうにはクラッシュの処理はなし（エラー除け）
+    public override void OnCrashed() { }
+
     /// <summary>
     /// 開始
     /// </summary>
@@ -27,6 +30,8 @@ public class MochiMoveController : MoveControllerBase
     /// </summary>
     public override void OnPlayerPunched()
     {
+        // パンチによるモチの破壊数を更新する
+        ScoreManager.Inst.UpdateGetNum();
         // モチの終了処理
         OnControlFinished();
     }

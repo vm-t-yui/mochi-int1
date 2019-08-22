@@ -21,4 +21,9 @@ public abstract class MoveControllerBase : MonoBehaviour
     /// プレイヤーから最後の大技を受けたとき
     /// </summary>
     public abstract void OnPlayerSpecialArts();
+
+    /// <summary>
+    /// オブジェクトが耐えられなくなったとき
+    /// </summary>
+    public abstract void OnCrashed();
 }
