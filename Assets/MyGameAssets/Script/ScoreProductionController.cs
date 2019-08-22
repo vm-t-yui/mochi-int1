@@ -32,17 +32,17 @@ public class ScoreProductionController : MonoBehaviour
     void Update()
     {
         // カウント中のスコアに応じてそれぞれのオブジェクトを表示
-        if(countUp.NowCount > ScoreManager.ButScore)
+        if(countUp.NowCount > ScoreManager.LowScore)
         {
             scoreMochi[(int)ScoreManager.Score.Low].SetActive(true);
         }
-        else if(countUp.NowCount > ScoreManager.GoodScore)
+        else if(countUp.NowCount > ScoreManager.NormalScore)
         {
             scoreMochi[(int)ScoreManager.Score.Normal].SetActive(true);
         }
-        else if(countUp.NowCount > ScoreManager.HighScore)
+        else if(countUp.NowCount > ScoreManager.GoodScore)
         {
-            scoreMochi[(int)ScoreManager.Score.High].SetActive(true);
+            scoreMochi[(int)ScoreManager.Score.Good].SetActive(true);
         }
     }
 }

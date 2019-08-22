@@ -8,8 +8,9 @@ using TMPro;
 /// </summary>
 public class ScoreCountUpper : MonoBehaviour
 {
-    public float NowCount { get; private set; } = 0;                                   // 現在のカウント
-    public bool IsEnd { get; private set; } = false;    // 終了フラグ 
+    public float NowCount { get; private set; } = 0;    // 現在のカウント
+    public bool IsEnd { get; private set; } = false;    // 終了フラグ
+
     bool isStart = false;                               // 開始フラグ
 
     [SerializeField]

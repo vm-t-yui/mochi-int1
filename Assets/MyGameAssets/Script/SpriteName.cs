@@ -27,5 +27,5 @@ public class SpriteName
     public const string Dish = "dish";
     public const string LowScoreMochi = "lowScoreMochi";
     public const string NormalScoreMochi = "normalScoreMochi";
-    public const string HighScoreMochi = "highScoreMochi";
+    public const string GoodScoreMochi = "goodScoreMochi";
 }

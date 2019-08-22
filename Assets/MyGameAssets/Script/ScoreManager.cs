@@ -12,18 +12,18 @@ public class ScoreManager : SingletonMonoBehaviour<ScoreManager>
     // 対象のオブジェクトのenum
     public enum Score
     {
-        Low,     // もち
-        Normal,  // うさぎ
-        High,     // enumの長さ
+        Low,     // 低
+        Normal,  // 中
+        Good,    // 高
     }
 
     public int NowBreakNum { get; private set; } = 0;     // 壊した数の合計
     
     public int MaxBreakNum { get; private set; } = 0;     // 壊した数の合計(表示用)
 
-    public const int ButScore = 10;                       // 低スコアの基準
-    public const int GoodScore = 30;                      // 良スコアの基準
-    public const int HighScore = 60;                      // 高スコアの基準
+    public const int LowScore = 10;                       // 低スコアの基準
+    public const int NormalScore = 30;                    // 良スコアの基準
+    public const int GoodScore = 60;                      // 高スコアの基準
 
     /// <summary>
     /// 起動処理
