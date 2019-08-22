@@ -8,7 +8,7 @@ using TMPro;
 /// </summary>
 public class ScoreCountUpper : MonoBehaviour
 {
-    float nowCount = 0;                                   // 現在のカウント
+    public float NowCount { get; private set; } = 0;                                   // 現在のカウント
     public bool IsEnd { get; private set; } = false;    // 終了フラグ 
     bool isStart = false;                               // 開始フラグ
 
@@ -40,10 +40,10 @@ public class ScoreCountUpper : MonoBehaviour
         // カウント開始されたらスコアをカウントアップ
         if (isStart && !IsEnd)
         {
-            nowCount += (ScoreManager.Inst.NowBreakNum * (Time.deltaTime / waitTime));
+            NowCount += (ScoreManager.Inst.NowBreakNum * (Time.deltaTime / waitTime));
 
             // カウントし終わったら
-            if (ScoreManager.Inst.NowBreakNum <= nowCount)
+            if (ScoreManager.Inst.NowBreakNum <= NowCount)
             {
                 // カウントダウン終了
                 IsEnd = true;
@@ -53,7 +53,7 @@ public class ScoreCountUpper : MonoBehaviour
         }
 
         // テキストにセット
-        text.text = ((int)nowCount).ToString();
+        text.text = ((int)NowCount).ToString();
     }
 
     /// <summary>
@@ -62,7 +62,7 @@ public class ScoreCountUpper : MonoBehaviour
     void OnDisable()
     {
         // リセット
-        nowCount = 0;
+        NowCount = 0;
         IsEnd = false;
         buttons.SetActive(false);
         ScoreManager.Inst.Reset();

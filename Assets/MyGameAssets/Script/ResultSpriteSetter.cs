@@ -15,13 +15,15 @@ public class ResultSpriteSetter : MonoBehaviour
 	Image shareButton       = default;      // 共有ボタン
     [SerializeField]
     Image page              = default;      // ノート
+
     [SerializeField]
     Image[] memo            = default;      // うさぎ図鑑用メモ
     [SerializeField]
     Image[] buttons         = default;      // ボタン自体のスプライト
-
     [SerializeField]
     Image[] wood            = default;      // ウィンドウ用木目
+    [SerializeField]
+    Image[] scoreMochi      = default;      // カウントアップ時にスコアに応じて増減するもち
 
     [SerializeField]
 	Image rarity0           = default;      // 非解放用レアリティ
@@ -32,22 +34,27 @@ public class ResultSpriteSetter : MonoBehaviour
 			rarity4         = default,      // ★４群
 			rarity5         = default;      // ★５群
 
-	/// <summary>
-	/// 起動処理.
-	/// </summary>
-	void Awake()
+    /// <summary>
+    /// 起動処理.
+    /// </summary>
+    void Awake()
 	{
 		// 各スプライトをアタッチ
 		pictureBookButton.sprite = atlas.GetSprite(SpriteName.PictureBookButton);
 		leaderboardButton.sprite = atlas.GetSprite(SpriteName.LeaderboardButton);
 		shareButton.sprite = atlas.GetSprite(SpriteName.ShareButton);
         page.sprite = atlas.GetSprite(SpriteName.Page);
+        scoreMochi[(int)ScoreManager.Score.Low].sprite = atlas.GetSprite(SpriteName.LowScoreMochi);
+        scoreMochi[(int)ScoreManager.Score.Normal].sprite = atlas.GetSprite(SpriteName.NormalScoreMochi);
+        scoreMochi[(int)ScoreManager.Score.High].sprite = atlas.GetSprite(SpriteName.HighScoreMochi);
+
         rarity0.sprite = atlas.GetSprite(SpriteName.Rarity0);
 		SetRaritySprite(rarity1, SpriteName.Rarity1);
 		SetRaritySprite(rarity2, SpriteName.Rarity2);
 		SetRaritySprite(rarity3, SpriteName.Rarity3);
 		SetRaritySprite(rarity4, SpriteName.Rarity4);
 		SetRaritySprite(rarity5, SpriteName.Rarity5);
+
         for (int i = 0; i < buttons.Length; i++)
         {
             buttons[i].sprite = atlas.GetSprite(SpriteName.NormalMochi);

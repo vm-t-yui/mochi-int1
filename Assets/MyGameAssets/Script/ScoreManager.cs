@@ -10,18 +10,20 @@ using VMUnityLib;
 public class ScoreManager : SingletonMonoBehaviour<ScoreManager>
 {
     // 対象のオブジェクトのenum
-    public enum TargetObject
+    public enum Score
     {
-        Mochi,     // もち
-        Rabbit,    // うさぎ
-        Length,    // enumの長さ
+        Low,     // もち
+        Normal,  // うさぎ
+        High,     // enumの長さ
     }
 
     public int NowBreakNum { get; private set; } = 0;     // 壊した数の合計
     
     public int MaxBreakNum { get; private set; } = 0;     // 壊した数の合計(表示用)
 
-    public const int GoodScore = 60;                      // 良スコアの目標
+    public const int ButScore = 10;                       // 低スコアの基準
+    public const int GoodScore = 30;                      // 良スコアの基準
+    public const int HighScore = 60;                      // 高スコアの基準
 
     /// <summary>
     /// 起動処理
