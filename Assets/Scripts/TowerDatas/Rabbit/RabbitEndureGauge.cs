@@ -46,14 +46,18 @@ public class RabbitEndureGauge : MonoBehaviour
     /// </summary>
     void Update()
     {
+        // ゲージ減少中の処理
         if (enduranceTimeGuage.value > 0)
         {
+            // ゲージを減少していく
             enduranceTimeGuage.value -= 1.0f * (Time.deltaTime / rabbitEndureTimeCalculator.NowEnduranceTime);
         }
+        // ゲージが０になれば
         else
         {
+            // ゲージをリセットする
             enduranceTimeGuage.value = 1;
-
+            // ウサギのクラッシュフラグをオンにする
             isCrushed = true;
         }
     }
