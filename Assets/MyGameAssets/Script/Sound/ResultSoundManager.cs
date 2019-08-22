@@ -68,7 +68,7 @@ public class ResultSoundManager : MonoBehaviour
             bgmPlayer.PlayResultBgm(BgmID.Bad);
         }
         // グッドスコア時
-        if (GameDataManager.Inst.PlayData.LastScore >= ScoreManager.GoodScore)
+        if (GameDataManager.Inst.PlayData.LastScore >= ScoreManager.NormalScore)
         {
             bgmPlayer.PlayResultBgm(BgmID.GoodScore);
         }

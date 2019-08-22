@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// 図鑑の表示切替
@@ -12,6 +13,10 @@ public class PictureBookController : MonoBehaviour
     // 非解放用の説明ウィンドウ
     [SerializeField]
     GameObject notReleaseDescription = default;
+
+    // スクロールバー
+    [SerializeField]
+    Scrollbar scrollbar = default;
 
     const int NotReleaseNum = -1;    // 非解放用の説明ウィンドウ番号
     int       nowOpenNum    = 0;     // 表示中の説明ウィンドウ番号
@@ -39,6 +44,9 @@ public class PictureBookController : MonoBehaviour
         {
             nowOpenNum = NotReleaseNum;
         }
+
+        // valueを初期位置へ
+        scrollbar.value = 0;
     }
 
     /// <summary>

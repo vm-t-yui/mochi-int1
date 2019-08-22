@@ -31,7 +31,7 @@ public class MainPlayerAnimator : SingletonMonoBehaviour<MainPlayerAnimator>
     Animator cameraAnim = default;          // カメラのアニメーター
 
     [SerializeField]
-    TowerFlyController towerFly = default;  // タワーを吹っ飛ばすクラス
+    TowerBreakController towerBreak = default;  // タワーを吹っ飛ばすクラス
 
     /// <summary>
     ///  アニメーション再生
@@ -48,7 +48,7 @@ public class MainPlayerAnimator : SingletonMonoBehaviour<MainPlayerAnimator>
             case (int)AnimKind.Rescue: playerAnim.SetTrigger("Rescue"); break;
             case (int)AnimKind.SpecialArts: playerAnim.SetTrigger("SpecialArts"); break;
             case (int)AnimKind.OrangeCatch:
-                if (GameDataManager.Inst.PlayData.LastScore < ScoreManager.GoodScore)
+                if (GameDataManager.Inst.PlayData.LastScore < ScoreManager.NormalScore)
                 {
                     playerAnim.SetTrigger("LowScore");
                 }
@@ -98,6 +98,6 @@ public class MainPlayerAnimator : SingletonMonoBehaviour<MainPlayerAnimator>
     /// </summary>
     public void TowerFly()
     {
-        towerFly.enabled = true;
+        towerBreak.enabled = true;
     }
 }

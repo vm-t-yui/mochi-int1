@@ -25,4 +25,7 @@ public class SpriteName
     public const string Memo = "memo";
     public const string Wood = "wood";
     public const string Dish = "dish";
+    public const string LowScoreMochi = "lowScoreMochi";
+    public const string NormalScoreMochi = "normalScoreMochi";
+    public const string GoodScoreMochi = "goodScoreMochi";
 }
