@@ -18,24 +18,6 @@ public class MainCameraAnimator : MonoBehaviour
 
     [SerializeField]
     Animator mainCameraAnim = default;          // カメラのアニメーター
-    [SerializeField]
-    FeverTimeController feverTime = default;    // フィーバータイム管理クラス
-
-    /// <summary>
-    /// 更新処理
-    /// </summary>
-    void Update()
-    {
-        // フィーバータイムの状態によってカメラ位置変更
-        if (feverTime.IsFever)
-        {
-            AnimStart((int)AnimKind.FeverIn);
-        }
-        else
-        {
-            AnimStart((int)AnimKind.FeverOut);
-        }
-    }
 
     /// <summary>
     ///  アニメーション再生

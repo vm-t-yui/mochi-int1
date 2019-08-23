@@ -14,6 +14,9 @@ public class ScoreProductionController : MonoBehaviour
     [SerializeField]
     GameObject[] scoreMochi = default;  // カウントアップ時にスコアに応じて増減するもちのオブジェクト
 
+    [SerializeField]
+    ParticleSystem mochiFall = default; // もちが落ちてくるパーティクル
+
     /// <summary>
     /// 起動処理
     /// </summary>
@@ -43,6 +46,20 @@ public class ScoreProductionController : MonoBehaviour
         if(countUp.NowCount > ScoreManager.GoodScore)
         {
             scoreMochi[(int)ScoreManager.Score.Good].SetActive(true);
+        }
+        if (countUp.NowCount > ScoreManager.VeryGoodScore)
+        {
+            scoreMochi[(int)ScoreManager.Score.VeryGood].SetActive(true);
+        }
+
+        // カウント時はもちを降らせ、カウント終了時に生成をストップする
+        if (countUp.IsStart && !countUp.IsEnd)
+        {
+            mochiFall.Play(true);
+        }
+        else
+        {
+            mochiFall.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         }
     }
 }

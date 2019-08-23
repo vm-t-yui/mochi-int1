@@ -15,15 +15,17 @@ public class ScoreManager : SingletonMonoBehaviour<ScoreManager>
         Low,     // 低
         Normal,  // 中
         Good,    // 高
+        VeryGood,// とても高い
     }
 
     public int NowBreakNum { get; private set; } = 0;     // 壊した数の合計
-    
+
     public int MaxBreakNum { get; private set; } = 0;     // 壊した数の合計(表示用)
 
     public const int LowScore = 10;                       // 低スコアの基準
     public const int NormalScore = 30;                    // 良スコアの基準
     public const int GoodScore = 60;                      // 高スコアの基準
+    public const int VeryGoodScore = 100;                      // 高スコアの基準
 
     /// <summary>
     /// 起動処理
@@ -39,7 +41,7 @@ public class ScoreManager : SingletonMonoBehaviour<ScoreManager>
     public void Reset()
     {
         // 前回のスコアとハイスコアを更新
-        if(GameDataManager.Inst.PlayData.HighScore < NowBreakNum)
+        if (GameDataManager.Inst.PlayData.HighScore < NowBreakNum)
         {
             GameDataManager.Inst.PlayData.HighScore = NowBreakNum;
         }

@@ -9,9 +9,9 @@ using TMPro;
 public class ScoreCountUpper : MonoBehaviour
 {
     public float NowCount { get; private set; } = 0;    // 現在のカウント
-    public bool IsEnd { get; private set; } = false;    // 終了フラグ
 
-    bool isStart = false;                               // 開始フラグ
+    public bool IsStart { get; private set; } = false;  // 開始フラグ
+    public bool IsEnd { get; private set; } = false;    // 終了フラグ
 
     [SerializeField]
     float waitTime = 5.0f;                              // カウントにかかるの時間
@@ -32,7 +32,7 @@ public class ScoreCountUpper : MonoBehaviour
     {
         NowCount = 0;
         IsEnd = false;
-        isStart = true;
+        IsStart = true;
     }
 
     /// <summary>
@@ -41,7 +41,7 @@ public class ScoreCountUpper : MonoBehaviour
     void Update()
     {
         // カウント開始されたらスコアをカウントアップ
-        if (isStart && !IsEnd)
+        if (IsStart && !IsEnd)
         {
             NowCount += (ScoreManager.Inst.NowBreakNum * (Time.deltaTime / waitTime));
 
