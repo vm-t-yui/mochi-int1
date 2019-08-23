@@ -50,6 +50,7 @@ public class ResultSpriteSetter : MonoBehaviour
         scoreMochi[(int)ScoreManager.Score.Low].sprite = atlas.GetSprite(SpriteName.LowScoreMochi);
         scoreMochi[(int)ScoreManager.Score.Normal].sprite = atlas.GetSprite(SpriteName.NormalScoreMochi);
         scoreMochi[(int)ScoreManager.Score.Good].sprite = atlas.GetSprite(SpriteName.GoodScoreMochi);
+        scoreMochi[(int)ScoreManager.Score.VeryGood].sprite = atlas.GetSprite(SpriteName.VeryGoodScoreMochi);
 
         rarity0.sprite = atlas.GetSprite(SpriteName.Rarity0);
         SetRaritySprite(rarity1, SpriteName.Rarity1);
