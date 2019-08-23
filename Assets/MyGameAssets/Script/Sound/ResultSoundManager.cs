@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using VMUnityLib;
 
 /// <summary>
@@ -7,18 +8,18 @@ using VMUnityLib;
 public class ResultSoundManager : MonoBehaviour
 {
     [SerializeField]
-    BgmPlayer    bgmPlayer    = default;    // BGM再生クラス
+    Button[]        selectSeButtons     = default,    // 決定音を再生するボタン
+                    windowOpenSeButtons = default,    // ウィンドウオープン音を再生するボタン
+                    cancelSeButtons     = default,    // キャンセル音を再生するボタン
+                    tapSeButtons        = default;    // タップ音を再生するボタン
 
     [SerializeField]
-    SePlayer     sePlayer     = default;    // SE再生クラス
+    ScoreCountUpper scoreCountUpper     = default;    // スコアカウントクラス
 
-    [SerializeField]
-    ScoreCountUpper scoreCountUpper = default;    // スコアカウントクラス
+    const float     WaitTimeBgm  = 1.8f;              // BGMを再生するまでの待ち時間
 
-    const float  WaitTimeBgm  = 1.8f;       // BGMを再生するまでの待ち時間
-
-    bool         isDramRoll   = false;      // ドラムロール用フラグ
-    bool         isPlayed     = false;      // 再生完了フラグ
+    bool            isDramRoll   = false;             // ドラムロール用フラグ
+    bool            isPlayed     = false;             // 再生完了フラグ
 
     /// <summary>
     /// 起動処理
@@ -37,7 +38,7 @@ public class ResultSoundManager : MonoBehaviour
         // ドラムロール音を再生
         if (!isDramRoll)
         {
-            sePlayer.PlaySe(SeID.DramRoll);
+            SePlayer.Inst.PlaySe(SeID.DramRoll);
 
             isDramRoll = true;
         }
@@ -46,9 +47,9 @@ public class ResultSoundManager : MonoBehaviour
         if (scoreCountUpper.IsEnd && !isPlayed)
         {
             // 一度すべての効果音を停止
-            sePlayer.StopSeAll();
+            SePlayer.Inst.StopSeAll();
             // ドラムロール終了音を再生
-            sePlayer.PlaySe(SeID.RollFinish);
+            SePlayer.Inst.PlaySe(SeID.RollFinish);
 
             // 指定時間待ってBGMを再生
             Invoke("PlaySuitableBgm", WaitTimeBgm);
@@ -65,17 +66,17 @@ public class ResultSoundManager : MonoBehaviour
         // うさぎを3回以上殴った時
         if (GameDataManager.Inst.PlayData.PunchCount > 3)
         {
-            bgmPlayer.PlayResultBgm(BgmID.Bad);
+            BgmPlayer.Inst.PlayResultBgm(BgmID.Bad);
         }
         // グッドスコア時
         if (GameDataManager.Inst.PlayData.LastScore >= ScoreManager.NormalScore)
         {
-            bgmPlayer.PlayResultBgm(BgmID.GoodScore);
+            BgmPlayer.Inst.PlayResultBgm(BgmID.GoodScore);
         }
         // ロースコア時
         else
         {
-            bgmPlayer.PlayResultBgm(BgmID.LowScore);
+            BgmPlayer.Inst.PlayResultBgm(BgmID.LowScore);
         }
     }
 
@@ -84,7 +85,7 @@ public class ResultSoundManager : MonoBehaviour
     /// </summary>
     void OnDisable()
     {
-        bgmPlayer.StopBgm();
-        sePlayer.StopSeAll();
+        BgmPlayer.Inst.StopBgm();
+        SePlayer.Inst.StopSeAll();
     }
 }
