@@ -54,13 +54,15 @@ SpriteAtlas:
     - {fileID: 2800000, guid: 05879ed6f2e8043f9b72a5cb1c1dad72, type: 3}
     - {fileID: 2800000, guid: 0647bb0dbe154428eb23bc4ebbedb1c7, type: 3}
     - {fileID: 2800000, guid: 5edb95e7b21bc41e48d298b4c7cb5036, type: 3}
-    totalSpriteSurfaceArea: 4213504
+    - {fileID: 2800000, guid: 21756ce1d7db342f8bbfc9eddd7182c5, type: 3}
+    totalSpriteSurfaceArea: 4475648
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: 5684b5302bf69402d8242e0a0d67d8e2, type: 3}
   - {fileID: 21300000, guid: f3e52741ac89d3c41ae38aa68d29906a, type: 3}
   - {fileID: 21300000, guid: 5ab1e55191dc68a4e8476fd0d703cf2b, type: 3}
+  - {fileID: 21300000, guid: 21756ce1d7db342f8bbfc9eddd7182c5, type: 3}
   - {fileID: 21300000, guid: a5cc1df4ac093214abb5cb0ba85cf1a0, type: 3}
   - {fileID: 21300000, guid: da4148055d94547b4abecb0b53a94fa1, type: 3}
   - {fileID: 21300000, guid: 0bf684a6813a0d044aef82eb17898ddc, type: 3}
@@ -86,6 +88,7 @@ SpriteAtlas:
   - offerWall
   - pictureBook
   - volume
+  - veryGoodScoreMochi
   - rabbitGallery
   - skin
   - setting

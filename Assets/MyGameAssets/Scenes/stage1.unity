@@ -191,12 +191,12 @@ PrefabInstance:
         type: 3}
       propertyPath: bgmPlayer
       value: 
-      objectReference: {fileID: 1377599070}
+      objectReference: {fileID: 0}
     - target: {fileID: 7714969858733586905, guid: 4e8ce18565edd864db97a6eb1222b16e,
         type: 3}
       propertyPath: sePlayer
       value: 
-      objectReference: {fileID: 1377599069}
+      objectReference: {fileID: 0}
     - target: {fileID: 7714969858733586905, guid: 4e8ce18565edd864db97a6eb1222b16e,
         type: 3}
       propertyPath: timer
@@ -233,7 +233,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1080134910}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &333409356
 MonoBehaviour:
@@ -953,7 +953,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 6854dc518a6300244aae52ad1cbaaad2,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 6854dc518a6300244aae52ad1cbaaad2,
         type: 3}
@@ -2809,7 +2809,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1080134910}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1069323589
 PrefabInstance:
@@ -2818,6 +2818,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1080134910}
     m_Modifications:
+    - target: {fileID: 7310079128790675843, guid: 34e60736b952eee4dba2263ecaaa2597,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4017800365533866897, guid: 34e60736b952eee4dba2263ecaaa2597,
         type: 3}
       propertyPath: m_TagString
@@ -3008,6 +3013,11 @@ PrefabInstance:
       propertyPath: timer
       value: 
       objectReference: {fileID: 1172636029}
+    - target: {fileID: 3377954771210222407, guid: 34e60736b952eee4dba2263ecaaa2597,
+        type: 3}
+      propertyPath: feverTimeController
+      value: 
+      objectReference: {fileID: 333409356}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34e60736b952eee4dba2263ecaaa2597, type: 3}
 --- !u!114 &1069323590 stripped
@@ -3126,7 +3136,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1080134910}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1123132945
 MonoBehaviour:
@@ -3224,99 +3234,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e475f86097f4e433985b8a011280982a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1001 &1377599068
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1080134910}
-    m_Modifications:
-    - target: {fileID: 8515150765824641441, guid: a3e483b8164f8cf47b4a615e3692a001,
-        type: 3}
-      propertyPath: m_Name
-      value: Sound
-      objectReference: {fileID: 0}
-    - target: {fileID: 8515150765824641470, guid: a3e483b8164f8cf47b4a615e3692a001,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8515150765824641470, guid: a3e483b8164f8cf47b4a615e3692a001,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8515150765824641470, guid: a3e483b8164f8cf47b4a615e3692a001,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8515150765824641470, guid: a3e483b8164f8cf47b4a615e3692a001,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8515150765824641470, guid: a3e483b8164f8cf47b4a615e3692a001,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8515150765824641470, guid: a3e483b8164f8cf47b4a615e3692a001,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8515150765824641470, guid: a3e483b8164f8cf47b4a615e3692a001,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8515150765824641470, guid: a3e483b8164f8cf47b4a615e3692a001,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 8515150765824641470, guid: a3e483b8164f8cf47b4a615e3692a001,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8515150765824641470, guid: a3e483b8164f8cf47b4a615e3692a001,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8515150765824641470, guid: a3e483b8164f8cf47b4a615e3692a001,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a3e483b8164f8cf47b4a615e3692a001, type: 3}
---- !u!114 &1377599069 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8515150766566764909, guid: a3e483b8164f8cf47b4a615e3692a001,
-    type: 3}
-  m_PrefabInstance: {fileID: 1377599068}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88439490094d3e2438c6e55ee15879df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1377599070 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7859362036306423522, guid: a3e483b8164f8cf47b4a615e3692a001,
-    type: 3}
-  m_PrefabInstance: {fileID: 1377599068}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52d8450b1da39e418d19a6b05d22932, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!95 &1399720796 stripped

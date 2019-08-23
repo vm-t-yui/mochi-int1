@@ -531,6 +531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a48fef9a6b54f064eb0383ac70c9baae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: {fileID: 0}
   rabbitEndureTimeCalculator: {fileID: 901467852161990062}
   enduranceTimeGuage: {fileID: 0}
 --- !u!114 &901467852161990062
@@ -619,7 +620,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbf8856c2f692bb4aaca38774e01cc27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mochiSpawnRate: 50
+  mochiSpawnRate: 90
   rabbitSpawnRate: 10
 --- !u!114 &1006552312545117513
 MonoBehaviour:
@@ -664,6 +665,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerObjectSpawner: {fileID: 6233680672232218299}
   spawnNum: 10
+  feverTimeController: {fileID: 0}
 --- !u!114 &5453935015121662753
 MonoBehaviour:
   m_ObjectHideFlags: 0

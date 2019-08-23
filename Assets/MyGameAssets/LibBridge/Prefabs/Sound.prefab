@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f52d8450b1da39e418d19a6b05d22932, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgmPool: {fileID: 0}
+  bgmPool: {fileID: 6164384805112553757}
 --- !u!1 &8515150765824641441
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88439490094d3e2438c6e55ee15879df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sePool: {fileID: 0}
+  sePool: {fileID: 5810027989400906335}
   RandomPitchBand: 0
 --- !u!1001 &3935149627114933872
 PrefabInstance:
@@ -197,3 +197,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3935149627114933872}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6164384805112553757 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7138274598784528237, guid: e90ee59cb1e1fcb42a7d73aaabca2c1a,
+    type: 3}
+  m_PrefabInstance: {fileID: 3935149627114933872}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59dfbc0f4f3a98b4ebf4ad40fc3f43aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5810027989400906335 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7367088618481067055, guid: e90ee59cb1e1fcb42a7d73aaabca2c1a,
+    type: 3}
+  m_PrefabInstance: {fileID: 3935149627114933872}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59dfbc0f4f3a98b4ebf4ad40fc3f43aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

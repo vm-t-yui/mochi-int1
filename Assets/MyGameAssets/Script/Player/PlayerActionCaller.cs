@@ -50,7 +50,7 @@ public class PlayerActionCaller : MonoBehaviour
             }
         }
         // まだ時間が余っていたら
-        else
+        else if(timer.IsStart)
         {
             //NOTE:条件式のInput.GetKeyDownはエディタ時の確認用キーです。
             // 通常時

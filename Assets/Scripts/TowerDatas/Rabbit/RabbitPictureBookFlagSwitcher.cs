@@ -74,9 +74,9 @@ public class RabbitPictureBookFlagSwitcher : SingletonMonoBehaviour<RabbitPictur
     {
         // リストに登録されているウサギをもとにフラグを切り替える
         SwitchPictureBookFlag();
-        // リストに登録されている救出されたウサギのデータを全削除する
-        AllRemoveNumbersList();
         // フラグをもとにJsonにセーブする
         JsonDataSaver.Save(GameDataManager.Inst.PlayData);
+        // リストに登録されている救出されたウサギのデータを全削除する
+        AllRemoveNumbersList();
     }
 }
