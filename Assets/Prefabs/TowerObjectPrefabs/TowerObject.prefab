@@ -1,5 +1,49 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2064266166872564308
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7408330299942309755}
+  - component: {fileID: 1422795096095904251}
+  m_Layer: 0
+  m_Name: RabbitPictureBookFlagSwitcher
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7408330299942309755
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2064266166872564308}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7310079128790675840}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1422795096095904251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2064266166872564308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80c537cd853672e4ead84bdfbcf1ba51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerObjectDataManager: {fileID: 6630082409392808936}
 --- !u!1 &6265079360231647286
 GameObject:
   m_ObjectHideFlags: 0
@@ -29,7 +73,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7310079128790675840}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0.64900005, y: 0, z: 0}
 --- !u!114 &3289982931307124757
 MonoBehaviour:
@@ -458,7 +502,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7310079128790675840}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8429905698815538772
 MonoBehaviour:
@@ -504,7 +548,7 @@ MonoBehaviour:
   timer: {fileID: 0}
   MaxEnduranceTime: 5
   MinEnduranceTime: 0.5
-  ReachTime: 120
+  ReachTime: 30
   DivisionNum: 3
 --- !u!114 &8720066317175066205
 MonoBehaviour:
@@ -520,98 +564,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rabbitEndureGauge: {fileID: 6871610430900900153}
   towerObjectSpawner: {fileID: 6233680672232218299}
-  moveControllerList: {fileID: 1495006740425397589}
---- !u!1 &6608064181230015861
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1941376112574905551}
-  - component: {fileID: 3608990666902399623}
-  m_Layer: 0
-  m_Name: PlayerActionTest
-  m_TagString: EditorOnly
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1941376112574905551
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6608064181230015861}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -485.2119, y: -686.2567, z: -359.9297}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7310079128790675840}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3608990666902399623
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6608064181230015861}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56d4bca6b82e0c54e908b6f90be30a6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  punched:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5453935015121662753}
-        m_MethodName: OnPunched
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  rescued:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5453935015121662753}
-        m_MethodName: OnRescued
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  specialArts:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5453935015121662753}
-        m_MethodName: OnSpecialArtsed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+  moveControllerList: {fileID: 4955641821369318695}
 --- !u!1 &7310079128790675843
 GameObject:
   m_ObjectHideFlags: 0
@@ -621,9 +574,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7310079128790675840}
-  - component: {fileID: 8501096061278453996}
   - component: {fileID: 4504281614842031130}
-  - component: {fileID: 1495006740425397589}
   - component: {fileID: 1006552312545117513}
   - component: {fileID: 6233680672232218299}
   - component: {fileID: 3377954771210222407}
@@ -636,7 +587,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7310079128790675840
 Transform:
   m_ObjectHideFlags: 0
@@ -648,28 +599,14 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 7966365299172774077}
   - {fileID: 5513838082089453678}
   - {fileID: 6184570062112722802}
-  - {fileID: 1941376112574905551}
+  - {fileID: 7408330299942309755}
   - {fileID: 7579473406077158246}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8501096061278453996
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7310079128790675843}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac807f2db6d4f8b48873b8e479cf2df3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mochiDataPath: TowerObjectDatas/Mochi/MochiDatas
-  rabbitDataPath: TowerObjectDatas/Rabbit/RabbitDatas
-  rabbitRarityDataPath: TowerObjectDatas/Rabbit/RarityDatas
 --- !u!114 &4504281614842031130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -683,21 +620,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mochiSpawnRate: 50
-  rabbitSpawnRate: 22
---- !u!114 &1495006740425397589
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7310079128790675843}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cfdd41051e5fa243a94001808b052e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mochiSpawnPool: {fileID: 5513838082089453678}
-  rabbitSpawnPool: {fileID: 6184570062112722802}
+  rabbitSpawnRate: 10
 --- !u!114 &1006552312545117513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -755,7 +678,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerController: {fileID: 0}
   towerObjectSpawner: {fileID: 6233680672232218299}
-  moveControllerList: {fileID: 1495006740425397589}
+  moveControllerList: {fileID: 4955641821369318695}
   objectFallingController: {fileID: 8573013637784283682}
   timer: {fileID: 0}
 --- !u!114 &8573013637784283682
@@ -786,6 +709,67 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerObjectSpawner: {fileID: 6233680672232218299}
   objectFlySpeed: 5
+--- !u!1 &7660836170605007155
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7966365299172774077}
+  - component: {fileID: 6630082409392808936}
+  - component: {fileID: 4955641821369318695}
+  m_Layer: 0
+  m_Name: TowerObjectDatas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7966365299172774077
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7660836170605007155}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7310079128790675840}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6630082409392808936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7660836170605007155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac807f2db6d4f8b48873b8e479cf2df3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mochiDataPath: TowerObjectDatas/Mochi/MochiDatas
+  rabbitDataPath: TowerObjectDatas/Rabbit/RabbitDatas
+  rabbitRarityDataPath: TowerObjectDatas/Rabbit/RarityDatas
+--- !u!114 &4955641821369318695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7660836170605007155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cfdd41051e5fa243a94001808b052e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mochiSpawnPool: {fileID: 5513838082089453678}
+  rabbitSpawnPool: {fileID: 6184570062112722802}
 --- !u!1 &9106954157072050465
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,7 +799,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7310079128790675840}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7614573003565083709
 MonoBehaviour:

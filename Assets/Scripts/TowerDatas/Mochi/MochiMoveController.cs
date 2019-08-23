@@ -22,7 +22,7 @@ public class MochiMoveController : MoveControllerBase
     void Start()
     {
         // 親オブジェクトにアタッチされているスポナークラスを取得する
-        towerObjectSpawner = transform.root.GetComponent<TowerObjectSpawner>();
+        towerObjectSpawner = transform.parent.parent.GetComponent<TowerObjectSpawner>();
     }
 
     /// <summary>
