@@ -15,6 +15,10 @@ public class TowerObjectSpawnController : MonoBehaviour
     // スポーンさせる数
     [SerializeField] int spawnNum = 0;
 
+    // フィーバータイムコントローラー
+    [SerializeField]
+    FeverTimeController feverTimeController = default;
+
     /// <summary>
     /// 更新
     /// </summary>
@@ -24,8 +28,18 @@ public class TowerObjectSpawnController : MonoBehaviour
         // 新たにオブジェクトを生成する
         if (towerObjectSpawner.StackedObjects.Count < spawnNum)
         {
-            // オブジェクトをスポーンする
-            towerObjectSpawner.Spawn(spawnNum);
+            // フィーバータイムはモチのみをスポーンする
+            if (feverTimeController.IsFever)
+            {
+                // オブジェクトをスポーンする
+                towerObjectSpawner.SpawnMochiOnly(spawnNum);
+            }
+            // 通常通り、抽選結果をもとにスポーンする
+            else
+            {
+                // オブジェクトをスポーンする
+                towerObjectSpawner.Spawn(spawnNum);
+            }
         }
     }
 }
