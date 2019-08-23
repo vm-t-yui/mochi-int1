@@ -24,8 +24,8 @@ public class RabbitMoveController : MoveControllerBase
     /// </summary>
     void Start()
     {
-        // 親オブジェクトにアタッチされているスポナークラスを取得する
-        towerObjectSpawner = transform.root.GetComponent<TowerObjectSpawner>();
+       // 親オブジェクトにアタッチされているスポナークラスを取得する
+        towerObjectSpawner = transform.parent.parent.GetComponent<TowerObjectSpawner>();
     }
 
     // TODO : 以下の関数にそれぞれのアクションに対応したオブジェクトの処理を実装する
@@ -44,6 +44,12 @@ public class RabbitMoveController : MoveControllerBase
     /// </summary>
     public override void OnPlayerRescued()
     {
+        // オブジェクトの名前を取得
+        string nameText = transform.name;
+        // 全体の名前から"(clone)***"を除いたもとの名前のみを取得
+        string sourceName = nameText.Substring(0, nameText.Length - ("(clone)***").Length);
+        // 救出されたウサギを専用のリストに登録
+        RabbitPictureBookFlagSwitcher.Inst.AddListTheRescuedRabbit(sourceName);
         // ウサギが救出されるアニメーションを再生
         animator.SetTrigger("RabbitRescued");
     }

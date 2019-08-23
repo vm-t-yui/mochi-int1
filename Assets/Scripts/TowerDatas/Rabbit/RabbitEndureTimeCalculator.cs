@@ -54,7 +54,6 @@ public class RabbitEndureTimeCalculator : MonoBehaviour
     /// </summary>
     void Update()
     {
-        Debug.Log(1.0f * (Time.deltaTime / NowEnduranceTime));
         if (timer.IsStart)
         {
             // 終了フラグがtrueならここで処理を抜ける
