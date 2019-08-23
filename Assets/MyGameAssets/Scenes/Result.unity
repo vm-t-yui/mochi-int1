@@ -242,6 +242,11 @@ PrefabInstance:
       propertyPath: resultPlayerAnimator
       value: 
       objectReference: {fileID: 1930507437}
+    - target: {fileID: 6835369214017663140, guid: e3708c942552346639722a502ab9495b,
+        type: 3}
+      propertyPath: buttons
+      value: 
+      objectReference: {fileID: 82080624}
     - target: {fileID: 7640226529962006200, guid: e3708c942552346639722a502ab9495b,
         type: 3}
       propertyPath: playerAnim
@@ -277,10 +282,10 @@ PrefabInstance:
       objectReference: {fileID: 1862862830}
     - target: {fileID: 82080626, guid: e3708c942552346639722a502ab9495b, type: 3}
       propertyPath: wood.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 82080626, guid: e3708c942552346639722a502ab9495b, type: 3}
-      propertyPath: wood.Array.data[1]
+      propertyPath: wood.Array.data[2]
       value: 
       objectReference: {fileID: 82080622}
     m_RemovedComponents: []
@@ -293,7 +298,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &82080622 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 21738707, guid: e3708c942552346639722a502ab9495b,
+  m_CorrespondingSourceObject: {fileID: 2951220655933568467, guid: e3708c942552346639722a502ab9495b,
     type: 3}
   m_PrefabInstance: {fileID: 82080620}
   m_PrefabAsset: {fileID: 0}
@@ -315,6 +320,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b2b5cf12f7db477cb2220ac94b4cfd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &82080624 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 682178450, guid: e3708c942552346639722a502ab9495b,
+    type: 3}
+  m_PrefabInstance: {fileID: 82080620}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &689508200 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 689508200, guid: e3708c942552346639722a502ab9495b,

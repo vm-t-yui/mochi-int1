@@ -47,7 +47,9 @@ public sealed class UITitle : CmnMonoBehaviour
     /// </summary>
     public override void Start()
     {
-        GameServiceUtil.Auth();
+        //NOTE:まだPlayGameServiceの情報を作っていないためコメント化
+        //GameServiceUtil.Auth();
+
 #if USE_TWEEN
         tweenAlphe = GetComponent<uTweenAlpha>();
 #endif

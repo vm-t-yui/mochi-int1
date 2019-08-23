@@ -30,6 +30,8 @@ public class ScoreCountUpper : MonoBehaviour
     /// </summary>
     void OnEnable()
     {
+        NowCount = 0;
+        IsEnd = false;
         isStart = true;
     }
 
@@ -55,17 +57,5 @@ public class ScoreCountUpper : MonoBehaviour
 
         // テキストにセット
         text.text = ((int)NowCount).ToString();
-    }
-
-    /// <summary>
-    /// 停止処理
-    /// </summary>
-    void OnDisable()
-    {
-        // リセット
-        NowCount = 0;
-        IsEnd = false;
-        buttons.SetActive(false);
-        ScoreManager.Inst.Reset();
     }
 }

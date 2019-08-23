@@ -28,7 +28,7 @@ public class MainPlayerAnimator : SingletonMonoBehaviour<MainPlayerAnimator>
     SceneChanger sceneChanger = default;    // シーンチェンジャー
 
     [SerializeField]
-    Animator cameraAnim = default;          // カメラのアニメーター
+    MainCameraAnimator mainCameraAnim = default;          // カメラのアニメーター
 
     [SerializeField]
     TowerBreakController towerBreak = default;  // タワーを吹っ飛ばすクラス
@@ -90,7 +90,7 @@ public class MainPlayerAnimator : SingletonMonoBehaviour<MainPlayerAnimator>
     /// </summary>
     public void StartSpecialArtsCameraAnim()
     {
-        cameraAnim.SetTrigger("SpecialArts");
+        mainCameraAnim.AnimStart((int)MainCameraAnimator.AnimKind.SpecialArts);
     }
 
     /// <summary>

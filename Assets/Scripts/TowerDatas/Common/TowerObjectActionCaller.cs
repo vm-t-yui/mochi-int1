@@ -95,6 +95,12 @@ public class TowerObjectActionCaller : MonoBehaviour
             {
                 // 制御クラスのコールバックを呼ぶ
                 moveController.OnPlayerRescued();
+
+                // うさぎだったらタイムをプラス
+                if (bottomObject.tag == TagName.Rabbit)
+                {
+                    timer.TimePlus();
+                }
             }
             // 最後の大技を受けたとき
             else

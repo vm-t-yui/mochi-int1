@@ -51,6 +51,8 @@ MonoBehaviour:
   nendInterstitial: {fileID: 4440924712032685761}
   ownCompInterstitial: {fileID: 3266636770816430207}
   adVideoRecommender: {fileID: 8955902455834096546}
+  adVideoRecommenderAnim: {fileID: 3945971984758849494}
+  OwnCompAdCanvasAnim: {fileID: 8955902456615464267}
 --- !u!1 &1216576064311547566
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,11 +393,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3146681405490305242, guid: a7d1337e70d654703aef460d4ea86dac,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7d1337e70d654703aef460d4ea86dac, type: 3}
 --- !u!224 &3558312321311699068 stripped
@@ -416,6 +413,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e880767a710a4641913ca6b65717511, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &3945971984758849494 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1910508534602358504, guid: a7d1337e70d654703aef460d4ea86dac,
+    type: 3}
+  m_PrefabInstance: {fileID: 3188994933006721342}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4440924711976853386
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -483,6 +486,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4749209266575815362, guid: df9b2aff727fabb4ab46e0a650bbad6a,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4749209266575815362, guid: df9b2aff727fabb4ab46e0a650bbad6a,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4749209266575815362, guid: df9b2aff727fabb4ab46e0a650bbad6a,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4749209265159272018, guid: df9b2aff727fabb4ab46e0a650bbad6a,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4749209265755877265, guid: df9b2aff727fabb4ab46e0a650bbad6a,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4749209265755877266, guid: df9b2aff727fabb4ab46e0a650bbad6a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4749209266499088002, guid: df9b2aff727fabb4ab46e0a650bbad6a,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df9b2aff727fabb4ab46e0a650bbad6a, type: 3}
 --- !u!4 &8955902455834096541 stripped
@@ -515,3 +553,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55c6fc9594f3f6d40a3e245bb7079bbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &8955902456615464267 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4749209266575815361, guid: df9b2aff727fabb4ab46e0a650bbad6a,
+    type: 3}
+  m_PrefabInstance: {fileID: 4440924711976853386}
+  m_PrefabAsset: {fileID: 0}
