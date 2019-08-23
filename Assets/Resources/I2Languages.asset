@@ -269,8 +269,8 @@ MonoBehaviour:
       Description: 
       Languages:
       - "\u30C1\u30E7\u30B3\u30BD\u30D5\u30C8\u2026\uFF1F"
-      - "Chocolate soft cream\u2026\uFF1F"
-      - "Schokoladencreme\u2026\uFF1F"
+      - "Chocolate soft cream\u2026?"
+      - "Schokoladencreme\u2026?"
       - "Crema al cioccolato\u2026\uFF1F"
       - "Cr\xE8me molle au chocolat\u2026\uFF1F"
       - "\u5DE7\u514B\u529B\u8F6F\u5976\u6CB9\u2026\uFF1F"
@@ -335,11 +335,11 @@ MonoBehaviour:
       Languages:
       - "\u30B6\u30EA\u30AC\u30F3\u3046\u3055\u304E"
       - Zarigan rabbit
-      - Zarigan-Kaninchen
-      - Coniglio Zarigan
-      - Zarigan lapin
-      - "\u624E\u91CC\u6839\u5154"
-      - Conejo Zarigan
+      - Zarigan rabbit
+      - Zarigan rabbit
+      - Zarigan rabbit
+      - Zarigan rabbit
+      - Zarigan rabbit
       Flags: 00000000000000
       Languages_Touch: []
     - Term: Rabbit/Space
@@ -632,8 +632,9 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - 
-      - 
+      - "\u4E0A\u304B\u3089\u964D\u3063\u3066\u304D\u305F\u93E1\u3082\u3061\u306B\u306F\u307E\u3063\u3066\u3057\u307E\u3063\u305F\u3046\u3055\u304E\u3002\n\u4E2D\u306F\u7A7A\u8ABF\u5B8C\u5099\u3067\u610F\u5916\u3068\u5FEB\u9069\u3002"
+      - "Rabbit who masters the path of swords.\r\nHe is training to become the strongest
+        swordsman."
       - 
       - 
       - 
@@ -724,12 +725,12 @@ MonoBehaviour:
       Description: 
       Languages:
       - "\u30E9\u30D3\u304A\u3058"
-      - 
-      - 
-      - 
-      - 
-      - 
-      - 
+      - Older man rabbit
+      - "Kaninchen des \xE4lteren Mannes"
+      - Coniglio uomo anziano
+      - "Lapin homme plus \xE2g\xE9"
+      - "\u8001\u7537\u4EBA\u7684\u5154"
+      - Conejo hombre mayor
       Flags: 00000000000000
       Languages_Touch: []
     - Term: Rabbit/RabiOjiText
