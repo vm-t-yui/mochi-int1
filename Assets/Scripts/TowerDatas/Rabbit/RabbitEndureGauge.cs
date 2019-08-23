@@ -48,7 +48,6 @@ public class RabbitEndureGauge : MonoBehaviour
     /// </summary>
     void Update()
     {
-        // すたーとし
         if (timer.IsStart)
         {
             // ゲージ減少中の処理

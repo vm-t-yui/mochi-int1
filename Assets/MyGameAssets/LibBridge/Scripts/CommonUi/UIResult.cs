@@ -22,7 +22,7 @@ public class UIResult : CmnMonoBehaviour
     SceneChanger sceneChanger = default;                    // シーンチェンジクラス
 
     [SerializeField]
-    GameObject buttons = default;
+    GameObject buttons = default;                           // リザルトのボタン達
 
     bool isShowAd = false;                                  // リザルト広告表示フラグ
 
