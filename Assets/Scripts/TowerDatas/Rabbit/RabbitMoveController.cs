@@ -48,6 +48,7 @@ public class RabbitMoveController : MoveControllerBase
         string nameText = transform.name;
         // 全体の名前から"(clone)***"を除いたもとの名前のみを取得
         string sourceName = nameText.Substring(0, nameText.Length - ("(clone)***").Length);
+        // 救出されたウサギを専用のリストに登録
         RabbitPictureBookFlagSwitcher.Inst.AddListTheRescuedRabbit(sourceName);
         // ウサギが救出されるアニメーションを再生
         animator.SetTrigger("RabbitRescued");
