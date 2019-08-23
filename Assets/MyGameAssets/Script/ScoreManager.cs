@@ -19,7 +19,7 @@ public class ScoreManager : SingletonMonoBehaviour<ScoreManager>
     }
 
     public int NowBreakNum { get; private set; } = 0;     // 壊した数の合計
-    
+
     public int MaxBreakNum { get; private set; } = 0;     // 壊した数の合計(表示用)
 
     public const int LowScore = 10;                       // 低スコアの基準
@@ -41,7 +41,7 @@ public class ScoreManager : SingletonMonoBehaviour<ScoreManager>
     public void Reset()
     {
         // 前回のスコアとハイスコアを更新
-        if(GameDataManager.Inst.PlayData.HighScore < NowBreakNum)
+        if (GameDataManager.Inst.PlayData.HighScore < NowBreakNum)
         {
             GameDataManager.Inst.PlayData.HighScore = NowBreakNum;
         }

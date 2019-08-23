@@ -109,25 +109,25 @@ public class Timer : MonoBehaviour
         IsTimeup = false;
     }
 
-    /// <summary>
-    /// フィーバータイム時の処理
-    /// </summary>
-    void FeverTimeTimer()
-    {
-        // フィーバータイム中はタイマーをストップ、終わればリスタート
-        if (feverTime.IsFever && !isStop)
-        {
-            isStop = true;
-            IsStart = false;
-            timer.enabled = false;
-        }
-        else if (!feverTime.IsFever && isStop)
+	/// <summary>
+	/// フィーバータイム時の処理
+	/// </summary>
+	void FeverTimeTimer()
+	{
+		// フィーバータイム中はタイマーをストップ、終わればリスタート
+		if (feverTime.IsFever && !isStop)
 		{
-            isStop = false;
-            IsStart = true;
-            timer.enabled = true;
-        }
-    }
+			isStop = true;
+			IsStart = false;
+			timer.enabled = false;
+		}
+		else if (!feverTime.IsFever && isStop)
+		{
+			isStop = false;
+			IsStart = true;
+			timer.enabled = true;
+		}
+	}
 
     /// <summary>
     /// それぞれのカウントダウンが終わった時の処理
