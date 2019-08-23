@@ -20,9 +20,8 @@ public class FeverTimeController : MonoBehaviour
     /// </summary>
     void OnEnable()
     {
-        // フラグをONにしてカメラの位置をフィーバー用にセット
+        // フィーバータイム開始
         IsFever = true;
-        mainCameraAnim.AnimStart((int)MainCameraAnimator.AnimKind.FeverIn);
     }
 
     /// <summary>
@@ -45,8 +44,7 @@ public class FeverTimeController : MonoBehaviour
     /// </summary>
     void OnDisable()
     {
-        // フラグとカメラの位置をリセット
+        // フィーバータイム終了
         IsFever = false;
-        mainCameraAnim.AnimStart((int)MainCameraAnimator.AnimKind.FeverOut);
     }
 }

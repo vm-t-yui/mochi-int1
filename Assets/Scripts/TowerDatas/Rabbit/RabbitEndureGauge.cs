@@ -68,7 +68,7 @@ public class RabbitEndureGauge : MonoBehaviour
         // タイムアップしたらリセット
         if (timer.IsTimeup)
         {
-            GageReset();
+            GaugeReset();
         }
     }
 
@@ -77,13 +77,13 @@ public class RabbitEndureGauge : MonoBehaviour
     /// </summary>
     void OnDisable()
     {
-        GageReset();
+        GaugeReset();
     }
 
     /// <summary>
     /// ゲージのリセット
     /// </summary>
-    void GageReset()
+    void GaugeReset()
     {
         // ゲージを非表示に設定
         enduranceTimeGuage.gameObject.SetActive(false);

@@ -10,14 +10,32 @@ public class MainCameraAnimator : MonoBehaviour
     // アニメーションの種類
     public enum AnimKind
     {
-        Wait,                           // 待機
-        FeverIn,                        // 右パンチ
-        FeverOut,                       // 左パンチ
-        SpecialArts,                    // 最後の大技
+        Wait,                                   // 待機
+        FeverIn,                                // 右パンチ
+        FeverOut,                               // 左パンチ
+        SpecialArts,                            // 最後の大技
     }
 
     [SerializeField]
-    Animator mainCameraAnim = default;  // カメラのアニメーター
+    Animator mainCameraAnim = default;          // カメラのアニメーター
+    [SerializeField]
+    FeverTimeController feverTime = default;    // フィーバータイム管理クラス
+
+    /// <summary>
+    /// 更新処理
+    /// </summary>
+    void Update()
+    {
+        // フィーバータイムの状態によってカメラ位置変更
+        if (feverTime.IsFever)
+        {
+            AnimStart((int)AnimKind.FeverIn);
+        }
+        else
+        {
+            AnimStart((int)AnimKind.FeverOut);
+        }
+    }
 
     /// <summary>
     ///  アニメーション再生
