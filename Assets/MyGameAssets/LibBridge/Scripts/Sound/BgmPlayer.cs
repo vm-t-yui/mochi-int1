@@ -7,22 +7,15 @@ using PathologicalGames;
 
 namespace VMUnityLib
 {
-    public class BgmPlayer : MonoBehaviour
+    public class BgmPlayer : SingletonMonoBehaviour<BgmPlayer>
     {
+        [SerializeField]
         SpawnPool bgmPool;                             // BGMのプール
 
         AudioSource spawnedBgm = new AudioSource();    // 再生中のBGM
 
         bool isResult       = false;                   // リザルトフラグ
         bool isPlayedResult = false;                   // リザルトBGM再生完了フラグ
-
-        /// <summary>
-        /// 起動処理.
-        /// </summary>
-        void Awake()
-        {
-            bgmPool = GameObject.Find("BgmPool").GetComponent<SpawnPool>();
-        }
 
         /// <summary>
         /// 再生.
@@ -94,6 +87,9 @@ namespace VMUnityLib
         /// </summary>
         public void StopBgm()
         {
+            // 再生中でなければ処理を抜ける
+            if (!spawnedBgm.isPlaying) { return; }
+
             spawnedBgm.Stop();
 
             bgmPool.Despawn(spawnedBgm.transform);

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using VMUnityLib;
 
 /// <summary>
@@ -7,30 +8,50 @@ using VMUnityLib;
 public class TitleSoundManager : MonoBehaviour
 {
     [SerializeField]
-    BgmPlayer bgmPlayer = default;    // BGM再生クラス
+    Button[] selectSeButtons     = default,    // 決定音を再生するボタン
+             windowOpenSeButtons = default,    // ウィンドウオープン音を再生するボタン
+             cancelSeButtons     = default,    // キャンセル音を再生するボタン
+             tapSeButtons        = default;    // タップ音を再生するボタン
 
-    [SerializeField]
-    SePlayer sePlayer   = default;    // SE再生クラス
-
-    bool     isPlayed   = false;      // 再生完了フラグ
+    bool     isPlayed            = false;      // 再生完了フラグ
 
     /// <summary>
     /// 起動処理
     /// </summary>
-    void OnEnable()
+    void Awake()
     {
-        isPlayed = false;
+        // 各ボタンにSE再生処理を追加
+        // 決定音再生ボタン
+        foreach (var item in selectSeButtons)
+        {
+            item.onClick.AddListener(() => SePlayer.Inst.PlaySe(SeID.Select));
+        }
+        // ウィンドウオープン音再生ボタン
+        foreach (var item in windowOpenSeButtons)
+        {
+            item.onClick.AddListener(() => SePlayer.Inst.PlaySe(SeID.WindowOpen));
+        }
+        // キャンセル音再生ボタン
+        foreach (var item in cancelSeButtons)
+        {
+            item.onClick.AddListener(() => SePlayer.Inst.PlaySe(SeID.Cancel));
+        }
+        // タップ音再生ボタン
+        foreach (var item in tapSeButtons)
+        {
+            item.onClick.AddListener(() => SePlayer.Inst.PlaySe(SeID.Tap));
+        }
     }
 
     /// <summary>
-    /// 開始処理
+    /// 更新処理
     /// </summary>
     void Update()
     {
-        // まだBGMを再生していなければ再生する
+        // BGMを再生
         if (!isPlayed)
         {
-            bgmPlayer.PlayBgm(BgmID.Title);
+            BgmPlayer.Inst.PlayBgm(BgmID.Title);
 
             isPlayed = true;
         }
@@ -41,7 +62,8 @@ public class TitleSoundManager : MonoBehaviour
     /// </summary>
     void OnDisable()
     {
-        bgmPlayer.StopBgm();
-        sePlayer.StopSeAll();
+        isPlayed = false;
+
+        BgmPlayer.Inst.StopBgm();
     }
 }

@@ -8,23 +8,15 @@ using System.Collections.Generic;
 
 namespace VMUnityLib
 {
-    public sealed class SePlayer : MonoBehaviour
+    public sealed class SePlayer : SingletonMonoBehaviour<SePlayer>
     {
+        [SerializeField]
         SpawnPool sePool;    // SEのプール
 
         List<AudioSource> endWatchSeList = new List<AudioSource>();    // 再生終了チェックリスト
 
         [SerializeField]
         float RandomPitchBand = default;    // ピッチのランダム値の計算に使用
-
-        /// <summary>
-        /// 起動処理.
-        /// </summary>
-        void Awake()
-        {
-            // SEのプールをセット
-            sePool = GameObject.Find("SePool").GetComponent<SpawnPool>();
-        }
 
         /// <summary>
         /// 再生.

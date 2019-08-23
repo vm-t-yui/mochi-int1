@@ -7,15 +7,9 @@ using VMUnityLib;
 public class MainSoundManager : MonoBehaviour
 {
     [SerializeField]
-    BgmPlayer bgmPlayer = default;    // BGM再生クラス
+    Timer               timer         = default;    // タイマークラス
 
-    [SerializeField]
-    SePlayer  sePlayer  = default;    // SE再生クラス
-
-    [SerializeField]
-    Timer     timer     = default;    // タイマークラス
-
-    bool      isPlayed  = false;      // 再生完了フラグ
+    bool                isPlayed      = false;      // 再生完了フラグ
 
     /// <summary>
     /// 起動処理
@@ -30,9 +24,10 @@ public class MainSoundManager : MonoBehaviour
     /// </summary>
     void Update()
     {
+        // メインゲームが始まったらBGM再生
         if (timer.IsStart && !isPlayed)
         {
-            bgmPlayer.PlayBgm(BgmID.Main);
+            BgmPlayer.Inst.PlayBgm(BgmID.Main);
 
             isPlayed = true;
         }
@@ -43,7 +38,7 @@ public class MainSoundManager : MonoBehaviour
     /// </summary>
     void OnDisable()
     {
-        bgmPlayer.StopBgm();
-        sePlayer.StopSeAll();
+        BgmPlayer.Inst.StopBgm();
+        SePlayer.Inst.StopSeAll();
     }
 }
