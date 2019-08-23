@@ -109,6 +109,38 @@ public class TowerObjectSpawner : MonoBehaviour
     }
 
     /// <summary>
+    /// モチのみ生成
+    /// </summary>
+    /// <param name="spawnNum">生成する数</param>
+    public void SpawnMochiOnly(int spawnNum)
+    {
+        // スポーンしたオブジェクト
+        Transform spawnedObject;
+        // 基準のスポーン位置を取得
+        Vector3 baseSpawnPos = GetBaseSpawnPos();
+        // 指定の数だけ繰り返し抽選を行い、スポーンしていく
+        for (int spawnCount = 0; spawnCount < spawnNum;)
+        {
+            // スポーン位置の計算
+            Vector3 spawnPos = new Vector3(baseSpawnPos.x, baseSpawnPos.y + (spawnHeightInterval * spawnCount), baseSpawnPos.z);
+
+            // スポーンプールからモチのオブジェクトをスポーンさせる
+            spawnedObject = mochiSpawnPool.Spawn(mochiSkinType.ToString(), spawnPos, Quaternion.identity);
+            // 前回スポーンしたオブジェクトをモチとして登録する
+            prevSpawnObjectType = TagName.Mochi;
+
+            // 生成したオブジェクトをオンにする
+            // NOTE : 何故か自動でオンになってくれないときがあるため
+            spawnedObject.gameObject.SetActive(true);
+            // 生成したオブジェクトをリストに追加
+            stackedObjects.Add(spawnedObject.transform);
+
+            // カウンター
+            spawnCount++;
+        }
+    }
+
+    /// <summary>
     /// 指定したオブジェクトを消す
     /// </summary>
     public void Despawn(Transform spawnedObject)
