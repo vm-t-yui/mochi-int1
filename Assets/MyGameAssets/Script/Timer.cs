@@ -31,10 +31,14 @@ public class Timer : MonoBehaviour
 
     bool isStop = false;                                   // タイマーストップフラグ
 
+    /// <summary>
+	/// 起動処理
+	/// </summary>
      void OnEnable()
     {
-        // すぐカウントダウンが始まってしまうため少し遅らせる
-        Invoke("_CountStart", 1f);
+		timer.text = startTime.ToString();
+		// すぐカウントダウンが始まってしまうため少し遅らせる
+		Invoke("_CountStart", 1f);
     }
 
     /// <summary>

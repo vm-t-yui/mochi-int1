@@ -22,7 +22,8 @@ public class FeverTimeController : MonoBehaviour
     {
         // フィーバータイム開始
         IsFever = true;
-    }
+		mainCameraAnim.AnimStart((int)MainCameraAnimator.AnimKind.FeverIn);
+	}
 
     /// <summary>
     /// 更新処理
@@ -46,5 +47,6 @@ public class FeverTimeController : MonoBehaviour
     {
         // フィーバータイム終了
         IsFever = false;
-    }
+		mainCameraAnim.AnimStart((int)MainCameraAnimator.AnimKind.FeverOut);
+	}
 }
