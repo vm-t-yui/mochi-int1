@@ -121,8 +121,8 @@ public class Timer : MonoBehaviour
             IsStart = false;
             timer.enabled = false;
         }
-        else
-        {
+        else if (!feverTime.IsFever && isStop)
+		{
             isStop = false;
             IsStart = true;
             timer.enabled = true;
