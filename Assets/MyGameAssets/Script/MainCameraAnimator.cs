@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// メインのカメラのアニメーションクラス
+/// </summary>
 public class MainCameraAnimator : MonoBehaviour
 {
     // アニメーションの種類
