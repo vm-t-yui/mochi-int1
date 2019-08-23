@@ -29,8 +29,6 @@ public class PlayerController : MonoBehaviour
 
         // アニメーション開始
         MainPlayerAnimator.Inst.AnimStart(punchSide);
-
-        throw new System.NotImplementedException();
     }
 
     /// <summary>
@@ -40,8 +38,6 @@ public class PlayerController : MonoBehaviour
     {
         // アニメーション開始
         MainPlayerAnimator.Inst.AnimStart((int)MainAnim.Rescue);
-
-        throw new System.NotImplementedException();
     }
 
     /// <summary>
@@ -51,7 +47,5 @@ public class PlayerController : MonoBehaviour
     {
         // アニメーション開始
         MainPlayerAnimator.Inst.AnimStart((int)MainAnim.SpecialArts);
-
-        throw new System.NotImplementedException();
     }
 }

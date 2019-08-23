@@ -92,4 +92,12 @@ public class ObjectFallingController : MonoBehaviour
             IsFalling = false;
         }
     }
+
+    /// <summary>
+    /// 終了処理
+    /// </summary>
+    void OnDisable()
+    {
+        prevBottomObjectName = null;
+    }
 }

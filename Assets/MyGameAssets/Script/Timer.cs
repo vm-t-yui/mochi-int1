@@ -10,6 +10,8 @@ public class Timer : MonoBehaviour
     Animator        animator = default;                    // アニメーター
     [SerializeField]
     TextMeshProUGUI timer    = default;                    // タイマー用テキスト
+    [SerializeField]
+    FeverTimeController feverTime = default;               // フィーバータイム管理クラス
 
     [SerializeField]
     float startTime   = 0;                                 // ゲームスタートまでの秒数
@@ -27,21 +29,12 @@ public class Timer : MonoBehaviour
     public bool IsTimeup { get; private set; } = false;    // タイムアップフラグ
     public bool IsStart  { get; private set; } = false;    // ゲームスタートまでのカウントダウンフラグ
 
+    bool isStop = false;                                   // タイマーストップフラグ
+
      void OnEnable()
     {
         // すぐカウントダウンが始まってしまうため少し遅らせる
-        Invoke("_CountStart", 0.5f);
-    }
-
-    /// <summary>
-    /// カウント開始処理呼び出し関数
-    /// NOTE: m.tanaka メインのフェードアウトが終わったら呼ばれるようになってます
-    ///       k.oishi  UTweenAlphaの呼びたしが一度しかされないためとりあえずOnEnableで呼ぶようにしました
-    /// </summary>
-    public void CountStart()
-    {
-        // すぐカウントダウンが始まってしまうため少し遅らせる
-        //Invoke("_CountStart", 0.5f);
+        Invoke("_CountStart", 1f);
     }
 
     /// <summary>
@@ -68,29 +61,25 @@ public class Timer : MonoBehaviour
     /// </summary>
     void Update()
     {
-        // 処理が許可されていない or タイムアップしているなら処理を抜ける
-        if (!isAble || IsTimeup) { return; }
+        // フィーバータイム時の処理
+        FeverTimeTimer();
+
+        // 処理が許可されていない or タイムアップ or タイマーがストップしているならしているなら処理を抜ける
+        if (!isAble || IsTimeup || isStop) { return; }
 
         // カウントダウン
         CountTime -= Time.deltaTime;
 
-        // ゲームスタートまでのカウントダウン開始
+        // ゲームスタートまでのカウントダウン
         if (!IsStart)
         {
+            // 表示
+            timer.text = ((int)CountTime).ToString();
+
             // カウントダウンが終わったらゲーム開始
-            if (CountTime < 1)
-            {
-                IsStart = true;
-                CountTime = gameTime;
-                animator.SetBool("IsCountDown", false);
-            }
-            // 数え終わってない場合は、数え続ける
-            else
-            {
-                timer.text = ((int)CountTime).ToString();
-            }
+            FinishCountDown();
         }
-        // ゲーム開始されたらゲーム内のカウントダウン開始
+        // ゲーム内制限時間カウントダウン
         else
         {
             // 小数点第2位まで表示
@@ -107,16 +96,8 @@ public class Timer : MonoBehaviour
                 animator.SetBool("IsTimeLimit", false);
             }
 
-            // 指定の秒数を数え終わったらタイムアップ
-            if (CountTime < 0)
-            {
-                timer.text = "Time UP";
-
-                animator.SetBool("IsTimeLimit", false);
-
-                IsTimeup = true;
-                isAble = false;
-            }
+            // カウントダウンが終わったらタイムアップ
+            FinishCountDown();
         }
     }
 
@@ -126,6 +107,54 @@ public class Timer : MonoBehaviour
     void OnDisable()
     {
         IsTimeup = false;
+    }
+
+    /// <summary>
+    /// フィーバータイム時の処理
+    /// </summary>
+    void FeverTimeTimer()
+    {
+        // フィーバータイム中はタイマーをストップ、終わればリスタート
+        if (feverTime.IsFever && !isStop)
+        {
+            isStop = true;
+            IsStart = false;
+            timer.enabled = false;
+        }
+        else
+        {
+            isStop = false;
+            IsStart = true;
+            timer.enabled = true;
+        }
+    }
+
+    /// <summary>
+    /// それぞれのカウントダウンが終わった時の処理
+    /// </summary>
+    void FinishCountDown()
+    {
+        // カウントダウンが終了したらそれぞれの処理へ
+        if (CountTime < 0)
+        {
+            // ゲームスタートのカウントダウンならゲームスタート
+            if (!IsStart)
+            {
+                IsStart = true;
+                CountTime = gameTime;
+                animator.SetBool("IsCountDown", false);
+            }
+            // ゲーム内制限時間のカウントダウンならタイムアップ
+            else
+            {
+                timer.text = "Time UP";
+
+                animator.SetBool("IsTimeLimit", false);
+
+                IsTimeup = true;
+                isAble = false;
+            }
+        }
     }
 
     /// <summary>

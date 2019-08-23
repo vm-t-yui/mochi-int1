@@ -21,6 +21,9 @@ public class UIResult : CmnMonoBehaviour
     [SerializeField]
     SceneChanger sceneChanger = default;                    // シーンチェンジクラス
 
+    [SerializeField]
+    GameObject buttons = default;                           // リザルトのボタン達
+
     bool isShowAd = false;                                  // リザルト広告表示フラグ
 
     /// <summary>
@@ -43,6 +46,8 @@ public class UIResult : CmnMonoBehaviour
         // 広告非表示
         AdManager.Inst.HideResultAd();
         HideBanner();
+        buttons.SetActive(false);
+        ScoreManager.Inst.Reset();
     }
 
     /// <summary>

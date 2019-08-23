@@ -8,6 +8,8 @@ using UnityEngine.UI;
 /// </summary>
 public class RabbitEndureGauge : MonoBehaviour
 {
+    [SerializeField]
+    Timer timer = default;    // タイマー
     // 耐久時間の処理
     [SerializeField]
     RabbitEndureTimeCalculator rabbitEndureTimeCalculator = default;
@@ -46,26 +48,42 @@ public class RabbitEndureGauge : MonoBehaviour
     /// </summary>
     void Update()
     {
-        // ゲージ減少中の処理
-        if (enduranceTimeGuage.value > 0)
+        if (timer.IsStart)
         {
-            // ゲージを減少していく
-            enduranceTimeGuage.value -= 1.0f * (Time.deltaTime / rabbitEndureTimeCalculator.NowEnduranceTime);
+            // ゲージ減少中の処理
+            if (enduranceTimeGuage.value > 0)
+            {
+                // ゲージを減少していく
+                enduranceTimeGuage.value -= 1.0f * (Time.deltaTime / rabbitEndureTimeCalculator.NowEnduranceTime);
+            }
+            // ゲージが０になれば
+            else
+            {
+                // ゲージをリセットする
+                enduranceTimeGuage.value = 1;
+                // ウサギのクラッシュフラグをオンにする
+                isCrushed = true;
+            }
         }
-        // ゲージが０になれば
-        else
+        // タイムアップしたらリセット
+        if (timer.IsTimeup)
         {
-            // ゲージをリセットする
-            enduranceTimeGuage.value = 1;
-            // ウサギのクラッシュフラグをオンにする
-            isCrushed = true;
+            GaugeReset();
         }
     }
 
     /// <summary>
-    /// 終了
+    /// 停止処理
     /// </summary>
     void OnDisable()
+    {
+        GaugeReset();
+    }
+
+    /// <summary>
+    /// ゲージのリセット
+    /// </summary>
+    void GaugeReset()
     {
         // ゲージを非表示に設定
         enduranceTimeGuage.gameObject.SetActive(false);

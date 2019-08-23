@@ -36,11 +36,11 @@ public class ScoreProductionController : MonoBehaviour
         {
             scoreMochi[(int)ScoreManager.Score.Low].SetActive(true);
         }
-        else if(countUp.NowCount > ScoreManager.NormalScore)
+        if(countUp.NowCount > ScoreManager.NormalScore)
         {
             scoreMochi[(int)ScoreManager.Score.Normal].SetActive(true);
         }
-        else if(countUp.NowCount > ScoreManager.GoodScore)
+        if(countUp.NowCount > ScoreManager.GoodScore)
         {
             scoreMochi[(int)ScoreManager.Score.Good].SetActive(true);
         }

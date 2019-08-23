@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 994e00d6f5bb17e438439b7bb3a5d29b
+guid: c43a756a8e9ac4d7386d81a7150ee58e
 ModelImporter:
   serializedVersion: 25
   internalIDToNameTable:
   - first:
-      74: -90656721629102380
-    second: mochiman_punchLeft
+      74: -7402861433840251232
+    second: mochiman_punchLeft_baked
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -21,14 +21,11 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'mochiman_punchLeft' has import animation warnings
-      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'mochiman_3:spine_1' has translation animation
-      that will be discarded.\n\t'mochiman_3:spine_1' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\t'mochiman_3:spine_4' is
-      inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'mochiman_3:hand_left'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'mochiman_3:hand_right'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'mochiman_3:feet_right_1'
+    animationImportWarnings: "\nClip 'mochiman_punchLeft_baked' has import animation
+      warnings that might lower retargeting quality:\nNote: Activate translation DOF
+      on avatar to improve retargeting quality.\n\t'mochiman_3:spine_1' is inbetween
+      humanoid transforms and has rotation animation that will be discarded.\n\t'mochiman_3:spine_4'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'mochiman_3:hand_left'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'mochiman_3:feet_left_1'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
     animationRetargetingWarnings: 
@@ -44,11 +41,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: mochiman_punchLeft
-      takeName: mochiman_punchLeft
-      internalID: -90656721629102380
+      name: mochiman_punchLeft_baked
+      takeName: mochiman_punchLeft_baked
+      internalID: -7402861433840251232
       firstFrame: 0
-      lastFrame: 12
+      lastFrame: 10
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -517,7 +514,7 @@ ModelImporter:
     - name: mm_punchLeft(Clone)
       parentName: 
       position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: 0.42261827, z: -0, w: 0.9063078}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:joints
       parentName: mm_punchLeft(Clone)
@@ -526,28 +523,28 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:Base
       parentName: mochiman_3:joints
-      position: {x: -0.1013901, y: 1.1155081, z: 0.10758359}
-      rotation: {x: -0.018428229, y: -0.5081675, z: 0.05201625, w: 0.8594885}
+      position: {x: 0.026952676, y: 1.0833865, z: 0.025341079}
+      rotation: {x: 0.09761538, y: 0.005869191, z: 0.033468068, w: 0.99464405}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:spine_1
       parentName: mochiman_3:Base
-      position: {x: -1.0658141e-16, y: 0.06375036, z: 0.03086}
-      rotation: {x: -0.067833364, y: 1.0265558e-10, z: -0.03041319, w: 0.99723303}
+      position: {x: -0.021694962, y: 0.098366834, z: -0.019543396}
+      rotation: {x: -0.029277515, y: -2.1075145e-11, z: -0.02187516, w: 0.99933195}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:spine_2
       parentName: mochiman_3:spine_1
       position: {x: -0, y: 0.14478604, z: 0}
-      rotation: {x: 0.11255647, y: 0.09766725, z: -0.027595073, w: 0.9884486}
+      rotation: {x: -0.015327799, y: -2.0149741e-12, z: -0.024537867, w: 0.9995814}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:spine_4
       parentName: mochiman_3:spine_2
       position: {x: -0, y: 0.2840621, z: 0}
-      rotation: {x: 0.18449841, y: 0.09662374, z: 0.018964782, w: 0.9778878}
+      rotation: {x: 0.03884751, y: 1.6485871e-10, z: 0.06400052, w: 0.99719346}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:neck
       parentName: mochiman_3:spine_4
       position: {x: -0, y: 0.11699425, z: 0}
-      rotation: {x: -0.1879514, y: -0.45856866, z: 0.11007806, w: 0.86155206}
+      rotation: {x: -0.04462821, y: -0.5316618, z: 0.0052363584, w: 0.8457639}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:head
       parentName: mochiman_3:neck
@@ -556,18 +553,18 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:clavicle_left
       parentName: mochiman_3:spine_4
-      position: {x: -0.060589347, y: 0.02774625, z: -5.5511197e-19}
-      rotation: {x: -0.2566645, y: 0.033924352, z: -0.22492312, w: 0.939352}
+      position: {x: -0.060589347, y: 0.02774625, z: 0}
+      rotation: {x: -0.1537388, y: -0.02741417, z: -0.09366266, w: 0.98328036}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:shoulder_left
       parentName: mochiman_3:clavicle_left
       position: {x: -0.13093917, y: -0.003932943, z: -0.03139351}
-      rotation: {x: -0.10125748, y: -0.16468816, z: 0.15740788, w: 0.9684253}
+      rotation: {x: -0.5738614, y: 0.010931407, z: 0.077221796, w: 0.81523025}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:elbow_left
       parentName: mochiman_3:shoulder_left
       position: {x: -0.31809068, y: 0.010836321, z: -0.015962489}
-      rotation: {x: -0.23733646, y: -0.03650191, z: -0.012131486, w: 0.9706657}
+      rotation: {x: -0.19471388, y: -0.034219824, z: -0.028431112, w: 0.97985065}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:wrist_left
       parentName: mochiman_3:elbow_left
@@ -582,17 +579,17 @@ ModelImporter:
     - name: mochiman_3:thumb_left_1
       parentName: mochiman_3:hand_left
       position: {x: -0.03747901, y: -0.010897562, z: 0.06698221}
-      rotation: {x: 0.24102663, y: -0.039060857, z: -0.5727724, w: 0.78250384}
+      rotation: {x: 0.44071773, y: 0.0073555596, z: -0.5176607, w: 0.7333084}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:thumb_left_2
       parentName: mochiman_3:thumb_left_1
       position: {x: 0.007176042, y: -0.030456701, z: 0.063989244}
-      rotation: {x: 0.012081558, y: -0.0003289467, z: 0.0060557723, w: 0.9999086}
+      rotation: {x: 0.0031490023, y: -0.012209881, z: 0.013150945, w: 0.999834}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:thumb_left_3
       parentName: mochiman_3:thumb_left_2
       position: {x: 0.0052500437, y: -0.017902602, z: 0.03473146}
-      rotation: {x: -0.05586, y: -0.019461041, z: -0.0017653793, w: 0.9982474}
+      rotation: {x: -0.079689346, y: -0.0060557653, z: -0.04312558, w: 0.995868}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:thumb_left_4
       parentName: mochiman_3:thumb_left_3
@@ -602,17 +599,17 @@ ModelImporter:
     - name: mochiman_3:index_left_1
       parentName: mochiman_3:hand_left
       position: {x: -0.14034615, y: -0.009581533, z: 0.06187325}
-      rotation: {x: 0.07915871, y: -0.0063046967, z: -0.43789655, w: 0.8955114}
+      rotation: {x: 0.06195709, y: -0.008597294, z: -0.43568283, w: 0.89792424}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:index_left_2
       parentName: mochiman_3:index_left_1
       position: {x: -0.040547084, y: -0.05726006, z: 0.011611927}
-      rotation: {x: -0.11351752, y: -0.1838982, z: -0.12512252, w: 0.968318}
+      rotation: {x: -0.0695139, y: -0.09312812, z: -0.14221178, w: 0.9829907}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:index_left_3
       parentName: mochiman_3:index_left_2
       position: {x: -0.016604662, y: -0.054648917, z: 0.006924615}
-      rotation: {x: 0.055905405, y: 0.22135015, z: -0.054820377, w: 0.97204596}
+      rotation: {x: 0.0030491562, y: 0.023106936, z: -0.03288346, w: 0.9991874}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:index_left_4
       parentName: mochiman_3:index_left_3
@@ -622,17 +619,17 @@ ModelImporter:
     - name: mochiman_3:middle_left_1
       parentName: mochiman_3:hand_left
       position: {x: -0.1570374, y: 0.010672616, z: 0.017288594}
-      rotation: {x: 0.053319443, y: 0.05441468, z: -0.49553564, w: 0.8652402}
+      rotation: {x: 0.053319298, y: 0.05441477, z: -0.49553442, w: 0.8652408}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:middle_left_2
       parentName: mochiman_3:middle_left_1
       position: {x: -0.03181163, y: -0.060348034, z: 0.00437304}
-      rotation: {x: -0.019423528, y: -0.04797333, z: -0.06409787, w: 0.99660057}
+      rotation: {x: -0.011601486, y: -0.032144375, z: -0.06563201, w: 0.9972586}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:middle_left_3
       parentName: mochiman_3:middle_left_2
       position: {x: -0.01760843, y: -0.051364068, z: 0.0036121896}
-      rotation: {x: -0.017906453, y: -0.05763349, z: -0.07179592, w: 0.9955919}
+      rotation: {x: -0.008014189, y: -0.021041343, z: -0.0740009, w: 0.99700403}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:middle_left_4
       parentName: mochiman_3:middle_left_3
@@ -642,17 +639,17 @@ ModelImporter:
     - name: mochiman_3:ring_left_1
       parentName: mochiman_3:hand_left
       position: {x: -0.16902675, y: 0.014417684, z: -0.03007288}
-      rotation: {x: -0.0135098165, y: 0.04982275, z: -0.53336185, w: 0.8443106}
+      rotation: {x: -0.006294398, y: 0.053533394, z: -0.5306543, w: 0.84587264}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:ring_left_2
       parentName: mochiman_3:ring_left_1
       position: {x: -0.02321258, y: -0.05412334, z: 0.000112234746}
-      rotation: {x: -0.0014940214, y: 0.00023916728, z: -0.069126196, w: 0.9976069}
+      rotation: {x: -0.0014935707, y: 0.00023933864, z: -0.0691209, w: 0.9976071}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:ring_left_3
       parentName: mochiman_3:ring_left_2
       position: {x: -0.011749074, y: -0.048426073, z: -0.000057223886}
-      rotation: {x: 0.013852462, y: -0.014811631, z: -0.031076543, w: 0.9993113}
+      rotation: {x: 0.013848375, y: -0.014810834, z: -0.031075185, w: 0.9993114}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:ring_left_4
       parentName: mochiman_3:ring_left_3
@@ -662,17 +659,17 @@ ModelImporter:
     - name: mochiman_3:pinky_left_1
       parentName: mochiman_3:hand_left
       position: {x: -0.1674608, y: 0.008643769, z: -0.07316041}
-      rotation: {x: -0.06416312, y: 0.06962946, z: -0.5426646, w: 0.83459574}
+      rotation: {x: 0.13713665, y: 0.20046738, z: -0.524064, w: 0.8163108}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:pinky_left_2
       parentName: mochiman_3:pinky_left_1
       position: {x: -0.01820317, y: -0.04444049, z: -0.004252079}
-      rotation: {x: 0.03916361, y: 0.015899828, z: 0.028163176, w: 0.99870926}
+      rotation: {x: 0.023581404, y: -0.009234409, z: 0.022638014, w: 0.9994229}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:pinky_left_3
       parentName: mochiman_3:pinky_left_2
       position: {x: -0.015891828, y: -0.03717213, z: -0.0010559894}
-      rotation: {x: 0.044788465, y: -0.031260807, z: -0.16102535, w: 0.9854378}
+      rotation: {x: 0.06760156, y: 0.07790415, z: -0.16293666, w: 0.98123014}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:pinky_left_4
       parentName: mochiman_3:pinky_left_3
@@ -681,43 +678,43 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:clavicle_right
       parentName: mochiman_3:spine_4
-      position: {x: 0.060589354, y: 0.02774625, z: -5.5511197e-19}
-      rotation: {x: 0.9063907, y: 0.17145748, z: 0.150051, w: 0.35572857}
+      position: {x: 0.060589354, y: 0.02774625, z: 0}
+      rotation: {x: 0.9894018, y: 0.03311579, z: -0.007487585, w: 0.14117853}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:shoulder_right
       parentName: mochiman_3:clavicle_right
       position: {x: 0.13093886, y: 0.0039329478, z: 0.031393517}
-      rotation: {x: -0.044914186, y: -0.11215021, z: 0.18473881, w: 0.97533417}
+      rotation: {x: -0.2743648, y: 0.006160819, z: 0.09501889, w: 0.95689994}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:elbow_right
       parentName: mochiman_3:shoulder_right
       position: {x: 0.31809303, y: -0.010835015, z: 0.015962802}
-      rotation: {x: -0.0118126515, y: -0.054861292, z: -0.021383591, w: 0.9981951}
+      rotation: {x: -0.01302209, y: -0.06540804, z: -0.0225559, w: 0.99751866}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:wrist_right
       parentName: mochiman_3:elbow_right
       position: {x: 0.12880962, y: 0.00021610083, z: -0.010466223}
-      rotation: {x: -0.077322625, y: -0.00041533206, z: 0.0053549334, w: 0.9969917}
+      rotation: {x: 1.3505903e-10, y: -0.00000002514554, z: 0.0053710155, w: 0.9999856}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:hand_right
       parentName: mochiman_3:wrist_right
       position: {x: 0.06940918, y: -0.003044277, z: -0.0131418845}
-      rotation: {x: -0.09743284, y: 0.048026957, z: -0.039593745, w: 0.9932938}
+      rotation: {x: 0.08464639, y: 0.034334503, z: -0.019447355, w: 0.99562943}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:thumb_right_1
       parentName: mochiman_3:hand_right
       position: {x: 0.03654439, y: 0.011980139, z: -0.06884454}
-      rotation: {x: 0.25480503, y: -0.08550661, z: -0.5079348, w: 0.818392}
+      rotation: {x: 0.230647, y: -0.025008595, z: -0.6220617, w: 0.7478073}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:thumb_right_2
       parentName: mochiman_3:thumb_right_1
       position: {x: -0.007176501, y: 0.030455496, z: -0.063989475}
-      rotation: {x: 0.046137426, y: -0.10564117, z: 0.18733586, w: 0.97550845}
+      rotation: {x: 0.002111971, y: -0.011618047, z: 0.009529401, w: 0.99988484}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:thumb_right_3
       parentName: mochiman_3:thumb_right_2
       position: {x: -0.0052493643, y: 0.017902805, z: -0.034731507}
-      rotation: {x: -0.0806775, y: 0.06538636, z: -0.1643407, w: 0.9809219}
+      rotation: {x: -0.079721265, y: -0.006048481, z: -0.043145366, w: 0.9958647}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:thumb_right_4
       parentName: mochiman_3:thumb_right_3
@@ -727,17 +724,17 @@ ModelImporter:
     - name: mochiman_3:index_right_1
       parentName: mochiman_3:hand_right
       position: {x: 0.14035147, y: 0.009585223, z: -0.061873354}
-      rotation: {x: -0.036684792, y: -0.06990642, z: -0.40637302, w: 0.91029024}
+      rotation: {x: 0.06196241, y: -0.008601231, z: -0.43565547, w: 0.8979371}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:index_right_2
       parentName: mochiman_3:index_right_1
       position: {x: 0.04054748, y: 0.05725459, z: -0.011611839}
-      rotation: {x: 0.023399066, y: 0.09087558, z: -0.16320994, w: 0.9821184}
+      rotation: {x: -0.069520354, y: -0.093128026, z: -0.14224549, w: 0.98298544}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:index_right_3
       parentName: mochiman_3:index_right_2
       position: {x: 0.01660424, y: 0.05465004, z: -0.006924628}
-      rotation: {x: 0.0032656689, y: 0.025059247, z: -0.032607723, w: 0.99914867}
+      rotation: {x: 0.0030486346, y: 0.023108799, z: -0.032872345, w: 0.99918777}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:index_right_4
       parentName: mochiman_3:index_right_3
@@ -747,17 +744,17 @@ ModelImporter:
     - name: mochiman_3:middle_right_1
       parentName: mochiman_3:hand_right
       position: {x: 0.15704343, y: -0.010669028, z: -0.017288681}
-      rotation: {x: 0.051325936, y: 0.04531126, z: -0.4827185, w: 0.8730954}
+      rotation: {x: 0.009463756, y: 0.020207783, z: -0.49424723, w: 0.869035}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:middle_right_2
       parentName: mochiman_3:middle_right_1
       position: {x: 0.031810943, y: 0.060344677, z: -0.0043729777}
-      rotation: {x: -0.009171364, y: -0.028350132, z: -0.05548404, w: 0.99801487}
+      rotation: {x: -0.011604696, y: -0.032143254, z: -0.06562954, w: 0.9972588}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:middle_right_3
       parentName: mochiman_3:middle_right_2
       position: {x: 0.017609097, y: 0.051362216, z: -0.003612174}
-      rotation: {x: -0.020073054, y: -0.06789245, z: -0.07171698, w: 0.9949092}
+      rotation: {x: -0.008016184, y: -0.02104074, z: -0.07401719, w: 0.9970027}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:middle_right_4
       parentName: mochiman_3:middle_right_3
@@ -767,17 +764,17 @@ ModelImporter:
     - name: mochiman_3:ring_right_1
       parentName: mochiman_3:hand_right
       position: {x: 0.16903181, y: -0.014414657, z: 0.030072821}
-      rotation: {x: -0.014781496, y: 0.039582722, z: -0.5177956, w: 0.85446036}
+      rotation: {x: -0.0062896223, y: 0.053534497, z: -0.5306501, w: 0.8458754}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:ring_right_2
       parentName: mochiman_3:ring_right_1
       position: {x: 0.023212599, y: 0.05412335, z: -0.00011224584}
-      rotation: {x: -0.0010632785, y: -0.0019689866, z: -0.07064993, w: 0.9974987}
+      rotation: {x: -0.0014959838, y: 0.00024025125, z: -0.06911652, w: 0.9976075}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:ring_right_3
       parentName: mochiman_3:ring_right_2
       position: {x: 0.011748729, y: 0.048422415, z: 0.00005724816}
-      rotation: {x: 0.0126674175, y: -0.025877098, z: -0.030773504, w: 0.9991111}
+      rotation: {x: 0.013849049, y: -0.014809514, z: -0.031084662, w: 0.9993111}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:ring_right_4
       parentName: mochiman_3:ring_right_3
@@ -787,17 +784,17 @@ ModelImporter:
     - name: mochiman_3:pinky_right_1
       parentName: mochiman_3:hand_right
       position: {x: 0.16746502, y: -0.008640988, z: 0.07316064}
-      rotation: {x: -0.07661657, y: 0.046212096, z: -0.5257744, w: 0.84590524}
+      rotation: {x: 0.1371402, y: 0.20047279, z: -0.5240353, w: 0.8163274}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:pinky_right_2
       parentName: mochiman_3:pinky_right_1
       position: {x: 0.018202636, y: 0.04443266, z: 0.004252222}
-      rotation: {x: 0.06363479, y: 0.07169553, z: 0.025158571, w: 0.99507666}
+      rotation: {x: -0.006144274, y: -0.08566832, z: 0.020344498, w: 0.996097}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:pinky_right_3
       parentName: mochiman_3:pinky_right_2
       position: {x: 0.015892351, y: 0.037175637, z: 0.0010563099}
-      rotation: {x: 0.054579075, y: 0.008453983, z: -0.16131358, w: 0.9853566}
+      rotation: {x: 0.06761086, y: 0.07790776, z: -0.16292739, w: 0.98123085}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:pinky_right_4
       parentName: mochiman_3:pinky_right_3
@@ -807,51 +804,52 @@ ModelImporter:
     - name: mochiman_3:leg_right
       parentName: mochiman_3:spine_1
       position: {x: 0.11686366, y: -0.047039736, z: 0.0266518}
-      rotation: {x: -0.031858075, y: 0.4361966, z: 0.08463262, w: 0.89529604}
+      rotation: {x: -0.17502004, y: -0.062710114, z: 0.04780081, w: 0.9814023}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:knee_right
       parentName: mochiman_3:leg_right
       position: {x: 0.015299999, y: -0.57274777, z: 0.0024020602}
-      rotation: {x: 0.23758027, y: 0.061046317, z: 0.035498988, w: 0.9687976}
+      rotation: {x: 0.2685278, y: 0.030925427, z: 0.0077070054, w: 0.9627446}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:ankle_right
       parentName: mochiman_3:knee_right
       position: {x: 0.02186, y: -0.52815944, z: -0.062272917}
-      rotation: {x: 0.09082527, y: -0.25807405, z: -0.028656933, w: 0.96141946}
+      rotation: {x: -0.20996472, y: -0.1280251, z: -0.098100126, w: 0.9643136}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:feet_right_1
       parentName: mochiman_3:ankle_right
       position: {x: 0.00561017, y: -0.06931044, z: 0.030553734}
-      rotation: {x: -0.21643962, y: -0.0000000072592536, z: 0.000000017283485, w: 0.976296}
+      rotation: {x: -0.000000018062973, y: -0.00000002786809, z: -0.000000030063106,
+        w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:feet_right_2
       parentName: mochiman_3:feet_right_1
-      position: {x: 3.5527136e-17, y: -0.01022678, z: 0.14485228}
+      position: {x: -0, y: -0.01022678, z: 0.14485228}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:leg_left
       parentName: mochiman_3:spine_1
       position: {x: -0.11686364, y: -0.047035597, z: 0.0266518}
-      rotation: {x: -0.04601081, y: -0.12539983, z: -0.06311252, w: 0.98902714}
+      rotation: {x: -0.1796906, y: -0.5254886, z: -0.034052648, w: 0.8309112}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:knee_left
       parentName: mochiman_3:leg_left
       position: {x: -0.0152999, y: -0.5727516, z: 0.0024020602}
-      rotation: {x: 0.24393263, y: -0.043106962, z: -0.033366714, w: 0.968259}
+      rotation: {x: 0.2334363, y: -0.010330826, z: -0.060905788, w: 0.97040784}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:ankle_left
       parentName: mochiman_3:knee_left
       position: {x: -0.021863315, y: -0.52815974, z: -0.062012866}
-      rotation: {x: -0.27702522, y: 0.09230562, z: 0.1042609, w: 0.95071894}
+      rotation: {x: -0.17200173, y: 0.3914884, z: 0.030342065, w: 0.9034553}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:feet_left_1
       parentName: mochiman_3:ankle_left
       position: {x: -0.00561, y: -0.069310516, z: 0.03029368}
-      rotation: {x: -4.6272786e-25, y: 1.3513514e-10, z: -0.0000000019140596, w: 1}
+      rotation: {x: 0.000002633083, y: -0.00000050155984, z: -0.00000067860987, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:feet_left_2
       parentName: mochiman_3:feet_left_1
-      position: {x: 3.5527136e-17, y: -0.010226743, z: 0.14485201}
+      position: {x: -0, y: -0.010226743, z: 0.14485201}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:curve1
@@ -866,8 +864,8 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:cluster_back
       parentName: mochiman_3:group1
-      position: {x: 0.10030703, y: 0.14777, z: 0.29862338}
-      rotation: {x: 0, y: 0.19570653, z: -0, w: 0.9806625}
+      position: {x: 0.011831541, y: -0.027696554, z: 0.025229797}
+      rotation: {x: 0.079543136, y: -0, z: -0, w: 0.9968315}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:group2
       parentName: mochiman_3:Base
@@ -876,7 +874,7 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:cluster_chest
       parentName: mochiman_3:group2
-      position: {x: 0.08893164, y: 0.14557324, z: 0.22910999}
+      position: {x: 0.026712934, y: 0.059261996, z: 0.09001108}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:group3
@@ -886,7 +884,7 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:cluster_abs
       parentName: mochiman_3:group3
-      position: {x: 0.023461647, y: 0.1956985, z: 0.06898999}
+      position: {x: -0.020537898, y: -0.0339716, z: 0.09310145}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:group4
@@ -896,7 +894,7 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: mochiman_3:cluster_hip
       parentName: mochiman_3:group4
-      position: {x: 0.0032416459, y: -0.040469997, z: 0.17486}
+      position: {x: -0.018453317, y: -0.0058535207, z: 0.12445659}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     armTwist: 0.5
