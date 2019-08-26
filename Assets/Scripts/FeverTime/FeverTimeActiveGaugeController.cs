@@ -60,6 +60,7 @@ public class FeverTimeActiveGaugeController : MonoBehaviour
         // ゲージを減らしていく
         GaugeCurrentAmount -= gaugeDecrement * Time.deltaTime;
 
+        // ゲージが０になったら、終了
         if ((int)GaugeCurrentAmount < 0)
         {
             enabled = false;
@@ -91,11 +92,22 @@ public class FeverTimeActiveGaugeController : MonoBehaviour
     }
 
     /// <summary>
+    /// ゲージをリセットする
+    /// </summary>
+    public void ResetGauge()
+    {
+        // ゲージを０にする
+        GaugeCurrentAmount = 0;
+        // スライダーを０で初期化
+        activeGauge.value = 0;
+    }
+
+    /// <summary>
     /// 終了
     /// </summary>
     void OnDisable()
     {
-        // ゲージを０にする
-        GaugeCurrentAmount = 0;
+        // ゲージをリセットする
+        ResetGauge();
     }
 }

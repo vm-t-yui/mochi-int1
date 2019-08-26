@@ -12,6 +12,7 @@ public class FeverTimeController : MonoBehaviour
 
     [SerializeField]
     float maxFeverTimeCount = 0;                          // フィーバータイムの最大時間
+    // フィーバータイムの最大値を取得
     public float MaxFeverTimeCount { get { return maxFeverTimeCount; } }
 
 
