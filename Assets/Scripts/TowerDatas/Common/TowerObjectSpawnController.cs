@@ -38,7 +38,7 @@ public class TowerObjectSpawnController : MonoBehaviour
             else
             {
                 // オブジェクトをスポーンする
-                towerObjectSpawner.Spawn(spawnNum);
+                towerObjectSpawner.Spawn(spawnNum,false);
             }
         }
     }
