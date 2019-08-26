@@ -72,12 +72,16 @@ public class FeverTimeActiveGaugeController : MonoBehaviour
     /// </summary>
     public void AddGauge()
     {
-        // ゲージを加算
-        GaugeCurrentAmount += gaugeIncrement;
-        
-        // スライダーの値を更新
-        // （ゲージの現在と最大の量からスライダーの値を計算）
-        activeGauge.value = (1.0f * (GaugeCurrentAmount / gaugeAmountMax));
+        // フィーバー中は加算を行わない
+        if (!feverTimeController.IsFever)
+        {
+            // ゲージを加算
+            GaugeCurrentAmount += gaugeIncrement;
+
+            // スライダーの値を更新
+            // （ゲージの現在と最大の量からスライダーの値を計算）
+            activeGauge.value = (1.0f * (GaugeCurrentAmount / gaugeAmountMax));
+        }
     }
 
     /// <summary>
