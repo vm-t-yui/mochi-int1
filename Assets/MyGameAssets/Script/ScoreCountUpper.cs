@@ -14,13 +14,13 @@ public class ScoreCountUpper : MonoBehaviour
     public bool IsEnd { get; private set; } = false;    // 終了フラグ
 
     [SerializeField]
+    UIResult uIResult = default;                        // リザルトのUI
+
+    [SerializeField]
     float waitTime = 5.0f;                              // カウントにかかるの時間
 
     [SerializeField]
     TextMeshProUGUI text = default;                     // テキスト
-
-    [SerializeField]
-    GameObject buttons = default;                       // ボタンのオブジェクト
 
     [SerializeField]
     ResultPlayerAnimator playerAnim = default;          // プレイヤーのアニメーション
@@ -33,6 +33,7 @@ public class ScoreCountUpper : MonoBehaviour
         NowCount = 0;
         IsEnd = false;
         IsStart = true;
+
     }
 
     /// <summary>
@@ -50,8 +51,13 @@ public class ScoreCountUpper : MonoBehaviour
             {
                 // カウントダウン終了
                 IsEnd = true;
-                buttons.SetActive(true);
                 playerAnim.AnimStart((int)ResultPlayerAnimator.AnimKind.ScoreResult);
+
+                // リザルトのUI表示
+                uIResult.AcitveUI();
+
+                // スコアリセット
+                ScoreManager.Inst.Reset();
             }
         }
 

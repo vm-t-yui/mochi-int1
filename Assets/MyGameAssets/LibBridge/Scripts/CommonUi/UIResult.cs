@@ -24,6 +24,9 @@ public class UIResult : CmnMonoBehaviour
     [SerializeField]
     GameObject buttons = default;                           // リザルトのボタン達
 
+    [SerializeField]
+    GameObject highScoreText = default;                     // ハイスコアテキスト
+
     bool isShowAd = false;                                  // リザルト広告表示フラグ
 
     /// <summary>
@@ -47,7 +50,21 @@ public class UIResult : CmnMonoBehaviour
         AdManager.Inst.HideResultAd();
         HideBanner();
         buttons.SetActive(false);
-        ScoreManager.Inst.Reset();
+        highScoreText.SetActive(false);
+    }
+
+    /// <summary>
+    /// UI表示
+    /// </summary>
+    public void AcitveUI()
+    {
+        buttons.SetActive(true);
+
+        // ハイスコアを超えたらハイスコアの文字表示
+        if (GameDataManager.Inst.PlayData.HighScore > ScoreManager.Inst.NowBreakNum)
+        {
+            highScoreText.SetActive(true);
+        }
     }
 
     /// <summary>
@@ -64,14 +81,14 @@ public class UIResult : CmnMonoBehaviour
     protected override void FixedUpdate()
     {
         // プレイヤーのアニメーションが終わったら
-        if(resultPlayerAnimator.IsEnd && !isShowAd)
+        if (resultPlayerAnimator.IsEnd && !isShowAd)
         {
             // インタースティシャルか動画広告表示
             ShowAd();
         }
 
         // スッキプせずに動画広告を見終わったらシーンを切り替える
-        if(AdManager.Inst.GetIsRewardEnd())
+        if (AdManager.Inst.GetIsRewardEnd())
         {
             sceneChanger.ChangeScene();
         }
