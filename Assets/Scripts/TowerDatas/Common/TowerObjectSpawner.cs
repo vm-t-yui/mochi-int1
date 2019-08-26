@@ -59,11 +59,12 @@ public class TowerObjectSpawner : MonoBehaviour
                                          transform.position.z);
     }
 
-    /// <summary>
-    /// オブジェクトのスポーンを行う
-    /// </summary>
-    /// <param name="spawnNum">スポーンする数</param>
-    public void Spawn(int spawnNum)
+   /// <summary>
+   /// オブジェクトをスポーンする
+   /// </summary>
+   /// <param name="spawnNum">スポーンの数</param>
+   /// <param name="isNotReleasedRabbitOnly">救出されたことのないウサギで抽選を行うかどうか</param>
+    public void Spawn(int spawnNum,bool isNotReleasedRabbitOnly)
     {
         // スポーンしたオブジェクト
         Transform spawnedObject;
@@ -89,8 +90,23 @@ public class TowerObjectSpawner : MonoBehaviour
             {
                 // 連続でウサギがスポーンするのは仕様ではないので、そうなった場合は抽選し直す。
                 if (prevSpawnObjectType == TagName.Rabbit) { continue; }
-                // ウサギの抽選を行う
-                string rabbitId = rabbitLotteryMachine.LotteryRabbit();
+
+                string rarityId = null;
+                string rabbitId = null;
+                // 通常の抽選を行う
+                if (!isNotReleasedRabbitOnly)
+                {
+                    // ウサギのレアリティの抽選を行う
+                    rarityId = rabbitLotteryMachine.LotteryRarity();
+                    // 決定したレアリティに属しているウサギで抽選を行う
+                    rabbitId = rabbitLotteryMachine.LotterySpawnRabbitFromRarity(rarityId);
+                }
+                // 救出されたことのないウサギのみで抽選を行う
+                else
+                {
+                    rabbitId = rabbitLotteryMachine.LotterySpawnRabbitFromNotReleasedRabbits();
+                }
+               
                 // 決定したウサギをスポーンさせる
                 spawnedObject = rabbitSpawnPool.Spawn(rabbitId, spawnPos, Quaternion.identity);
                 // 前回スポーンしたオブジェクトをウサギとして登録する

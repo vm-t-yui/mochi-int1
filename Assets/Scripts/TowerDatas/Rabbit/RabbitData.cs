@@ -9,10 +9,6 @@ using VMUnityLib;
 [CreateAssetMenu(menuName = "Data/RabbitData")]
 public sealed class RabbitData : BaseData
 {
-    // ウサギのオブジェクトPrefab
-    [SerializeField]
-    GameObject rabbitObject = default;
-
     // ウサギの番号
     [SerializeField]
     int number = 0;
@@ -22,7 +18,6 @@ public sealed class RabbitData : BaseData
     [Range(0,100)]
     int spawnRate = 0;
 
-    public GameObject RabbitObject { get { return rabbitObject; } }
     public int        Number { get { return number; } }
     public int        SpawnRate    { get { return spawnRate;    } }
 }
