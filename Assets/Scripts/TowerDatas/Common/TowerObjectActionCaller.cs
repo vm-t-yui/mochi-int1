@@ -35,6 +35,10 @@ public class TowerObjectActionCaller : MonoBehaviour
     [SerializeField]
     ObjectFallingController objectFallingController = default;
 
+    // フィーバータイム用ゲージの制御クラス
+    [SerializeField]
+    FeverTimeActiveGaugeController feverTimeActiveGaugeController = default;
+
     // タイマークラス
     [SerializeField]
     Timer timer = default;
@@ -89,6 +93,13 @@ public class TowerObjectActionCaller : MonoBehaviour
             {
                 // 制御クラスのコールバックを呼ぶ
                 moveController.OnPlayerPunched();
+
+                // モチだったら
+                if (bottomObject.tag == TagName.Mochi)
+                {
+                    // フィーバーゲージを加算
+                    feverTimeActiveGaugeController.AddGauge();
+                }
             }
             // 救助されたとき
             else if (actionType == PlayerActionType.Rescue)
@@ -96,10 +107,14 @@ public class TowerObjectActionCaller : MonoBehaviour
                 // 制御クラスのコールバックを呼ぶ
                 moveController.OnPlayerRescued();
 
-                // うさぎだったらタイムをプラス
+                // うさぎだったら
                 if (bottomObject.tag == TagName.Rabbit)
                 {
+                    // タイムをプラス
                     timer.TimePlus();
+
+                    // フィーバーゲージを加算
+                    feverTimeActiveGaugeController.AddGauge();
                 }
             }
             // 最後の大技を受けたとき

@@ -8,18 +8,26 @@ using UnityEngine;
 public class FeverTimeController : MonoBehaviour
 {
     [SerializeField]
-    MainCameraAnimator mainCameraAnim = default;            // メインカメラアニメーター
+    MainCameraAnimator mainCameraAnim = default;          // メインカメラアニメーター
 
     [SerializeField]
-    float feverTimeCount = 0;                               // フィーバータイムの継続時間
+    float maxFeverTimeCount = 0;                          // フィーバータイムの最大時間
+    // フィーバータイムの最大値を取得
+    public float MaxFeverTimeCount { get { return maxFeverTimeCount; } }
 
-    public bool IsFever { get; private set; } = default;    // フィーバーフラグ
+
+    float currentFeverTimeCount = 0;                      // フィーバータイムの継続時間
+
+    public bool IsFever { get; private set; } = default;  // フィーバーフラグ
 
     /// <summary>
     /// 起動処理
     /// </summary>
     void OnEnable()
     {
+        // フィーバータイムを最大時間で初期化
+        currentFeverTimeCount = maxFeverTimeCount;
+
         // フィーバータイム開始
         IsFever = true;
 		mainCameraAnim.AnimStart((int)MainCameraAnimator.AnimKind.FeverIn);
@@ -31,10 +39,10 @@ public class FeverTimeController : MonoBehaviour
     void Update()
     {
         // カウントダウン
-        feverTimeCount -= Time.deltaTime;
+        currentFeverTimeCount -= Time.deltaTime;
 
         // カウントダウンが終わったらスクリプトを停止して終了
-        if (feverTimeCount < 0)
+        if (currentFeverTimeCount < 0)
         {
             enabled = false;
         }
