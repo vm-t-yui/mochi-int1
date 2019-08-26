@@ -40,8 +40,10 @@ public class PictureBookController : MonoBehaviour
             OpenDescription(0);
             nowOpenNum = 0;
         }
+        // 開放されてないなら非解放用の説明を表示
         else
         {
+            notReleaseDescription.SetActive(true);
             nowOpenNum = NotReleaseNum;
         }
 
@@ -90,6 +92,23 @@ public class PictureBookController : MonoBehaviour
                 // 表示中の説明番号を更新
                 nowOpenNum = NotReleaseNum;
             }
+        }
+    }
+
+    /// <summary>
+    /// 終了処理
+    /// </summary>
+    void OnDisable()
+    {
+        // 非解放用の説明が表示されている場合
+        if (nowOpenNum == NotReleaseNum)
+        {
+            notReleaseDescription.SetActive(false);
+        }
+        // それ以外の場合
+        else
+        {
+            descriptions[nowOpenNum].SetActive(false);
         }
     }
 }
