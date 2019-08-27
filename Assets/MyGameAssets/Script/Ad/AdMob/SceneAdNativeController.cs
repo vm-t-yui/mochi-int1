@@ -6,16 +6,18 @@ using VMUnityLib;
 /// <summary>
 /// シーン切り替え時のネイティブ広告表示クラス
 /// </summary>
-public class SceneAdNativeDisplay : MonoBehaviour
+public class SceneAdNativeController : MonoBehaviour
 {
     [SerializeField]
-    GameObject senceAdNative = default;     // シーン切り替え時のネイティブ広告のオブジェクト
+    GameObject senceAdNative = default;                     // シーン切り替え時のネイティブ広告のオブジェクト
 
     [SerializeField]
-    CanvasGroup canvas = default;           // カンバス
+    CanvasGroup canvas = default;                           // カンバス
 
     [SerializeField]
-    SceneChanger sceneChanger = default;    // シーン変更クラス
+    SceneChanger sceneChanger = default;                    // シーン変更クラス
+
+    public bool IsFadeEnd { get; private set; } = false;    // フェード終了フラグ
 
     /// <summary>
     /// 表示関数
@@ -24,6 +26,7 @@ public class SceneAdNativeDisplay : MonoBehaviour
     {
         // ネイティブ広告表示
         senceAdNative.SetActive(true);
+        IsFadeEnd = false;
 
         // 表示時間までカウントダウンし、終わったら非表示
         StartCoroutine(DisplayCountDown());
@@ -57,7 +60,25 @@ public class SceneAdNativeDisplay : MonoBehaviour
             yield return new WaitForSeconds(0.01f);
         }
 
-        // 透明になったら非表示
+        // 透明になったら非表示して終了フラグをON
         senceAdNative.SetActive(false);
+        IsFadeEnd = true;
+    }
+
+    /// <summary>
+    /// シーン切り替えネイティブ広告のフェードアウト終了検知
+    /// </summary>
+    /// <returns>フェードアウト終了フラグ</returns>
+    public bool EndFade()
+    {
+        bool returnflg = false;
+
+        if (IsFadeEnd)
+        {
+            returnflg = IsFadeEnd;
+            IsFadeEnd = false;
+        }
+
+        return returnflg;
     }
 }

@@ -87,8 +87,8 @@ public class UIResult : CmnMonoBehaviour
             ShowAd();
         }
 
-        // スッキプせずに動画広告を見終わったらシーンを切り替える
-        if (AdManager.Inst.GetIsRewardEnd())
+        // 動画広告を見終わったらシーンを切り替える
+        if (AdManager.Inst.EndAdVideo())
         {
             sceneChanger.ChangeScene();
         }
