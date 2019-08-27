@@ -17,7 +17,9 @@ public class SceneAdNativeController : MonoBehaviour
     [SerializeField]
     SceneChanger sceneChanger = default;                    // シーン変更クラス
 
-    public bool IsFadeEnd { get; private set; } = false;    // フェード終了フラグ
+    public bool IsEnd { get; private set; } = false;        // フェード終了フラグ
+
+    bool isDisplay = false;                                 // 表示中どうかフラグ
 
     /// <summary>
     /// 表示関数
@@ -26,7 +28,8 @@ public class SceneAdNativeController : MonoBehaviour
     {
         // ネイティブ広告表示
         senceAdNative.SetActive(true);
-        IsFadeEnd = false;
+        IsEnd = false;
+        isDisplay = true;
 
         // 表示時間までカウントダウンし、終わったら非表示
         StartCoroutine(DisplayCountDown());
@@ -62,21 +65,36 @@ public class SceneAdNativeController : MonoBehaviour
 
         // 透明になったら非表示して終了フラグをON
         senceAdNative.SetActive(false);
-        IsFadeEnd = true;
+        IsEnd = true;
     }
 
     /// <summary>
-    /// シーン切り替えネイティブ広告のフェードアウト終了検知
+    /// シーン切り替えネイティブ広告の終了検知
     /// </summary>
-    /// <returns>フェードアウト終了フラグ</returns>
+    /// <returns>終了フラグ</returns>
     public bool EndFade()
     {
+        // return用のフラグ
         bool returnflg = false;
 
-        if (IsFadeEnd)
+        // NOTE:リトライするとこの広告は表示されないため、
+        //      表示されない時はそのまま終了させるようにしました。
+
+        // 表示しているなら
+        if (isDisplay)
         {
-            returnflg = IsFadeEnd;
-            IsFadeEnd = false;
+            // フェードアウトが終わったタイミングで検知
+            if (IsEnd)
+            {
+                returnflg = IsEnd;
+                isDisplay = false;
+                IsEnd = false;
+            }
+        }
+        // 表示していないのならそのまま終了検知
+        else
+        {
+            returnflg = true;
         }
 
         return returnflg;
