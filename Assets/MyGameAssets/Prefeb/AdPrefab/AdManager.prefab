@@ -290,11 +290,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AdPanelCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 1728331945675814946, guid: 2f7982f7614b442c0b1f02edb916d6ab,
-        type: 3}
-      propertyPath: sceneChanger
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 1728331945675815007, guid: 2f7982f7614b442c0b1f02edb916d6ab,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -398,11 +393,6 @@ PrefabInstance:
     - target: {fileID: 1728331945675815007, guid: 2f7982f7614b442c0b1f02edb916d6ab,
         type: 3}
       propertyPath: m_Pivot.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5776325832748052999, guid: 2f7982f7614b442c0b1f02edb916d6ab,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -542,11 +532,7 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3365740409316253546, guid: a7d1337e70d654703aef460d4ea86dac, type: 3}
-    - {fileID: 7006091887282279797, guid: a7d1337e70d654703aef460d4ea86dac, type: 3}
-    - {fileID: 3818931304395571492, guid: a7d1337e70d654703aef460d4ea86dac, type: 3}
-    - {fileID: 4025583411952856078, guid: a7d1337e70d654703aef460d4ea86dac, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7d1337e70d654703aef460d4ea86dac, type: 3}
 --- !u!224 &3558312321311699068 stripped
 RectTransform:

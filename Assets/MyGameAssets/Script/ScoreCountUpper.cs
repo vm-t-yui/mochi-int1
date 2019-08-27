@@ -46,6 +46,12 @@ public class ScoreCountUpper : MonoBehaviour
         {
             NowCount += (ScoreManager.Inst.NowBreakNum * (Time.deltaTime / waitTime));
 
+            // タッチされたらスキップ
+            if(Input.touchCount > 0)
+            {
+                NowCount = ScoreManager.Inst.NowBreakNum;
+            }
+
             // カウントし終わったら
             if (ScoreManager.Inst.NowBreakNum <= NowCount)
             {
@@ -55,9 +61,6 @@ public class ScoreCountUpper : MonoBehaviour
 
                 // リザルトのUI表示
                 uIResult.AcitveUI();
-
-                // スコアリセット
-                ScoreManager.Inst.Reset();
             }
         }
 

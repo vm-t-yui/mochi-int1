@@ -38,7 +38,7 @@ public class UIResult : CmnMonoBehaviour
         isShowAd = false;
 
         // バナー表示
-        AdManager.Inst.ShowBanner((int)AdBannerController.BANNER.BOTTOM);
+        AdManager.Inst.ShowBanner((int)AdBannerController.BANNER.TOP);
     }
 
     /// <summary>
@@ -61,10 +61,13 @@ public class UIResult : CmnMonoBehaviour
         buttons.SetActive(true);
 
         // ハイスコアを超えたらハイスコアの文字表示
-        if (GameDataManager.Inst.PlayData.HighScore > ScoreManager.Inst.NowBreakNum)
+        if (GameDataManager.Inst.PlayData.HighScore < ScoreManager.Inst.NowBreakNum)
         {
             highScoreText.SetActive(true);
         }
+
+        // スコアリセット
+        ScoreManager.Inst.Reset();
     }
 
     /// <summary>
