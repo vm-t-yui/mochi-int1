@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// ギャラリーの表示kルアス
+/// ギャラリーの表示クラス
 /// </summary>
 public class GalleryActivator : MonoBehaviour
 {
