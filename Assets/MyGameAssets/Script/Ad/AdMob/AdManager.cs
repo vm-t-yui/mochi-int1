@@ -166,8 +166,8 @@ public class AdManager : SingletonMonoBehaviour<AdManager>
         // 表示回数をロード
         showCount = GameDataManager.Inst.PlayData.PlayCount;
 
-        // 5回毎の動画リワードを表示
-        if (showCount % RewardCount == 0)
+        // うさぎをコンプリートいなかったら5回毎に動画リワードを表示
+        if (showCount % RewardCount == 0 && GameDataManager.Inst.PlayData.RabbitComplete())
         {
             adVideoRecommender.Recommend();
         }
