@@ -1,0 +1,931 @@
+fileFormatVersion: 2
+guid: d48581ae020d7418ab744e682dc12276
+ModelImporter:
+  serializedVersion: 25
+  internalIDToNameTable:
+  - first:
+      74: -5824029492533181423
+    second: mochiman_uppercut_baked
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: "\nClip 'mochiman_uppercut_baked' has import animation
+      warnings that might lower retargeting quality:\nNote: Activate translation DOF
+      on avatar to improve retargeting quality.\n\t'mochiman_3:spine_1' is inbetween
+      humanoid transforms and has rotation animation that will be discarded.\n\t'mochiman_3:spine_4'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'mochiman_3:hand_right'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'mochiman_3:feet_right_1'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: mochiman_uppercut_baked
+      takeName: mochiman_uppercut_baked
+      internalID: -5824029492533181423
+      firstFrame: 0
+      lastFrame: 10
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 1
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0
+        functionName: TowerFly
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.96472394
+        functionName: StartSpecialArtsCameraAnim
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 3
+    human:
+    - boneName: mochiman_3:Base
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mochiman_3:leg_left
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mochiman_3:leg_right
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mochiman_3:knee_left
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mochiman_3:knee_right
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mochiman_3:ankle_left
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mochiman_3:ankle_right
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mochiman_3:spine_2
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mochiman_3:neck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mochiman_3:head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mochiman_3:clavicle_left
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mochiman_3:clavicle_right
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mochiman_3:shoulder_left
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mochiman_3:shoulder_right
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mochiman_3:elbow_left
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mochiman_3:elbow_right
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mochiman_3:wrist_left
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mochiman_3:wrist_right
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mochiman_3:feet_left_2
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mochiman_3:feet_right_2
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mochiman_3:thumb_left_1
+      humanName: Left Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mochiman_3:thumb_left_2
+      humanName: Left Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mochiman_3:thumb_left_3
+      humanName: Left Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mochiman_3:index_left_1
+      humanName: Left Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mochiman_3:index_left_2
+      humanName: Left Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mochiman_3:index_left_3
+      humanName: Left Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mochiman_3:middle_left_1
+      humanName: Left Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mochiman_3:middle_left_2
+      humanName: Left Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mochiman_3:middle_left_3
+      humanName: Left Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mochiman_3:ring_left_1
+      humanName: Left Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mochiman_3:ring_left_2
+      humanName: Left Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mochiman_3:ring_left_3
+      humanName: Left Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mochiman_3:pinky_left_1
+      humanName: Left Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mochiman_3:pinky_left_2
+      humanName: Left Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mochiman_3:pinky_left_3
+      humanName: Left Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mochiman_3:thumb_right_1
+      humanName: Right Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mochiman_3:thumb_right_2
+      humanName: Right Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mochiman_3:thumb_right_3
+      humanName: Right Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mochiman_3:index_right_1
+      humanName: Right Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mochiman_3:index_right_2
+      humanName: Right Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mochiman_3:index_right_3
+      humanName: Right Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mochiman_3:middle_right_1
+      humanName: Right Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mochiman_3:middle_right_2
+      humanName: Right Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mochiman_3:middle_right_3
+      humanName: Right Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mochiman_3:ring_right_1
+      humanName: Right Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mochiman_3:ring_right_2
+      humanName: Right Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mochiman_3:ring_right_3
+      humanName: Right Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mochiman_3:pinky_right_1
+      humanName: Right Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mochiman_3:pinky_right_2
+      humanName: Right Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mochiman_3:pinky_right_3
+      humanName: Right Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: mm_finishPunch(Clone)
+      parentName: 
+      position: {x: -0, y: -5.551115e-19, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:joints
+      parentName: mm_finishPunch(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:Base
+      parentName: mochiman_3:joints
+      position: {x: 0.032276623, y: 1.0576394, z: -0.17877375}
+      rotation: {x: 0.06842938, y: -0.19763526, z: -0.000288829, w: 0.9778843}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:spine_1
+      parentName: mochiman_3:Base
+      position: {x: -0.021694962, y: 0.098366834, z: -0.019543396}
+      rotation: {x: -0.12785412, y: -3.0041528e-10, z: -0.046142954, w: 0.990719}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:spine_2
+      parentName: mochiman_3:spine_1
+      position: {x: -0, y: 0.14478604, z: 0}
+      rotation: {x: 0.15258183, y: 0.20021427, z: 0.09147642, w: 0.96346515}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:spine_4
+      parentName: mochiman_3:spine_2
+      position: {x: -0, y: 0.2840621, z: 0}
+      rotation: {x: 0.003568801, y: 0.20324305, z: 0.04601125, w: 0.97804016}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:neck
+      parentName: mochiman_3:spine_4
+      position: {x: -0, y: 0.11699425, z: 0}
+      rotation: {x: -0.052676387, y: -0.51609266, z: -0.07976384, w: 0.8511823}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:head
+      parentName: mochiman_3:neck
+      position: {x: -0, y: 0.2768097, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:clavicle_left
+      parentName: mochiman_3:spine_4
+      position: {x: -0.060589347, y: 0.02774625, z: 0}
+      rotation: {x: -0.43240348, y: 0.032379843, z: -0.17833975, w: 0.8832745}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:shoulder_left
+      parentName: mochiman_3:clavicle_left
+      position: {x: -0.13093917, y: -0.003932943, z: -0.03139351}
+      rotation: {x: -0.03890994, y: -0.1536412, z: -0.048112873, w: 0.9861874}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:elbow_left
+      parentName: mochiman_3:shoulder_left
+      position: {x: -0.31809068, y: 0.010836321, z: -0.015962489}
+      rotation: {x: 0.22439185, y: -0.021694923, z: -0.030432854, w: 0.97378206}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:wrist_left
+      parentName: mochiman_3:elbow_left
+      position: {x: -0.12881194, y: -0.00021748956, z: 0.01046621}
+      rotation: {x: 1.3505903e-10, y: -0.00000002514554, z: 0.0053710155, w: 0.9999856}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:hand_left
+      parentName: mochiman_3:wrist_left
+      position: {x: -0.06941071, y: 0.003042777, z: 0.013141735}
+      rotation: {x: 0.08464636, y: 0.03433445, z: -0.019447405, w: 0.99562943}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:thumb_left_1
+      parentName: mochiman_3:hand_left
+      position: {x: -0.03747901, y: -0.010897562, z: 0.06698221}
+      rotation: {x: 0.04215316, y: -0.09929425, z: -0.54506326, w: 0.83142644}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:thumb_left_2
+      parentName: mochiman_3:thumb_left_1
+      position: {x: 0.007176042, y: -0.030456701, z: 0.063989244}
+      rotation: {x: 0.018169427, y: -0.0011875845, z: 0.015116343, w: 0.99972}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:thumb_left_3
+      parentName: mochiman_3:thumb_left_2
+      position: {x: 0.0052500437, y: -0.017902602, z: 0.03473146}
+      rotation: {x: -0.042434383, y: -0.030644119, z: 0.017881168, w: 0.9984691}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:thumb_left_4
+      parentName: mochiman_3:thumb_left_3
+      position: {x: 0.009944691, y: -0.030036245, z: 0.040852}
+      rotation: {x: 6.1232376e-17, y: 1, z: 0.0000005326322, w: -6.123231e-17}
+      scale: {x: 0.72253567, y: 1, z: -1}
+    - name: mochiman_3:index_left_1
+      parentName: mochiman_3:hand_left
+      position: {x: -0.14034615, y: -0.009581533, z: 0.06187325}
+      rotation: {x: 0.0003556511, y: -0.007416656, z: -0.4654489, w: 0.8850436}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:index_left_2
+      parentName: mochiman_3:index_left_1
+      position: {x: -0.040547084, y: -0.05726006, z: 0.011611927}
+      rotation: {x: -0.027555695, y: -0.0165218, z: -0.124299355, w: 0.99172443}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:index_left_3
+      parentName: mochiman_3:index_left_2
+      position: {x: -0.016604662, y: -0.054648917, z: 0.006924615}
+      rotation: {x: -0.0008016915, y: -0.006376523, z: 0.004552892, w: 0.99996907}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:index_left_4
+      parentName: mochiman_3:index_left_3
+      position: {x: -0.013320094, y: -0.05810421, z: 0.0067357454}
+      rotation: {x: 0.0000005370623, y: -8.8856554e-23, z: -1.6544925e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:middle_left_1
+      parentName: mochiman_3:hand_left
+      position: {x: -0.1570374, y: 0.010672616, z: 0.017288594}
+      rotation: {x: -0.0024668493, y: 0.009780382, z: -0.4731863, w: 0.8809047}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:middle_left_2
+      parentName: mochiman_3:middle_left_1
+      position: {x: -0.03181163, y: -0.060348034, z: 0.00437304}
+      rotation: {x: -0.003298588, y: -0.012741506, z: -0.043287512, w: 0.99897593}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:middle_left_3
+      parentName: mochiman_3:middle_left_2
+      position: {x: -0.01760843, y: -0.051364068, z: 0.0036121896}
+      rotation: {x: -0.0048691556, y: -0.012613346, z: -0.04797293, w: 0.9987572}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:middle_left_4
+      parentName: mochiman_3:middle_left_3
+      position: {x: -0.010512496, y: -0.062071953, z: 0.0037868987}
+      rotation: {x: 0.0000005370623, y: -8.8856554e-23, z: -1.6544925e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:ring_left_1
+      parentName: mochiman_3:hand_left
+      position: {x: -0.16902675, y: 0.014417684, z: -0.03007288}
+      rotation: {x: -0.024535537, y: 0.031020222, z: -0.5139392, w: 0.85691434}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:ring_left_2
+      parentName: mochiman_3:ring_left_1
+      position: {x: -0.02321258, y: -0.05412334, z: 0.000112234746}
+      rotation: {x: -0.0013072394, y: 0.00034223302, z: -0.053021844, w: 0.99859244}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:ring_left_3
+      parentName: mochiman_3:ring_left_2
+      position: {x: -0.011749074, y: -0.048426073, z: -0.000057223886}
+      rotation: {x: 0.013735364, y: -0.0063223676, z: -0.011262849, w: 0.9998223}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:ring_left_4
+      parentName: mochiman_3:ring_left_3
+      position: {x: -0.008066989, y: -0.05199443, z: 0.0016979215}
+      rotation: {x: 0.0000005370623, y: -8.8856554e-23, z: -1.6544925e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:pinky_left_1
+      parentName: mochiman_3:hand_left
+      position: {x: -0.1674608, y: 0.008643769, z: -0.07316041}
+      rotation: {x: 0.03790751, y: 0.120720774, z: -0.52358687, w: 0.8425238}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:pinky_left_2
+      parentName: mochiman_3:pinky_left_1
+      position: {x: -0.01820317, y: -0.04444049, z: -0.004252079}
+      rotation: {x: 0.025894357, y: 0.009221303, z: 0.0374691, w: 0.9989197}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:pinky_left_3
+      parentName: mochiman_3:pinky_left_2
+      position: {x: -0.015891828, y: -0.03717213, z: -0.0010559894}
+      rotation: {x: 0.052927867, y: 0.024021763, z: -0.14986643, w: 0.9869963}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:pinky_left_4
+      parentName: mochiman_3:pinky_left_3
+      position: {x: -0.0034056765, y: -0.057004422, z: 0.004390546}
+      rotation: {x: 0.0000005370623, y: -8.8856554e-23, z: -1.6544925e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:clavicle_right
+      parentName: mochiman_3:spine_4
+      position: {x: 0.060589354, y: 0.02774625, z: 0}
+      rotation: {x: 0.8946487, y: -0.014145983, z: 0.12538856, w: 0.4285806}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:shoulder_right
+      parentName: mochiman_3:clavicle_right
+      position: {x: 0.13093886, y: 0.0039329478, z: 0.031393517}
+      rotation: {x: 0.12725319, y: -0.014149539, z: 0.18046151, w: 0.9752129}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:elbow_right
+      parentName: mochiman_3:shoulder_right
+      position: {x: 0.31809303, y: -0.010835015, z: 0.015962802}
+      rotation: {x: 0.031222366, y: -0.024362382, z: -0.014408428, w: 0.99911165}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:wrist_right
+      parentName: mochiman_3:elbow_right
+      position: {x: 0.12880962, y: 0.00021610083, z: -0.010466223}
+      rotation: {x: 1.3505903e-10, y: -0.00000002514554, z: 0.0053710155, w: 0.9999856}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:hand_right
+      parentName: mochiman_3:wrist_right
+      position: {x: 0.06940918, y: -0.003044277, z: -0.0131418845}
+      rotation: {x: 0.08464639, y: 0.034334503, z: -0.019447355, w: 0.99562943}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:thumb_right_1
+      parentName: mochiman_3:hand_right
+      position: {x: 0.03654439, y: 0.011980139, z: -0.06884454}
+      rotation: {x: 0.13620378, y: -0.069320254, z: -0.6793965, w: 0.7176794}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:thumb_right_2
+      parentName: mochiman_3:thumb_right_1
+      position: {x: -0.007176501, y: 0.030455496, z: -0.063989475}
+      rotation: {x: 0.0021110247, y: -0.011616477, z: 0.009529809, w: 0.99988496}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:thumb_right_3
+      parentName: mochiman_3:thumb_right_2
+      position: {x: -0.0052493643, y: 0.017902805, z: -0.034731507}
+      rotation: {x: -0.07972167, y: -0.0060486104, z: -0.043145355, w: 0.9958647}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:thumb_right_4
+      parentName: mochiman_3:thumb_right_3
+      position: {x: -0.009944469, y: 0.030039908, z: -0.04085194}
+      rotation: {x: 6.1232376e-17, y: 1, z: 0.0000005326322, w: -6.123231e-17}
+      scale: {x: 0.72253567, y: 1, z: -1}
+    - name: mochiman_3:index_right_1
+      parentName: mochiman_3:hand_right
+      position: {x: 0.14035147, y: 0.009585223, z: -0.061873354}
+      rotation: {x: 0.06196238, y: -0.008600762, z: -0.43565598, w: 0.8979368}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:index_right_2
+      parentName: mochiman_3:index_right_1
+      position: {x: 0.04054748, y: 0.05725459, z: -0.011611839}
+      rotation: {x: -0.06952071, y: -0.09312813, z: -0.14224441, w: 0.98298556}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:index_right_3
+      parentName: mochiman_3:index_right_2
+      position: {x: 0.01660424, y: 0.05465004, z: -0.006924628}
+      rotation: {x: 0.0030507885, y: 0.023108581, z: -0.032868993, w: 0.9991878}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:index_right_4
+      parentName: mochiman_3:index_right_3
+      position: {x: 0.013320748, y: 0.058104362, z: -0.0067357444}
+      rotation: {x: 0.0000005370623, y: -8.8856554e-23, z: -1.6544925e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:middle_right_1
+      parentName: mochiman_3:hand_right
+      position: {x: 0.15704343, y: -0.010669028, z: -0.017288681}
+      rotation: {x: 0.009464089, y: 0.020207541, z: -0.49424502, w: 0.86903626}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:middle_right_2
+      parentName: mochiman_3:middle_right_1
+      position: {x: 0.031810943, y: 0.060344677, z: -0.0043729777}
+      rotation: {x: -0.011604752, y: -0.03214332, z: -0.06563147, w: 0.9972586}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:middle_right_3
+      parentName: mochiman_3:middle_right_2
+      position: {x: 0.017609097, y: 0.051362216, z: -0.003612174}
+      rotation: {x: -0.008016317, y: -0.021040812, z: -0.07401729, w: 0.9970028}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:middle_right_4
+      parentName: mochiman_3:middle_right_3
+      position: {x: 0.010511765, y: 0.06207193, z: -0.0037868875}
+      rotation: {x: 0.0000005370623, y: -8.8856554e-23, z: -1.6544925e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:ring_right_1
+      parentName: mochiman_3:hand_right
+      position: {x: 0.16903181, y: -0.014414657, z: 0.030072821}
+      rotation: {x: -0.006289496, y: 0.053534843, z: -0.53065014, w: 0.84587526}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:ring_right_2
+      parentName: mochiman_3:ring_right_1
+      position: {x: 0.023212599, y: 0.05412335, z: -0.00011224584}
+      rotation: {x: -0.0014948174, y: 0.00023994595, z: -0.06911455, w: 0.9976076}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:ring_right_3
+      parentName: mochiman_3:ring_right_2
+      position: {x: 0.011748729, y: 0.048422415, z: 0.00005724816}
+      rotation: {x: 0.013847707, y: -0.014809711, z: -0.031087462, w: 0.99931103}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:ring_right_4
+      parentName: mochiman_3:ring_right_3
+      position: {x: 0.008066581, y: 0.051994465, z: -0.0016978385}
+      rotation: {x: 0.0000005370623, y: -8.8856554e-23, z: -1.6544925e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:pinky_right_1
+      parentName: mochiman_3:hand_right
+      position: {x: 0.16746502, y: -0.008640988, z: 0.07316064}
+      rotation: {x: 0.1371405, y: 0.20047426, z: -0.5240335, w: 0.816328}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:pinky_right_2
+      parentName: mochiman_3:pinky_right_1
+      position: {x: 0.018202636, y: 0.04443266, z: 0.004252222}
+      rotation: {x: -0.006142444, y: -0.08566926, z: 0.020346161, w: 0.9960969}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:pinky_right_3
+      parentName: mochiman_3:pinky_right_2
+      position: {x: 0.015892351, y: 0.037175637, z: 0.0010563099}
+      rotation: {x: 0.06760924, y: 0.07790755, z: -0.16292985, w: 0.98123056}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:pinky_right_4
+      parentName: mochiman_3:pinky_right_3
+      position: {x: 0.0034052467, y: 0.05700584, z: -0.0043914462}
+      rotation: {x: 0.0000005370623, y: -8.8856554e-23, z: -1.6544925e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:leg_right
+      parentName: mochiman_3:spine_1
+      position: {x: 0.11686366, y: -0.047039736, z: 0.0266518}
+      rotation: {x: -0.045815136, y: 0.20699294, z: 0.1079334, w: 0.9712905}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:knee_right
+      parentName: mochiman_3:leg_right
+      position: {x: 0.015299999, y: -0.57274777, z: 0.0024020602}
+      rotation: {x: 0.2483791, y: 0.08611944, z: 0.021779515, w: 0.96458125}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:ankle_right
+      parentName: mochiman_3:knee_right
+      position: {x: 0.02186, y: -0.52815944, z: -0.062272917}
+      rotation: {x: -0.28499445, y: -0.13596351, z: -0.15032147, w: 0.9368541}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:feet_right_1
+      parentName: mochiman_3:ankle_right
+      position: {x: 0.00561017, y: -0.06931044, z: 0.030553734}
+      rotation: {x: -0.0000000765321, y: 0.000000020143604, z: 0.0000000885212, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:feet_right_2
+      parentName: mochiman_3:feet_right_1
+      position: {x: -0, y: -0.01022678, z: 0.14485228}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:leg_left
+      parentName: mochiman_3:spine_1
+      position: {x: -0.11686364, y: -0.047035597, z: 0.0266518}
+      rotation: {x: -0.027837973, y: -0.58384305, z: -0.029047143, w: 0.81086904}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:knee_left
+      parentName: mochiman_3:leg_left
+      position: {x: -0.0152999, y: -0.5727516, z: 0.0024020602}
+      rotation: {x: 0.17705315, y: 0.00229609, z: -0.07162603, w: 0.98158884}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:ankle_left
+      parentName: mochiman_3:knee_left
+      position: {x: -0.021863315, y: -0.52815974, z: -0.062012866}
+      rotation: {x: -0.100471206, y: 0.58803356, z: 0.18278615, w: 0.78148013}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:feet_left_1
+      parentName: mochiman_3:ankle_left
+      position: {x: -0.00561, y: -0.069310516, z: 0.03029368}
+      rotation: {x: 0.000008201687, y: -0.00000033720025, z: 0.00000072868863, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:feet_left_2
+      parentName: mochiman_3:feet_left_1
+      position: {x: -0, y: -0.010226743, z: 0.14485201}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:curve1
+      parentName: mochiman_3:Base
+      position: {x: -0.0007416458, y: -1.1413052, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:group1
+      parentName: mochiman_3:Base
+      position: {x: -0.0032416456, y: 0.6500627, z: -0.080299996}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:cluster_back
+      parentName: mochiman_3:group1
+      position: {x: -0.02216954, y: -0.026743805, z: 0.062037833}
+      rotation: {x: 0.06976932, y: 0.40241495, z: 0.02520999, w: 0.9124467}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:group2
+      parentName: mochiman_3:Base
+      position: {x: -0.0032416456, y: 0.4681152, z: -0.1489}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:cluster_chest
+      parentName: mochiman_3:group2
+      position: {x: -0.004751557, y: 0.062161643, z: 0.11335405}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:group3
+      parentName: mochiman_3:Base
+      position: {x: -0.0032416456, y: 0.28616774, z: -0.1174}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:cluster_abs
+      parentName: mochiman_3:group3
+      position: {x: 0.0074254535, y: -0.05907504, z: 0.018513698}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:group4
+      parentName: mochiman_3:Base
+      position: {x: -0.0032416456, y: 0.10422035, z: -0.144}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mochiman_3:cluster_hip
+      parentName: mochiman_3:group4
+      position: {x: -0.018453317, y: -0.0058535207, z: 0.12445659}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 3
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

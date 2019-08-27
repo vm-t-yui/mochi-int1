@@ -25,6 +25,9 @@ public class MainPlayerAnimator : SingletonMonoBehaviour<MainPlayerAnimator>
     Animator playerAnim = default;          // アニメーター
 
     [SerializeField]
+    Animator orangeAnim = default;          // アニメーター
+
+    [SerializeField]
     SceneChanger sceneChanger = default;    // シーンチェンジャー
 
     [SerializeField]
@@ -40,7 +43,7 @@ public class MainPlayerAnimator : SingletonMonoBehaviour<MainPlayerAnimator>
     public void AnimStart(int kind)
     {
         // 種類に応じたアニメーション開始
-        switch(kind)
+        switch (kind)
         {
             case (int)AnimKind.Wait: playerAnim.SetTrigger("Wait"); break;
             case (int)AnimKind.RightPunch: playerAnim.SetTrigger("RPunch"); break;
@@ -51,9 +54,13 @@ public class MainPlayerAnimator : SingletonMonoBehaviour<MainPlayerAnimator>
                 if (GameDataManager.Inst.PlayData.LastScore < ScoreManager.NormalScore)
                 {
                     playerAnim.SetTrigger("LowScore");
+                    // オレンジの皮落下
+                    orangeAnim.SetTrigger("PeelFall");
                 }
                 {
-                    playerAnim.SetTrigger("HighScore"); 
+                    playerAnim.SetTrigger("HighScore");
+                    // オレンジ落下
+                    orangeAnim.SetTrigger("Fall");
                 }
 
                 // NOTE:初回起動処理時はもともと待機モーションに入っており、
