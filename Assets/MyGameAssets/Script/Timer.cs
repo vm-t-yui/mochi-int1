@@ -32,6 +32,14 @@ public class Timer : MonoBehaviour
     bool isStop = false;                                   // タイマーストップフラグ
 
     /// <summary>
+    /// 起動処理
+    /// </summary>
+    void OnEnable()
+    {
+        isAble = false;
+    }
+
+    /// <summary>
     /// カウント開始処理
     /// </summary>
     void CountStart()
@@ -60,7 +68,7 @@ public class Timer : MonoBehaviour
         {
             timer.text = startTime.ToString();
 
-            if(AdManager.Inst.EndFade())
+            if (AdManager.Inst.EndFade())
             {
                 CountStart();
             }
@@ -155,7 +163,6 @@ public class Timer : MonoBehaviour
                 animator.SetBool("IsTimeLimit", false);
 
                 IsTimeup = true;
-                isAble = false;
             }
         }
     }
