@@ -18,8 +18,7 @@ public class AdVideoRecommender : MonoBehaviour
     GameObject recommendWindow = default;                     // 勧誘用カンバス
 
     public bool IsRecommend { get; private set; } = false;    // 勧誘済みフラグ
-    public bool IsVideoSkip { get; private set; } = false;    // 広告スキップフラグ
-    public bool IsEnd { get; private set; } = false;          // 処理終了フラグ
+    public bool isEnd = false;                                // 処理終了フラグ
 
     const int RecommendInterval = 5;                          // 勧誘を行うプレイ回数間隔
 
@@ -92,24 +91,42 @@ public class AdVideoRecommender : MonoBehaviour
     /// </summary>
     public void WaitTermination()
     {
-        // 勧誘されてなかったら処理を抜ける
-        if (!IsRecommend) { return; }
+        // 勧誘、終了していなかったら処理を抜ける
+        if (!IsRecommend || !adMobVideo.IsClosed) { return; }
 
         // 動画広告をスキップしたらスキップフラグを立てる
-        if ((adMobVideo.IsSkipped && adMobVideo.IsClosed))// || unityAdsVideo.IsSkipped)
+        if (adMobVideo.IsSkipped)// || unityAdsVideo.IsSkipped)
         {
             // リワード無し
             GameDataManager.Inst.PlayData.IsReward = false;
         }
 
         // 動画広告を閉じたら処理終了
-        if ((adMobVideo.IsCompleted && adMobVideo.IsClosed))// || unityAdsVideo.IsFinished)
+        if (adMobVideo.IsCompleted)// || unityAdsVideo.IsFinished)
         {
             // リワードあり
             GameDataManager.Inst.PlayData.IsReward = true;
+            isEnd = true;
         }
 
         // リワードフラグをセーブして次の広告を生成
         JsonDataSaver.Save(GameDataManager.Inst.PlayData);
+    }
+
+    /// <summary>
+    /// 動画広告再生終了検知
+    /// </summary>
+    /// <returns>動画広告再生終了フラグ</returns>
+    public bool EndAdVideo()
+    {
+        bool returnflg = false;
+
+        if(isEnd)
+        {
+            returnflg = isEnd;
+            isEnd = false;
+        }
+
+        return returnflg;
     }
 }

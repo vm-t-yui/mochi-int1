@@ -112,9 +112,6 @@ public class AdRewardVideoController : MonoBehaviour
         if (IsCompleted)
         {
             IsSkipped = false;
-
-            // 動画終了フラグをオンにしてシーン切り替えへ
-            AdManager.Inst.SetIsRewardEnd();
         }
 
         IsClosed = true;

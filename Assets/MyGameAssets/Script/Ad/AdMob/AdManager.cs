@@ -56,11 +56,13 @@ public class AdManager : SingletonMonoBehaviour<AdManager>
     OwnCompAdInterstitialController ownCompInterstitial = default;    // 自社アプリインタースティシャル広告コントロールクラス
     [SerializeField]
     AdVideoRecommender adVideoRecommender = default;                  // 動画リワード広告クラス
+    [SerializeField]
+    SceneAdNativeController sceneAdNative = default;                     // シーン切り替え時のネイティブ広告
 
     [SerializeField]
-    Animator adVideoRecommenderAnim = default;                        //
+    Animator adVideoRecommenderAnim = default;                        // 動画広告用アニメーター
     [SerializeField]
-    Animator OwnCompAdCanvasAnim = default;                           //
+    Animator OwnCompAdCanvasAnim = default;                           // 自社広告用アニメーター
 
     int showCount = 0;                                                // インタースティシャル用表示回数
     const string ShowCountKey = "ShowCount";                          // 表示回数データのキー
@@ -81,8 +83,6 @@ public class AdManager : SingletonMonoBehaviour<AdManager>
     public bool IsAdView { get; private set; }                        // 広告表示してるかどうか 
 
     bool isOnline = false;                                            // オンラインかどうか
-
-    public bool isRewardEnd { get; private set; } = false;            // リワード広告をスキップせずに見終わったかどうか
 
     /// <summary>
     /// ロード完了検知
@@ -206,27 +206,28 @@ public class AdManager : SingletonMonoBehaviour<AdManager>
     }
 
     /// <summary>
-    /// 動画広告終了フラグ(スキップ無し)セット
+    /// シーン切り替えネイティブ広告表示
     /// </summary>
-    public void SetIsRewardEnd()
+    public void ShowSceneAdNative()
     {
-        isRewardEnd = true;
+        sceneAdNative.Display();
     }
 
     /// <summary>
-    /// 動画広告終了フラグ(スキップ無し)受け渡し処理
+    /// 動画広告再生終了検知
     /// </summary>
-    public bool GetIsRewardEnd()
+    /// <returns>動画広告再生終了フラグ</returns>
+    public bool EndAdVideo()
     {
-        bool returnflg = false;
+        return adVideoRecommender.EndAdVideo();
+    }
 
-        // trueなら受け渡し
-        if(isRewardEnd)
-        {
-            returnflg = isRewardEnd;
-            isRewardEnd = false;
-        }
-
-        return returnflg;
+    /// <summary>
+    /// シーン切り替えネイティブ広告のフェードアウト終了検知
+    /// </summary>
+    /// <returns>フェードアウト終了フラグ</returns>
+    public bool EndFade()
+    {
+        return sceneAdNative.EndFade();
     }
 }

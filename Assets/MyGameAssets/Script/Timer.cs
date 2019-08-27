@@ -32,19 +32,9 @@ public class Timer : MonoBehaviour
     bool isStop = false;                                   // タイマーストップフラグ
 
     /// <summary>
-	/// 起動処理
-	/// </summary>
-     void OnEnable()
-    {
-		timer.text = startTime.ToString();
-		// すぐカウントダウンが始まってしまうため少し遅らせる
-		Invoke("_CountStart", 1f);
-    }
-
-    /// <summary>
     /// カウント開始処理
     /// </summary>
-    void _CountStart()
+    void CountStart()
     {
         // 処理を許可
         isAble = true;
@@ -65,6 +55,17 @@ public class Timer : MonoBehaviour
     /// </summary>
     void Update()
     {
+        // Nendの広告のフェードアウトが終わったら処理を許可する
+        if (!isAble)
+        {
+            timer.text = startTime.ToString();
+
+            if(AdManager.Inst.EndFade())
+            {
+                CountStart();
+            }
+        }
+
         // フィーバータイム時の処理
         FeverTimeTimer();
 
