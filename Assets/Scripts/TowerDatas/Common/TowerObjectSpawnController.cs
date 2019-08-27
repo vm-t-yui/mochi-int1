@@ -13,7 +13,12 @@ public class TowerObjectSpawnController : MonoBehaviour
     TowerObjectSpawner towerObjectSpawner = default;
 
     // スポーンさせる数
-    [SerializeField] int spawnNum = 0;
+    [SerializeField]
+    int spawnNum = 0;
+
+    // オブジェクトの最低個数
+    [SerializeField]
+    int objectKeepNum = 0;
 
     // フィーバータイムコントローラー
     [SerializeField]
@@ -24,9 +29,8 @@ public class TowerObjectSpawnController : MonoBehaviour
     /// </summary>
     void Update()
     {
-        // 現在のオブジェクトの数がスポーンさせる数を下回っていて、かつ終了していなければ
-        // 新たにオブジェクトを生成する
-        if (towerObjectSpawner.StackedObjects.Count < spawnNum)
+        // 現在のオブジェクトの数が最低個数を下回っていれば、新たにオブジェクトを生成する
+        if (towerObjectSpawner.StackedObjects.Count < objectKeepNum)
         {
             // フィーバータイムはモチのみをスポーンする
             if (feverTimeController.IsFever)
@@ -34,11 +38,20 @@ public class TowerObjectSpawnController : MonoBehaviour
                 // オブジェクトをスポーンする
                 towerObjectSpawner.SpawnMochiOnly(spawnNum);
             }
-            // 通常通り、抽選結果をもとにスポーンする
+            // それ以外は通常通り、抽選結果をもとにスポーンする
             else
             {
                 // オブジェクトをスポーンする
-                towerObjectSpawner.Spawn(spawnNum,false);
+                towerObjectSpawner.Spawn(spawnNum);
+            }
+
+            // リワード広告の視聴フラグがオンであれば、新しいウサギもスポーンさせる
+            if (GameDataManager.Inst.PlayData.IsReward)
+            {
+                // 救出されていないウサギを一体だけスポーンさせる
+                towerObjectSpawner.SpawnNotReleasedRabbit(1);
+                // フラグをオフにする
+                GameDataManager.Inst.PlayData.IsReward = false;
             }
         }
     }

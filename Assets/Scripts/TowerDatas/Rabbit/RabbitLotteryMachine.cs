@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using VMUnityLib;
+using System.Linq;
 
 /// <summary>
 /// ウサギの出現抽選を行う
@@ -67,13 +68,24 @@ public class RabbitLotteryMachine : MonoBehaviour
     /// レアリティに属しているウサギで出現抽選を行う
     /// </summary>
     /// <param name="rarityId">抽選を行うウサギが属しているレアリティのID</param>
+    /// /// <param name="isNotReleasedOnly">救出されたことのないウサギのみで抽選を行うか</param>
     /// <returns>抽選結果のウサギのIDを返す</returns>
-    public string LotterySpawnRabbitFromRarity(string rarityId)
+    public string LotterySpawnRabbit(string rarityId,bool isNotReleasedOnly)
     {
         // レアリティに属しているウサギのデータを取得する
-        IEnumerable<RabbitData> belongRabbits = GetRarityBelongRabbits(rarityId);
+        IEnumerable<RabbitData> belongRabbits;
+        // 通常通り、属しているウサギを取得する
+        if (!isNotReleasedOnly)
+        {
+            belongRabbits = GetRarityBelongRabbits(rarityId);
+        }
+        // レアリティの中で救出されていないウサギを取得する
+        else
+        {
+            belongRabbits = GetNotReleasedRabbits(rarityId);
+        }
 
-        // レアリティに属しているウサギの出現率の合計を取得する
+        // ウサギの出現率の合計を取得する
         int totalSpawnRate = GetTotalSpawnRate(belongRabbits);
 
         // 乱数を生成（０～出現率の合計）
@@ -81,38 +93,6 @@ public class RabbitLotteryMachine : MonoBehaviour
 
         // 乱数をそれぞれのウサギの出現率で引いていく
         foreach (RabbitData rabbitData in belongRabbits)
-        {
-            random -= rabbitData.SpawnRate;
-
-            // 乱数が０になった時点のウサギのIDを返す
-            if (random <= 0)
-            {
-                return rabbitData.Id;
-            }
-        }
-
-        // ここにきたら抽選失敗
-        Debug.LogError("rabbit is lottery faild.");
-        return null;
-    }
-
-    /// <summary>
-    /// 救出されたことのないウサギで出現抽選を行う
-    /// </summary>
-    /// <returns>抽選結果のウサギのIDを返す</returns>
-    public string LotterySpawnRabbitFromNotReleasedRabbits()
-    {
-        // 救出されたことのないウサギのデータを取得する
-        IEnumerable<RabbitData> notReleasedRabbits = GetNotReleasedRabbits();
-
-        // 救出されたことのないウサギの出現率の合計を取得する
-        int totalSpawnRate = GetTotalSpawnRate(notReleasedRabbits);
-
-        // 乱数を生成（０～出現率の合計）
-        int random = Random.Range(0, totalSpawnRate);
-
-        // 乱数をそれぞれのウサギの出現率で引いていく
-        foreach (RabbitData rabbitData in notReleasedRabbits)
         {
             random -= rabbitData.SpawnRate;
 
@@ -145,6 +125,7 @@ public class RabbitLotteryMachine : MonoBehaviour
         {
             foreach (RabbitData rabbitData in rabbitDatas)
             {
+                // レアリティに属しているウサギのみ
                 if (rabbitId == rabbitData.Id)
                 {
                     yield return rabbitData;
@@ -156,21 +137,66 @@ public class RabbitLotteryMachine : MonoBehaviour
     /// <summary>
     /// 救出されたことのないウサギのみを取得する
     /// </summary>
+    /// <param name="rarityId">指定のレアリティ</param>
     /// <returns></returns>
-    public IEnumerable<RabbitData> GetNotReleasedRabbits()
+    public IEnumerable<RabbitData> GetNotReleasedRabbits(string rarityId)
     {
         // ウサギの救出フラグを取得
         bool[] isReleasedRabbits = GameDataManager.Inst.PlayData.IsReleasedRabbit;
 
-        // 全体のウサギから救出されたことのないウサギのみを選ぶ
-        foreach (RabbitData rabbitData in rabbitDatas)
+        // レアリティのデータを取得
+        RabbitRarityData rarityData;
+        TowerObjectDataManager.Inst.RabbitRarityDataManager.GetData(rarityId, out rarityData);
+
+        // 指定のレアリティに属しているウサギをIDで判定して取得していく
+        foreach (string rabbitId in rarityData.RabbitIds)
         {
-            // 救出フラグがオフであれば
-            if (!isReleasedRabbits[rabbitData.Number])
+            foreach (RabbitData rabbitData in rabbitDatas)
             {
-                yield return rabbitData;
+                // レアリティに属しているウサギのみ
+                if (rabbitId == rabbitData.Id)
+                {
+                    // 救出されていないウサギのみ
+                    if (!isReleasedRabbits[rabbitData.Number])
+                    {
+                        yield return rabbitData;
+                    }
+                }
             }
         }
+    }
+
+    /// <summary>
+    /// 指定のレアリティに救出されていないウサギが存在するか
+    /// </summary>
+    /// <param name="rarityId"></param>
+    /// <returns></returns>
+    public bool ExistNotReleasedRabbit(string rarityId)
+    {
+        // ウサギの救出フラグを取得
+        bool[] isReleasedRabbits = GameDataManager.Inst.PlayData.IsReleasedRabbit;
+
+        // レアリティのデータを取得
+        RabbitRarityData rarityData;
+        TowerObjectDataManager.Inst.RabbitRarityDataManager.GetData(rarityId, out rarityData);
+
+        // 指定のレアリティに属しているウサギをIDで判定して取得していく
+        foreach (string rabbitId in rarityData.RabbitIds)
+        {
+            foreach (RabbitData rabbitData in rabbitDatas)
+            {
+                // レアリティに属しているウサギのみ
+                if (rabbitId == rabbitData.Id)
+                {
+                    // 救出されていないウサギのみ
+                    if (!isReleasedRabbits[rabbitData.Number])
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 
     /// <summary>

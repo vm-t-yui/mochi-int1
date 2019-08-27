@@ -63,8 +63,7 @@ public class TowerObjectSpawner : MonoBehaviour
    /// オブジェクトをスポーンする
    /// </summary>
    /// <param name="spawnNum">スポーンの数</param>
-   /// <param name="isNotReleasedRabbitOnly">救出されたことのないウサギで抽選を行うかどうか</param>
-    public void Spawn(int spawnNum,bool isNotReleasedRabbitOnly)
+    public void Spawn(int spawnNum)
     {
         // スポーンしたオブジェクト
         Transform spawnedObject;
@@ -91,22 +90,11 @@ public class TowerObjectSpawner : MonoBehaviour
                 // 連続でウサギがスポーンするのは仕様ではないので、そうなった場合は抽選し直す。
                 if (prevSpawnObjectType == TagName.Rabbit) { continue; }
 
-                string rarityId = null;
-                string rabbitId = null;
-                // 通常の抽選を行う
-                if (!isNotReleasedRabbitOnly)
-                {
-                    // ウサギのレアリティの抽選を行う
-                    rarityId = rabbitLotteryMachine.LotteryRarity();
-                    // 決定したレアリティに属しているウサギで抽選を行う
-                    rabbitId = rabbitLotteryMachine.LotterySpawnRabbitFromRarity(rarityId);
-                }
-                // 救出されたことのないウサギのみで抽選を行う
-                else
-                {
-                    rabbitId = rabbitLotteryMachine.LotterySpawnRabbitFromNotReleasedRabbits();
-                }
-               
+                // ウサギのレアリティの抽選を行う
+                string rarityId = rabbitLotteryMachine.LotteryRarity();
+                // 決定したレアリティに属しているウサギで抽選を行う
+                string rabbitId = rabbitLotteryMachine.LotterySpawnRabbit(rarityId,false);
+
                 // 決定したウサギをスポーンさせる
                 spawnedObject = rabbitSpawnPool.Spawn(rabbitId, spawnPos, Quaternion.identity);
                 // 前回スポーンしたオブジェクトをウサギとして登録する
@@ -144,6 +132,54 @@ public class TowerObjectSpawner : MonoBehaviour
             spawnedObject = mochiSpawnPool.Spawn(mochiSkinType.ToString(), spawnPos, Quaternion.identity);
             // 前回スポーンしたオブジェクトをモチとして登録する
             prevSpawnObjectType = TagName.Mochi;
+
+            // 生成したオブジェクトをオンにする
+            // NOTE : 何故か自動でオンになってくれないときがあるため
+            spawnedObject.gameObject.SetActive(true);
+            // 生成したオブジェクトをリストに追加
+            stackedObjects.Add(spawnedObject.transform);
+
+            // カウンター
+            spawnCount++;
+        }
+    }
+
+    /// <summary>
+    /// 救出されたことのないウサギをスポーンさせる
+    /// </summary>
+    /// <param name="spawnNum">スポーンの数</param>
+    public void SpawnNotReleasedRabbit(int spawnNum)
+    {
+        // スポーンしたオブジェクト
+        Transform spawnedObject;
+        // 基準のスポーン位置を取得
+        Vector3 baseSpawnPos = GetBaseSpawnPos();
+        // 指定の数だけ繰り返し抽選を行い、スポーンしていく
+        for (int spawnCount = 0; spawnCount < spawnNum;)
+        {
+            // スポーン位置の計算
+            Vector3 spawnPos = new Vector3(baseSpawnPos.x, baseSpawnPos.y + (spawnHeightInterval * spawnCount), baseSpawnPos.z);
+
+            string rarityId = null;
+            string rabbitId = null;
+            bool existNotReleased = false;
+            do
+            {
+                // ウサギのレアリティの抽選を行う
+                rarityId = rabbitLotteryMachine.LotteryRarity();
+                // そのレアリティに救出されていないウサギが存在するかどうか
+                existNotReleased = rabbitLotteryMachine.ExistNotReleasedRabbit(rarityId);
+            }
+            // 存在していれば、レアリティの抽選を終了する
+            while (!existNotReleased);
+
+            // 救出されたことのないウサギのみで抽選を行う
+            rabbitId = rabbitLotteryMachine.LotterySpawnRabbit(rarityId, true);
+
+            // 決定したウサギをスポーンさせる
+            spawnedObject = rabbitSpawnPool.Spawn(rabbitId, spawnPos, Quaternion.identity);
+            // 前回スポーンしたオブジェクトをウサギとして登録する
+            prevSpawnObjectType = TagName.Rabbit;
 
             // 生成したオブジェクトをオンにする
             // NOTE : 何故か自動でオンになってくれないときがあるため
