@@ -711,7 +711,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerObjectSpawner: {fileID: 6233680672232218299}
-  spawnNum: 10
+  initSpawnNum: 10
+  spawnNum: 5
+  objectKeepNum: 10
   feverTimeController: {fileID: 0}
 --- !u!114 &5453935015121662753
 MonoBehaviour:
