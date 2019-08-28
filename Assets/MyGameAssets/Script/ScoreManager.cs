@@ -36,20 +36,27 @@ public class ScoreManager : SingletonMonoBehaviour<ScoreManager>
     }
 
     /// <summary>
-    /// スコアリセット
+    /// スコアセーブ
     /// </summary>
-    public void Reset()
+    public void Save()
     {
         // 前回のスコアとハイスコアを更新
         if (GameDataManager.Inst.PlayData.HighScore < NowBreakNum)
         {
             GameDataManager.Inst.PlayData.HighScore = NowBreakNum;
         }
+
         GameDataManager.Inst.PlayData.LastScore = NowBreakNum;
 
         // データセーブ
         JsonDataSaver.Save(GameDataManager.Inst.PlayData);
+    }
 
+    /// <summary>
+    /// スコアリセット
+    /// </summary>
+    public void Reset()
+    {
         // データをリセット
         NowBreakNum = 0;
         MaxBreakNum = GameDataManager.Inst.PlayData.HighScore;

@@ -61,10 +61,11 @@ public class ResultPlayerAnimator : SingletonMonoBehaviour<ResultPlayerAnimator>
             case (int)AnimKind.ScoreResult:
 
                 // スコアに応じたアニメーション
-                if (GameDataManager.Inst.PlayData.LastScore < ScoreManager.NormalScore)
+                if (ScoreManager.Inst.NowBreakNum < ScoreManager.NormalScore)
                 {
                     playerAnim.SetTrigger("LowScore");
                 }
+                else
                 {
                     playerAnim.SetTrigger("HighScore");
                 }

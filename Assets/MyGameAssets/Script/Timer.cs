@@ -159,10 +159,11 @@ public class Timer : MonoBehaviour
             else
             {
                 timer.text = "Time UP";
-
                 animator.SetBool("IsTimeLimit", false);
-
                 IsTimeup = true;
+
+                // スコアのセーブ
+                ScoreManager.Inst.Save();
             }
         }
     }
