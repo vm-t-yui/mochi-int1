@@ -15,6 +15,10 @@ public class FeverTimeActiveSwitcher : MonoBehaviour
     [SerializeField]
     FeverTimeActiveGaugeController feverTimeActiveGaugeController = default;
 
+    // タワー破壊クラス
+    [SerializeField]
+    TowerBreakController towerBreakController = default;
+
     // タイマークラス
     [SerializeField]
     Timer timer = default;
@@ -46,6 +50,8 @@ public class FeverTimeActiveSwitcher : MonoBehaviour
             feverTimeController.enabled = true;
             // ゲージの制御をオンにする
             feverTimeActiveGaugeController.enabled = true;
+            // 画面外のウサギをモチに置き換える
+            towerBreakController.ReplaceRabbitObject(true);
         }
 
         // タイムアップと同時に非表示

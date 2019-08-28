@@ -101,6 +101,15 @@ public class MainPlayerAnimator : SingletonMonoBehaviour<MainPlayerAnimator>
     }
 
     /// <summary>
+    /// タワーを全て餅に切り替えるアニメーションイベント用関数
+    /// NOTE:必殺技の時にうさぎまで吹き飛ばさないようにもちに切り替えるための処理
+    /// </summary>
+    public void TowerReplaceRabbitObject()
+    {
+        towerBreak.ReplaceRabbitObject(false);
+    }
+
+    /// <summary>
     /// タワーを吹っ飛ばすアニメーションイベント用関数
     /// </summary>
     public void TowerFly()
