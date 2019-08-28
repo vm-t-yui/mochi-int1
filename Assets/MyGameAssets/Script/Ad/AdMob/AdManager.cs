@@ -103,7 +103,7 @@ public class AdManager : SingletonMonoBehaviour<AdManager>
     /// <summary>
     /// 広告生成
     /// </summary>
-    void OnEnable()
+    void Awake()
     {
         // オンラインかどうか判断
         if (Application.internetReachability == NetworkReachability.NotReachable)

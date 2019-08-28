@@ -68,6 +68,22 @@ public class AdMobManager : MonoBehaviour
     /// <param name="posNum">バナーの位置番号</param>
     public void ShowBanner(int posNum)
     {
+        // ロードし終わるまで待機、ロード完了時バナー表示
+        StartCoroutine(LoadBanner(posNum));
+    }
+
+    /// <summary>
+    /// バナーがロードし終わるまでのコルーチン
+    /// </summary>
+    /// <param name="posNum">バナーの位置番号</param>
+    IEnumerator LoadBanner(int posNum)
+    {
+        while (!adBanner.IsLoaded)
+        {
+            yield return new WaitForSeconds(0.01f);
+        }
+
+        // ロードが完了時したら表示
         adBanner.Show(posNum);
     }
 
