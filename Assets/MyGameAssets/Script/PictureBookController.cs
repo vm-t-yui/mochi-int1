@@ -58,7 +58,7 @@ public class PictureBookController : MonoBehaviour
         int i = 0;
         foreach(Transform item in rabbitButtons)
         {
-            // 解放済みなら1つ目の子を表示
+            // 解放済みなら1つ目の子を表示（０が解放済み、１が非解放）
             if (isReleasedRabbit[i])
             {
                 item.GetChild(0).gameObject.SetActive(true);
