@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using VMUnityLib;
 
+/// <summary>
+/// メインゲーム時のUIクラス
+/// </summary>
 public class UIMain : CmnMonoBehaviour
 {
 #if USE_TWEEN
