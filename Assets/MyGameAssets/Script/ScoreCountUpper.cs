@@ -33,7 +33,6 @@ public class ScoreCountUpper : MonoBehaviour
         NowCount = 0;
         IsEnd = false;
         IsStart = true;
-
     }
 
     /// <summary>

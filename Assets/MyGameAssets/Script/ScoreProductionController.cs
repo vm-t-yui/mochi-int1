@@ -53,11 +53,7 @@ public class ScoreProductionController : MonoBehaviour
         }
 
         // カウント時はもちを降らせ、カウント終了時に生成をストップする
-        if (countUp.IsStart && !countUp.IsEnd)
-        {
-            mochiFall.Play();
-        }
-        else
+        if (countUp.IsEnd)
         {
             mochiFall.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         }

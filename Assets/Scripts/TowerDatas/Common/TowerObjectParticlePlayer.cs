@@ -39,10 +39,11 @@ public class TowerObjectParticlePlayer : MonoBehaviour
             // 再生が終了したら
             if (!playingParticle.gameObject.activeSelf)
             {
-                // デスポーン
-                particleSpawnPool.Despawn(playingParticle);
                 // リストから削除
                 playingParticles.Remove(playingParticle);
+                // デスポーン
+                particleSpawnPool.Despawn(playingParticle);
+                break;
             }
         }
     }
