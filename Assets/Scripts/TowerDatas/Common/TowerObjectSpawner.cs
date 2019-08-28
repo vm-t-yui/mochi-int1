@@ -113,6 +113,25 @@ public class TowerObjectSpawner : MonoBehaviour
     }
 
     /// <summary>
+    /// ウサギをモチに置き換える
+    /// </summary>
+    /// <param name="replaceObjectIndex">置き換え元のリストの番号</param>
+    public void ReplaceRabbitToMochi(int replaceObjectIndex)
+    {
+        // 置き換え元のオブジェクトを取得
+        Transform originalObject = stackedObjects[replaceObjectIndex];
+        // 置き換え元をデスポーンする
+        Despawn(originalObject);
+        // リストから削除
+        stackedObjects.RemoveAt(replaceObjectIndex);
+
+        // モチを新たにスポーンする
+        Transform mochi = mochiSpawnPool.Spawn(mochiSkinType.ToString(), originalObject.position, originalObject.rotation);
+        // スポーンしたモチをリストに追加
+        stackedObjects.Insert(replaceObjectIndex, mochi);
+    }
+
+    /// <summary>
     /// モチのみ生成
     /// </summary>
     /// <param name="spawnNum">生成する数</param>

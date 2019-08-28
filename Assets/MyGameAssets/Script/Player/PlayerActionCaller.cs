@@ -13,8 +13,6 @@ public class PlayerActionCaller : MonoBehaviour
     TouchController touch = default;            // タッチクラス
     [SerializeField]
     TowerObjectSpawner towerObjectSpawner = default;    // タワーオブジェクト生成クラス
-    [SerializeField]
-    FeverTimeController feverTime = default;
 
     [SerializeField]
     UnityEvent punch = new UnityEvent();        // パンチの関数リスト
@@ -52,48 +50,16 @@ public class PlayerActionCaller : MonoBehaviour
         // まだ時間が余っていたら
         else if(timer.IsStart)
         {
-            //NOTE:条件式のInput.GetKeyDownはエディタ時の確認用キーです。
-            // 通常時
-            if (!feverTime.IsFever)
+            // スワイプされたらうさぎ救助開始
+            if (touch.GetIsSwipe() || Input.GetKeyDown(KeyCode.S))
             {
-                // スワイプされたらうさぎ救助開始
-                if (touch.GetIsSwipe() || Input.GetKeyDown(KeyCode.S))
-                {
-                    rescue.Invoke();
-                }
-                // タッチされたらパンチ開始
-                else if (touch.GetIsTouch() || Input.GetKeyDown(KeyCode.A))
-                {
-                    punch.Invoke();
-                }
+                rescue.Invoke();
             }
-            // フィーバータイム時
-            else
+            // タッチされたらパンチ開始
+            else if (touch.GetIsTouch() || Input.GetKeyDown(KeyCode.A))
             {
-                // タッチされたらパンチかうさぎ救助かを自動で判断して処理開始
-                if (touch.GetIsTouch() || Input.GetKeyDown(KeyCode.A))
-                {
-                    FeverTimeAcitonCall();
-                }
+                punch.Invoke();
             }
-        }
-    }
-
-    /// <summary>
-    /// フィーバータイム時のアクションコール
-    /// </summary>
-    void FeverTimeAcitonCall()
-    {
-        // フィーバータイム時はパンチか救助かを自動で判断させる
-        if (towerObjectSpawner.StackedObjects.First().tag == TagName.Mochi)
-        {
-            // パンチ開始
-            punch.Invoke();
-        }
-        else if (towerObjectSpawner.StackedObjects.First().tag == TagName.Rabbit)
-        {
-            // うさぎ救助開始
-            rescue.Invoke();
         }
     }
 }

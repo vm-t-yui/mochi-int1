@@ -12,6 +12,10 @@ public class TowerBreakController : MonoBehaviour
     [SerializeField]
     TowerObjectSpawner towerObjectSpawner = default;
 
+    // オブジェクトのレンダラーリスト
+    [SerializeField]
+    TowerObjectRendererList towerObjectRendererList = default;
+
     // 飛ぶスピード
     [SerializeField]
     float objectFlySpeed = 0;
@@ -60,5 +64,39 @@ public class TowerBreakController : MonoBehaviour
         objectFlyDirections.Clear();
         // 吹き飛ばしの処理を止める
         enabled = false;
+    }
+
+    /// <summary>
+    /// ウサギをモチに置き換える
+    /// </summary>
+    public void ReplaceRabbitObject(bool isCameraOutOnly)
+    {
+        // 積みあがったオブジェクトのリストを取得
+        IReadOnlyList<Transform> stackedObject = towerObjectSpawner.StackedObjects;
+
+        for (int i = 0; i < stackedObject.Count; i++)
+        {
+            // 全てを置き換える
+            if (!isCameraOutOnly)
+            {
+                // ウサギをモチに置き換える
+                if (stackedObject[i].tag == TagName.Rabbit)
+                {
+                    towerObjectSpawner.ReplaceRabbitToMochi(i);
+                }
+            }
+            // 画面外のウサギのみを置き換える
+            else
+            {
+                // ウサギのレンダラーを取得
+                MeshRenderer rabbitRenderer = towerObjectRendererList.MeshRenderers[stackedObject[i].name];
+
+                // ウサギをモチに置き換える
+                if (stackedObject[i].tag == TagName.Rabbit && !rabbitRenderer.isVisible)
+                {
+                    towerObjectSpawner.ReplaceRabbitToMochi(i);
+                }
+            }
+        }
     }
 }
