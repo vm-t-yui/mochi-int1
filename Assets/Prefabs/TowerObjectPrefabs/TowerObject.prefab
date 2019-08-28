@@ -5545,6 +5545,7 @@ MonoBehaviour:
   spawnNum: 5
   objectKeepNum: 10
   feverTimeController: {fileID: 0}
+  towerBreakController: {fileID: 8096097067289301091}
 --- !u!114 &5453935015121662753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5790,8 +5791,7 @@ MonoBehaviour:
   _dontDestroyOnLoad: 0
   logMessages: 0
   _perPrefabPoolOptions:
-  - prefab: {fileID: 6141825642267316658, guid: 6917d1a31c9f41849a0665c64de3d326,
-      type: 3}
+  - prefab: {fileID: 9126915889663832372}
     preloadAmount: 5
     preloadTime: 0
     preloadFrames: 2
@@ -6061,11 +6061,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4537344395100580195}
     m_Modifications:
-    - target: {fileID: 1508582743492943511, guid: 30de105157d80d34ca97c9a148a2389a,
-        type: 3}
-      propertyPath: m_Name
-      value: OgisanRabbit
-      objectReference: {fileID: 0}
     - target: {fileID: 8735663774602533659, guid: 30de105157d80d34ca97c9a148a2389a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6121,6 +6116,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1508582743492943511, guid: 30de105157d80d34ca97c9a148a2389a,
+        type: 3}
+      propertyPath: m_Name
+      value: OgisanRabbit
+      objectReference: {fileID: 0}
     - target: {fileID: 6258287306768449799, guid: 30de105157d80d34ca97c9a148a2389a,
         type: 3}
       propertyPath: towerObjectDataManager
@@ -6146,11 +6146,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2806529997929001378}
     m_Modifications:
-    - target: {fileID: 8814307937171578455, guid: e055318ae734ed14caf66d0e2b5ef3e4,
-        type: 3}
-      propertyPath: m_Name
-      value: YomogiMochi
-      objectReference: {fileID: 0}
     - target: {fileID: 4225019358296419732, guid: e055318ae734ed14caf66d0e2b5ef3e4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6206,6 +6201,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8814307937171578455, guid: e055318ae734ed14caf66d0e2b5ef3e4,
+        type: 3}
+      propertyPath: m_Name
+      value: YomogiMochi
+      objectReference: {fileID: 0}
     - target: {fileID: 6063443329332479222, guid: e055318ae734ed14caf66d0e2b5ef3e4,
         type: 3}
       propertyPath: towerObjectSpawner
@@ -6231,11 +6231,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4537344395100580195}
     m_Modifications:
-    - target: {fileID: 1508582743492943511, guid: e62f5cb137088df47be94e22e3e3c81e,
-        type: 3}
-      propertyPath: m_Name
-      value: PinkRabbit
-      objectReference: {fileID: 0}
     - target: {fileID: 8735663774602533659, guid: e62f5cb137088df47be94e22e3e3c81e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6291,6 +6286,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1508582743492943511, guid: e62f5cb137088df47be94e22e3e3c81e,
+        type: 3}
+      propertyPath: m_Name
+      value: PinkRabbit
+      objectReference: {fileID: 0}
     - target: {fileID: 1224101674042096034, guid: e62f5cb137088df47be94e22e3e3c81e,
         type: 3}
       propertyPath: towerObjectDataManager
@@ -6316,11 +6316,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2806529997929001378}
     m_Modifications:
-    - target: {fileID: 8814307937171578455, guid: d18677b6d430a7a439477befbc02d52d,
-        type: 3}
-      propertyPath: m_Name
-      value: NormalMochi
-      objectReference: {fileID: 0}
     - target: {fileID: 4225019358296419732, guid: d18677b6d430a7a439477befbc02d52d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6376,6 +6371,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8814307937171578455, guid: d18677b6d430a7a439477befbc02d52d,
+        type: 3}
+      propertyPath: m_Name
+      value: NormalMochi
+      objectReference: {fileID: 0}
     - target: {fileID: -6738307364490233854, guid: d18677b6d430a7a439477befbc02d52d,
         type: 3}
       propertyPath: towerObjectSpawner
@@ -6401,11 +6401,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4537344395100580195}
     m_Modifications:
-    - target: {fileID: 1508582743492943511, guid: 49108f7471605164d98c6078a19a1778,
-        type: 3}
-      propertyPath: m_Name
-      value: SumouRabbit
-      objectReference: {fileID: 0}
     - target: {fileID: 8735663774602533659, guid: 49108f7471605164d98c6078a19a1778,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6461,6 +6456,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1508582743492943511, guid: 49108f7471605164d98c6078a19a1778,
+        type: 3}
+      propertyPath: m_Name
+      value: SumouRabbit
+      objectReference: {fileID: 0}
     - target: {fileID: -1219659584451257680, guid: 49108f7471605164d98c6078a19a1778,
         type: 3}
       propertyPath: towerObjectDataManager
@@ -6486,11 +6486,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4537344395100580195}
     m_Modifications:
-    - target: {fileID: 1508582743492943511, guid: cd9625d0dc42def44867e8f83381551c,
-        type: 3}
-      propertyPath: m_Name
-      value: ZariganRabbit
-      objectReference: {fileID: 0}
     - target: {fileID: 8735663774602533659, guid: cd9625d0dc42def44867e8f83381551c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6546,6 +6541,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1508582743492943511, guid: cd9625d0dc42def44867e8f83381551c,
+        type: 3}
+      propertyPath: m_Name
+      value: ZariganRabbit
+      objectReference: {fileID: 0}
     - target: {fileID: -262027322258836936, guid: cd9625d0dc42def44867e8f83381551c,
         type: 3}
       propertyPath: towerObjectDataManager
@@ -6571,11 +6571,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4537344395100580195}
     m_Modifications:
-    - target: {fileID: 1508582743492943511, guid: 0f8484011051474499d33472846c8124,
-        type: 3}
-      propertyPath: m_Name
-      value: BlueRabbit
-      objectReference: {fileID: 0}
     - target: {fileID: 8735663774602533659, guid: 0f8484011051474499d33472846c8124,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6631,6 +6626,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1508582743492943511, guid: 0f8484011051474499d33472846c8124,
+        type: 3}
+      propertyPath: m_Name
+      value: BlueRabbit
+      objectReference: {fileID: 0}
     - target: {fileID: 5829269661364978733, guid: 0f8484011051474499d33472846c8124,
         type: 3}
       propertyPath: towerObjectDataManager
@@ -6656,11 +6656,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2806529997929001378}
     m_Modifications:
-    - target: {fileID: 8814307937171578455, guid: 75a6d55a05ce76841983f141269d6af4,
-        type: 3}
-      propertyPath: m_Name
-      value: IsobeMochi
-      objectReference: {fileID: 0}
     - target: {fileID: 4225019358296419732, guid: 75a6d55a05ce76841983f141269d6af4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6716,6 +6711,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8814307937171578455, guid: 75a6d55a05ce76841983f141269d6af4,
+        type: 3}
+      propertyPath: m_Name
+      value: IsobeMochi
+      objectReference: {fileID: 0}
     - target: {fileID: 8358510650737920501, guid: 75a6d55a05ce76841983f141269d6af4,
         type: 3}
       propertyPath: towerObjectSpawner
@@ -6741,11 +6741,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4537344395100580195}
     m_Modifications:
-    - target: {fileID: 1508582743492943511, guid: cc45b3f5a9f122c4aa70104d4ea4df67,
-        type: 3}
-      propertyPath: m_Name
-      value: ChocosoftRabbit
-      objectReference: {fileID: 0}
     - target: {fileID: 8735663774602533659, guid: cc45b3f5a9f122c4aa70104d4ea4df67,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6801,6 +6796,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1508582743492943511, guid: cc45b3f5a9f122c4aa70104d4ea4df67,
+        type: 3}
+      propertyPath: m_Name
+      value: ChocosoftRabbit
+      objectReference: {fileID: 0}
     - target: {fileID: -9057228156889962032, guid: cc45b3f5a9f122c4aa70104d4ea4df67,
         type: 3}
       propertyPath: towerObjectDataManager
@@ -6826,11 +6826,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4537344395100580195}
     m_Modifications:
-    - target: {fileID: 1508582743492943511, guid: d158af25a63b8564f86d846a23a0b0d2,
-        type: 3}
-      propertyPath: m_Name
-      value: RabbitMan
-      objectReference: {fileID: 0}
     - target: {fileID: 8735663774602533659, guid: d158af25a63b8564f86d846a23a0b0d2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6886,6 +6881,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1508582743492943511, guid: d158af25a63b8564f86d846a23a0b0d2,
+        type: 3}
+      propertyPath: m_Name
+      value: RabbitMan
+      objectReference: {fileID: 0}
     - target: {fileID: -6681549865182617296, guid: d158af25a63b8564f86d846a23a0b0d2,
         type: 3}
       propertyPath: towerObjectDataManager
@@ -6911,11 +6911,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4537344395100580195}
     m_Modifications:
-    - target: {fileID: 1508582743492943511, guid: 2e29b5697404c4846adcfcd5cfabf7e2,
-        type: 3}
-      propertyPath: m_Name
-      value: JusaburoRabbit
-      objectReference: {fileID: 0}
     - target: {fileID: 8735663774602533659, guid: 2e29b5697404c4846adcfcd5cfabf7e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6971,6 +6966,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1508582743492943511, guid: 2e29b5697404c4846adcfcd5cfabf7e2,
+        type: 3}
+      propertyPath: m_Name
+      value: JusaburoRabbit
+      objectReference: {fileID: 0}
     - target: {fileID: -6551524344368007069, guid: 2e29b5697404c4846adcfcd5cfabf7e2,
         type: 3}
       propertyPath: towerObjectDataManager
@@ -6996,11 +6996,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2806529997929001378}
     m_Modifications:
-    - target: {fileID: 8814307937171578455, guid: cd2d8d0994899d84cb1aaab9a3df9d1c,
-        type: 3}
-      propertyPath: m_Name
-      value: KashiwaMochi
-      objectReference: {fileID: 0}
     - target: {fileID: 4225019358296419732, guid: cd2d8d0994899d84cb1aaab9a3df9d1c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7056,6 +7051,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8814307937171578455, guid: cd2d8d0994899d84cb1aaab9a3df9d1c,
+        type: 3}
+      propertyPath: m_Name
+      value: KashiwaMochi
+      objectReference: {fileID: 0}
     - target: {fileID: -890642982436201253, guid: cd2d8d0994899d84cb1aaab9a3df9d1c,
         type: 3}
       propertyPath: towerObjectSpawner
@@ -7081,11 +7081,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4537344395100580195}
     m_Modifications:
-    - target: {fileID: 1508582743492943511, guid: 239063c22d20b384d91d3537e468a369,
-        type: 3}
-      propertyPath: m_Name
-      value: WarriorRabbit
-      objectReference: {fileID: 0}
     - target: {fileID: 8735663774602533659, guid: 239063c22d20b384d91d3537e468a369,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7141,6 +7136,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1508582743492943511, guid: 239063c22d20b384d91d3537e468a369,
+        type: 3}
+      propertyPath: m_Name
+      value: WarriorRabbit
+      objectReference: {fileID: 0}
     - target: {fileID: 7746915316661657504, guid: 239063c22d20b384d91d3537e468a369,
         type: 3}
       propertyPath: towerObjectDataManager
@@ -7166,11 +7166,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4537344395100580195}
     m_Modifications:
-    - target: {fileID: 1508582743492943511, guid: 5acac73a85a32db4d835e0ed5efc9791,
-        type: 3}
-      propertyPath: m_Name
-      value: RedRabbit
-      objectReference: {fileID: 0}
     - target: {fileID: 8735663774602533659, guid: 5acac73a85a32db4d835e0ed5efc9791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7226,6 +7221,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1508582743492943511, guid: 5acac73a85a32db4d835e0ed5efc9791,
+        type: 3}
+      propertyPath: m_Name
+      value: RedRabbit
+      objectReference: {fileID: 0}
     - target: {fileID: 7048418169946554582, guid: 5acac73a85a32db4d835e0ed5efc9791,
         type: 3}
       propertyPath: towerObjectDataManager
@@ -7251,11 +7251,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4537344395100580195}
     m_Modifications:
-    - target: {fileID: 1508582743492943511, guid: 3b7041404d27d804aa7e5fcc0a6bbc97,
-        type: 3}
-      propertyPath: m_Name
-      value: BossRabbit
-      objectReference: {fileID: 0}
     - target: {fileID: 8735663774602533659, guid: 3b7041404d27d804aa7e5fcc0a6bbc97,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7311,6 +7306,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1508582743492943511, guid: 3b7041404d27d804aa7e5fcc0a6bbc97,
+        type: 3}
+      propertyPath: m_Name
+      value: BossRabbit
+      objectReference: {fileID: 0}
     - target: {fileID: -2057752862567523463, guid: 3b7041404d27d804aa7e5fcc0a6bbc97,
         type: 3}
       propertyPath: towerObjectDataManager
@@ -7336,11 +7336,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4537344395100580195}
     m_Modifications:
-    - target: {fileID: 1508582743492943511, guid: 3379cdb769d7aa84785320fb9612cc60,
-        type: 3}
-      propertyPath: m_Name
-      value: SpaceRabbit
-      objectReference: {fileID: 0}
     - target: {fileID: 8735663774602533659, guid: 3379cdb769d7aa84785320fb9612cc60,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7396,6 +7391,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1508582743492943511, guid: 3379cdb769d7aa84785320fb9612cc60,
+        type: 3}
+      propertyPath: m_Name
+      value: SpaceRabbit
+      objectReference: {fileID: 0}
     - target: {fileID: 637688525570475870, guid: 3379cdb769d7aa84785320fb9612cc60,
         type: 3}
       propertyPath: towerObjectDataManager
@@ -7421,11 +7421,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4537344395100580195}
     m_Modifications:
-    - target: {fileID: 1508582743492943511, guid: a2c34685894bb88439274b676bb97c4c,
-        type: 3}
-      propertyPath: m_Name
-      value: ZombieRabbit
-      objectReference: {fileID: 0}
     - target: {fileID: 8735663774602533659, guid: a2c34685894bb88439274b676bb97c4c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7481,6 +7476,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1508582743492943511, guid: a2c34685894bb88439274b676bb97c4c,
+        type: 3}
+      propertyPath: m_Name
+      value: ZombieRabbit
+      objectReference: {fileID: 0}
     - target: {fileID: -4667062543787205969, guid: a2c34685894bb88439274b676bb97c4c,
         type: 3}
       propertyPath: towerObjectDataManager
@@ -7506,11 +7506,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4537344395100580195}
     m_Modifications:
-    - target: {fileID: 1508582743492943511, guid: d3e4d152a42ebac40af836b35b71c276,
-        type: 3}
-      propertyPath: m_Name
-      value: MechaRabbit
-      objectReference: {fileID: 0}
     - target: {fileID: 8735663774602533659, guid: d3e4d152a42ebac40af836b35b71c276,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7566,6 +7561,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1508582743492943511, guid: d3e4d152a42ebac40af836b35b71c276,
+        type: 3}
+      propertyPath: m_Name
+      value: MechaRabbit
+      objectReference: {fileID: 0}
     - target: {fileID: -8026777861865488098, guid: d3e4d152a42ebac40af836b35b71c276,
         type: 3}
       propertyPath: towerObjectDataManager
@@ -7591,11 +7591,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4537344395100580195}
     m_Modifications:
-    - target: {fileID: 1508582743492943511, guid: 5e801d77bd5c5284d8ddadd00bea606e,
-        type: 3}
-      propertyPath: m_Name
-      value: KagamimochiRabbit
-      objectReference: {fileID: 0}
     - target: {fileID: 8735663774602533659, guid: 5e801d77bd5c5284d8ddadd00bea606e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7651,6 +7646,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1508582743492943511, guid: 5e801d77bd5c5284d8ddadd00bea606e,
+        type: 3}
+      propertyPath: m_Name
+      value: KagamimochiRabbit
+      objectReference: {fileID: 0}
     - target: {fileID: -2527922989007971724, guid: 5e801d77bd5c5284d8ddadd00bea606e,
         type: 3}
       propertyPath: towerObjectDataManager
@@ -7676,11 +7676,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4537344395100580195}
     m_Modifications:
-    - target: {fileID: 1508582743492943511, guid: ee0d03722cb12b840bbaa97b5b101695,
-        type: 3}
-      propertyPath: m_Name
-      value: YellowRabbit
-      objectReference: {fileID: 0}
     - target: {fileID: 8735663774602533659, guid: ee0d03722cb12b840bbaa97b5b101695,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7736,6 +7731,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1508582743492943511, guid: ee0d03722cb12b840bbaa97b5b101695,
+        type: 3}
+      propertyPath: m_Name
+      value: YellowRabbit
+      objectReference: {fileID: 0}
     - target: {fileID: 3623165661914454838, guid: ee0d03722cb12b840bbaa97b5b101695,
         type: 3}
       propertyPath: towerObjectDataManager
@@ -7761,11 +7761,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4537344395100580195}
     m_Modifications:
-    - target: {fileID: 1508582743492943511, guid: 2c39a5c5a1f07a24da25431a7d36aa96,
-        type: 3}
-      propertyPath: m_Name
-      value: GhostRabbit
-      objectReference: {fileID: 0}
     - target: {fileID: 8735663774602533659, guid: 2c39a5c5a1f07a24da25431a7d36aa96,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7821,6 +7816,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1508582743492943511, guid: 2c39a5c5a1f07a24da25431a7d36aa96,
+        type: 3}
+      propertyPath: m_Name
+      value: GhostRabbit
+      objectReference: {fileID: 0}
     - target: {fileID: 2721130561809044117, guid: 2c39a5c5a1f07a24da25431a7d36aa96,
         type: 3}
       propertyPath: towerObjectDataManager
@@ -7846,11 +7846,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2806529997929001378}
     m_Modifications:
-    - target: {fileID: 8814307937171578455, guid: d17667568ac94e84b85822979c42a57d,
-        type: 3}
-      propertyPath: m_Name
-      value: IchigoDaihuku
-      objectReference: {fileID: 0}
     - target: {fileID: 4225019358296419732, guid: d17667568ac94e84b85822979c42a57d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7906,6 +7901,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8814307937171578455, guid: d17667568ac94e84b85822979c42a57d,
+        type: 3}
+      propertyPath: m_Name
+      value: IchigoDaihuku
+      objectReference: {fileID: 0}
     - target: {fileID: -5008365539877921885, guid: d17667568ac94e84b85822979c42a57d,
         type: 3}
       propertyPath: towerObjectSpawner
@@ -7931,11 +7931,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4537344395100580195}
     m_Modifications:
-    - target: {fileID: 1508582743492943511, guid: f0e0a0de10812c047aa6777d943d6d25,
-        type: 3}
-      propertyPath: m_Name
-      value: JoysonRabbit
-      objectReference: {fileID: 0}
     - target: {fileID: 8735663774602533659, guid: f0e0a0de10812c047aa6777d943d6d25,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7991,6 +7986,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1508582743492943511, guid: f0e0a0de10812c047aa6777d943d6d25,
+        type: 3}
+      propertyPath: m_Name
+      value: JoysonRabbit
+      objectReference: {fileID: 0}
     - target: {fileID: 7250589384049535217, guid: f0e0a0de10812c047aa6777d943d6d25,
         type: 3}
       propertyPath: towerObjectDataManager
@@ -8016,11 +8016,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4537344395100580195}
     m_Modifications:
-    - target: {fileID: 1508582743492943511, guid: 5d0fcfdbd6cfe8440a80c3a5db2fe00d,
-        type: 3}
-      propertyPath: m_Name
-      value: NormalRabbit
-      objectReference: {fileID: 0}
     - target: {fileID: 8735663774602533659, guid: 5d0fcfdbd6cfe8440a80c3a5db2fe00d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8076,6 +8071,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1508582743492943511, guid: 5d0fcfdbd6cfe8440a80c3a5db2fe00d,
+        type: 3}
+      propertyPath: m_Name
+      value: NormalRabbit
+      objectReference: {fileID: 0}
     - target: {fileID: -5872967362033611529, guid: 5d0fcfdbd6cfe8440a80c3a5db2fe00d,
         type: 3}
       propertyPath: towerObjectDataManager
@@ -8101,11 +8101,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4537344395100580195}
     m_Modifications:
-    - target: {fileID: 1508582743492943511, guid: 40bc81fdb46c5fb4a9020223441f494e,
-        type: 3}
-      propertyPath: m_Name
-      value: GreenRabbit
-      objectReference: {fileID: 0}
     - target: {fileID: 8735663774602533659, guid: 40bc81fdb46c5fb4a9020223441f494e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8161,6 +8156,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1508582743492943511, guid: 40bc81fdb46c5fb4a9020223441f494e,
+        type: 3}
+      propertyPath: m_Name
+      value: GreenRabbit
+      objectReference: {fileID: 0}
     - target: {fileID: 2472213026918936503, guid: 40bc81fdb46c5fb4a9020223441f494e,
         type: 3}
       propertyPath: towerObjectDataManager
@@ -8186,11 +8186,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4537344395100580195}
     m_Modifications:
-    - target: {fileID: 1508582743492943511, guid: f51c83362665ee04ca54113aa71defed,
-        type: 3}
-      propertyPath: m_Name
-      value: LehmanRabbit
-      objectReference: {fileID: 0}
     - target: {fileID: 8735663774602533659, guid: f51c83362665ee04ca54113aa71defed,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8246,6 +8241,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1508582743492943511, guid: f51c83362665ee04ca54113aa71defed,
+        type: 3}
+      propertyPath: m_Name
+      value: LehmanRabbit
+      objectReference: {fileID: 0}
     - target: {fileID: -7699620724635861717, guid: f51c83362665ee04ca54113aa71defed,
         type: 3}
       propertyPath: towerObjectDataManager
@@ -8271,11 +8271,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4537344395100580195}
     m_Modifications:
-    - target: {fileID: 1508582743492943511, guid: 0821dfb08922255459bc9dd83766af0e,
-        type: 3}
-      propertyPath: m_Name
-      value: WoodRabbit
-      objectReference: {fileID: 0}
     - target: {fileID: 8735663774602533659, guid: 0821dfb08922255459bc9dd83766af0e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8331,6 +8326,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1508582743492943511, guid: 0821dfb08922255459bc9dd83766af0e,
+        type: 3}
+      propertyPath: m_Name
+      value: WoodRabbit
+      objectReference: {fileID: 0}
     - target: {fileID: -844826141513561515, guid: 0821dfb08922255459bc9dd83766af0e,
         type: 3}
       propertyPath: towerObjectDataManager
@@ -8356,11 +8356,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2806529997929001378}
     m_Modifications:
-    - target: {fileID: 8814307937171578455, guid: 605081b8384375f4db1e52f6bb8c7e3c,
-        type: 3}
-      propertyPath: m_Name
-      value: KouhakuMochi
-      objectReference: {fileID: 0}
     - target: {fileID: 4225019358296419732, guid: 605081b8384375f4db1e52f6bb8c7e3c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8416,6 +8411,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8814307937171578455, guid: 605081b8384375f4db1e52f6bb8c7e3c,
+        type: 3}
+      propertyPath: m_Name
+      value: KouhakuMochi
+      objectReference: {fileID: 0}
     - target: {fileID: 6306764193405592317, guid: 605081b8384375f4db1e52f6bb8c7e3c,
         type: 3}
       propertyPath: towerObjectSpawner
@@ -8441,11 +8441,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4537344395100580195}
     m_Modifications:
-    - target: {fileID: 1508582743492943511, guid: 2b991f3c6d243b84e937b638e3ce55b5,
-        type: 3}
-      propertyPath: m_Name
-      value: DiamondRabbit
-      objectReference: {fileID: 0}
     - target: {fileID: 8735663774602533659, guid: 2b991f3c6d243b84e937b638e3ce55b5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8501,6 +8496,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1508582743492943511, guid: 2b991f3c6d243b84e937b638e3ce55b5,
+        type: 3}
+      propertyPath: m_Name
+      value: DiamondRabbit
+      objectReference: {fileID: 0}
     - target: {fileID: 5722533331596345821, guid: 2b991f3c6d243b84e937b638e3ce55b5,
         type: 3}
       propertyPath: towerObjectDataManager
@@ -8526,11 +8526,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4537344395100580195}
     m_Modifications:
-    - target: {fileID: 1508582743492943511, guid: 989f56cd69362a74f8b737d1606b2f7c,
-        type: 3}
-      propertyPath: m_Name
-      value: BlackRabbit
-      objectReference: {fileID: 0}
     - target: {fileID: 8735663774602533659, guid: 989f56cd69362a74f8b737d1606b2f7c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8586,6 +8581,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1508582743492943511, guid: 989f56cd69362a74f8b737d1606b2f7c,
+        type: 3}
+      propertyPath: m_Name
+      value: BlackRabbit
+      objectReference: {fileID: 0}
     - target: {fileID: 2539726303503381253, guid: 989f56cd69362a74f8b737d1606b2f7c,
         type: 3}
       propertyPath: towerObjectDataManager
@@ -8611,11 +8611,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4537344395100580195}
     m_Modifications:
-    - target: {fileID: 1508582743492943511, guid: faa0553f2f98378438ca90eda40b81a1,
-        type: 3}
-      propertyPath: m_Name
-      value: MaidRabbit
-      objectReference: {fileID: 0}
     - target: {fileID: 8735663774602533659, guid: faa0553f2f98378438ca90eda40b81a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8670,6 +8665,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1508582743492943511, guid: faa0553f2f98378438ca90eda40b81a1,
+        type: 3}
+      propertyPath: m_Name
+      value: MaidRabbit
       objectReference: {fileID: 0}
     - target: {fileID: 1100871223246768743, guid: faa0553f2f98378438ca90eda40b81a1,
         type: 3}

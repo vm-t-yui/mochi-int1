@@ -61,4 +61,22 @@ public class TowerBreakController : MonoBehaviour
         // 吹き飛ばしの処理を止める
         enabled = false;
     }
+
+    /// <summary>
+    /// ウサギをモチに置き換える
+    /// </summary>
+    public void ReplaceRabbitObject()
+    {
+        // 積みあがったオブジェクトのリストを取得
+        IReadOnlyList<Transform> stackedObject = towerObjectSpawner.StackedObjects;
+
+        for (int i = 0; i < stackedObject.Count; i++)
+        {
+            // ウサギをモチに置き換える
+            if (stackedObject[i].tag == TagName.Rabbit)
+            {
+                towerObjectSpawner.ReplaceRabbitToMochi(i);
+            }
+        }
+    }
 }
