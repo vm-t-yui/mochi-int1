@@ -4,7 +4,7 @@ using UnityEngine;
 using PathologicalGames;
 
 /// <summary>
-/// タワーオブジェクトの
+/// タワーオブジェクトのパーティクルを再生
 /// </summary>
 public class TowerObjectParticlePlayer : MonoBehaviour
 {
