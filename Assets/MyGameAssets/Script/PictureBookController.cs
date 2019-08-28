@@ -18,6 +18,10 @@ public class PictureBookController : MonoBehaviour
     [SerializeField]
     Scrollbar scrollbar = default;
 
+    // スクロールビューのボタン
+    [SerializeField]
+    Transform rabbitButtons = default;
+
     const int NotReleaseNum = -1;    // 非解放用の説明ウィンドウ番号
     int       nowOpenNum    = 0;     // 表示中の説明ウィンドウ番号
 
@@ -49,6 +53,26 @@ public class PictureBookController : MonoBehaviour
 
         // valueを初期位置へ
         scrollbar.value = 0;
+
+        // 解放状況をボタンの画像に反映
+        int i = 0;
+        foreach(Transform item in rabbitButtons)
+        {
+            // 解放済みなら1つ目の子を表示
+            if (isReleasedRabbit[i])
+            {
+                item.GetChild(0).gameObject.SetActive(true);
+                item.GetChild(1).gameObject.SetActive(false);
+            }
+            // 解放していないなら2つ目の子を表示
+            else
+            {
+                item.GetChild(0).gameObject.SetActive(false);
+                item.GetChild(1).gameObject.SetActive(true);
+            }
+
+            i++;
+        }
     }
 
     /// <summary>
