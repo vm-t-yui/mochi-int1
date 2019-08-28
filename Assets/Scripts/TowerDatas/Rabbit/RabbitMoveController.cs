@@ -8,24 +8,45 @@ using PathologicalGames;
 /// </summary>
 public class RabbitMoveController : MoveControllerBase
 {
+    // タワーオブジェクト管理クラス
+    [SerializeField]
+    TowerObjectDataManager towerObjectDataManager = default;
+
     // オブジェクトのスポーンクラス
+    [SerializeField]
     TowerObjectSpawner towerObjectSpawner = default;
 
-    // アニメーターコンポーネント
-    [SerializeField]
-    Animator animator = default;
-
     // ウサギのデータ
-    [SerializeField]
     RabbitData rabbitData = default;
+
+    // アニメーターコンポーネント
+    Animator animator = default;
 
     /// <summary>
     /// 開始
     /// </summary>
     void Start()
     {
-       // 親オブジェクトにアタッチされているスポナークラスを取得する
-        towerObjectSpawner = transform.parent.parent.GetComponent<TowerObjectSpawner>();
+        // オブジェクトの元の名前
+        string sourceName = null;
+        // オブジェクトの名前に(Clone)が入っていた場合
+        if (name.Contains("(Clone)"))
+        {
+            // 全体の名前から"(clone)***"を除いたもとの名前のみを取得
+            sourceName = name.Substring(0, name.Length - ("(Clone)***").Length);
+        }
+        // 入っていなければ、そのまま取得
+        else
+        {
+            sourceName = name;
+        }
+
+        // オブジェクトの名前（ID）から管理クラスのウサギのデータを取得
+        towerObjectDataManager.RabbitDataManager.GetData(sourceName, out rabbitData);
+        Debug.Log("name : " + rabbitData.name + "[Number : " + rabbitData.Number + "]");
+
+        // アタッチされているアニメーターを取得
+        animator = GetComponent<Animator>();
     }
 
     // TODO : 以下の関数にそれぞれのアクションに対応したオブジェクトの処理を実装する

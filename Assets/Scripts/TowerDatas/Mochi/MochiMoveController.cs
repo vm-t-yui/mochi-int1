@@ -9,21 +9,15 @@ using PathologicalGames;
 public class MochiMoveController : MoveControllerBase
 {
     // オブジェクトのスポーンクラス
+    [SerializeField]
     TowerObjectSpawner towerObjectSpawner = default;
-
-    // TODO : 以下の関数にそれぞれのアクションに対応したオブジェクトの処理を実装する
+    
+    // パーティクル再生クラス
+    [SerializeField]
+    TowerObjectParticlePlayer particlePlayer = default;
 
     // NOTE : モチのほうにはクラッシュの処理はなし（エラー除け）
     public override void OnCrashed() { }
-
-    /// <summary>
-    /// 開始
-    /// </summary>
-    void Start()
-    {
-        // 親オブジェクトにアタッチされているスポナークラスを取得する
-        towerObjectSpawner = transform.parent.parent.GetComponent<TowerObjectSpawner>();
-    }
 
     /// <summary>
     /// プレイヤーからパンチを受けたとき
@@ -32,6 +26,9 @@ public class MochiMoveController : MoveControllerBase
     {
         // パンチによるモチの破壊数を更新する
         ScoreManager.Inst.UpdateGetNum();
+        // 破壊パーティクル再生
+        particlePlayer.Play("MochiBreak", transform.position, transform.rotation);
+
         // モチの終了処理
         OnControlFinished();
     }
