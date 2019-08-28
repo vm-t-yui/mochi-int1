@@ -26,8 +26,18 @@ public class DrawObjectName : MonoBehaviour
         
         // オブジェクトの名前を取得
         string nameText = transform.parent.parent.name;
-        // 全体の名前から"(clone)***"を除いたもとの名前のみを取得
-        string sourceName = nameText.Substring(0, nameText.Length - ("(clone)***").Length);
+        string sourceName = null;
+        // オブジェクトの名前に(Clone)が入っていた場合
+        if (nameText.Contains("(Clone)"))
+        {
+            // 全体の名前から"(clone)***"を除いたもとの名前のみを取得
+            sourceName = nameText.Substring(0, nameText.Length - ("(clone)***").Length);
+        }
+        // そのまま表示する
+        else
+        {
+            sourceName = nameText;
+        }
         // 取り出した名前を反映
         objectName.text = sourceName;
     }
