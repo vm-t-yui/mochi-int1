@@ -5499,7 +5499,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mochiSpawnRate: 90
-  rabbitSpawnRate: 10
+  rabbitSpawnRate: 15
 --- !u!114 &1006552312545117513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5545,7 +5545,6 @@ MonoBehaviour:
   spawnNum: 5
   objectKeepNum: 10
   feverTimeController: {fileID: 0}
-  towerBreakController: {fileID: 8096097067289301091}
 --- !u!114 &5453935015121662753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5591,6 +5590,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerObjectSpawner: {fileID: 6233680672232218299}
+  towerObjectRendererList: {fileID: 2822577924656766377}
   objectFlySpeed: 5
 --- !u!1 &7488554835131360139
 GameObject:
@@ -5636,6 +5636,7 @@ GameObject:
   - component: {fileID: 7966365299172774077}
   - component: {fileID: 6630082409392808936}
   - component: {fileID: 4955641821369318695}
+  - component: {fileID: 2822577924656766377}
   m_Layer: 0
   m_Name: TowerObjectDatas
   m_TagString: Untagged
@@ -5682,6 +5683,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3cfdd41051e5fa243a94001808b052e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mochiSpawnPool: {fileID: 5513838082089453678}
+  rabbitSpawnPool: {fileID: 6184570062112722802}
+--- !u!114 &2822577924656766377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7660836170605007155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb6c7491e40283b43a851d501c4bbed4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mochiSpawnPool: {fileID: 5513838082089453678}
