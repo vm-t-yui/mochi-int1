@@ -31,7 +31,7 @@ public sealed class UITitle : CmnMonoBehaviour
     void OnEnable()
     {
         // バナー表示
-        AdManager.Inst.ShowBanner((int)AdBannerController.BANNER.BOTTOM);
+        ShowBanner();
     }
 
     /// <summary>
@@ -110,6 +110,14 @@ public sealed class UITitle : CmnMonoBehaviour
     {
         GameServiceUtil.Auth();
         GameServiceUtil.ShowAchivementUI();
+    }
+
+    /// <summary>
+    /// バナーの表示
+    /// </summary>
+    public void ShowBanner()
+    {
+        AdManager.Inst.ShowBanner((int)AdBannerController.BANNER.BOTTOM);
     }
 
     /// <summary>
