@@ -15,10 +15,15 @@ public sealed class UITitle : CmnMonoBehaviour
 #if USE_TWEEN
     uTweenAlpha tweenAlphe;
 #endif
-
+    [SerializeField]
+    GameObject newRabbitText = default;     // うさぎ図鑑用Newテキスト
+    [SerializeField]
+    GameObject newSkinText = default;       // もちスキン用Newテキスト
+ 
     // 処理なし。メッセージ受信エラー避け.
     protected override void InitSceneChange() { }
     protected override void OnSceneDeactive() { }
+    protected override void OnFadeInEnd() { }
     protected override void FixedUpdate() { }
 
     /// <summary>
@@ -28,6 +33,9 @@ public sealed class UITitle : CmnMonoBehaviour
     {
         // バナー表示
         ShowBanner();
+
+        // Newテキスト表示
+        ShowNewText();
     }
 
     /// <summary>
@@ -45,41 +53,47 @@ public sealed class UITitle : CmnMonoBehaviour
     {
         //NOTE:まだPlayGameServiceの情報を作っていないためコメント化
         //GameServiceUtil.Auth();
-
-#if USE_TWEEN
-        tweenAlphe = GetComponent<uTweenAlpha>();
-#endif
     }
 
     /// <summary>
-    /// フェードイン終了.
+    /// Newテキスト表示
     /// </summary>
-    protected override void OnFadeInEnd()
+    void ShowNewText()
     {
-#if USE_TWEEN
-        tweenAlphe.Play(PlayDirection.Forward);
+        // うさぎ図鑑
+        if (GameDataManager.Inst.PlayData.IsNewRabbit)
+        {
+            newRabbitText.gameObject.SetActive(true);
+        }
+        // もちスキン
+        if (GameDataManager.Inst.PlayData.IsNewSkin)
+        {
+            newSkinText.gameObject.SetActive(true);
+        }
+    }
 
-        //if (PlayerPrefs.GetInt(ReviewIndictor.REVIEW_FLAG_NAME, 0) == 0)
-        //{
-        //    int reviewCnt = PlayerPrefs.GetInt(ReviewIndictor.REVIEW_CNT_NAME, 0);
+    /// <summary>
+    /// ボタン用うさぎ図鑑Newテキスト非表示関数
+    /// </summary>
+    public void HideRabbitNewText()
+    {
+        newRabbitText.gameObject.SetActive(false);
 
-        //    if (reviewCnt >= 1)
-        //    {
-        //        PlayerPrefs.SetInt(ReviewIndictor.REVIEW_CNT_NAME, 0);
-        //        review.gameObject.SetActive(true);
-        //        review.FadeIn();
-        //    }
-        //    else
-        //    {
-        //        PlayerPrefs.SetInt(ReviewIndictor.REVIEW_CNT_NAME, reviewCnt + 1);
-        //    }
-        //}
+        // データフラグをfalseにしてセーブ
+        GameDataManager.Inst.PlayData.IsNewRabbit = false;
+        JsonDataSaver.Save(GameDataManager.Inst.PlayData);
+    }
 
-#if USE_NEND
-        NendAdController.Inst.ShowBottomBanner(true);
-        NendAdController.Inst.ShowTopBanner(true);
-#endif
-#endif
+    /// <summary>
+    /// ボタン用もちスキンNewテキスト非表示関数
+    /// </summary>
+    public void HideSkinNewText()
+    {
+        newSkinText.gameObject.SetActive(false);
+
+        // データフラグをfalseにしてセーブ
+        GameDataManager.Inst.PlayData.IsNewSkin = false;
+        JsonDataSaver.Save(GameDataManager.Inst.PlayData);
     }
 
     /// <summary>

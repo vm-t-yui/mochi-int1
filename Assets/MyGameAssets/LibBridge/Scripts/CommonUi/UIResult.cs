@@ -25,10 +25,12 @@ public class UIResult : CmnMonoBehaviour
     GameObject buttons = default;                           // リザルトのボタン達
 
     [SerializeField]
+    GameObject newRabbitText = default;                     // うさぎ図鑑用Newテキスト
+
+    [SerializeField]
     float showAdTime = 2;                                   // 広告表示までの待機時間
 
     bool isShowAd = false;                                  // リザルト広告表示フラグ
-    bool isHideAd = false;                                  // リザルト広告非表示フラグ
 
     /// <summary>
     /// 起動処理
@@ -37,10 +39,12 @@ public class UIResult : CmnMonoBehaviour
     {
         // 表示フラグをリセット
         isShowAd = false;
-        isHideAd = false;
 
         // バナー表示
         AdManager.Inst.ShowBanner((int)AdBannerController.BANNER.TOP);
+
+        // Newテキスト表示
+        ShowNewText();
     }
 
     /// <summary>
@@ -79,6 +83,30 @@ public class UIResult : CmnMonoBehaviour
         {
             sceneChanger.ChangeScene();
         }
+    }
+
+    /// <summary>
+    /// Newテキスト表示
+    /// </summary>
+    void ShowNewText()
+    {
+        // うさぎ図鑑
+        if (GameDataManager.Inst.PlayData.IsNewRabbit)
+        {
+            newRabbitText.gameObject.SetActive(true);
+        }
+    }
+
+    /// <summary>
+    /// ボタン用うさぎ図鑑Newテキスト非表示関数
+    /// </summary>
+    public void HideRabbitNewText()
+    {
+        newRabbitText.gameObject.SetActive(false);
+
+        // データフラグをfalseにしてセーブ
+        GameDataManager.Inst.PlayData.IsNewRabbit = false;
+        JsonDataSaver.Save(GameDataManager.Inst.PlayData);
     }
 
     /// <summary>
