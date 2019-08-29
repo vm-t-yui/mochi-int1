@@ -25,10 +25,7 @@ public class UIResult : CmnMonoBehaviour
     GameObject buttons = default;                           // リザルトのボタン達
 
     [SerializeField]
-    GameObject highScoreText = default;                     // ハイスコアテキスト
-
-    [SerializeField]
-    float showAdTime = 0;                                   // 広告表示までの待機時間
+    float showAdTime = 2;                                   // 広告表示までの待機時間
 
     bool isShowAd = false;                                  // リザルト広告表示フラグ
     bool isHideAd = false;                                  // リザルト広告非表示フラグ
@@ -55,24 +52,6 @@ public class UIResult : CmnMonoBehaviour
         HideAd();
         HideBanner();
         buttons.SetActive(false);
-        highScoreText.SetActive(false);
-    }
-
-    /// <summary>
-    /// UI表示
-    /// </summary>
-    public void AcitveUI()
-    {
-        buttons.SetActive(true);
-
-        // ハイスコアを超えたらハイスコアの文字表示
-        if (GameDataManager.Inst.PlayData.HighScore < ScoreManager.Inst.NowBreakNum)
-        {
-            highScoreText.SetActive(true);
-        }
-
-        // スコアリセット
-        ScoreManager.Inst.Reset();
     }
 
     /// <summary>
@@ -133,14 +112,11 @@ public class UIResult : CmnMonoBehaviour
     /// </summary>
     void ShowAd()
     {
-        // 表示を待っている間に非表示の処理が入ったなら表示させない
-        if (!isHideAd)
-        {
-            AdManager.Inst.ShowResultAd();
+        AdManager.Inst.ShowResultAd();
 
-            // 連続で表示しないようにする
-            isShowAd = true;
-        }
+        // 連続で表示しないようにする表示フラグを立てて、ボタンを表示
+        isShowAd = true;
+        buttons.SetActive(true);
     }
 
     /// <summary>
@@ -149,8 +125,7 @@ public class UIResult : CmnMonoBehaviour
     public void HideAd()
     {
         // 広告表示がされていないなら瞬時に、されているならアニメーションで消す。
-        AdManager.Inst.HideResultAd(isShowAd);
-        isHideAd = true;
+        AdManager.Inst.HideResultAd();
     }
 
     /// <summary>

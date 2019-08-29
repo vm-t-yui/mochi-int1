@@ -196,28 +196,17 @@ public class AdManager : SingletonMonoBehaviour<AdManager>
     /// <summary>
     /// リザルトの広告非表示
     /// </summary>
-    /// <param name="flg">広告が表示されているかどうか</param>
-    public void HideResultAd(bool flg)
+    public void HideResultAd()
     {
-        // されているならアニメーションで消す
-        if (!flg)
+        // 5回毎の動画リワードを非表示
+        if (showCount % RewardCount == 0)
         {
-            // 5回毎の動画リワードを非表示
-            if (showCount % RewardCount == 0)
-            {
-                adVideoRecommenderAnim.SetTrigger("Small");
-            }
-            // それ以外
-            else
-            {
-                OwnCompAdCanvasAnim.SetTrigger("FadeOut");
-            }
+            adVideoRecommenderAnim.SetTrigger("Small");
         }
-        // されていないなら瞬時に消す
+        // それ以外
         else
         {
-            OwnCompAdCanvas.alpha = 0;
-            adVideoRecommenderWindow.gameObject.SetActive(false);
+            OwnCompAdCanvasAnim.SetTrigger("FadeOut");
         }
     }
 

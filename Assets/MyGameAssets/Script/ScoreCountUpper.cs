@@ -23,6 +23,9 @@ public class ScoreCountUpper : MonoBehaviour
     TextMeshProUGUI text = default;                     // テキスト
 
     [SerializeField]
+    GameObject highScoreText = default;                 // ハイスコアテキスト
+
+    [SerializeField]
     ResultPlayerAnimator playerAnim = default;          // プレイヤーのアニメーション
 
     /// <summary>
@@ -33,6 +36,7 @@ public class ScoreCountUpper : MonoBehaviour
         NowCount = 0;
         IsEnd = false;
         IsStart = true;
+        highScoreText.SetActive(false);
     }
 
     /// <summary>
@@ -58,8 +62,14 @@ public class ScoreCountUpper : MonoBehaviour
                 IsEnd = true;
                 playerAnim.AnimStart((int)ResultPlayerAnimator.AnimKind.ScoreResult);
 
-                // リザルトのUI表示
-                uIResult.AcitveUI();
+                // ハイスコアを超えたらハイスコアの文字表示
+                if (GameDataManager.Inst.PlayData.HighScore < ScoreManager.Inst.NowBreakNum)
+                {
+                    highScoreText.SetActive(true);
+                }
+
+                // スコアリセット
+                ScoreManager.Inst.Reset();
             }
         }
 
