@@ -89,7 +89,7 @@ namespace VMUnityLib
         /// <summary>
         /// フェードイン
         /// </summary>
-        void FadeIn()
+        public void FadeIn()
         {
             // ミュート時は処理を抜ける
             if (GameDataManager.Inst.SettingData.IsBgmMute) { return; }
