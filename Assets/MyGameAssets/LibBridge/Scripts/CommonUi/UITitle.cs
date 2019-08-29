@@ -16,10 +16,6 @@ public sealed class UITitle : CmnMonoBehaviour
     uTweenAlpha tweenAlphe;
 #endif
 
-    [SerializeField]
-    Animator tabAnim = default; // タブのアニメーション
-    
-
     // 処理なし。メッセージ受信エラー避け.
     protected override void InitSceneChange() { }
     protected override void OnSceneDeactive() { }
@@ -84,14 +80,6 @@ public sealed class UITitle : CmnMonoBehaviour
         NendAdController.Inst.ShowTopBanner(true);
 #endif
 #endif
-    }
-
-    /// <summary>
-    /// タブのスライド
-    /// </summary>
-    public void SlideTab()
-    {
-        tabAnim.SetTrigger("Slide");
     }
 
     /// <summary>

@@ -55,6 +55,8 @@ MonoBehaviour:
   sceneAdNative: {fileID: 1728331945284555057}
   adVideoRecommenderAnim: {fileID: 3945971984758849494}
   OwnCompAdCanvasAnim: {fileID: 8955902456615464267}
+  OwnCompAdCanvas: {fileID: 5562939917183884171}
+  adVideoRecommenderWindow: {fileID: 8955902456615464265}
 --- !u!1 &1216576064311547566
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,6 +558,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e880767a710a4641913ca6b65717511, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!225 &5562939917183884171 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 7021707339287034549, guid: a7d1337e70d654703aef460d4ea86dac,
+    type: 3}
+  m_PrefabInstance: {fileID: 3188994933006721342}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &3945971984758849494 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 1910508534602358504, guid: a7d1337e70d654703aef460d4ea86dac,
@@ -573,6 +581,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AdVideoRecommender
+      objectReference: {fileID: 0}
+    - target: {fileID: 8362841446563006255, guid: df9b2aff727fabb4ab46e0a650bbad6a,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7124003668196886033, guid: df9b2aff727fabb4ab46e0a650bbad6a,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5853419412303912190, guid: df9b2aff727fabb4ab46e0a650bbad6a,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5616941886785015250, guid: df9b2aff727fabb4ab46e0a650bbad6a,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4749209265159272018, guid: df9b2aff727fabb4ab46e0a650bbad6a,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4749209265755877265, guid: df9b2aff727fabb4ab46e0a650bbad6a,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4749209266499088002, guid: df9b2aff727fabb4ab46e0a650bbad6a,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4749209266280754199, guid: df9b2aff727fabb4ab46e0a650bbad6a,
         type: 3}
@@ -644,45 +687,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4749209265159272018, guid: df9b2aff727fabb4ab46e0a650bbad6a,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5853419412303912190, guid: df9b2aff727fabb4ab46e0a650bbad6a,
-        type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616941886785015250, guid: df9b2aff727fabb4ab46e0a650bbad6a,
-        type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 4749209265755877266, guid: df9b2aff727fabb4ab46e0a650bbad6a,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4749209265755877265, guid: df9b2aff727fabb4ab46e0a650bbad6a,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4749209266499088002, guid: df9b2aff727fabb4ab46e0a650bbad6a,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8362841446563006255, guid: df9b2aff727fabb4ab46e0a650bbad6a,
-        type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7124003668196886033, guid: df9b2aff727fabb4ab46e0a650bbad6a,
-        type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df9b2aff727fabb4ab46e0a650bbad6a, type: 3}
@@ -716,6 +724,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55c6fc9594f3f6d40a3e245bb7079bbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &8955902456615464265 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4749209266575815363, guid: df9b2aff727fabb4ab46e0a650bbad6a,
+    type: 3}
+  m_PrefabInstance: {fileID: 4440924711976853386}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &8955902456615464267 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 4749209266575815361, guid: df9b2aff727fabb4ab46e0a650bbad6a,

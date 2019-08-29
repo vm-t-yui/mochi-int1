@@ -27,7 +27,11 @@ public class UIResult : CmnMonoBehaviour
     [SerializeField]
     GameObject highScoreText = default;                     // ハイスコアテキスト
 
+    [SerializeField]
+    float showAdTime = 0;                                   // 広告表示までの待機時間
+
     bool isShowAd = false;                                  // リザルト広告表示フラグ
+    bool isHideAd = false;                                  // リザルト広告非表示フラグ
 
     /// <summary>
     /// 起動処理
@@ -36,6 +40,7 @@ public class UIResult : CmnMonoBehaviour
     {
         // 表示フラグをリセット
         isShowAd = false;
+        isHideAd = false;
 
         // バナー表示
         AdManager.Inst.ShowBanner((int)AdBannerController.BANNER.TOP);
@@ -47,7 +52,7 @@ public class UIResult : CmnMonoBehaviour
     void OnDisable()
     {
         // 広告非表示
-        AdManager.Inst.HideResultAd();
+        HideAd();
         HideBanner();
         buttons.SetActive(false);
         highScoreText.SetActive(false);
@@ -87,7 +92,7 @@ public class UIResult : CmnMonoBehaviour
         if (resultPlayerAnimator.IsEnd && !isShowAd)
         {
             // インタースティシャルか動画広告表示
-            ShowAd();
+            Invoke("ShowAd", showAdTime);
         }
 
         // 動画広告を見終わったらシーンを切り替える
@@ -124,14 +129,28 @@ public class UIResult : CmnMonoBehaviour
     }
 
     /// <summary>
-    ///  インタースティシャルか動画広告表示
+    ///  インタースティシャルか動画広告表示関数
     /// </summary>
-    public void ShowAd()
+    void ShowAd()
     {
-        AdManager.Inst.ShowResultAd();
+        // 表示を待っている間に非表示の処理が入ったなら表示させない
+        if (!isHideAd)
+        {
+            AdManager.Inst.ShowResultAd();
 
-        // 連続で表示しないようにする
-        isShowAd = true;
+            // 連続で表示しないようにする
+            isShowAd = true;
+        }
+    }
+
+    /// <summary>
+    ///  インタースティシャルか動画広告非表示
+    /// </summary>
+    public void HideAd()
+    {
+        // 広告表示がされていないなら瞬時に、されているならアニメーションで消す。
+        AdManager.Inst.HideResultAd(isShowAd);
+        isHideAd = true;
     }
 
     /// <summary>
