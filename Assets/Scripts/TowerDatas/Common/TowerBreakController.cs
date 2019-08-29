@@ -38,6 +38,9 @@ public class TowerBreakController : MonoBehaviour
 
             // 決定した方向をリストに追加
             objectFlyDirections.Add(flyDirection);
+
+            // 吹っ飛ばした分のモチをスコアに加える
+            ScoreManager.Inst.UpdateGetNum();
         }
     }
 
