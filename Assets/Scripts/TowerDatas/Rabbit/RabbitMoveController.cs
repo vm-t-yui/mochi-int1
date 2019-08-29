@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using PathologicalGames;
+using VMUnityLib;
 
 /// <summary>
 /// ウサギの制御を行う
@@ -60,6 +61,8 @@ public class RabbitMoveController : MoveControllerBase
         GameDataManager.Inst.PlayData.PunchCount++;
         // ウサギが吹っ飛ぶアニメーションを再生
         animator.SetTrigger("RabbitFling");
+        // ウサギがパンチされた時の効果音再生
+        SePlayer.Inst.PlaySe(SeID.RabbitPunch);
     }
 
     /// <summary>
@@ -92,6 +95,8 @@ public class RabbitMoveController : MoveControllerBase
     {
         // ウサギが耐えられなくなったときのアニメーションを再生
         animator.SetTrigger("RabbitCrash");
+        // ウサギが耐えられなくなったときの効果音再生
+        SePlayer.Inst.PlaySe(SeID.RabbitBlowAway);
     }
 
     /// <summary>
