@@ -56,6 +56,8 @@ public class RabbitMoveController : MoveControllerBase
     /// </summary>
     public override void OnPlayerPunched()
     {
+        // ウサギがパンチされた回数をカウントしていく
+        GameDataManager.Inst.PlayData.PunchCount++;
         // ウサギが吹っ飛ぶアニメーションを再生
         animator.SetTrigger("RabbitFling");
     }
