@@ -35,6 +35,9 @@ public class UIMain : CmnMonoBehaviour
         // ギャラリーの初期化
         GallerySetActive(true);
         isGalleryInactive = false;
+
+        // ウサギをパンチした回数をリセット
+        GameDataManager.Inst.PlayData.PunchCount = 0;
     }
 
     /// <summary>

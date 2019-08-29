@@ -14,10 +14,6 @@ public class PictureBookController : MonoBehaviour
     [SerializeField]
     GameObject notReleaseDescription = default;
 
-    // スクロールバー
-    [SerializeField]
-    Scrollbar scrollbar = default;
-
     // スクロールビューのボタン
     [SerializeField]
     Transform rabbitButtons = default;
@@ -50,9 +46,6 @@ public class PictureBookController : MonoBehaviour
             notReleaseDescription.SetActive(true);
             nowOpenNum = NotReleaseNum;
         }
-
-        // valueを初期位置へ
-        scrollbar.value = 0;
 
         // 解放状況をボタンの画像に反映
         int i = 0;
