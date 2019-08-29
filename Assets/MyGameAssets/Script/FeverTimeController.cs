@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VMUnityLib;
 
 /// <summary>
 /// フィーバータイム管理クラス
@@ -31,6 +32,9 @@ public class FeverTimeController : MonoBehaviour
         // フィーバータイム開始
         IsFever = true;
 		mainCameraAnim.AnimStart((int)MainCameraAnimator.AnimKind.FeverIn);
+
+        // フィーバータイムのBGMに切り替え
+        BgmPlayer.Inst.ChangeBgm(BgmID.FeverTime);
 	}
 
     /// <summary>
@@ -56,5 +60,8 @@ public class FeverTimeController : MonoBehaviour
         // フィーバータイム終了
         IsFever = false;
 		mainCameraAnim.AnimStart((int)MainCameraAnimator.AnimKind.FeverOut);
+
+        // 元のBGMに戻す
+        BgmPlayer.Inst.ReturnBgm();
 	}
 }

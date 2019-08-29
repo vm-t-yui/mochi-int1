@@ -116,4 +116,20 @@ public class MainPlayerAnimator : SingletonMonoBehaviour<MainPlayerAnimator>
     {
         towerBreak.enabled = true;
     }
+
+    /// <summary>
+    /// 指定SE再生
+    /// </summary>
+    public void PlaySe(string id)
+    {
+        SePlayer.Inst.PlaySe(id);
+    }
+
+    /// <summary>
+    /// 指定SE再生（ランダムピッチ）
+    /// </summary>
+    public void PlaySeRandomPitch(string id)
+    {
+        SePlayer.Inst.PlaySeRandomPitch(id);
+    }
 }

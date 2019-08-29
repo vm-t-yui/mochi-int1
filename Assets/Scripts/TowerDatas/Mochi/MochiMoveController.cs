@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using PathologicalGames;
+using VMUnityLib;
 
 /// <summary>
 /// モチの制御を行う
@@ -31,6 +32,9 @@ public class MochiMoveController : MoveControllerBase
 
         // モチの終了処理
         OnControlFinished();
+
+        // モチ破壊効果音再生
+        SePlayer.Inst.PlaySeRandomPitch(SeID.MochiBreak);
     }
 
     /// <summary>
