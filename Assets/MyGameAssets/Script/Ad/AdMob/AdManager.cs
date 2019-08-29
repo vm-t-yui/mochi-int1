@@ -57,12 +57,17 @@ public class AdManager : SingletonMonoBehaviour<AdManager>
     [SerializeField]
     AdVideoRecommender adVideoRecommender = default;                  // 動画リワード広告クラス
     [SerializeField]
-    SceneAdNativeController sceneAdNative = default;                     // シーン切り替え時のネイティブ広告
+    SceneAdNativeController sceneAdNative = default;                  // シーン切り替え時のネイティブ広告
 
     [SerializeField]
     Animator adVideoRecommenderAnim = default;                        // 動画広告用アニメーター
     [SerializeField]
     Animator OwnCompAdCanvasAnim = default;                           // 自社広告用アニメーター
+
+    [SerializeField]
+    CanvasGroup OwnCompAdCanvas = default;                            // 自社広告用カンバス
+    [SerializeField]
+    GameObject adVideoRecommenderWindow = default;                    // 動画リワード広告ウィンドウ
 
     int showCount = 0;                                                // インタースティシャル用表示回数
     const string ShowCountKey = "ShowCount";                          // 表示回数データのキー
@@ -189,19 +194,30 @@ public class AdManager : SingletonMonoBehaviour<AdManager>
     }
 
     /// <summary>
-    /// リサルト広告の非表示
+    /// リザルトの広告非表示
     /// </summary>
-    public void HideResultAd()
+    /// <param name="flg">広告が表示されているかどうか</param>
+    public void HideResultAd(bool flg)
     {
-        // 5回毎の動画リワードを非表示
-        if (showCount % RewardCount == 0)
+        // されているならアニメーションで消す
+        if (!flg)
         {
-            adVideoRecommenderAnim.SetTrigger("Small");
+            // 5回毎の動画リワードを非表示
+            if (showCount % RewardCount == 0)
+            {
+                adVideoRecommenderAnim.SetTrigger("Small");
+            }
+            // それ以外
+            else
+            {
+                OwnCompAdCanvasAnim.SetTrigger("FadeOut");
+            }
         }
-        // それ以外
+        // されていないなら瞬時に消す
         else
         {
-            OwnCompAdCanvasAnim.SetTrigger("FadeOut");
+            OwnCompAdCanvas.alpha = 0;
+            adVideoRecommenderWindow.gameObject.SetActive(false);
         }
     }
 
