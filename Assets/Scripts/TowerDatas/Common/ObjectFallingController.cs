@@ -16,6 +16,10 @@ public class ObjectFallingController : MonoBehaviour
     [SerializeField]
     FeverTimeController feverTimeController = default;
 
+    // オブジェクトの発光エフェクト
+    [SerializeField]
+    GameObject objectLightEffect = default;
+
     // 落下時のLerpの割合
     [SerializeField]
     float fallingLerpRate = 0;
@@ -69,6 +73,8 @@ public class ObjectFallingController : MonoBehaviour
             // 現在と前フレームの一番下のオブジェクトを比較して、変更があれば落下処理を行う
             if (bottomObject.name != prevBottomObjectName)
             {
+                // オブジェクトの発光をオフにする
+                objectLightEffect.SetActive(false);
                 // 落下フラグをオンにする
                 IsFalling = true;
             }
@@ -115,6 +121,8 @@ public class ObjectFallingController : MonoBehaviour
         {
             // 落下したオブジェクトを正しい位置に調整する
             bottomObject.transform.position = bottomObjectFallEndPosition;
+            // オブジェクトの発光をオンにする
+            objectLightEffect.SetActive(true);
             // 落下フラグをオフにする
             IsFalling = false;
         }
