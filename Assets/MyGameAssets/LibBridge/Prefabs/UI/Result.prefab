@@ -5767,7 +5767,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: High Score!!!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -22283,6 +22283,7 @@ MonoBehaviour:
   - {fileID: 879960186}
   notReleaseDescription: {fileID: 119691985}
   scrollbar: {fileID: 786162009}
+  rabbitButtons: {fileID: 1927375496}
   IsDebug: 0
 --- !u!1 &1302190953
 GameObject:
@@ -25276,7 +25277,7 @@ MonoBehaviour:
   - {fileID: 374345306}
   - {fileID: 1122897221}
   - {fileID: 4865521663669483195}
-  mochiFall: {fileID: 1942772396}
+  mochiFall: {fileID: 0}
 --- !u!1 &1513076972
 GameObject:
   m_ObjectHideFlags: 0
@@ -31861,7 +31862,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1942772394
 Transform:
   m_ObjectHideFlags: 0
@@ -31870,7 +31871,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1942772393}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -151.54337, y: -300.98947, z: -4.7695565}
+  m_LocalPosition: {x: -151.54337, y: -302.7, z: -4.7695565}
   m_LocalScale: {x: 0.6765328, y: 0.6765334, z: 0.6765334}
   m_Children: []
   m_Father: {fileID: 1506248964}
@@ -31891,8 +31892,8 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
-  prewarm: 0
-  playOnAwake: 0
+  prewarm: 1
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -32012,7 +32013,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 15
+      scalar: 30
       minScalar: 5
       maxCurve:
         serializedVersion: 2

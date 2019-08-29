@@ -61,22 +61,20 @@ public class TouchController : MonoBehaviour
     /// </summary>
     IEnumerator InputJudge()
     {
+        isInput[(int)InputKind.Touch] = true;
+
         // ジャッジの経過時間が最大を超えるまで
         while (nowJudgeCount < maxJudgeCount)
         {
             // ジャッジの経過時間をカウント
             nowJudgeCount++;
 
-            // タッチ(タッチの許可がされてあればタッチを取得)
-            if (touch.phase == TouchPhase.Began)
-            {
-                isInput[(int)InputKind.Touch] = true;
-            }
             // スワイプ(スワイプの許可がされてあればタッチを取得)
             if (touch.deltaPosition.magnitude > swipeSensitivity)
             {
                 isInput[(int)InputKind.Touch] = false;
                 isInput[(int)InputKind.Swipe] = true;
+                nowJudgeCount = maxJudgeCount;
             }
             if (touch.phase == TouchPhase.Ended)
             {
