@@ -14,11 +14,11 @@ public class Timer : MonoBehaviour
     FeverTimeController feverTime = default;               // フィーバータイム管理クラス
 
     [SerializeField]
-    float startTime   = 0;                                 // ゲームスタートまでの秒数
-    [SerializeField]
     float gameTime    = 0;                                 // ゲーム内の秒数
     [SerializeField]
     float plusSeconds = 0;                                 // プラスする秒数
+
+    float startTime = 3;                                   // ゲームスタートまでの秒数
 
     public float CountTime { get; private set; } = 0;      // 計測用変数
 
@@ -87,7 +87,7 @@ public class Timer : MonoBehaviour
         if (!IsStart)
         {
             // 表示
-            timer.text = ((int)CountTime).ToString();
+            timer.text = ((int)CountTime + 1).ToString();
 
             // カウントダウンが終わったらゲーム開始
             FinishCountDown();
