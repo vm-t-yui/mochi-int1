@@ -5594,8 +5594,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerObjectSpawner: {fileID: 6233680672232218299}
   feverTimeController: {fileID: 6434989072904517666}
+  objectLightEffect: {fileID: 6971359213486957611}
   fallingLerpRate: 0.11
-  mochiLightEffect: {fileID: 6971359213486957611}
   feverTimeFallingLerpRate: 0.15
 --- !u!114 &8096097067289301091
 MonoBehaviour:
@@ -6691,11 +6691,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2806529997929001378}
     m_Modifications:
-    - target: {fileID: 8814307937171578455, guid: 75a6d55a05ce76841983f141269d6af4,
-        type: 3}
-      propertyPath: m_Name
-      value: IsobeMochi
-      objectReference: {fileID: 0}
     - target: {fileID: 4225019358296419732, guid: 75a6d55a05ce76841983f141269d6af4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6750,6 +6745,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8814307937171578455, guid: 75a6d55a05ce76841983f141269d6af4,
+        type: 3}
+      propertyPath: m_Name
+      value: IsobeMochi
       objectReference: {fileID: 0}
     - target: {fileID: 8358510650737920501, guid: 75a6d55a05ce76841983f141269d6af4,
         type: 3}
@@ -7031,11 +7031,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2806529997929001378}
     m_Modifications:
-    - target: {fileID: 8814307937171578455, guid: cd2d8d0994899d84cb1aaab9a3df9d1c,
-        type: 3}
-      propertyPath: m_Name
-      value: KashiwaMochi
-      objectReference: {fileID: 0}
     - target: {fileID: 4225019358296419732, guid: cd2d8d0994899d84cb1aaab9a3df9d1c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7090,6 +7085,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8814307937171578455, guid: cd2d8d0994899d84cb1aaab9a3df9d1c,
+        type: 3}
+      propertyPath: m_Name
+      value: KashiwaMochi
       objectReference: {fileID: 0}
     - target: {fileID: -890642982436201253, guid: cd2d8d0994899d84cb1aaab9a3df9d1c,
         type: 3}
@@ -7622,11 +7622,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4537344395100580195}
     m_Modifications:
-    - target: {fileID: 1508582743492943511, guid: d3e4d152a42ebac40af836b35b71c276,
-        type: 3}
-      propertyPath: m_Name
-      value: MechaRabbit
-      objectReference: {fileID: 0}
     - target: {fileID: 8735663774602533659, guid: d3e4d152a42ebac40af836b35b71c276,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7682,6 +7677,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1508582743492943511, guid: d3e4d152a42ebac40af836b35b71c276,
+        type: 3}
+      propertyPath: m_Name
+      value: MechaRabbit
+      objectReference: {fileID: 0}
     - target: {fileID: -8026777861865488098, guid: d3e4d152a42ebac40af836b35b71c276,
         type: 3}
       propertyPath: towerObjectDataManager
@@ -7707,11 +7707,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4537344395100580195}
     m_Modifications:
-    - target: {fileID: 1508582743492943511, guid: 5e801d77bd5c5284d8ddadd00bea606e,
-        type: 3}
-      propertyPath: m_Name
-      value: KagamimochiRabbit
-      objectReference: {fileID: 0}
     - target: {fileID: 8735663774602533659, guid: 5e801d77bd5c5284d8ddadd00bea606e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7767,6 +7762,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1508582743492943511, guid: 5e801d77bd5c5284d8ddadd00bea606e,
+        type: 3}
+      propertyPath: m_Name
+      value: KagamimochiRabbit
+      objectReference: {fileID: 0}
     - target: {fileID: -2527922989007971724, guid: 5e801d77bd5c5284d8ddadd00bea606e,
         type: 3}
       propertyPath: towerObjectDataManager
@@ -7792,11 +7792,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4537344395100580195}
     m_Modifications:
-    - target: {fileID: 1508582743492943511, guid: ee0d03722cb12b840bbaa97b5b101695,
-        type: 3}
-      propertyPath: m_Name
-      value: YellowRabbit
-      objectReference: {fileID: 0}
     - target: {fileID: 8735663774602533659, guid: ee0d03722cb12b840bbaa97b5b101695,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7852,6 +7847,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1508582743492943511, guid: ee0d03722cb12b840bbaa97b5b101695,
+        type: 3}
+      propertyPath: m_Name
+      value: YellowRabbit
+      objectReference: {fileID: 0}
     - target: {fileID: 3623165661914454838, guid: ee0d03722cb12b840bbaa97b5b101695,
         type: 3}
       propertyPath: towerObjectDataManager
@@ -7877,11 +7877,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4537344395100580195}
     m_Modifications:
-    - target: {fileID: 1508582743492943511, guid: 2c39a5c5a1f07a24da25431a7d36aa96,
-        type: 3}
-      propertyPath: m_Name
-      value: GhostRabbit
-      objectReference: {fileID: 0}
     - target: {fileID: 8735663774602533659, guid: 2c39a5c5a1f07a24da25431a7d36aa96,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7936,6 +7931,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1508582743492943511, guid: 2c39a5c5a1f07a24da25431a7d36aa96,
+        type: 3}
+      propertyPath: m_Name
+      value: GhostRabbit
       objectReference: {fileID: 0}
     - target: {fileID: 2721130561809044117, guid: 2c39a5c5a1f07a24da25431a7d36aa96,
         type: 3}
@@ -8047,11 +8047,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4537344395100580195}
     m_Modifications:
-    - target: {fileID: 1508582743492943511, guid: f0e0a0de10812c047aa6777d943d6d25,
-        type: 3}
-      propertyPath: m_Name
-      value: JoysonRabbit
-      objectReference: {fileID: 0}
     - target: {fileID: 8735663774602533659, guid: f0e0a0de10812c047aa6777d943d6d25,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8107,6 +8102,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1508582743492943511, guid: f0e0a0de10812c047aa6777d943d6d25,
+        type: 3}
+      propertyPath: m_Name
+      value: JoysonRabbit
+      objectReference: {fileID: 0}
     - target: {fileID: 7250589384049535217, guid: f0e0a0de10812c047aa6777d943d6d25,
         type: 3}
       propertyPath: towerObjectDataManager
@@ -8132,11 +8132,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4537344395100580195}
     m_Modifications:
-    - target: {fileID: 1508582743492943511, guid: 5d0fcfdbd6cfe8440a80c3a5db2fe00d,
-        type: 3}
-      propertyPath: m_Name
-      value: NormalRabbit
-      objectReference: {fileID: 0}
     - target: {fileID: 8735663774602533659, guid: 5d0fcfdbd6cfe8440a80c3a5db2fe00d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8192,6 +8187,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1508582743492943511, guid: 5d0fcfdbd6cfe8440a80c3a5db2fe00d,
+        type: 3}
+      propertyPath: m_Name
+      value: NormalRabbit
+      objectReference: {fileID: 0}
     - target: {fileID: -5872967362033611529, guid: 5d0fcfdbd6cfe8440a80c3a5db2fe00d,
         type: 3}
       propertyPath: towerObjectDataManager
@@ -8217,11 +8217,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4537344395100580195}
     m_Modifications:
-    - target: {fileID: 1508582743492943511, guid: 40bc81fdb46c5fb4a9020223441f494e,
-        type: 3}
-      propertyPath: m_Name
-      value: GreenRabbit
-      objectReference: {fileID: 0}
     - target: {fileID: 8735663774602533659, guid: 40bc81fdb46c5fb4a9020223441f494e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8277,6 +8272,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1508582743492943511, guid: 40bc81fdb46c5fb4a9020223441f494e,
+        type: 3}
+      propertyPath: m_Name
+      value: GreenRabbit
+      objectReference: {fileID: 0}
     - target: {fileID: 2472213026918936503, guid: 40bc81fdb46c5fb4a9020223441f494e,
         type: 3}
       propertyPath: towerObjectDataManager
@@ -8302,11 +8302,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4537344395100580195}
     m_Modifications:
-    - target: {fileID: 1508582743492943511, guid: f51c83362665ee04ca54113aa71defed,
-        type: 3}
-      propertyPath: m_Name
-      value: LehmanRabbit
-      objectReference: {fileID: 0}
     - target: {fileID: 8735663774602533659, guid: f51c83362665ee04ca54113aa71defed,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8362,6 +8357,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1508582743492943511, guid: f51c83362665ee04ca54113aa71defed,
+        type: 3}
+      propertyPath: m_Name
+      value: LehmanRabbit
+      objectReference: {fileID: 0}
     - target: {fileID: -7699620724635861717, guid: f51c83362665ee04ca54113aa71defed,
         type: 3}
       propertyPath: towerObjectDataManager
@@ -8387,11 +8387,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4537344395100580195}
     m_Modifications:
-    - target: {fileID: 1508582743492943511, guid: 0821dfb08922255459bc9dd83766af0e,
-        type: 3}
-      propertyPath: m_Name
-      value: WoodRabbit
-      objectReference: {fileID: 0}
     - target: {fileID: 8735663774602533659, guid: 0821dfb08922255459bc9dd83766af0e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8447,6 +8442,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1508582743492943511, guid: 0821dfb08922255459bc9dd83766af0e,
+        type: 3}
+      propertyPath: m_Name
+      value: WoodRabbit
+      objectReference: {fileID: 0}
     - target: {fileID: -844826141513561515, guid: 0821dfb08922255459bc9dd83766af0e,
         type: 3}
       propertyPath: towerObjectDataManager
@@ -8472,11 +8472,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2806529997929001378}
     m_Modifications:
-    - target: {fileID: 8814307937171578455, guid: 605081b8384375f4db1e52f6bb8c7e3c,
-        type: 3}
-      propertyPath: m_Name
-      value: KouhakuMochi
-      objectReference: {fileID: 0}
     - target: {fileID: 4225019358296419732, guid: 605081b8384375f4db1e52f6bb8c7e3c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8532,6 +8527,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8814307937171578455, guid: 605081b8384375f4db1e52f6bb8c7e3c,
+        type: 3}
+      propertyPath: m_Name
+      value: KouhakuMochi
+      objectReference: {fileID: 0}
     - target: {fileID: 6306764193405592317, guid: 605081b8384375f4db1e52f6bb8c7e3c,
         type: 3}
       propertyPath: towerObjectSpawner
@@ -8557,11 +8557,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4537344395100580195}
     m_Modifications:
-    - target: {fileID: 1508582743492943511, guid: 2b991f3c6d243b84e937b638e3ce55b5,
-        type: 3}
-      propertyPath: m_Name
-      value: DiamondRabbit
-      objectReference: {fileID: 0}
     - target: {fileID: 8735663774602533659, guid: 2b991f3c6d243b84e937b638e3ce55b5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8617,6 +8612,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1508582743492943511, guid: 2b991f3c6d243b84e937b638e3ce55b5,
+        type: 3}
+      propertyPath: m_Name
+      value: DiamondRabbit
+      objectReference: {fileID: 0}
     - target: {fileID: 5722533331596345821, guid: 2b991f3c6d243b84e937b638e3ce55b5,
         type: 3}
       propertyPath: towerObjectDataManager
@@ -8642,11 +8642,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4537344395100580195}
     m_Modifications:
-    - target: {fileID: 1508582743492943511, guid: 989f56cd69362a74f8b737d1606b2f7c,
-        type: 3}
-      propertyPath: m_Name
-      value: BlackRabbit
-      objectReference: {fileID: 0}
     - target: {fileID: 8735663774602533659, guid: 989f56cd69362a74f8b737d1606b2f7c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8702,6 +8697,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1508582743492943511, guid: 989f56cd69362a74f8b737d1606b2f7c,
+        type: 3}
+      propertyPath: m_Name
+      value: BlackRabbit
+      objectReference: {fileID: 0}
     - target: {fileID: 2539726303503381253, guid: 989f56cd69362a74f8b737d1606b2f7c,
         type: 3}
       propertyPath: towerObjectDataManager
@@ -8727,11 +8727,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4537344395100580195}
     m_Modifications:
-    - target: {fileID: 1508582743492943511, guid: faa0553f2f98378438ca90eda40b81a1,
-        type: 3}
-      propertyPath: m_Name
-      value: MaidRabbit
-      objectReference: {fileID: 0}
     - target: {fileID: 8735663774602533659, guid: faa0553f2f98378438ca90eda40b81a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8786,6 +8781,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1508582743492943511, guid: faa0553f2f98378438ca90eda40b81a1,
+        type: 3}
+      propertyPath: m_Name
+      value: MaidRabbit
       objectReference: {fileID: 0}
     - target: {fileID: 1100871223246768743, guid: faa0553f2f98378438ca90eda40b81a1,
         type: 3}
