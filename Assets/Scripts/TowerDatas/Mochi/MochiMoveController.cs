@@ -28,7 +28,9 @@ public class MochiMoveController : MoveControllerBase
         // パンチによるモチの破壊数を更新する
         ScoreManager.Inst.UpdateGetNum();
         // 破壊パーティクル再生
-        particlePlayer.Play("MochiBreak", transform.position, transform.rotation);
+        // NOTE: m.tanaka 使用しているスキンをもとに再生するパーティクルのIDを作成
+        string particleID = GameDataManager.Inst.SettingData.UseSkin.ToString() + "Break";
+        particlePlayer.Play(particleID, transform.position, transform.rotation);
 
         // モチの終了処理
         OnControlFinished();

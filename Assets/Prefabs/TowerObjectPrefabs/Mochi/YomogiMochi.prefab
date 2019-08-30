@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c844a9cd4830c146a58176a6fc53676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerObjectSpawner: {fileID: 0}
+  particlePlayer: {fileID: 0}
 --- !u!1001 &6717801712936982757
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -111,6 +113,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1411234984597267148, guid: 7feade6d11893fa4486903583707c213,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e85339d75f8743a45a99cf51b3b554e5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7feade6d11893fa4486903583707c213, type: 3}
 --- !u!4 &6810014813362376119 stripped
