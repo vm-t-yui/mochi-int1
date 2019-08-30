@@ -22,12 +22,32 @@ public class ResultSoundManager : MonoBehaviour
     bool            isPlayed     = false;             // 再生完了フラグ
 
     /// <summary>
-    /// 起動処理
+    /// 初回起動時処理
     /// </summary>
-    void OnEnable()
+    void Awake()
     {
-        isDramRoll = false;
-        isPlayed = false;
+        // 各ボタンにSE再生処理を追加
+        // 決定音再生ボタン
+        foreach (var item in selectSeButtons)
+        {
+            item.onClick.AddListener(() => SePlayer.Inst.PlaySe(SeID.Select));
+            item.onClick.AddListener(() => BgmPlayer.Inst.FadeOut(0.5f));
+        }
+        // ウィンドウオープン音再生ボタン
+        foreach (var item in windowOpenSeButtons)
+        {
+            item.onClick.AddListener(() => SePlayer.Inst.PlaySe(SeID.WindowOpen));
+        }
+        // キャンセル音再生ボタン
+        foreach (var item in cancelSeButtons)
+        {
+            item.onClick.AddListener(() => SePlayer.Inst.PlaySe(SeID.Cancel));
+        }
+        // タップ音再生ボタン
+        foreach (var item in tapSeButtons)
+        {
+            item.onClick.AddListener(() => SePlayer.Inst.PlaySe(SeID.Tap));
+        }
     }
 
     /// <summary>
@@ -64,12 +84,12 @@ public class ResultSoundManager : MonoBehaviour
     void PlaySuitableBgm()
     {
         // うさぎを3回以上殴った時
-        if (GameDataManager.Inst.PlayData.PunchCount > 3)
+        if (GameDataManager.Inst.PlayData.PunchCount >= 3)
         {
             BgmPlayer.Inst.PlayResultBgm(BgmID.Bad);
         }
         // グッドスコア時
-        if (GameDataManager.Inst.PlayData.LastScore >= ScoreManager.NormalScore)
+        else if (GameDataManager.Inst.PlayData.LastScore >= ScoreManager.NormalScore)
         {
             BgmPlayer.Inst.PlayResultBgm(BgmID.GoodScore);
         }
@@ -85,7 +105,9 @@ public class ResultSoundManager : MonoBehaviour
     /// </summary>
     void OnDisable()
     {
-        BgmPlayer.Inst.StopBgm();
+        isDramRoll = false;
+        isPlayed = false;
+
         SePlayer.Inst.StopSeAll();
     }
 }

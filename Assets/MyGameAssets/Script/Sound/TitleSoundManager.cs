@@ -16,7 +16,7 @@ public class TitleSoundManager : MonoBehaviour
     bool     isPlayed            = false;      // 再生完了フラグ
 
     /// <summary>
-    /// 起動処理
+    /// 初回起動時処理
     /// </summary>
     void Awake()
     {
@@ -25,6 +25,7 @@ public class TitleSoundManager : MonoBehaviour
         foreach (var item in selectSeButtons)
         {
             item.onClick.AddListener(() => SePlayer.Inst.PlaySe(SeID.Select));
+            item.onClick.AddListener(() => BgmPlayer.Inst.FadeOut(1f));
         }
         // ウィンドウオープン音再生ボタン
         foreach (var item in windowOpenSeButtons)
@@ -64,6 +65,6 @@ public class TitleSoundManager : MonoBehaviour
     {
         isPlayed = false;
 
-        BgmPlayer.Inst.StopBgm();
+        SePlayer.Inst.StopSeAll();
     }
 }

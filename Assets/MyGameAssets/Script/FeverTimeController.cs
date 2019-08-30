@@ -16,6 +16,10 @@ public class FeverTimeController : MonoBehaviour
     // フィーバータイムの最大値を取得
     public float MaxFeverTimeCount { get { return maxFeverTimeCount; } }
 
+    [SerializeField]
+    float ChangeBgmFadeTime = 0.8f;                       // BGM切り替え時のフェードにかかる時間
+    [SerializeField]
+    float ReturnBgmFadeTime = 1.2f;                       // メインBGMに戻すときのフェードにかかる時間
 
     float currentFeverTimeCount = 0;                      // フィーバータイムの継続時間
 
@@ -34,7 +38,7 @@ public class FeverTimeController : MonoBehaviour
 		mainCameraAnim.AnimStart((int)MainCameraAnimator.AnimKind.FeverIn);
 
         // フィーバータイムのBGMに切り替え
-        BgmPlayer.Inst.ChangeBgm(BgmID.FeverTime);
+        BgmPlayer.Inst.ChangeBgm(BgmID.FeverTime, ChangeBgmFadeTime);
 	}
 
     /// <summary>
@@ -62,6 +66,6 @@ public class FeverTimeController : MonoBehaviour
 		mainCameraAnim.AnimStart((int)MainCameraAnimator.AnimKind.FeverOut);
 
         // 元のBGMに戻す
-        BgmPlayer.Inst.ReturnBgm();
+        BgmPlayer.Inst.ReturnBgm(ReturnBgmFadeTime);
 	}
 }
