@@ -15,13 +15,16 @@ public class ResultJunction : MonoBehaviour
         Lenght,     // enumの長さ
     }
 
-    public bool IsJunction { get; private set; } = false;               // 分岐フラグ
+    [SerializeField]
+    ResultPlayerAnimator playerAnim = default;
 
     [SerializeField]
     GameObject[] resultObject = new GameObject[(int)ResultKind.Lenght]; // それぞれのリザルトのオブジェクト
 
     [SerializeField]
     GameObject[] brokenRabbit = default;                                // 骨折したうさぎたち
+
+    public bool IsJunction { get; private set; } = false;               // 分岐フラグ
 
     /// <summary>
     /// 起動処理
@@ -45,6 +48,9 @@ public class ResultJunction : MonoBehaviour
             ButResult();
             IsJunction = false;
         }
+
+        // リザルトアニメーション開始
+        playerAnim.AnimStart((int)ResultPlayerAnimator.AnimKind.Result);
     }
 
     /// <summary>
