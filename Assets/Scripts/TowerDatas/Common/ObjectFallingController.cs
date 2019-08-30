@@ -47,12 +47,15 @@ public class ObjectFallingController : MonoBehaviour
     /// <summary>
     /// 開始
     /// </summary>
-    void Start()
+    void OnEnable()
     {
         // オブジェクトのスポーン間隔の幅を落下移動距離として取得
         fallDistance = towerObjectSpawner.SpawnHeightInterval;
         // 地面への落下終了位置を算出する
         bottomObjectFallEndPosition = towerObjectSpawner.transform.position;
+
+        // オブジェクトを発光させる
+        objectLightEffect.SetActive(true);
     }
 
     /// <summary>
