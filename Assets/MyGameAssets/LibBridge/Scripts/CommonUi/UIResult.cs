@@ -79,6 +79,9 @@ public class UIResult : CmnMonoBehaviour
         {
             // インタースティシャルか動画広告表示
             Invoke("ShowAd", showAdTime);
+
+            // 連続で表示しないようにする表示フラグを立てて、ボタンを表示
+            isShowAd = true;
         }
 
         // 動画広告を見終わったらシーンを切り替える
@@ -143,14 +146,9 @@ public class UIResult : CmnMonoBehaviour
     /// </summary>
     void ShowAd()
     {
-        if (!isShowAd)
-        {
-            AdManager.Inst.ShowResultAd();
-
-            // 連続で表示しないようにする表示フラグを立てて、ボタンを表示
-            isShowAd = true;
-            buttons.SetActive(true);
-        }
+        // 広告を表示したらボタンを出す
+        AdManager.Inst.ShowResultAd();
+        buttons.SetActive(true);
     }
 
     /// <summary>
