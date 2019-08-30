@@ -35,7 +35,7 @@ public class ResultPlayerAnimator : SingletonMonoBehaviour<ResultPlayerAnimator>
         IsEnd = false;
 
         // 開始時にリザルト状態に応じたアニメーションを再生
-        if (!resultJunction.isJunction)
+        if (!resultJunction.IsJunction)
         {
             // 良い時
             playerAnim.SetTrigger("Result");
