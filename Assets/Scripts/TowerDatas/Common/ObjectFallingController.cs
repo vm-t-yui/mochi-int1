@@ -16,6 +16,10 @@ public class ObjectFallingController : MonoBehaviour
     [SerializeField]
     FeverTimeController feverTimeController = default;
 
+    // タイマークラス
+    [SerializeField]
+    Timer timer = default;
+
     // オブジェクトの発光エフェクト
     [SerializeField]
     GameObject objectLightEffect = default;
@@ -99,6 +103,12 @@ public class ObjectFallingController : MonoBehaviour
 
         // 現在の一番下のオブジェクトの名前を前フレームとして登録
         prevBottomObjectName = bottomObject.name;
+
+        // タイムアップしたらオブジェクトの発光エフェクトを消す
+        if (timer.IsTimeup)
+        {
+            objectLightEffect.SetActive(false);
+        }
     }
 
     /// <summary>

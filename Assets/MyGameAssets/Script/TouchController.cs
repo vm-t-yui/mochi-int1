@@ -136,4 +136,15 @@ public class TouchController : MonoBehaviour
 
         return returnflg;
     }
+
+    // 初期化
+    public void Init()
+    {
+        isTouch = false;
+        isSwipe = false;
+        isInputJudge = false;
+        isInput[(int)InputKind.Touch] = false;
+        isInput[(int)InputKind.Swipe] = false;
+        nowJudgeCount = 0;
+    }
 }

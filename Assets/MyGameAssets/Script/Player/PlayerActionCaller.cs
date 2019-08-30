@@ -30,6 +30,7 @@ public class PlayerActionCaller : MonoBehaviour
     {
         // フラグリセット
         isEnd = false;
+        touch.Init();
     }
 
     /// <summary>

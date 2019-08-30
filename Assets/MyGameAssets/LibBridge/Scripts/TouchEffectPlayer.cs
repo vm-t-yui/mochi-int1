@@ -109,6 +109,15 @@ public class TouchEffectPlayer : MonoBehaviour
                 effectPool.Despawn(swipeEffect.transform);
             }
         }
+        // タッチしていない時
+        else
+        {
+            // 再生中なら消す
+            if (swipeEffect.isPlaying)
+            {
+                swipeEffect.Stop();
+            }
+        }
 #endif
     }
 
