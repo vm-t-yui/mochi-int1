@@ -19,9 +19,6 @@ namespace VMUnityLib
         bool isResult       = false;                   // リザルトフラグ
         bool isPlayedResult = false;                   // リザルトBGM再生完了フラグ
 
-        [SerializeField]
-        float FadeTime = 2f;                           // フェードイン・フェードアウトにかける時間
-
         /// <summary>
         /// 再生.
         /// </summary>
@@ -89,19 +86,20 @@ namespace VMUnityLib
         /// <summary>
         /// フェードイン
         /// </summary>
-        public void FadeIn()
+        /// <param name="fadeTime">フェードにかかる時間</param>
+        public void FadeIn(float fadeTime)
         {
             // ミュート時は処理を抜ける
             if (GameDataManager.Inst.SettingData.IsBgmMute) { return; }
 
-            StartCoroutine(_FadeIn());
+            StartCoroutine(_FadeIn(fadeTime));
         }
-        IEnumerator _FadeIn()
+        IEnumerator _FadeIn(float fadeTime)
         {
             // 設定データのBGMボリュームに到達するまでループ
             while (spawnedBgm.volume < GameDataManager.Inst.SettingData.BgmVolume)
             {
-                spawnedBgm.volume += GameDataManager.Inst.SettingData.BgmVolume * (Time.deltaTime / FadeTime);
+                spawnedBgm.volume += GameDataManager.Inst.SettingData.BgmVolume * (Time.deltaTime / fadeTime);
 
                 yield return null;
             }
@@ -113,38 +111,43 @@ namespace VMUnityLib
         /// <summary>
         /// フェードアウト
         /// </summary>
-        public void FadeOut()
+        /// <param name="fadeTime">フェードにかかる時間</param>
+        public void FadeOut(float fadeTime)
         {
-            StartCoroutine(_FadeOut());
+            StartCoroutine(_FadeOut(fadeTime));
         }
-        IEnumerator _FadeOut()
+        IEnumerator _FadeOut(float fadeTime)
         {
             // ０に到達するまでループ
             while (spawnedBgm.volume > 0)
             {
-                spawnedBgm.volume -= GameDataManager.Inst.SettingData.BgmVolume * (Time.deltaTime / FadeTime);
+                spawnedBgm.volume -= GameDataManager.Inst.SettingData.BgmVolume * (Time.deltaTime / fadeTime);
 
                 yield return null;
             }
 
             // ０を下回ってしまっていた時のために代入処理
             spawnedBgm.volume = 0;
+
+            // BGMを停止
+            StopBgm();
         }
 
         /// <summary>
         /// BGM切り替え（フィーバータイム用）
         /// </summary>
         /// <param name="id">切り替えるBGMのID</param>
-        public void ChangeBgm(string id)
+        /// <param name="fadeTime">フェードにかかる時間</param>
+        public void ChangeBgm(string id, float fadeTime)
         {
-            StartCoroutine(_ChangeBgm(id));
+            StartCoroutine(_ChangeBgm(id, fadeTime));
         }
-        IEnumerator _ChangeBgm(string id)
+        IEnumerator _ChangeBgm(string id, float fadeTime)
         {
             // ０に到達するまでループ
             while (spawnedBgm.volume > 0)
             {
-                spawnedBgm.volume -= GameDataManager.Inst.SettingData.BgmVolume * (Time.deltaTime / FadeTime);
+                spawnedBgm.volume -= GameDataManager.Inst.SettingData.BgmVolume * (Time.deltaTime / fadeTime);
 
                 yield return null;
             }
@@ -159,22 +162,23 @@ namespace VMUnityLib
             PlayBgm(id);
 
             // フェードイン開始
-            FadeIn();
+            FadeIn(fadeTime);
         }
 
         /// <summary>
         /// 元のBGMに戻す（フィーバータイム用）
         /// </summary>
-        public void ReturnBgm()
+        /// <param name="fadeTime">フェードにかかる時間</param>
+        public void ReturnBgm(float fadeTime)
         {
-            StartCoroutine(_ReturnBgm());
+            StartCoroutine(_ReturnBgm(fadeTime));
         }
-        IEnumerator _ReturnBgm()
+        IEnumerator _ReturnBgm(float fadeTime)
         {
             // ０に到達するまでループ
             while (spawnedBgm.volume > 0)
             {
-                spawnedBgm.volume -= GameDataManager.Inst.SettingData.BgmVolume * (Time.deltaTime / FadeTime);
+                spawnedBgm.volume -= GameDataManager.Inst.SettingData.BgmVolume * (Time.deltaTime / fadeTime);
 
                 yield return null;
             }
@@ -189,7 +193,7 @@ namespace VMUnityLib
             ReStartBgm();
 
             // フェードイン開始
-            FadeIn();
+            FadeIn(fadeTime);
         }
 
         /// <summary>
