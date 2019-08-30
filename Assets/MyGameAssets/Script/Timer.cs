@@ -131,12 +131,12 @@ public class Timer : MonoBehaviour
 		if (feverTime.IsFever && !isStop)
 		{
 			isStop = true;
-            timer.text = "Fever Time !!!";
+			timer.enabled = false;
 		}
 		else if (!feverTime.IsFever && isStop)
 		{
 			isStop = false;
-            timer.text = CountTime.ToString("f2");
+			timer.enabled = true;
 		}
 	}
 
