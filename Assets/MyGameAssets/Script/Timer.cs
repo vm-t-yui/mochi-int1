@@ -22,7 +22,7 @@ public class Timer : MonoBehaviour
 
     public float CountTime { get; private set; } = 0;      // 計測用変数
 
-    const float AlertTime = 10.0f;                         // タイムリミット迫り演出開始時間
+    const float AlertTime = 3.0f;                         // タイムリミット迫り演出開始時間
 
     bool isAble = false;                                   // 処理許可フラグ
 
@@ -131,12 +131,12 @@ public class Timer : MonoBehaviour
 		if (feverTime.IsFever && !isStop)
 		{
 			isStop = true;
-			timer.enabled = false;
+            timer.text = "Fever Time !!!";
 		}
 		else if (!feverTime.IsFever && isStop)
 		{
 			isStop = false;
-			timer.enabled = true;
+            timer.text = CountTime.ToString("f2");
 		}
 	}
 
