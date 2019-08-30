@@ -2335,7 +2335,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -138}
-  m_SizeDelta: {x: -20, y: 50}
+  m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &976309716
 CanvasRenderer:
@@ -8830,11 +8830,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 997455929}
     m_Modifications:
-    - target: {fileID: 8338812577426240539, guid: c39af24af756b4c62aa8a43dd37a1000,
-        type: 3}
-      propertyPath: m_Name
-      value: SampleItemWindow
-      objectReference: {fileID: 0}
     - target: {fileID: 4310621459048598750, guid: c39af24af756b4c62aa8a43dd37a1000,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8940,10 +8935,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 2062344428388075119, guid: c39af24af756b4c62aa8a43dd37a1000,
+    - target: {fileID: 8338812577426240539, guid: c39af24af756b4c62aa8a43dd37a1000,
         type: 3}
-      propertyPath: IsDebug
-      value: 0
+      propertyPath: m_Name
+      value: SampleItemWindow
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c39af24af756b4c62aa8a43dd37a1000, type: 3}

@@ -22,13 +22,16 @@ public class UIResult : CmnMonoBehaviour
     SceneChanger sceneChanger = default;                    // シーンチェンジクラス
 
     [SerializeField]
+    ScoreCountUpper scoreCountUpper = default;                    // スコアカウントアップクラス
+
+    [SerializeField]
     GameObject buttons = default;                           // リザルトのボタン達
 
     [SerializeField]
     GameObject newRabbitText = default;                     // うさぎ図鑑用Newテキスト
 
     [SerializeField]
-    float showAdTime = 2;                                   // 広告表示までの待機時間
+    float showAdTime = 1;                                   // 広告表示までの待機時間
 
     bool isShowAd = false;                                  // リザルト広告表示フラグ
 
@@ -72,10 +75,13 @@ public class UIResult : CmnMonoBehaviour
     protected override void FixedUpdate()
     {
         // プレイヤーのアニメーションが終わったら
-        if (resultPlayerAnimator.IsEnd && !isShowAd)
+        if (resultPlayerAnimator.IsEnd && scoreCountUpper.IsEnd && !isShowAd)
         {
             // インタースティシャルか動画広告表示
             Invoke("ShowAd", showAdTime);
+
+            // 連続で表示しないようにする表示フラグを立てて、ボタンを表示
+            isShowAd = true;
         }
 
         // 動画広告を見終わったらシーンを切り替える
@@ -140,10 +146,8 @@ public class UIResult : CmnMonoBehaviour
     /// </summary>
     void ShowAd()
     {
+        // 広告を表示したらボタンを出す
         AdManager.Inst.ShowResultAd();
-
-        // 連続で表示しないようにする表示フラグを立てて、ボタンを表示
-        isShowAd = true;
         buttons.SetActive(true);
     }
 
