@@ -3,9 +3,9 @@
 /// </summary>
 public class SeID
 {
+    public const string Start          = "StartSE";             // ゲームスタート
+    public const string Select         = "SelectSE";            // セレクト
     public const string Tap            = "TapSE";               // タップ
-    public const string Select         = "SelectSE";            // 決定
-    public const string WindowOpen     = "WindowOpenSE";        // ウィンドウ開く
     public const string Cancel         = "CancelSE";            // キャンセル
     public const string PunchSwing     = "PunchSwingSE";        // 素振り
     public const string FastMoveFront  = "FastMoveFrontSE";     // 瞬間移動

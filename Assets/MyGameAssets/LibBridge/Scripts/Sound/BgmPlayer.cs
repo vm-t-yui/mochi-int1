@@ -89,6 +89,8 @@ namespace VMUnityLib
         /// <param name="fadeTime">フェードにかかる時間</param>
         public void FadeIn(float fadeTime)
         {
+            isResult = false;
+
             // ミュート時は処理を抜ける
             if (GameDataManager.Inst.SettingData.IsBgmMute) { return; }
 
