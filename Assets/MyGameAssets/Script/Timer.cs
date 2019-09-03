@@ -14,7 +14,7 @@ public class Timer : MonoBehaviour
     [SerializeField]
     FeverTimeController feverTime = default;               // フィーバータイム管理クラス
     [SerializeField]
-    Slider slider = default;
+    Slider slider = default;                               // タイマーのゲージ
 
     [SerializeField]
     float gameTime    = 0;                                 // ゲーム内の秒数
@@ -100,7 +100,9 @@ public class Timer : MonoBehaviour
         // ゲーム内制限時間カウントダウン
         else
         {
+            // 経過時間に応じてゲージを増やす
             slider.value = (1 / gameTime) * (gameTime - CountTime);
+
             // 制限時間が指定時間を下回ったら警告アニメーション再生
             if (CountTime <= AlertTime)
             {
@@ -159,18 +161,15 @@ public class Timer : MonoBehaviour
                 animator.SetBool("IsCountDown", false);
             }
             // ゲーム内制限時間のカウントダウンならタイムアップ
-            else
+            else if (!IsTimeup)
             {
-                if (!IsTimeup)
-                {
-                    animator.SetBool("IsTimeLimit", false);
-                    animator.SetTrigger("IsTimeUp");
-                    timer.text = "Time UP";
-                    IsTimeup = true;
+                animator.SetBool("IsTimeLimit", false);
+                animator.SetTrigger("IsTimeUp");
+                timer.text = "Time UP";
+                IsTimeup = true;
 
-                    // スコアのセーブ
-                    ScoreManager.Inst.Save();
-                }
+                // スコアのセーブ
+                ScoreManager.Inst.Save();
             }
         }
     }
