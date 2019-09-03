@@ -17,7 +17,6 @@ namespace VMUnityLib
         AudioSource pauseBGM   = new AudioSource();    // 一時停止中のBGM
 
         bool isResult       = false;                   // リザルトフラグ
-        bool isPlayedResult = false;                   // リザルトBGM再生完了フラグ
 
         /// <summary>
         /// 再生.
