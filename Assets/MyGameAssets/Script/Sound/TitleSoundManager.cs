@@ -21,16 +21,16 @@ public class TitleSoundManager : MonoBehaviour
     void Awake()
     {
         // 各ボタンにSE再生処理を追加
-        // 決定音再生ボタン
+        // スタート音再生ボタン
         foreach (var item in selectSeButtons)
         {
-            item.onClick.AddListener(() => SePlayer.Inst.PlaySe(SeID.Select));
+            item.onClick.AddListener(() => SePlayer.Inst.PlaySe(SeID.Start));
             item.onClick.AddListener(() => BgmPlayer.Inst.FadeOut(1f));
         }
-        // ウィンドウオープン音再生ボタン
+        // セレクト音再生ボタン
         foreach (var item in windowOpenSeButtons)
         {
-            item.onClick.AddListener(() => SePlayer.Inst.PlaySe(SeID.WindowOpen));
+            item.onClick.AddListener(() => SePlayer.Inst.PlaySe(SeID.Select));
         }
         // キャンセル音再生ボタン
         foreach (var item in cancelSeButtons)
