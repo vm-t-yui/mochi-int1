@@ -426,7 +426,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_material: {fileID: 0}
   m_sharedMaterial: {fileID: 0}
@@ -1254,7 +1254,7 @@ PrefabInstance:
     - target: {fileID: 2280855884742481145, guid: d431dbda496d2da449943000743e3d8f,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -19.999939
+      value: -19.999878
       objectReference: {fileID: 0}
     - target: {fileID: 2280855884742481145, guid: d431dbda496d2da449943000743e3d8f,
         type: 3}
@@ -1274,7 +1274,7 @@ PrefabInstance:
     - target: {fileID: 2280855884502345411, guid: d431dbda496d2da449943000743e3d8f,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -19.999939
+      value: -19.999878
       objectReference: {fileID: 0}
     - target: {fileID: 2280855884502345411, guid: d431dbda496d2da449943000743e3d8f,
         type: 3}
@@ -1294,7 +1294,7 @@ PrefabInstance:
     - target: {fileID: 2280855885113183125, guid: d431dbda496d2da449943000743e3d8f,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -19.999939
+      value: -19.999878
       objectReference: {fileID: 0}
     - target: {fileID: 2280855885113183125, guid: d431dbda496d2da449943000743e3d8f,
         type: 3}

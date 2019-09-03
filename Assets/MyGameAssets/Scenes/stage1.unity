@@ -4081,21 +4081,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main
       objectReference: {fileID: 0}
-    - target: {fileID: 6495794515219645673, guid: 07ec3564d426a43d380ffd2521cb580d,
-        type: 3}
-      propertyPath: feverTimeController
-      value: 
-      objectReference: {fileID: 333409356}
-    - target: {fileID: 6495794515219645673, guid: 07ec3564d426a43d380ffd2521cb580d,
-        type: 3}
-      propertyPath: playerTransform
-      value: 
-      objectReference: {fileID: 582405134}
-    - target: {fileID: 6495794515219645673, guid: 07ec3564d426a43d380ffd2521cb580d,
-        type: 3}
-      propertyPath: targetCamera
-      value: 
-      objectReference: {fileID: 1790435632}
     - target: {fileID: 1149858039092524443, guid: 07ec3564d426a43d380ffd2521cb580d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4201,51 +4186,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1149858037699277920, guid: 07ec3564d426a43d380ffd2521cb580d,
-        type: 3}
-      propertyPath: feverTime
-      value: 
-      objectReference: {fileID: 333409356}
-    - target: {fileID: 2368730561296628984, guid: 07ec3564d426a43d380ffd2521cb580d,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2368730561296628984, guid: 07ec3564d426a43d380ffd2521cb580d,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2368730560636694052, guid: 07ec3564d426a43d380ffd2521cb580d,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1149858037699277981, guid: 07ec3564d426a43d380ffd2521cb580d,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 237
-      objectReference: {fileID: 0}
-    - target: {fileID: 1149858038292067442, guid: 07ec3564d426a43d380ffd2521cb580d,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -300
-      objectReference: {fileID: 0}
-    - target: {fileID: 1176046006810580543, guid: 07ec3564d426a43d380ffd2521cb580d,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -19.999878
-      objectReference: {fileID: 0}
-    - target: {fileID: 1176046006902389609, guid: 07ec3564d426a43d380ffd2521cb580d,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -19.999878
-      objectReference: {fileID: 0}
-    - target: {fileID: 1176046006501270533, guid: 07ec3564d426a43d380ffd2521cb580d,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -19.999878
-      objectReference: {fileID: 0}
     - target: {fileID: 1566552061, guid: 07ec3564d426a43d380ffd2521cb580d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -4254,35 +4194,5 @@ PrefabInstance:
       propertyPath: feverTime
       value: 
       objectReference: {fileID: 333409356}
-    - target: {fileID: 803827600, guid: 07ec3564d426a43d380ffd2521cb580d, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 803827600, guid: 07ec3564d426a43d380ffd2521cb580d, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 803827600, guid: 07ec3564d426a43d380ffd2521cb580d, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 803827600, guid: 07ec3564d426a43d380ffd2521cb580d, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 803827600, guid: 07ec3564d426a43d380ffd2521cb580d, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 803827602, guid: 07ec3564d426a43d380ffd2521cb580d, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
-        type: 2}
-    - target: {fileID: 803827602, guid: 07ec3564d426a43d380ffd2521cb580d, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4294967295
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8744385455377539120, guid: 07ec3564d426a43d380ffd2521cb580d, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07ec3564d426a43d380ffd2521cb580d, type: 3}
