@@ -61,7 +61,7 @@ public class FeverTimeActiveGaugeController : MonoBehaviour
         GaugeCurrentAmount -= gaugeDecrement * Time.deltaTime;
 
         // ゲージが０になったら、終了
-        if ((int)GaugeCurrentAmount < 0)
+        if (feverTimeController.CurrentFeverTimeCount < 0)
         {
             enabled = false;
         }

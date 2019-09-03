@@ -10,7 +10,7 @@ public class FeverTimeController : MonoBehaviour
 {
     [SerializeField]
     MainCameraAnimator mainCameraAnim = default;          // メインカメラアニメーター
-
+    
     [SerializeField]
     float maxFeverTimeCount = 0;                          // フィーバータイムの最大時間
     // フィーバータイムの最大値を取得
@@ -21,7 +21,8 @@ public class FeverTimeController : MonoBehaviour
     [SerializeField]
     float ReturnBgmFadeTime = 1.2f;                       // メインBGMに戻すときのフェードにかかる時間
 
-    float currentFeverTimeCount = 0;                      // フィーバータイムの継続時間
+    public float CurrentFeverTimeCount { get; private set; } = 0;                      // フィーバータイムの継続時間
+    
 
     public bool IsFever { get; private set; } = default;  // フィーバーフラグ
 
@@ -31,7 +32,7 @@ public class FeverTimeController : MonoBehaviour
     void OnEnable()
     {
         // フィーバータイムを最大時間で初期化
-        currentFeverTimeCount = maxFeverTimeCount;
+        CurrentFeverTimeCount = maxFeverTimeCount;
 
         // フィーバータイム開始
         IsFever = true;
@@ -47,10 +48,10 @@ public class FeverTimeController : MonoBehaviour
     void Update()
     {
         // カウントダウン
-        currentFeverTimeCount -= Time.deltaTime;
+        CurrentFeverTimeCount -= Time.deltaTime;
 
         // カウントダウンが終わったらスクリプトを停止して終了
-        if (currentFeverTimeCount < 0)
+        if (CurrentFeverTimeCount < 0)
         {
             enabled = false;
         }

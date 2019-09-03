@@ -46,4 +46,24 @@ public class TowerObjectDataManager : SingletonMonoBehaviour<TowerObjectDataMana
         RabbitRarityDataManager = new IdentifiedDataManager<RabbitRarityData>(rabbitRarityDataPath);
         RabbitRarityDataManager.LoadData();
     }
+
+    /// <summary>
+    /// ウサギの番号からデータを取得
+    /// </summary>
+    /// <param name="number">取得するウサギの番号</param>
+    /// <returns></returns>
+    public RabbitData GetRabbitDataFromNumber(int number)
+    {
+        foreach(RabbitData rabbitData in RabbitDataManager.GetAllData())
+        {
+            // 引数の番号と一致するウサギを探す
+            if (rabbitData.Number == number)
+            {
+                // 見つけたら、そのウサギのデータを返す
+                return rabbitData;
+            }
+        }
+        // 見つからなかったらnullを返す
+        return null;
+    }
 }

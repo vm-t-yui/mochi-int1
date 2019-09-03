@@ -12,6 +12,16 @@ public class RabbitPictureBookFlagSwitcher : SingletonMonoBehaviour<RabbitPictur
     [SerializeField]
     TowerObjectDataManager towerObjectDataManager = default;
 
+    // 新しく救出したウサギ
+    List<RabbitData> newRescuedRabbits = new List<RabbitData>();
+    public IReadOnlyList<RabbitData> NewRescuedRabbits
+    {
+        get
+        {
+            return newRescuedRabbits;
+        }
+    }
+    
     // 救出されたウサギの番号
     List<int> rescuedRabbitNumbers = new List<int>();
     public IReadOnlyList<int> RescuedRabbitNumbers
@@ -63,8 +73,20 @@ public class RabbitPictureBookFlagSwitcher : SingletonMonoBehaviour<RabbitPictur
             if (!isReleasedRabbits[rabbitNumber])
             {
                 isReleasedRabbits[rabbitNumber] = true;
+                // ウサギの番号からデータを取得
+                RabbitData rabbitData = towerObjectDataManager.GetRabbitDataFromNumber(rabbitNumber);
+                // 新しく救出したウサギとしてリストに登録
+                newRescuedRabbits.Add(rabbitData);
             }
         }
+    }
+
+    /// <summary>
+    /// 新しく救出したウサギのデータを削除する
+    /// </summary>
+    public void ClearNewRescuedRabbitData()
+    {
+        newRescuedRabbits.Clear();
     }
 
     /// <summary>

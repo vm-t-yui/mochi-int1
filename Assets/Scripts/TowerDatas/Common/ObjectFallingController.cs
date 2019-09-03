@@ -146,9 +146,9 @@ public class ObjectFallingController : MonoBehaviour
     /// </summary>
     void OnDisable()
     {
-        // 一番下のオブジェクトの名前をnullでリセット
         prevBottomObjectName = null;
-        // 落下終了位置を０でリセット
         bottomObjectFallEndPosition = Vector3.zero;
+        IsFalling = false;
+        bottomObject = null;
     }
 }
