@@ -33,18 +33,6 @@ public class ResultPlayerAnimator : SingletonMonoBehaviour<ResultPlayerAnimator>
     {
         // 終了フラグリセット
         IsEnd = false;
-
-        // 開始時にリザルト状態に応じたアニメーションを再生
-        if (!resultJunction.isJunction)
-        {
-            // 良い時
-            playerAnim.SetTrigger("Result");
-        }
-        else
-        {
-            // 悪い時
-            playerAnim.SetTrigger("ButResult");
-        }
     }
 
     /// <summary>
@@ -58,6 +46,21 @@ public class ResultPlayerAnimator : SingletonMonoBehaviour<ResultPlayerAnimator>
         {
             case (int)AnimKind.Title: playerAnim.SetTrigger("Title"); break;
             case (int)AnimKind.Main: playerAnim.SetTrigger("Main"); break;
+            case (int)AnimKind.Result:
+
+                // 開始時にリザルト状態に応じたアニメーションを再生
+                if (!resultJunction.IsJunction)
+                {
+                    // 良い時
+                    playerAnim.SetTrigger("Result");
+                }
+                else
+                {
+                    // 悪い時
+                    playerAnim.SetTrigger("ButResult");
+                }
+                break;
+
             case (int)AnimKind.ScoreResult:
 
                 // スコアに応じたアニメーション

@@ -15,38 +15,67 @@ public class ResultJunction : MonoBehaviour
         Lenght,     // enumの長さ
     }
 
-    public bool isJunction { get; private set; } = false;               // 分岐フラグ
+    [SerializeField]
+    ResultPlayerAnimator playerAnim = default;
 
     [SerializeField]
     GameObject[] resultObject = new GameObject[(int)ResultKind.Lenght]; // それぞれのリザルトのオブジェクト
+
+    [SerializeField]
+    GameObject[] brokenRabbit = default;                                // 骨折したうさぎたち
+
+    public bool IsJunction { get; private set; } = false;               // 分岐フラグ
 
     /// <summary>
     /// 起動処理
     /// </summary>
     void OnEnable()
     {
+        // 骨折うさぎを非表示
+        brokenRabbit[0].SetActive(false);
+        brokenRabbit[1].SetActive(false);
+
         // うさぎを殴った回数が３回以上なら分岐させる
         if (GameDataManager.Inst.PlayData.PunchCount >= 3)
         {
-            isJunction = true;
-        }
-        else
-        {
-            isJunction = false;
-        }
-
-        // リザルトの分岐状態に応じた処理
-        if (!isJunction)
-        {
             // 良い時
-            resultObject[(int)ResultKind.Good].SetActive(true);
-            resultObject[(int)ResultKind.But].SetActive(false);
+            GoodResult();
+            IsJunction = true;
         }
         else
         {
             // 悪い時
-            resultObject[(int)ResultKind.Good].SetActive(false);
-            resultObject[(int)ResultKind.But].SetActive(true);
+            ButResult();
+            IsJunction = false;
         }
+
+        // リザルトアニメーション開始
+        playerAnim.AnimStart((int)ResultPlayerAnimator.AnimKind.Result);
+    }
+
+    /// <summary>
+    /// 良いリザルト用
+    /// </summary>
+    void GoodResult()
+    {
+        // オブジェクトを表示
+        resultObject[(int)ResultKind.Good].SetActive(true);
+        resultObject[(int)ResultKind.But].SetActive(false);
+
+        // うさぎが殴られた回数に応じて骨折うさぎを表示
+        for(int i = 0; i < GameDataManager.Inst.PlayData.PunchCount; i++)
+        {
+            brokenRabbit[i].SetActive(true);
+        }
+    }
+
+    /// <summary>
+    /// 悪いリザルト用
+    /// </summary>
+    void ButResult()
+    {
+        // オブジェクト表示
+        resultObject[(int)ResultKind.Good].SetActive(false);
+        resultObject[(int)ResultKind.But].SetActive(true);
     }
 }
