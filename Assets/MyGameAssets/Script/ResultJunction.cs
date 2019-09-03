@@ -38,14 +38,14 @@ public class ResultJunction : MonoBehaviour
         // うさぎを殴った回数が３回以上なら分岐させる
         if (GameDataManager.Inst.PlayData.PunchCount >= 3)
         {
-            // 良い時
-            GoodResult();
+            // 悪い時
+            ButResult();
             IsJunction = true;
         }
         else
         {
-            // 悪い時
-            ButResult();
+            // 良い時
+            GoodResult();
             IsJunction = false;
         }
 

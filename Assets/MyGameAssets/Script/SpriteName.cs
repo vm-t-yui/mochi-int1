@@ -29,4 +29,5 @@ public class SpriteName
     public const string NormalScoreMochi = "normalScoreMochi";
     public const string GoodScoreMochi = "goodScoreMochi";
     public const string VeryGoodScoreMochi = "veryGoodScoreMochi";
+    public const string Timer = "timer";
 }

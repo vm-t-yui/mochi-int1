@@ -119,7 +119,7 @@ public sealed class UITitle : CmnMonoBehaviour
     /// </summary>
     public void ShowBanner()
     {
-        AdManager.Inst.ShowBanner((int)AdBannerController.BANNER.BOTTOM);
+        AdManager.Inst.ShowBanner((int)AdBannerController.BANNER.TOP);
     }
 
     /// <summary>
