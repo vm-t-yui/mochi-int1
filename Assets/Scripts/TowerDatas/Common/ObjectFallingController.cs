@@ -43,7 +43,7 @@ public class ObjectFallingController : MonoBehaviour
     /// <summary>
     /// 開始
     /// </summary>
-    void Start()
+    void OnEnable()
     {
         // オブジェクトのスポーン間隔の幅を落下移動距離として取得
         fallDistance = towerObjectSpawner.SpawnHeightInterval;
@@ -133,9 +133,9 @@ public class ObjectFallingController : MonoBehaviour
     /// </summary>
     void OnDisable()
     {
-        // 一番下のオブジェクトの名前をnullでリセット
         prevBottomObjectName = null;
-        // 落下終了位置を０でリセット
         bottomObjectFallEndPosition = Vector3.zero;
+        IsFalling = false;
+        bottomObject = null;
     }
 }

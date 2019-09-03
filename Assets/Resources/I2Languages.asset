@@ -95,20 +95,7 @@ MonoBehaviour:
       - Rec'd Apps
       Flags: 00000000000000
       Languages_Touch: []
-    - Term: Rabbit/Normal
-      TermType: 0
-      Description: 
-      Languages:
-      - "\u3046\u3055\u304E"
-      - Rabbit
-      - Hase
-      - Coniglio
-      - Lapin
-      - "\u5154"
-      - Conejo
-      Flags: 00000000000000
-      Languages_Touch: []
-    - Term: Rabbit/Black
+    - Term: Rabbit/BlackRabbit
       TermType: 0
       Description: 
       Languages:
@@ -121,293 +108,20 @@ MonoBehaviour:
       - Conejo negro
       Flags: 00000000000000
       Languages_Touch: []
-    - Term: Rabbit/Rabi Red
+    - Term: Rabbit/NormalRabbit
       TermType: 0
       Description: 
       Languages:
-      - "\u30E9\u30D3\u30EC\u30C3\u30C9"
-      - Rabi Red
-      - Rabi Red
-      - Rabi Red
-      - Rabi Red
-      - Rabi Red
-      - Rabi Red
+      - "\u3046\u3055\u304E"
+      - Rabbit
+      - Hase
+      - Coniglio
+      - Lapin
+      - "\u5154"
+      - Conejo
       Flags: 00000000000000
       Languages_Touch: []
-    - Term: Rabbit/Rabi Blue
-      TermType: 0
-      Description: 
-      Languages:
-      - "\u30E9\u30D3\u30D6\u30EB\u30FC"
-      - Rabi Blue
-      - Rabi Blue
-      - Rabi Blue
-      - Rabi Blue
-      - Rabi Blue
-      - Rabi Blue
-      Flags: 00000000000000
-      Languages_Touch: []
-    - Term: Rabbit/Rabi Yellow
-      TermType: 0
-      Description: 
-      Languages:
-      - "\u30E9\u30D3\u30A4\u30A8\u30ED\u30FC"
-      - Rabi Yellow
-      - Rabi Yellow
-      - Rabi Yellow
-      - Rabi Yellow
-      - Rabi Yellow
-      - Rabi Yellow
-      Flags: 00000000000000
-      Languages_Touch: []
-    - Term: Rabbit/Rabi Green
-      TermType: 0
-      Description: 
-      Languages:
-      - "\u30E9\u30D3\u30B0\u30EA\u30FC\u30F3"
-      - Rabi Green
-      - Rabi Green
-      - Rabi Green
-      - Rabi Green
-      - Rabi Green
-      - Rabi Green
-      Flags: 00000000000000
-      Languages_Touch: []
-    - Term: Rabbit/Rabi Pink
-      TermType: 0
-      Description: 
-      Languages:
-      - "\u30E9\u30D3\u30D4\u30F3\u30AF"
-      - Rabi Pink
-      - Rabi Pink
-      - Rabi Pink
-      - Rabi Pink
-      - Rabi Pink
-      - Rabi Pink
-      Flags: 00000000000000
-      Languages_Touch: []
-    - Term: Rabbit/Office worker
-      TermType: 0
-      Description: 
-      Languages:
-      - "\u30EA\u30FC\u30DE\u30F3\u3046\u3055\u304E"
-      - Office worker rabbit
-      - "B\xFCroangestellter Kaninchen"
-      - Coniglio impiegato
-      - "Lapin employ\xE9 de bureau"
-      - "\u4E0A\u73ED\u65CF\u5154"
-      - Empleado de oficina conejo
-      Flags: 00000000000000
-      Languages_Touch: []
-    - Term: Rabbit/Kagami-mochi
-      TermType: 0
-      Description: 
-      Languages:
-      - "\u93E1\u3082\u3061\u3046\u3055\u304E"
-      - Kagami-mochi rabbit
-      - Kagami-mochi rabbit
-      - Kagami-mochi rabbit
-      - Kagami-mochi rabbit
-      - Kagami-mochi rabbit
-      - Kagami-mochi rabbit
-      Flags: 00000000000000
-      Languages_Touch: []
-    - Term: Rabbit/Sumo
-      TermType: 0
-      Description: 
-      Languages:
-      - "\u529B\u58EB\u3046\u3055\u304E"
-      - Wrestler rabbit
-      - Wrestler-Kaninchen
-      - Coniglio da lottatore
-      - Lapin lutteur
-      - "\u6454\u8DE4\u5154"
-      - Luchador conejo
-      Flags: 00000000000000
-      Languages_Touch: []
-    - Term: Rabbit/Wood
-      TermType: 0
-      Description: 
-      Languages:
-      - "\u6728\u5F6B\u308A\u306E\u3046\u3055\u304E"
-      - Wood carving rabbit
-      - Holzschnitzerei Kaninchen
-      - Coniglio intaglio del legno
-      - Lapin de sculpture sur bois
-      - "\u6728\u96D5\u5154"
-      - Conejo tallado en madera
-      Flags: 00000000000000
-      Languages_Touch: []
-    - Term: Rabbit/Samurai
-      TermType: 0
-      Description: 
-      Languages:
-      - "\u6B66\u8005\u3046\u3055\u304E"
-      - Samurai rabbit
-      - Samurai-Kaninchen
-      - Samurai Rabbit
-      - "Samoura\xEF lapin"
-      - "\u6B66\u58EB\u5154"
-      - Conejo samurai
-      Flags: 00000000000000
-      Languages_Touch: []
-    - Term: Rabbit/Boss
-      TermType: 0
-      Description: 
-      Languages:
-      - "\u7D44\u9577"
-      - Boss
-      - Boss
-      - Capo
-      - Patron
-      - "\u8001\u677F"
-      - Jefe
-      Flags: 00000000000000
-      Languages_Touch: []
-    - Term: Rabbit/Unko
-      TermType: 0
-      Description: 
-      Languages:
-      - "\u30C1\u30E7\u30B3\u30BD\u30D5\u30C8\u2026\uFF1F"
-      - "Chocolate soft cream\u2026?"
-      - "Schokoladencreme\u2026?"
-      - "Crema al cioccolato\u2026\uFF1F"
-      - "Cr\xE8me molle au chocolat\u2026\uFF1F"
-      - "\u5DE7\u514B\u529B\u8F6F\u5976\u6CB9\u2026\uFF1F"
-      - "Crema suave de chocolate\u2026\uFF1F"
-      Flags: 00000000000000
-      Languages_Touch: []
-    - Term: Rabbit/Diamond
-      TermType: 0
-      Description: 
-      Languages:
-      - "\u30C0\u30A4\u30A2\u30E2\u30F3\u30C9\u306E\u3046\u3055\u304E"
-      - Diamond rabbit
-      - Diamant-Hase
-      - Coniglio diamante
-      - Lapin diamant
-      - "\u94BB\u77F3\u5154"
-      - Conejo diamante
-      Flags: 00000000000000
-      Languages_Touch: []
-    - Term: Rabbit/Mechanical
-      TermType: 0
-      Description: 
-      Languages:
-      - "\u30E1\u30AB\u3046\u3055\u304E"
-      - Mechanical rabbit
-      - Mechanisches Kaninchen
-      - Coniglio meccanico
-      - "Lapin m\xE9canique"
-      - "\u673A\u68B0\u5154"
-      - "Conejo mec\xE1nico"
-      Flags: 00000000000000
-      Languages_Touch: []
-    - Term: Rabbit/Zombie
-      TermType: 0
-      Description: 
-      Languages:
-      - "\u30BE\u30F3\u30D3\u3046\u3055\u304E"
-      - Zombie rabbit
-      - Zombie-Kaninchen
-      - Coniglio Zombi
-      - Lapin zombie
-      - "\u50F5\u5C38\u5154"
-      - Conejo zombie
-      Flags: 00000000000000
-      Languages_Touch: []
-    - Term: Rabbit/Ghost
-      TermType: 0
-      Description: 
-      Languages:
-      - "\u3086\u3046\u308C\u3044\u3046\u3055\u304E"
-      - Ghost rabbit
-      - Geisterhase
-      - Coniglio fantasma
-      - "Lapin fant\xF4me"
-      - "\u9B3C\u5154"
-      - Conejo fantasma
-      Flags: 00000000000000
-      Languages_Touch: []
-    - Term: Rabbit/Zarigan
-      TermType: 0
-      Description: 
-      Languages:
-      - "\u30B6\u30EA\u30AC\u30F3\u3046\u3055\u304E"
-      - Zarigan rabbit
-      - Zarigan rabbit
-      - Zarigan rabbit
-      - Zarigan rabbit
-      - Zarigan rabbit
-      - Zarigan rabbit
-      Flags: 00000000000000
-      Languages_Touch: []
-    - Term: Rabbit/Space
-      TermType: 0
-      Description: 
-      Languages:
-      - "\u30B9\u30DA\u30FC\u30B9\u30E9\u30D3\u30C3\u30C8"
-      - Space rabbit
-      - Space Rabbit
-      - Coniglio spaziale
-      - Lapin de l'espace
-      - "\u592A\u7A7A\u5154"
-      - Conejo espacial
-      Flags: 00000000000000
-      Languages_Touch: []
-    - Term: Rabbit/Golgo
-      TermType: 0
-      Description: 
-      Languages:
-      - "\u514E \u5341\u4E09\u90CE"
-      - Usagi Jusaburo
-      - Usagi Jusaburo
-      - Usagi Jusaburo
-      - Usagi Jusaburo
-      - Usagi Jusaburo
-      - Usagi Jusaburo
-      Flags: 00000000000000
-      Languages_Touch: []
-    - Term: Rabbit/Maid
-      TermType: 0
-      Description: 
-      Languages:
-      - "\u30E1\u30A4\u30C9\u3046\u3055\u304E"
-      - Maid rabbit
-      - Magd Kaninchen
-      - Maid Rabbit
-      - "Lapin de m\xE9nage"
-      - "\u4F63\u4EBA\u5154"
-      - Criada conejo
-      Flags: 00000000000000
-      Languages_Touch: []
-    - Term: Rabbit/RabiMan
-      TermType: 0
-      Description: 
-      Languages:
-      - "\u30E9\u30D3\u30DE\u30F3"
-      - Rabi-Man
-      - Rabi-Man
-      - Rabi-Man
-      - Rabi-Man
-      - Rabi-Man
-      - Rabi-Man
-      Flags: 00000000000000
-      Languages_Touch: []
-    - Term: Rabbit/Joyson
-      TermType: 0
-      Description: 
-      Languages:
-      - "\u30B8\u30E7\u30A4\u30BD\u30F3"
-      - Joyson
-      - Joyson
-      - Joyson
-      - Joyson
-      - Joyson
-      - Joyson
-      Flags: 00000000000000
-      Languages_Touch: []
-    - Term: Rabbit/NormalText
+    - Term: Rabbit/NormalRabbitText
       TermType: 0
       Description: 
       Languages:
@@ -421,7 +135,7 @@ MonoBehaviour:
       - "Un conejo blanco que habita en la luna.\r\nSu comida favorita es el mochi."
       Flags: 00000000000000
       Languages_Touch: []
-    - Term: Rabbit/BlackText
+    - Term: Rabbit/BlackRabbitText
       TermType: 0
       Description: 
       Languages:
@@ -439,7 +153,20 @@ MonoBehaviour:
         grueso mejor que la pasta de frijol dulce suave."
       Flags: 00000000000000
       Languages_Touch: []
-    - Term: Rabbit/Office workerText
+    - Term: Rabbit/LehmanRabbit
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u30EA\u30FC\u30DE\u30F3\u3046\u3055\u304E"
+      - Office worker rabbit
+      - "B\xFCroangestellter Kaninchen"
+      - Coniglio impiegato
+      - "Lapin employ\xE9 de bureau"
+      - "\u4E0A\u73ED\u65CF\u5154"
+      - Empleado de oficina conejo
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/LehmanRabbitText
       TermType: 0
       Description: 
       Languages:
@@ -456,7 +183,20 @@ MonoBehaviour:
         excelente vendedor."
       Flags: 00000000000000
       Languages_Touch: []
-    - Term: Rabbit/SumoText
+    - Term: Rabbit/SumouRabbit
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u529B\u58EB\u3046\u3055\u304E"
+      - Wrestler rabbit
+      - Wrestler-Kaninchen
+      - Coniglio da lottatore
+      - Lapin lutteur
+      - "\u6454\u8DE4\u5154"
+      - Luchador conejo
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/SumouRabbitText
       TermType: 0
       Description: 
       Languages:
@@ -475,7 +215,20 @@ MonoBehaviour:
         nabe sino zoni."
       Flags: 00000000000000
       Languages_Touch: []
-    - Term: Rabbit/WoodText
+    - Term: Rabbit/WoodRabbit
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u6728\u5F6B\u308A\u306E\u3046\u3055\u304E"
+      - Wood carving rabbit
+      - Holzschnitzerei Kaninchen
+      - Coniglio intaglio del legno
+      - Lapin de sculpture sur bois
+      - "\u6728\u96D5\u5154"
+      - Conejo tallado en madera
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/WoodRabbitText
       TermType: 0
       Description: 
       Languages:
@@ -490,7 +243,20 @@ MonoBehaviour:
       - "Un conejo de madera sagrada.\r\nSe le dio vida por la bendici\xF3n de Dios."
       Flags: 00000000000000
       Languages_Touch: []
-    - Term: Rabbit/JoysonText
+    - Term: Rabbit/JoysonRabbit
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u30B8\u30E7\u30A4\u30BD\u30F3"
+      - Joyson
+      - Joyson
+      - Joyson
+      - Joyson
+      - Joyson
+      - Joyson
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/JoysonRabbitText
       TermType: 0
       Description: 
       Languages:
@@ -506,7 +272,20 @@ MonoBehaviour:
         sorprendente."
       Flags: 00000000000000
       Languages_Touch: []
-    - Term: Rabbit/ZombieText
+    - Term: Rabbit/ZombieRabbit
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u30BE\u30F3\u30D3\u3046\u3055\u304E"
+      - Zombie rabbit
+      - Zombie-Kaninchen
+      - Coniglio Zombi
+      - Lapin zombie
+      - "\u50F5\u5C38\u5154"
+      - Conejo zombie
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/ZombieRabbitText
       TermType: 0
       Description: 
       Languages:
@@ -524,7 +303,20 @@ MonoBehaviour:
         compa\xF1\xEDa.\r\nEs inofensivo porque solo muerde mochi."
       Flags: 00000000000000
       Languages_Touch: []
-    - Term: Rabbit/GhostText
+    - Term: Rabbit/GhostRabbit
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u3086\u3046\u308C\u3044\u3046\u3055\u304E"
+      - Ghost rabbit
+      - Geisterhase
+      - Coniglio fantasma
+      - "Lapin fant\xF4me"
+      - "\u9B3C\u5154"
+      - Conejo fantasma
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/GhostRabbitText
       TermType: 0
       Description: 
       Languages:
@@ -542,7 +334,20 @@ MonoBehaviour:
         comer mochi."
       Flags: 00000000000000
       Languages_Touch: []
-    - Term: Rabbit/SpaceText
+    - Term: Rabbit/SpaceRabbit
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u30B9\u30DA\u30FC\u30B9\u30E9\u30D3\u30C3\u30C8"
+      - Space rabbit
+      - Space Rabbit
+      - Coniglio spaziale
+      - Lapin de l'espace
+      - "\u592A\u7A7A\u5154"
+      - Conejo espacial
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/SpaceRabbitText
       TermType: 0
       Description: 
       Languages:
@@ -560,7 +365,20 @@ MonoBehaviour:
         de un astronauta que vino de la Tierra."
       Flags: 00000000000000
       Languages_Touch: []
-    - Term: Rabbit/Rabi RedText
+    - Term: Rabbit/RedRabbit
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u30E9\u30D3\u30EC\u30C3\u30C9"
+      - Rabi Red
+      - Rabi Red
+      - Rabi Red
+      - Rabi Red
+      - Rabi Red
+      - Rabi Red
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/RedRabbitText
       TermType: 0
       Description: 
       Languages:
@@ -578,7 +396,20 @@ MonoBehaviour:
         a los amigos."
       Flags: 00000000000000
       Languages_Touch: []
-    - Term: Rabbit/Rabi BlueText
+    - Term: Rabbit/BlueRabbit
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u30E9\u30D3\u30D6\u30EB\u30FC"
+      - Rabi Blue
+      - Rabi Blue
+      - Rabi Blue
+      - Rabi Blue
+      - Rabi Blue
+      - Rabi Blue
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/BlueRabbitText
       TermType: 0
       Description: 
       Languages:
@@ -596,7 +427,20 @@ MonoBehaviour:
         extra\xF1a."
       Flags: 00000000000000
       Languages_Touch: []
-    - Term: Rabbit/Rabi YellowText
+    - Term: Rabbit/YellowRabbit
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u30E9\u30D3\u30A4\u30A8\u30ED\u30FC"
+      - Rabi Yellow
+      - Rabi Yellow
+      - Rabi Yellow
+      - Rabi Yellow
+      - Rabi Yellow
+      - Rabi Yellow
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/YellowRabbitText
       TermType: 0
       Description: 
       Languages:
@@ -611,7 +455,20 @@ MonoBehaviour:
         de la gula."
       Flags: 00000000000000
       Languages_Touch: []
-    - Term: Rabbit/Rabi GreenText
+    - Term: Rabbit/GreenRabbit
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u30E9\u30D3\u30B0\u30EA\u30FC\u30F3"
+      - Rabi Green
+      - Rabi Green
+      - Rabi Green
+      - Rabi Green
+      - Rabi Green
+      - Rabi Green
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/GreenRabbitText
       TermType: 0
       Description: 
       Languages:
@@ -629,7 +486,20 @@ MonoBehaviour:
         siempre no posa."
       Flags: 00000000000000
       Languages_Touch: []
-    - Term: Rabbit/Rabi PinkText
+    - Term: Rabbit/PinkRabbit
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u30E9\u30D3\u30D4\u30F3\u30AF"
+      - Rabi Pink
+      - Rabi Pink
+      - Rabi Pink
+      - Rabi Pink
+      - Rabi Pink
+      - Rabi Pink
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/PinkRabbitText
       TermType: 0
       Description: 
       Languages:
@@ -642,7 +512,20 @@ MonoBehaviour:
       - "Alborotador de power ranger conejo.\r\nElla siempre tiene problemas."
       Flags: 00000000000000
       Languages_Touch: []
-    - Term: Rabbit/MechanicalText
+    - Term: Rabbit/MechaRabbit
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u30E1\u30AB\u3046\u3055\u304E"
+      - Mechanical rabbit
+      - Mechanisches Kaninchen
+      - Coniglio meccanico
+      - "Lapin m\xE9canique"
+      - "\u673A\u68B0\u5154"
+      - "Conejo mec\xE1nico"
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/MechaRabbitText
       TermType: 0
       Description: 
       Languages:
@@ -655,7 +538,20 @@ MonoBehaviour:
       - "La obra maestra de Panamochic Inc.\r\nPuede hacer 10,000 mochi al d\xEDa."
       Flags: 00000000000000
       Languages_Touch: []
-    - Term: Rabbit/ZariganText
+    - Term: Rabbit/ZariganRabbit
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u30B6\u30EA\u30AC\u30F3\u3046\u3055\u304E"
+      - Zarigan rabbit
+      - Zarigan rabbit
+      - Zarigan rabbit
+      - Zarigan rabbit
+      - Zarigan rabbit
+      - Zarigan rabbit
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/ZariganRabbitText
       TermType: 0
       Description: 
       Languages:
@@ -671,7 +567,20 @@ MonoBehaviour:
       - "Un conejo que anhela una organizaci\xF3n malvada.\r\n\"El arroz es ... \xA1alimento!\""
       Flags: 00000000000000
       Languages_Touch: []
-    - Term: Rabbit/Kagami-mochiText
+    - Term: Rabbit/KagamimochiRabbit
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u93E1\u3082\u3061\u3046\u3055\u304E"
+      - Kagami-mochi rabbit
+      - Kagami-mochi rabbit
+      - Kagami-mochi rabbit
+      - Kagami-mochi rabbit
+      - Kagami-mochi rabbit
+      - Kagami-mochi rabbit
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/KagamimochiRabbitText
       TermType: 0
       Description: 
       Languages:
@@ -689,7 +598,20 @@ MonoBehaviour:
         confortable."
       Flags: 00000000000000
       Languages_Touch: []
-    - Term: Rabbit/SamuraiText
+    - Term: Rabbit/WarriorRabbit
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u6B66\u8005\u3046\u3055\u304E"
+      - Samurai rabbit
+      - Samurai-Kaninchen
+      - Samurai Rabbit
+      - "Samoura\xEF lapin"
+      - "\u6B66\u58EB\u5154"
+      - Conejo samurai
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/WarriorRabbitText
       TermType: 0
       Description: 
       Languages:
@@ -707,7 +629,20 @@ MonoBehaviour:
         convertirse en el espadach\xEDn m\xE1s fuerte."
       Flags: 00000000000000
       Languages_Touch: []
-    - Term: Rabbit/UnkoText
+    - Term: Rabbit/ChocosoftRabbit
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u30C1\u30E7\u30B3\u30BD\u30D5\u30C8\u2026\uFF1F"
+      - "Chocolate soft cream\u2026?"
+      - "Schokoladencreme\u2026?"
+      - "Crema al cioccolato\u2026\uFF1F"
+      - "Cr\xE8me molle au chocolat\u2026\uFF1F"
+      - "\u5DE7\u514B\u529B\u8F6F\u5976\u6CB9\u2026\uFF1F"
+      - "Crema suave de chocolate\u2026\uFF1F"
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/ChocosoftRabbitText
       TermType: 0
       Description: 
       Languages:
@@ -725,7 +660,47 @@ MonoBehaviour:
         chocolate."
       Flags: 00000000000000
       Languages_Touch: []
-    - Term: Rabbit/BossText
+    - Term: Rabbit/DiamondRabbit
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u30C0\u30A4\u30A2\u30E2\u30F3\u30C9\u306E\u3046\u3055\u304E"
+      - Diamond rabbit
+      - Diamant-Hase
+      - Coniglio diamante
+      - Lapin diamant
+      - "\u94BB\u77F3\u5154"
+      - Conejo diamante
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/DiamondRabbitText
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u30C0\u30A4\u30E4\u30E2\u30F3\u30C9\u3067\u3067\u304D\u305F\u3046\u3055\u304E\u3002\r\n\u3068\u3066\u3082\u8B66\u6212\u5FC3\u304C\u5F37\u304F\u3001\u306A\u304B\u306A\u304B\u4EBA\u524D\u306B\u73FE\u308C\u306A\u3044\u3002"
+      - "A rabbit made of diamonds.\r\nHe is very vigilant and does not appear easily."
+      - "Ein Kaninchen aus Diamanten.\r\nEr ist sehr wachsam und erscheint nicht leicht."
+      - "Un coniglio fatto di diamanti.\r\n\xC8 molto vigile e non appare facilmente."
+      - "Un lapin fait de diamants.\r\nIl est tr\xE8s vigilant et n'appara\xEEt pas
+        facilement."
+      - "\u4E00\u53EA\u7531\u94BB\u77F3\u5236\u6210\u7684\u5154\u3002\r\n\u4ED6\u975E\u5E38\u8B66\u60D5\u5E76\u4E14\u4E0D\u5BB9\u6613\u51FA\u73B0\u3002"
+      - "Un conejo hecho de diamantes.\r\nEs muy vigilante y no aparece f\xE1cilmente."
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/BossRabbit
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u7D44\u9577"
+      - Boss
+      - Boss
+      - Capo
+      - Patron
+      - "\u8001\u677F"
+      - Jefe
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/BossRabbitText
       TermType: 0
       Description: 
       Languages:
@@ -743,21 +718,20 @@ MonoBehaviour:
         coman mochi deliciosamente."
       Flags: 00000000000000
       Languages_Touch: []
-    - Term: Rabbit/DiamondText
+    - Term: Rabbit/JusaburoRabbit
       TermType: 0
       Description: 
       Languages:
-      - "\u30C0\u30A4\u30E4\u30E2\u30F3\u30C9\u3067\u3067\u304D\u305F\u3046\u3055\u304E\u3002\r\n\u3068\u3066\u3082\u8B66\u6212\u5FC3\u304C\u5F37\u304F\u3001\u306A\u304B\u306A\u304B\u4EBA\u524D\u306B\u73FE\u308C\u306A\u3044\u3002"
-      - "A rabbit made of diamonds.\r\nHe is very vigilant and does not appear easily."
-      - "Ein Kaninchen aus Diamanten.\r\nEr ist sehr wachsam und erscheint nicht leicht."
-      - "Un coniglio fatto di diamanti.\r\n\xC8 molto vigile e non appare facilmente."
-      - "Un lapin fait de diamants.\r\nIl est tr\xE8s vigilant et n'appara\xEEt pas
-        facilement."
-      - "\u4E00\u53EA\u7531\u94BB\u77F3\u5236\u6210\u7684\u5154\u3002\r\n\u4ED6\u975E\u5E38\u8B66\u60D5\u5E76\u4E14\u4E0D\u5BB9\u6613\u51FA\u73B0\u3002"
-      - "Un conejo hecho de diamantes.\r\nEs muy vigilante y no aparece f\xE1cilmente."
+      - "\u514E \u5341\u4E09\u90CE"
+      - Usagi Jusaburo
+      - Usagi Jusaburo
+      - Usagi Jusaburo
+      - Usagi Jusaburo
+      - Usagi Jusaburo
+      - Usagi Jusaburo
       Flags: 00000000000000
       Languages_Touch: []
-    - Term: Rabbit/GolgoText
+    - Term: Rabbit/JusaburoRabbitText
       TermType: 0
       Description: 
       Languages:
@@ -772,7 +746,48 @@ MonoBehaviour:
         festival."
       Flags: 00000000000000
       Languages_Touch: []
-    - Term: Rabbit/MaidText
+    - Term: Rabbit/OjisanRabbit
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u30E9\u30D3\u304A\u3058"
+      - Older man rabbit
+      - "Kaninchen des \xE4lteren Mannes"
+      - Coniglio uomo anziano
+      - "Lapin homme plus \xE2g\xE9"
+      - "\u8001\u7537\u4EBA\u7684\u5154"
+      - Conejo hombre mayor
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/OjisanRabbitText
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u3046\u3055\u304E\u306E\u304A\u3063\u3055\u3093\u3002\r\n\u8179\u5DFB\u306B\u306F\u5922\u3068\u5E0C\u671B\u304C\u8A70\u307E\u3063\u3066\u3044\u308B\u3002"
+      - "A rabbit like an uncle.\r\nHis stomach band is packed with dreams and hopes."
+      - "Ein Kaninchen wie ein Onkel.\r\nSein Bauchband ist voller Tr\xE4ume und Hoffnungen."
+      - "Un coniglio come uno zio.\r\nLa sua fascia di stomaco \xE8 piena di sogni
+        e speranze."
+      - "Un lapin comme un oncle.\r\nSon ventre est rempli de r\xEAves et d\u2019espoirs."
+      - "\u50CF\u53D4\u53D4\u4E00\u6837\u7684\u5154\u3002\r\n\u4ED6\u7684\u80C3\u5E26\u5145\u6EE1\u4E86\u68A6\u60F3\u548C\u5E0C\u671B\u3002"
+      - "Un conejo como un t\xEDo.\r\nSu banda del est\xF3mago est\xE1 llena de sue\xF1os
+        y esperanzas."
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/MaidRabbit
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u30E1\u30A4\u30C9\u3046\u3055\u304E"
+      - Maid rabbit
+      - Magd Kaninchen
+      - Maid Rabbit
+      - "Lapin de m\xE9nage"
+      - "\u4F63\u4EBA\u5154"
+      - Criada conejo
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/MaidRabbitText
       TermType: 0
       Description: 
       Languages:
@@ -790,7 +805,20 @@ MonoBehaviour:
         realmente asustada si est\xE1 enojada."
       Flags: 00000000000000
       Languages_Touch: []
-    - Term: Rabbit/RabiManText
+    - Term: Rabbit/RabbitMan
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u30E9\u30D3\u30DE\u30F3"
+      - Rabi-Man
+      - Rabi-Man
+      - Rabi-Man
+      - Rabi-Man
+      - Rabi-Man
+      - Rabi-Man
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Rabbit/RabbitManText
       TermType: 0
       Description: 
       Languages:
@@ -806,34 +834,6 @@ MonoBehaviour:
       - "\u4E00\u53EA\u5154\u5B50\u6E34\u671BMochi-man\u3002\r\n\u4ED6\u7A7F\u7684\u624B\u5957\u662F\u4ED6\u5728Mochi-man\u63E1\u624B\u4F1A\u4E0A\u5F97\u5230\u7684\u90A3\u4E2A\u3002"
       - "Un conejo largo para el hombre Mochi\r\nEl guante que usa es el que obtuvo
         en la reuni\xF3n de apret\xF3n de manos de Mochi-man."
-      Flags: 00000000000000
-      Languages_Touch: []
-    - Term: Rabbit/RabiOji
-      TermType: 0
-      Description: 
-      Languages:
-      - "\u30E9\u30D3\u304A\u3058"
-      - Older man rabbit
-      - "Kaninchen des \xE4lteren Mannes"
-      - Coniglio uomo anziano
-      - "Lapin homme plus \xE2g\xE9"
-      - "\u8001\u7537\u4EBA\u7684\u5154"
-      - Conejo hombre mayor
-      Flags: 00000000000000
-      Languages_Touch: []
-    - Term: Rabbit/RabiOjiText
-      TermType: 0
-      Description: 
-      Languages:
-      - "\u3046\u3055\u304E\u306E\u304A\u3063\u3055\u3093\u3002\r\n\u8179\u5DFB\u306B\u306F\u5922\u3068\u5E0C\u671B\u304C\u8A70\u307E\u3063\u3066\u3044\u308B\u3002"
-      - "A rabbit like an uncle.\r\nHis stomach band is packed with dreams and hopes."
-      - "Ein Kaninchen wie ein Onkel.\r\nSein Bauchband ist voller Tr\xE4ume und Hoffnungen."
-      - "Un coniglio come uno zio.\r\nLa sua fascia di stomaco \xE8 piena di sogni
-        e speranze."
-      - "Un lapin comme un oncle.\r\nSon ventre est rempli de r\xEAves et d\u2019espoirs."
-      - "\u50CF\u53D4\u53D4\u4E00\u6837\u7684\u5154\u3002\r\n\u4ED6\u7684\u80C3\u5E26\u5145\u6EE1\u4E86\u68A6\u60F3\u548C\u5E0C\u671B\u3002"
-      - "Un conejo como un t\xEDo.\r\nSu banda del est\xF3mago est\xE1 llena de sue\xF1os
-        y esperanzas."
       Flags: 00000000000000
       Languages_Touch: []
     CaseInsensitiveTerms: 0

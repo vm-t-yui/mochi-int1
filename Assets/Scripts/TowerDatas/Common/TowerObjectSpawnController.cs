@@ -54,10 +54,5 @@ public class TowerObjectSpawnController : MonoBehaviour
                 GameDataManager.Inst.PlayData.IsReward = false;
             }
         }
-
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            GameObject.Find("TowerObject").GetComponent<TowerBreakController>().ReplaceRabbitObject(true);
-        }
     }
 }
