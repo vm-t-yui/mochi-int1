@@ -89,8 +89,6 @@ namespace VMUnityLib
         /// <param name="fadeTime">フェードにかかる時間</param>
         public void FadeIn(float fadeTime)
         {
-            isResult = false;
-
             // ミュート時は処理を抜ける
             if (GameDataManager.Inst.SettingData.IsBgmMute) { return; }
 
@@ -203,6 +201,8 @@ namespace VMUnityLib
         /// </summary>
         public void StopBgm()
         {
+            isResult = false;
+
             // 再生中でなければ処理を抜ける
             if (!spawnedBgm.isPlaying) { return; }
 
@@ -223,14 +223,12 @@ namespace VMUnityLib
             if (isResult)
             {
                 // ジングルが終了したら
-                if (!spawnedBgm.isPlaying && !isPlayedResult)
+                if (!spawnedBgm.isPlaying)
                 {
                     StopBgm();
 
                     // リザルトBGMを再生
                     PlayBgm(BgmID.Result);
-
-                    isPlayedResult = true;
                 }
             }
         }
