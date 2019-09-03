@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 /// <summary>
 /// タイマークラス
@@ -12,6 +13,8 @@ public class Timer : MonoBehaviour
     TextMeshProUGUI timer    = default;                    // タイマー用テキスト
     [SerializeField]
     FeverTimeController feverTime = default;               // フィーバータイム管理クラス
+    [SerializeField]
+    Slider slider = default;                               // タイマーのゲージ
 
     [SerializeField]
     float gameTime    = 0;                                 // ゲーム内の秒数
@@ -22,7 +25,7 @@ public class Timer : MonoBehaviour
 
     public float CountTime { get; private set; } = 0;      // 計測用変数
 
-    const float AlertTime = 3.0f;                         // タイムリミット迫り演出開始時間
+    const float AlertTime = 3.0f;                          // タイムリミット迫り演出開始時間
 
     bool isAble = false;                                   // 処理許可フラグ
 
@@ -37,6 +40,8 @@ public class Timer : MonoBehaviour
     void OnEnable()
     {
         isAble = false;
+
+        slider.value = 0;
     }
 
     /// <summary>
@@ -83,20 +88,20 @@ public class Timer : MonoBehaviour
         // カウントダウン
         CountTime -= Time.deltaTime;
 
+        // 表示
+        timer.text = ((int)CountTime + 1).ToString();
+
         // ゲームスタートまでのカウントダウン
         if (!IsStart)
         {
-            // 表示
-            timer.text = ((int)CountTime + 1).ToString();
-
             // カウントダウンが終わったらゲーム開始
             FinishCountDown();
         }
         // ゲーム内制限時間カウントダウン
         else
         {
-            // 小数点第2位まで表示
-            timer.text = CountTime.ToString("f2");
+            // 経過時間に応じてゲージを増やす
+            slider.value = (1 / gameTime) * (gameTime - CountTime);
 
             // 制限時間が指定時間を下回ったら警告アニメーション再生
             if (CountTime <= AlertTime)
@@ -156,10 +161,11 @@ public class Timer : MonoBehaviour
                 animator.SetBool("IsCountDown", false);
             }
             // ゲーム内制限時間のカウントダウンならタイムアップ
-            else
+            else if (!IsTimeup)
             {
-                timer.text = "Time UP";
                 animator.SetBool("IsTimeLimit", false);
+                animator.SetTrigger("IsTimeUp");
+                timer.text = "Time UP";
                 IsTimeup = true;
 
                 // スコアのセーブ

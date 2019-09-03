@@ -55,7 +55,8 @@ SpriteAtlas:
     - {fileID: 2800000, guid: 0647bb0dbe154428eb23bc4ebbedb1c7, type: 3}
     - {fileID: 2800000, guid: 5edb95e7b21bc41e48d298b4c7cb5036, type: 3}
     - {fileID: 2800000, guid: 21756ce1d7db342f8bbfc9eddd7182c5, type: 3}
-    totalSpriteSurfaceArea: 4475648
+    - {fileID: 2800000, guid: ea4c107270268414bb2bcb31c37f318c, type: 3}
+    totalSpriteSurfaceArea: 4541184
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -63,6 +64,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: f3e52741ac89d3c41ae38aa68d29906a, type: 3}
   - {fileID: 21300000, guid: 5ab1e55191dc68a4e8476fd0d703cf2b, type: 3}
   - {fileID: 21300000, guid: 21756ce1d7db342f8bbfc9eddd7182c5, type: 3}
+  - {fileID: 21300000, guid: ea4c107270268414bb2bcb31c37f318c, type: 3}
   - {fileID: 21300000, guid: a5cc1df4ac093214abb5cb0ba85cf1a0, type: 3}
   - {fileID: 21300000, guid: da4148055d94547b4abecb0b53a94fa1, type: 3}
   - {fileID: 21300000, guid: 0bf684a6813a0d044aef82eb17898ddc, type: 3}
@@ -89,6 +91,7 @@ SpriteAtlas:
   - pictureBook
   - volume
   - veryGoodScoreMochi
+  - timer
   - rabbitGallery
   - skin
   - setting
