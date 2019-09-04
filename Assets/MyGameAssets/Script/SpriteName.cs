@@ -5,6 +5,7 @@
 public class SpriteName
 {
     public const string TitleLogo = "";
+    public const string MenuButton = "menu";
     public const string PictureBookButton = "pictureBook";
     public const string SettingButton = "setting";
     public const string LeaderboardButton = "leaderboard";
@@ -30,4 +31,5 @@ public class SpriteName
     public const string GoodScoreMochi = "goodScoreMochi";
     public const string VeryGoodScoreMochi = "veryGoodScoreMochi";
     public const string Timer = "timer";
+    public const string Window = "window";
 }

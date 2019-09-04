@@ -22,9 +22,7 @@ public class ResultSpriteSetter : MonoBehaviour
     [SerializeField]
     Image[] memo = default;      // うさぎ図鑑用メモ
     [SerializeField]
-    Image[] buttons = default;      // ボタン自体のスプライト
-    [SerializeField]
-    Image[] wood = default;      // ウィンドウ用木目
+    Image[] window = default;    // ウィンドウ     
     [SerializeField]
     Image[] scoreMochi = default;      // カウントアップ時にスコアに応じて増減するもち
 
@@ -59,17 +57,14 @@ public class ResultSpriteSetter : MonoBehaviour
         SetRaritySprite(rarity4, SpriteName.Rarity4);
         SetRaritySprite(rarity5, SpriteName.Rarity5);
 
-        for (int i = 0; i < buttons.Length; i++)
+        for (int i = 0; i < window.Length; i++)
         {
-            buttons[i].sprite = atlas.GetSprite(SpriteName.NormalMochi);
+            window[i].sprite = atlas.GetSprite(SpriteName.Window);
         }
+
         for (int i = 0; i < memo.Length; i++)
         {
             memo[i].sprite = atlas.GetSprite(SpriteName.Memo);
-        }
-        for (int i = 0; i < wood.Length; i++)
-        {
-            wood[i].sprite = atlas.GetSprite(SpriteName.Wood);
         }
     }
 

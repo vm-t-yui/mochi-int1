@@ -11,6 +11,8 @@ public class TitleSpriteSetter : MonoBehaviour
     SpriteAtlas atlas       = default;    // スプライトアトラス
 
     [SerializeField]
+    Image[] menuButton      = default;    // メニューロゴ
+    [SerializeField]
     Image titleLogo         = default;    // タイトルロゴ
     [SerializeField]
     Image pictureBookButton = default;    // 図鑑ボタン
@@ -30,11 +32,9 @@ public class TitleSpriteSetter : MonoBehaviour
     Image dish              = default;    // スキン画面用お皿
     [SerializeField]
     Image[] memo            = default;    // メモ
-    [SerializeField]
-    Image[] buttons         = default;    // ボタン自体のスプライト
 
     [SerializeField]
-    Image[] wood        　　 = default;    // ウィンドウ用木目
+    Image[] window          = default;    // ウィンドウ     
 
     [SerializeField]
     Image   rarity0         = default;    // 非解放用レアリティ
@@ -65,17 +65,20 @@ public class TitleSpriteSetter : MonoBehaviour
         SetRaritySprite(rarity3, SpriteName.Rarity3);
         SetRaritySprite(rarity4, SpriteName.Rarity4);
         SetRaritySprite(rarity5, SpriteName.Rarity5);
-        for (int i = 0; i < buttons.Length; i++)
+
+        for (int i = 0; i < menuButton.Length; i++)
         {
-            buttons[i].sprite = atlas.GetSprite(SpriteName.NormalMochi);
+            menuButton[i].sprite = atlas.GetSprite(SpriteName.MenuButton);
         }
+
+        for (int i = 0; i < window.Length; i++)
+        {
+            window[i].sprite = atlas.GetSprite(SpriteName.Window);
+        }
+
         for (int i = 0; i < memo.Length; i++)
         {
             memo[i].sprite = atlas.GetSprite(SpriteName.Memo);
-        }
-        for (int i = 0; i < wood.Length; i++)
-        {
-            wood[i].sprite = atlas.GetSprite(SpriteName.Wood);
         }
     }
 
