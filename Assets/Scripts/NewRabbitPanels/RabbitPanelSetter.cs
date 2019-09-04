@@ -11,6 +11,10 @@ public class RabbitPanelSetter : MonoBehaviour
     [SerializeField]
     Transform sourceRabbitPanelParent = default;
 
+    // パネルをセットするオブジェクトの親
+    [SerializeField]
+    Transform setedRabbitPanelParent = default;
+
     // 横方向のパネルの数
     [SerializeField]
     int horizontalPanelNum = 0;
@@ -36,7 +40,7 @@ public class RabbitPanelSetter : MonoBehaviour
             // ウサギの名前からリザルトのパネルを取得
             Transform panel = sourceRabbitPanelParent.Find(rabbit.Id);
             // 取得したパネルの親オブジェクトを変更してセットする
-            panel.SetParent(transform.GetChild(setPanelRowNum));
+            panel.SetParent(setedRabbitPanelParent.GetChild(setPanelRowNum));
             // セットしたパネルをオンにする
             panel.gameObject.SetActive(true);
             // セットしたパネルをリストに追加
