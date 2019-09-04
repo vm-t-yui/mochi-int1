@@ -512,6 +512,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1080134910}
     m_Modifications:
+    - target: {fileID: 6560399705807217421, guid: b504b33812ff544f1ac2b51128ececcb,
+        type: 3}
+      propertyPath: m_Name
+      value: Map
+      objectReference: {fileID: 0}
     - target: {fileID: 8905905394379126084, guid: b504b33812ff544f1ac2b51128ececcb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -566,11 +571,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6560399705807217421, guid: b504b33812ff544f1ac2b51128ececcb,
-        type: 3}
-      propertyPath: m_Name
-      value: Map
       objectReference: {fileID: 0}
     - target: {fileID: 2135677823, guid: b504b33812ff544f1ac2b51128ececcb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4186,13 +4186,13 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1566552061, guid: 07ec3564d426a43d380ffd2521cb580d, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1774318203, guid: 07ec3564d426a43d380ffd2521cb580d, type: 3}
       propertyPath: feverTime
       value: 
       objectReference: {fileID: 333409356}
+    - target: {fileID: 1566552061, guid: 07ec3564d426a43d380ffd2521cb580d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07ec3564d426a43d380ffd2521cb580d, type: 3}

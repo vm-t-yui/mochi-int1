@@ -11,6 +11,9 @@ public class MainSpriteSetter : MonoBehaviour
     Image mochi = default;          // もち
 
     [SerializeField]
+    Image window = default;         // ウィンドウ
+
+    [SerializeField]
     Image timer = default;          // タイマー
 
     [SerializeField]
@@ -24,6 +27,7 @@ public class MainSpriteSetter : MonoBehaviour
         // 各スプライトをアタッチ
         mochi.sprite = atlas.GetSprite(SpriteName.NormalMochi);
         timer.sprite = atlas.GetSprite(SpriteName.Timer);
+        window.sprite = atlas.GetSprite(SpriteName.Window);
 
         for (int i = 0; i < galley.Length; i++)
         {

@@ -431,7 +431,7 @@ MonoBehaviour:
   m_material: {fileID: 0}
   m_sharedMaterial: {fileID: 0}
   m_isDefaultMaterial: 0
-  m_padding: 2.843
+  m_padding: 0
   m_canvasRenderer: {fileID: 1542134600}
   m_TextComponent: {fileID: 1149858038130341725}
   m_materialReferenceIndex: 1
@@ -679,7 +679,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.9372549, b: 0.8352941, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -845,8 +845,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4279453067
+  m_fontColor: {r: 0.54509807, g: 0.27058825, b: 0.07450981, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1000,7 +1000,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.6668439, b: 0.0047169924, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1070,6 +1070,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   atlas: {fileID: 4343727234628468602, guid: 5504ccb97c6ed44478f9aac6b0e57a13, type: 2}
   mochi: {fileID: 1149858038079219736}
+  window: {fileID: 1149858038292067436}
   timer: {fileID: 1205218004}
   galley:
   - {fileID: 1176046006810580541}
