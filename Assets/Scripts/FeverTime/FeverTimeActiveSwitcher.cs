@@ -39,9 +39,6 @@ public class FeverTimeActiveSwitcher : MonoBehaviour
     /// </summary>
     void Update()
     {
-        // ゲージの表示位置を更新
-        feverTimeActiveGaugeController.UpdateGaugePos();
-
         // ゲージが溜まったら
         if (feverTimeActiveGaugeController.GaugeCurrentAmount >=
             feverTimeActiveGaugeController.GaugeAmountMax)

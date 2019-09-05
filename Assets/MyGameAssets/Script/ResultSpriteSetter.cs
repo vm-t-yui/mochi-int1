@@ -8,32 +8,32 @@ using UnityEngine.UI;
 public class ResultSpriteSetter : MonoBehaviour
 {
     [SerializeField]
-    SpriteAtlas atlas = default;      // スプライトアトラス
+    SpriteAtlas atlas = default;        // スプライトアトラス
 
     [SerializeField]
-    Image pictureBookButton = default;      // 図鑑ボタン
+    Image pictureBookButton = default;  // 図鑑ボタン
     [SerializeField]
-    Image leaderboardButton = default;      // リーダーボードボタン
+    Image leaderboardButton = default;  // リーダーボードボタン
     [SerializeField]
-    Image shareButton = default;      // 共有ボタン
+    Image shareButton = default;        // 共有ボタン
     [SerializeField]
-    Image page = default;      // ノート
+    Image page = default;               // ノート
 
     [SerializeField]
-    Image[] memo = default;      // うさぎ図鑑用メモ
+    Image[] memo = default;             // うさぎ図鑑用メモ
     [SerializeField]
-    Image[] window = default;    // ウィンドウ     
+    Image[] window = default;           // ウィンドウ     
     [SerializeField]
-    Image[] scoreMochi = default;      // カウントアップ時にスコアに応じて増減するもち
+    Image[] scoreMochi = default;       // カウントアップ時にスコアに応じて増減するもち
 
     [SerializeField]
-    Image rarity0 = default;      // 非解放用レアリティ
+    Image rarity0 = default;            // 非解放用レアリティ
     [SerializeField]
-    Image[] rarity1 = default,      // ★１群
-            rarity2 = default,      // ★２群
-            rarity3 = default,      // ★３群
-            rarity4 = default,      // ★４群
-            rarity5 = default;      // ★５群
+    Image[] rarity1 = default,          // ★１群
+            rarity2 = default,          // ★２群
+            rarity3 = default,          // ★３群
+            rarity4 = default,          // ★４群
+            rarity5 = default;          // ★５群
 
     /// <summary>
     /// 起動処理.
