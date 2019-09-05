@@ -21,7 +21,7 @@ public class SettingDataManager : MonoBehaviour
     TMP_Dropdown LanguageSelect = default;    // 使用言語切替ドロップダウン
 
     [SerializeField]
-    Text     UseSkin            = default;    // 使用中の餅スキン表示テキスト
+    TextMeshProUGUI UseSkin     = default;    // 使用中の餅スキン表示テキスト
 
     /// <summary>
     /// 起動処理

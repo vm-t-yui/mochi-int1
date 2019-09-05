@@ -8,13 +8,13 @@ using UnityEngine.UI;
 /// </summary>
 public class FeverTimeActiveGaugeController : MonoBehaviour
 {
-    // ゲージ
+    // フィーバーゲージ
     [SerializeField]
     Slider activeGauge = default;
 
-    // ゲージのトランスフォーム
+    // タイマーのゲージ
     [SerializeField]
-    RectTransform gaugeTransform = default;
+    Slider timerGauge = default;
 
     // フィーバータイムコントローラー
     [SerializeField]
@@ -23,14 +23,6 @@ public class FeverTimeActiveGaugeController : MonoBehaviour
     // プレイヤー
     [SerializeField]
     Transform playerTransform = default;
-
-    // ゲージの表示位置オフセット
-    [SerializeField]
-    Vector3 gaugePosOffset = Vector3.zero;
-
-    // カメラ
-    [SerializeField]
-    Camera targetCamera = default;
 
     // ゲージの最大量
     [SerializeField]
@@ -45,24 +37,32 @@ public class FeverTimeActiveGaugeController : MonoBehaviour
     public float GaugeCurrentAmount { get; private set; } = 0;
 
     /// <summary>
+    /// 起動処理
+    /// </summary>
+    void OnEnable()
+    {
+        // タイマーゲージに表示を切り替えるためフィーバーゲージ非表示に
+        activeGauge.enabled = false;
+    }
+
+    /// <summary>
     /// 更新
     /// </summary>
     void Update()
     {
-        // ゲージの表示位置を更新
-        UpdateGaugePos();
-
-        // ゲージの現在と最大の量からスライダーの値を計算
-        activeGauge.value = (1.0f * (GaugeCurrentAmount / gaugeAmountMax));
+        // フィーバータイムの残り時間をタイマーゲージにセット
+        // NOTE: ゲージの現在と最大の量からスライダーの値を計算し、それを引くことによって残り時間を出しています。
+        timerGauge.value = 1 - (1.0f * (GaugeCurrentAmount / gaugeAmountMax));
 
         // ゲージ減算量を計算
         float gaugeDecrement = gaugeAmountMax / feverTimeController.MaxFeverTimeCount;
         // ゲージを減らしていく
         GaugeCurrentAmount -= gaugeDecrement * Time.deltaTime;
 
-        // ゲージが０になったら、終了
+        // ゲージが０になったら、フィーバーゲージを出してフィーバータイム終了
         if (feverTimeController.CurrentFeverTimeCount < 0)
         {
+            activeGauge.enabled = true;
             enabled = false;
         }
     }
@@ -82,17 +82,6 @@ public class FeverTimeActiveGaugeController : MonoBehaviour
             // （ゲージの現在と最大の量からスライダーの値を計算）
             activeGauge.value = (1.0f * (GaugeCurrentAmount / gaugeAmountMax));
         }
-    }
-
-    /// <summary>
-    /// ゲージの表示位置を更新
-    /// </summary>
-    public void UpdateGaugePos()
-    {
-        // プレイヤーにオフセット値を加えたものをスクリーン座標に変換
-        Vector3 playerScreenPos = targetCamera.WorldToScreenPoint(playerTransform.position + gaugePosOffset);
-        //変換したものをゲージの表示位置にする
-        gaugeTransform.position = playerScreenPos;
     }
 
     /// <summary>

@@ -136,13 +136,14 @@ public class Timer : MonoBehaviour
 		if (feverTime.IsFever && !isStop)
 		{
 			isStop = true;
-			timer.enabled = false;
-		}
+            animator.SetBool("IsFever", true);
+            timer.text = "Fever!!!";
+        }
 		else if (!feverTime.IsFever && isStop)
 		{
 			isStop = false;
-			timer.enabled = true;
-		}
+            animator.SetBool("IsFever", false);
+        }
 	}
 
     /// <summary>

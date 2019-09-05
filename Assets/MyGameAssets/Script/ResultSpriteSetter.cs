@@ -17,7 +17,7 @@ public class ResultSpriteSetter : MonoBehaviour
     [SerializeField]
     Image shareButton = default;      // 共有ボタン
     [SerializeField]
-    Image page = default;      // ノート
+    Image page = default;               // ノート
 
     [SerializeField]
     Image[] memo = default;      // うさぎ図鑑用メモ
