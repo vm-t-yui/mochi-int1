@@ -8,16 +8,16 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
     [SerializeField]
-    Animator        animator = default;                    // アニメーター
+    Animator animator = default;                    // アニメーター
     [SerializeField]
-    TextMeshProUGUI timer    = default;                    // タイマー用テキスト
+    TextMeshProUGUI timer = default;                    // タイマー用テキスト
     [SerializeField]
     FeverTimeController feverTime = default;               // フィーバータイム管理クラス
     [SerializeField]
     Slider slider = default;                               // タイマーのゲージ
 
     [SerializeField]
-    float gameTime    = 0;                                 // ゲーム内の秒数
+    float gameTime = 0;                                 // ゲーム内の秒数
     [SerializeField]
     float plusSeconds = 0;                                 // プラスする秒数
 
@@ -30,7 +30,7 @@ public class Timer : MonoBehaviour
     bool isAble = false;                                   // 処理許可フラグ
 
     public bool IsTimeup { get; private set; } = false;    // タイムアップフラグ
-    public bool IsStart  { get; private set; } = false;    // ゲームスタートまでのカウントダウンフラグ
+    public bool IsStart { get; private set; } = false;    // ゲームスタートまでのカウントダウンフラグ
 
     bool isStop = false;                                   // タイマーストップフラグ
 
@@ -127,24 +127,24 @@ public class Timer : MonoBehaviour
         IsTimeup = false;
     }
 
-	/// <summary>
-	/// フィーバータイム時の処理
-	/// </summary>
-	void FeverTimeTimer()
-	{
-		// フィーバータイム中はタイマーをストップ、終わればリスタート
-		if (feverTime.IsFever && !isStop)
-		{
-			isStop = true;
+    /// <summary>
+    /// フィーバータイム時の処理
+    /// </summary>
+    void FeverTimeTimer()
+    {
+        // フィーバータイム中はタイマーをストップ、終わればリスタート
+        if (feverTime.IsFever && !isStop)
+        {
+            isStop = true;
             animator.SetBool("IsFever", true);
             timer.text = "Fever!!!";
         }
-		else if (!feverTime.IsFever && isStop)
-		{
-			isStop = false;
+        else if (!feverTime.IsFever && isStop)
+        {
+            isStop = false;
             animator.SetBool("IsFever", false);
         }
-	}
+    }
 
     /// <summary>
     /// それぞれのカウントダウンが終わった時の処理
