@@ -16,37 +16,34 @@ public class TouchController : MonoBehaviour
         Lenght      // enumの長さ
     }
 
-    Touch touch = default;                                      // 入力のクラス
+    Touch touch = default;                                  // 入力のクラス
 
     [SerializeField]
-    PlayerController player = default;                          // プレイヤークラス
+    PlayerController player = default;                      // プレイヤークラス
 
     [SerializeField]
-    Timer timer = default;                                      // タイマークラス
+    Timer timer = default;                                  // タイマークラス
 
     [SerializeField]
-    ObjectFallingController objectFallingController = default;  // オブジェクトの落下制御クラス
+    float swipeSensitivity = 0;                             // スワイプの感度
 
     [SerializeField]
-    float swipeSensitivity = 0;                                 // スワイプの感度
+    int maxJudgeCount = 0;                                  // ジャッジ処理の最大カウント
 
-    [SerializeField]
-    int maxJudgeCount = 0;                                      // ジャッジ処理の最大カウント
+    int nowJudgeCount = 0;                                  // ジャッジ処理の経過カウント
 
-    int nowJudgeCount = 0;                                      // ジャッジ処理の経過カウント
-
-    bool isInputJudge = false;                                  // タッチかスワイプかを判断する開始フラグ
-    bool[] isInput = new bool[(int)InputKind.Lenght];           // 判断中のどちらの入力が入ったかを入れるフラグ
-    bool isTouch = false;                                       // タッチフラグ
-    bool isSwipe = false;                                       // スワイプフラグ
+    bool isInputJudge = false;                              // タッチかスワイプかを判断する開始フラグ
+    bool[] isInput = new bool[(int)InputKind.Lenght];       // 判断中のどちらの入力が入ったかを入れるフラグ
+    bool isTouch = false;                                   // タッチフラグ
+    bool isSwipe = false;                                   // スワイプフラグ
 
     /// <summary>
     /// 更新処理
     /// </summary>
     void Update()
     {
-        // 入力できる状態で入力を受けたら入力情報を取得し、入力処理のジャッジに移行
-        if (Input.touchCount == 1 && timer.IsStart && !isInputJudge && !objectFallingController.IsFalling)
+        // 入力を受けたら入力情報を取得し、入力処理のジャッジに移行
+        if (Input.touchCount == 1 && timer.IsStart && !isInputJudge)
         {
             touch = Input.GetTouch(0);
 
