@@ -16,8 +16,8 @@ public sealed class RabbitData : BaseData
     // ウサギの出現率
     [SerializeField]
     [Range(0,100)]
-    int spawnRate = 0;
+    float spawnRate = 0;
 
     public int        Number { get { return number; } }
-    public int        SpawnRate    { get { return spawnRate;    } }
+    public float      SpawnRate    { get { return spawnRate;    } }
 }

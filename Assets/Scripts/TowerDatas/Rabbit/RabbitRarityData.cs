@@ -12,13 +12,13 @@ public sealed class RabbitRarityData : BaseData
     // レアリティの抽選率
     [SerializeField]
     [Range(0,100)]
-    int lotteryRate = 0;
+    float lotteryRate = 0;
 
     // レアリティに属しているウサギのIDリスト
     [SerializeField]
     List<string> rabbitIds = default;
 
-    public int                 LotteryRate   { get { return lotteryRate; } }
+    public float               LotteryRate   { get { return lotteryRate; } }
     public IEnumerable<string> RabbitIds
     {
         get
