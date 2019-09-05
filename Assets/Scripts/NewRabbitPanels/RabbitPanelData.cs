@@ -9,6 +9,10 @@ using I2.Loc;
 /// </summary>
 public class RabbitPanelData : MonoBehaviour
 {
+    // ウサギの名前のローカライズデータ
+    [SerializeField]
+    Localize rabbitNameLocalize = default;
+
     // レアリティのスプライト
     [SerializeField]
     Sprite raritySprite = default;
@@ -16,16 +20,11 @@ public class RabbitPanelData : MonoBehaviour
     // レアリティの星のイメージ
     Image rarityImage = default;
 
-    // ウサギの名前のローカライズデータ
-    Localize rabbitNameLocalize = default;
-
     /// <summary>
     /// 開始
     /// </summary>
     void Start()
     {
-        // ローカライズデータを取得
-        rabbitNameLocalize = transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Localize>();
         // ウサギごとに名前のローカライズをセットする
         rabbitNameLocalize.SetTerm("Rabbit/" + name);
 
