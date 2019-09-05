@@ -2852,8 +2852,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 582405132}
   timer: {fileID: 1474329050}
-  objectFallingController: {fileID: 1069323593}
-  swipeSensitivity: 5
+  swipeSensitivity: 7.5
   maxJudgeCount: 5
 --- !u!4 &1046922540
 Transform:
@@ -3206,18 +3205,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eada0ae74e0b0cc4f8aaece4ddf602ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1069323593 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8573013637784283682, guid: 34e60736b952eee4dba2263ecaaa2597,
-    type: 3}
-  m_PrefabInstance: {fileID: 1069323589}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f4ea9be9e2a98f419e5e2110e54d548, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1080134909
