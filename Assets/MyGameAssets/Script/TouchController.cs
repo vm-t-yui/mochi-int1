@@ -1,150 +1,131 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.Events;
+using VMUnityLib;
 
 /// <summary>
-/// タッチクラス
+/// 画面入力クラス
 /// </summary>
-public class TouchController : MonoBehaviour
+public class TouchController : SingletonMonoBehaviour<TouchController>
 {
-    // 入力の種類
-    enum InputKind
+    /// <summary>
+    /// 入力の種類
+    /// </summary>
+    public enum Touch
     {
-        Touch,      // タッチ
-        Swipe,      // スワイプ
-        Lenght      // enumの長さ
+        Tap,            // タップ
+        Swipe,          // スワイプ
+        DraggingStart,  // ドラック開始
+        Dragging,       // ドラック中
+        DraggingEnd,    // ドラック後
     }
-
-    Touch touch = default;                                  // 入力のクラス
 
     [SerializeField]
-    PlayerController player = default;                      // プレイヤークラス
-
+    TouchEffectPlayer touchEffect = default;        // タッチエフェクト
     [SerializeField]
-    Timer timer = default;                                  // タイマークラス
-
+    UnityEvent onTap = new UnityEvent();            // タップの関数リスト
     [SerializeField]
-    float swipeSensitivity = 0;                             // スワイプの感度
-
+    UnityEvent onSwipe = new UnityEvent();          // スワイプの関数リスト
     [SerializeField]
-    int maxJudgeCount = 0;                                  // ジャッジ処理の最大カウント
+    UnityEvent onDraggingStart = new UnityEvent();  // ドラック開始の関数リスト
+    [SerializeField]
+    UnityEvent onDragging = new UnityEvent();       // ドラック中の関数リスト
+    [SerializeField]
+    UnityEvent onDraggingEnd = new UnityEvent();    // ドラック後の関数リスト
 
-    int nowJudgeCount = 0;                                  // ジャッジ処理の経過カウント
-
-    bool isInputJudge = false;                              // タッチかスワイプかを判断する開始フラグ
-    bool[] isInput = new bool[(int)InputKind.Lenght];       // 判断中のどちらの入力が入ったかを入れるフラグ
-    bool isTouch = false;                                   // タッチフラグ
-    bool isSwipe = false;                                   // スワイプフラグ
+    Vector3 touchPos = Vector3.zero;                // タッチしたポジション
 
     /// <summary>
-    /// 更新処理
+    /// 起動処理
     /// </summary>
-    void Update()
+    void OnEnable()
     {
-        // 入力を受けたら入力情報を取得し、入力処理のジャッジに移行
-        if (Input.touchCount == 1 && timer.IsStart && !isInputJudge)
+        // Input.Touchesの初期化
+        IT_Gesture.onMultiTapE += OnTap;
+        IT_Gesture.onSwipeStartE += OnSwipeStart;
+        IT_Gesture.onDraggingStartE += OnDraggingStart;
+        IT_Gesture.onDraggingE += OnDragging;
+        IT_Gesture.onDraggingEndE += OnDraggingEnd;
+    }
+
+    /// <summary>
+    /// 停止処理
+    /// </summary>
+    void OnDisable()
+    {
+        // Input.Touchesの後処理
+        IT_Gesture.onMultiTapE -= OnTap;
+        IT_Gesture.onSwipeStartE -= OnSwipeStart;
+        IT_Gesture.onDraggingStartE -= OnDraggingStart;
+        IT_Gesture.onDraggingE -= OnDragging;
+        IT_Gesture.onDraggingEndE -= OnDraggingEnd;
+    }
+
+    /// <summary>
+    /// タップ開始
+    /// </summary>
+    void OnTap(Tap tap)
+    {
+        //Debug.Log("タップ開始");
+
+        onTap.Invoke();
+    }
+
+    /// <summary>
+    /// スワイプ
+    /// </summary>
+    void OnSwipeStart(SwipeInfo swipe)
+    {
+        Debug.Log("スワイプ開始");
+
+        onSwipe.Invoke();
+    }
+
+    /// <summary>
+    /// ドラック開始
+    /// </summary>
+    void OnDraggingStart(DragInfo dragInfo)
+    {
+        //Debug.Log("長押し開始");
+
+        onDraggingStart.Invoke();
+    }
+
+    /// <summary>
+    /// ドラック中
+    /// </summary>
+    void OnDragging(DragInfo dragInfo)
+    {
+        //Debug.Log("長押し中");
+
+        onDragging.Invoke();
+    }
+
+    /// <summary>
+    /// ドラック終了
+    /// </summary>
+    void OnDraggingEnd(DragInfo dragInfo)
+    {
+        //Debug.Log("長押し終了");
+
+        onDraggingEnd.Invoke();
+    }
+
+    /// <summary>
+    /// UnityEvent追加
+    /// </summary>
+    /// <param name="num">追加するUnityEventの種類</param>
+    /// <param name="action">追加する関数</param>
+    public void AddEvent(int num, UnityAction action) 
+    {
+        switch(num)
         {
-            touch = Input.GetTouch(0);
-
-            // 入力直後ならジャッジに入る
-            if (touch.phase == TouchPhase.Began)
-            {
-                // 入力処理のジャッジ開始
-                StartCoroutine(InputJudge());
-            }
+            case (int)Touch.Tap: onTap.AddListener(() => action()); break;
+            case (int)Touch.Swipe: onSwipe.AddListener(() => action()); break;
+            case (int)Touch.DraggingStart: onDraggingStart.AddListener(() => action()); break;
+            case (int)Touch.Dragging: onDragging.AddListener(() => action()); break;
+            case (int)Touch.DraggingEnd: onDraggingEnd.AddListener(() => action()); break;
         }
-    }
-
-    /// <summary>
-    /// 入力がタッチなのかスワイプなのか判断
-    /// </summary>
-    IEnumerator InputJudge()
-    {
-        // タッチフラグON
-        isInput[(int)InputKind.Touch] = true;
-
-        // ジャッジの経過時間が最大を超えるまで
-        while (nowJudgeCount < maxJudgeCount)
-        {
-            // ジャッジの経過時間をカウント
-            nowJudgeCount++;
-
-            // タッチフラグをOFFにしてスワイプフラグON
-            if (touch.deltaPosition.magnitude > swipeSensitivity)
-            {
-                isInput[(int)InputKind.Touch] = false;
-                isInput[(int)InputKind.Swipe] = true;
-                nowJudgeCount = maxJudgeCount;
-            }
-            // 途中で指が離れたらその時点で判定終了
-            if (touch.phase == TouchPhase.Ended)
-            {
-                nowJudgeCount = maxJudgeCount;
-            }
-
-            yield return new WaitForSeconds(0.001f);
-        }
-
-        // 超えたらフラグを出力
-        if (isInput[(int)InputKind.Touch])
-        {
-            isTouch = true;
-            isSwipe = false;
-        }
-        else
-        {
-            isTouch = false;
-            isSwipe = true;
-        }
-
-        // 各フラグのリセット
-        FlagReset();
-    }
-
-    /// <summary>
-    /// 各フラグのリセット
-    /// </summary>
-    void FlagReset()
-    {
-        isInputJudge = false;
-        isInput[(int)InputKind.Touch] = false;
-        isInput[(int)InputKind.Swipe] = false;
-        nowJudgeCount = 0;
-    }
-
-    /// <summary>
-    /// タッチフラグのゲット＋リセット関数
-    /// </summary>
-    /// <returns>タッチフラグの値</returns>
-    public bool GetIsTouch()
-    {
-        bool returnflg = isTouch;
-        isTouch = false;
-
-        return returnflg;
-    }
-
-    /// <summary>
-    /// スワイプフラグのゲット＋リセット関数
-    /// </summary>
-    /// <returns>スワイプフラグの値</returns>
-    public bool GetIsSwipe()
-    {
-        bool returnflg = isSwipe;
-        isSwipe = false;
-
-        return returnflg;
-    }
-
-    // 初期化
-    public void Init()
-    {
-        isTouch = false;
-        isSwipe = false;
-        isInputJudge = false;
-        isInput[(int)InputKind.Touch] = false;
-        isInput[(int)InputKind.Swipe] = false;
-        nowJudgeCount = 0;
     }
 }

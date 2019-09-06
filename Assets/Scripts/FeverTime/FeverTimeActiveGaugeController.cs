@@ -42,7 +42,10 @@ public class FeverTimeActiveGaugeController : MonoBehaviour
     void OnEnable()
     {
         // タイマーゲージに表示を切り替えるためフィーバーゲージ非表示に
-        activeGauge.enabled = false;
+        foreach (Transform child in transform)
+        {
+            child.gameObject.SetActive(false);
+        }
     }
 
     /// <summary>
@@ -62,7 +65,11 @@ public class FeverTimeActiveGaugeController : MonoBehaviour
         // ゲージが０になったら、フィーバーゲージを出してフィーバータイム終了
         if (feverTimeController.CurrentFeverTimeCount < 0)
         {
-            activeGauge.enabled = true;
+            foreach (Transform child in transform)
+            {
+                child.gameObject.SetActive(true);
+            }
+
             enabled = false;
         }
     }
