@@ -72,7 +72,10 @@ public class RabbitPictureBookFlagSwitcher : SingletonMonoBehaviour<RabbitPictur
             // 図鑑に未だ登録されていないウサギのフラグのみを切り替える
             if (!isReleasedRabbits[rabbitNumber])
             {
+                // 救出フラグをオンにする
                 isReleasedRabbits[rabbitNumber] = true;
+                // Newアイコンの表示フラグをオンぬする
+                GameDataManager.Inst.PlayData.IsDrawRabbitNewIcon[rabbitNumber] = true;
                 // ウサギの番号からデータを取得
                 RabbitData rabbitData = towerObjectDataManager.GetRabbitDataFromNumber(rabbitNumber);
                 // 新しく救出したウサギとしてリストに登録
