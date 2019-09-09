@@ -24,12 +24,12 @@
 
 public static class GPGSIds
 {
-        public const string achievement_achive1 = "CgkI4Zq6_94UEAIQAg"; // <GPGSID>
-        public const string achievement_achive2 = "CgkI4Zq6_94UEAIQAw"; // <GPGSID>
-        public const string achievement_achive3 = "CgkI4Zq6_94UEAIQBA"; // <GPGSID>
-        public const string achievement_achive4 = "CgkI4Zq6_94UEAIQBQ"; // <GPGSID>
-        public const string achievement_achive5 = "CgkI4Zq6_94UEAIQBg"; // <GPGSID>
-        public const string leaderboard_extirpation_ranking = "CgkI4Zq6_94UEAIQBw"; // <GPGSID>
+        public const string leaderboard_total_number_of_broken = "CgkIk5zJ6IMPEAIQBQ"; // <GPGSID>
+        public const string achievement_king_of_destruction_of_rice_cake = "CgkIk5zJ6IMPEAIQAw"; // <GPGSID>
+        public const string achievement_first_punch = "CgkIk5zJ6IMPEAIQAQ"; // <GPGSID>
+        public const string achievement_doctor_of_rabbt = "CgkIk5zJ6IMPEAIQBA"; // <GPGSID>
+        public const string achievement_messiah_in_the_rabbit_world = "CgkIk5zJ6IMPEAIQAg"; // <GPGSID>
+        public const string leaderboard_maximum_number_of_broken = "CgkIk5zJ6IMPEAIQAA"; // <GPGSID>
 
 }
 
