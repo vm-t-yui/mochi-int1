@@ -29,7 +29,7 @@ public class PlayerActionCaller : MonoBehaviour
     void Awake()
     {
         TouchController.Inst.AddEvent((int)TouchController.Touch.Tap, OnPunch);
-        TouchController.Inst.AddEvent((int)TouchController.Touch.Swipe, OnRescue);
+        TouchController.Inst.AddEvent((int)TouchController.Touch.DraggingStart, OnRescue);
     }
 
     /// <summary>

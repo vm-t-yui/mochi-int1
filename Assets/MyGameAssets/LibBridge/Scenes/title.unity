@@ -3640,9 +3640,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 11400002, guid: 98e68c057badd6848ac979be1fd7eb24, type: 3}
+    - target: {fileID: 11400008, guid: 98e68c057badd6848ac979be1fd7eb24, type: 3}
+      propertyPath: enableMultiTapFilter
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400008, guid: 98e68c057badd6848ac979be1fd7eb24, type: 3}
+      propertyPath: multiTapInterval
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400008, guid: 98e68c057badd6848ac979be1fd7eb24, type: 3}
+      propertyPath: maxMultiTapCount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400008, guid: 98e68c057badd6848ac979be1fd7eb24, type: 3}
+      propertyPath: multiTapPosSpacing
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400008, guid: 98e68c057badd6848ac979be1fd7eb24, type: 3}
+      propertyPath: maxTapDisplacementAllowance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: 98e68c057badd6848ac979be1fd7eb24, type: 3}
+      propertyPath: minDragDistance
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: 98e68c057badd6848ac979be1fd7eb24, type: 3}
+      propertyPath: enableMultiDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: 98e68c057badd6848ac979be1fd7eb24, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: 98e68c057badd6848ac979be1fd7eb24, type: 3}
+      propertyPath: maxSwipeDuration
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 98e68c057badd6848ac979be1fd7eb24, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98e68c057badd6848ac979be1fd7eb24, type: 3}

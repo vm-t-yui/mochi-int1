@@ -15,7 +15,6 @@ public class TouchController : SingletonMonoBehaviour<TouchController>
     public enum Touch
     {
         Tap,            // タップ
-        Swipe,          // スワイプ
         DraggingStart,  // ドラック開始
         Dragging,       // ドラック中
         DraggingEnd,    // ドラック後
@@ -25,8 +24,6 @@ public class TouchController : SingletonMonoBehaviour<TouchController>
     TouchEffectPlayer touchEffect = default;        // タッチエフェクト
     [SerializeField]
     UnityEvent onTap = new UnityEvent();            // タップの関数リスト
-    [SerializeField]
-    UnityEvent onSwipe = new UnityEvent();          // スワイプの関数リスト
     [SerializeField]
     UnityEvent onDraggingStart = new UnityEvent();  // ドラック開始の関数リスト
     [SerializeField]
@@ -43,7 +40,6 @@ public class TouchController : SingletonMonoBehaviour<TouchController>
     {
         // Input.Touchesの初期化
         IT_Gesture.onMultiTapE += OnTap;
-        IT_Gesture.onSwipeStartE += OnSwipeStart;
         IT_Gesture.onDraggingStartE += OnDraggingStart;
         IT_Gesture.onDraggingE += OnDragging;
         IT_Gesture.onDraggingEndE += OnDraggingEnd;
@@ -56,7 +52,6 @@ public class TouchController : SingletonMonoBehaviour<TouchController>
     {
         // Input.Touchesの後処理
         IT_Gesture.onMultiTapE -= OnTap;
-        IT_Gesture.onSwipeStartE -= OnSwipeStart;
         IT_Gesture.onDraggingStartE -= OnDraggingStart;
         IT_Gesture.onDraggingE -= OnDragging;
         IT_Gesture.onDraggingEndE -= OnDraggingEnd;
@@ -67,19 +62,9 @@ public class TouchController : SingletonMonoBehaviour<TouchController>
     /// </summary>
     void OnTap(Tap tap)
     {
-        //Debug.Log("タップ開始");
+        Debug.Log("タップ開始");
 
         onTap.Invoke();
-    }
-
-    /// <summary>
-    /// スワイプ
-    /// </summary>
-    void OnSwipeStart(SwipeInfo swipe)
-    {
-        Debug.Log("スワイプ開始");
-
-        onSwipe.Invoke();
     }
 
     /// <summary>
@@ -87,7 +72,7 @@ public class TouchController : SingletonMonoBehaviour<TouchController>
     /// </summary>
     void OnDraggingStart(DragInfo dragInfo)
     {
-        //Debug.Log("長押し開始");
+        Debug.Log("長押し開始");
 
         onDraggingStart.Invoke();
     }
@@ -97,7 +82,7 @@ public class TouchController : SingletonMonoBehaviour<TouchController>
     /// </summary>
     void OnDragging(DragInfo dragInfo)
     {
-        //Debug.Log("長押し中");
+        Debug.Log("長押し中");
 
         onDragging.Invoke();
     }
@@ -107,7 +92,7 @@ public class TouchController : SingletonMonoBehaviour<TouchController>
     /// </summary>
     void OnDraggingEnd(DragInfo dragInfo)
     {
-        //Debug.Log("長押し終了");
+        Debug.Log("長押し終了");
 
         onDraggingEnd.Invoke();
     }
@@ -122,7 +107,6 @@ public class TouchController : SingletonMonoBehaviour<TouchController>
         switch(num)
         {
             case (int)Touch.Tap: onTap.AddListener(() => action()); break;
-            case (int)Touch.Swipe: onSwipe.AddListener(() => action()); break;
             case (int)Touch.DraggingStart: onDraggingStart.AddListener(() => action()); break;
             case (int)Touch.Dragging: onDragging.AddListener(() => action()); break;
             case (int)Touch.DraggingEnd: onDraggingEnd.AddListener(() => action()); break;
