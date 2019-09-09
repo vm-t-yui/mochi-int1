@@ -31,9 +31,9 @@ public class TouchController : SingletonMonoBehaviour<TouchController>
     [SerializeField]
     UnityEvent onDraggingEnd = new UnityEvent();    // ドラック後の関数リスト
 
-    int dragNum = 0;
-    bool isTap = false;
-    bool isRescue = false;
+    int dragFrame = 0;                              // ドラック処理のフレーム数
+    bool isTap = false;                             // タップの制御フラグ
+    bool isRescue = false;                          // うさぎ救助の制御フラグ
 
     /// <summary>
     /// 起動処理
@@ -105,6 +105,9 @@ public class TouchController : SingletonMonoBehaviour<TouchController>
         Debug.Log("長押し中");
         onDragging.Invoke();
 
+        // ドラックのフレーム数をカウント
+        dragFrame++;
+
         // うさぎ救助
         OnRescue();
     }
@@ -126,9 +129,8 @@ public class TouchController : SingletonMonoBehaviour<TouchController>
     ///      ただ場合によっては2フレーム以上になる可能性も０ではないし、コード的にも汚いので今後修正していく予定です。
     void OnRescue()
     {
-        dragNum++;
-
-        if (dragNum >= 2 && !isRescue)
+        // ドラックが２フレーム続いているならうさぎ救助開始
+        if (dragFrame >= 2 && !isRescue)
         {
            PlayerActionCaller.Inst.OnRescue();
            isRescue = true;
@@ -136,11 +138,11 @@ public class TouchController : SingletonMonoBehaviour<TouchController>
     }
 
     /// <summary>
-    /// 初期化
+    /// 各値初期化
     /// </summary>
     void Init()
     {
-        dragNum = 0;
+        dragFrame = 0;
         isRescue = false;
         isTap = false;
     }
