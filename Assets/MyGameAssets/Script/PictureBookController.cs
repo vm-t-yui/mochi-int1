@@ -110,6 +110,9 @@ public class PictureBookController : MonoBehaviour
                 nowOpenNum = NotReleaseNum;
             }
         }
+
+        // Newアイコンが表示フラグをオフにして非表示にする
+        GameDataManager.Inst.PlayData.IsDrawRabbitNewIcon[num] = false;
     }
 
     /// <summary>

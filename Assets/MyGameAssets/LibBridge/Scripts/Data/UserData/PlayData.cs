@@ -29,6 +29,8 @@ public class PlayData
     [SerializeField]
     bool[] isReleasedRabbit = new bool[AllRabbitNum];         // うさぎの解放フラグ（図鑑用）
     [SerializeField]
+    bool[] isDrawRabbitNewIcon = new bool[AllRabbitNum];      // ウサギのNewアイコン表示フラグ
+    [SerializeField]
     bool isReward = false;                                    // リワードフラグ
     [SerializeField]
     bool isNewRabbit = false;                                 // 新しいうさぎフラグ
@@ -40,17 +42,18 @@ public class PlayData
     /// <summary>
     /// 各データのプロパティ
     /// </summary>
-    public int PlayCount            { get { return playCount; }         set { playCount++; } }
-    public int HighScore            { get { return highScore; }         set { highScore = value; } }
-    public int LastScore            { get { return lastScore; }         set { lastScore = value; } }
-    public int PunchCount           { get { return punchCount; }        set { punchCount = value; } }
-    public int TotalRescueCount     { get { return totalRescueCount; }  set { totalRescueCount = value; } }
-    public long TotalScore          { get { return totalScore; }        set { totalScore = value; } }
-    public bool IsReward            { get { return isReward; }          set { isReward = value; } }
-    public bool IsNewRabbit         { get { return isNewRabbit; }       set { isNewRabbit = value; } }
-    public bool IsNewSkin           { get { return isNewSkin; }         set { isNewSkin = value; } }
-    public bool[] IsReleasedRabbit  { get { return isReleasedRabbit; }  set { isReleasedRabbit = value; } }
-    public bool[] IsReleasedAchieve { get { return isReleasedAchieve; } set { isReleasedAchieve = value; } }
+    public int PlayCount              { get { return playCount; }           set { playCount++; } }
+    public int HighScore              { get { return highScore; }           set { highScore = value; } }
+    public int LastScore              { get { return lastScore; }           set { lastScore = value; } }
+    public int PunchCount             { get { return punchCount; }          set { punchCount = value; } }
+    public int TotalRescueCount       { get { return totalRescueCount; }    set { totalRescueCount = value; } }
+    public long TotalScore            { get { return totalScore; }          set { totalScore = value; } }
+    public bool IsReward              { get { return isReward; }            set { isReward = value; } }
+    public bool IsNewRabbit           { get { return isNewRabbit; }         set { isNewRabbit = value; } }
+    public bool IsNewSkin             { get { return isNewSkin; }           set { isNewSkin = value; } }
+    public bool[] IsReleasedRabbit    { get { return isReleasedRabbit; }    set { isReleasedRabbit = value; } }
+    public bool[] IsDrawRabbitNewIcon { get { return isDrawRabbitNewIcon; } set { isDrawRabbitNewIcon = value; } }
+    public bool[] IsReleasedAchieve   { get { return isReleasedAchieve; }   set { isReleasedAchieve = value; } }
     
     /// <summary>
     /// うさぎをコンプリートしているかどうか
@@ -64,6 +67,21 @@ public class PlayData
             return true;
         }
 
+        return false;
+    }
+
+    /// <summary>
+    /// Newアイコン表示中のウサギが存在するか
+    /// </summary>
+    /// <returns>存在しているかどうかのフラグを返す</returns>
+    public bool ExistDrawNewIconRabbit()
+    {
+        // 存在している場合
+        if (isDrawRabbitNewIcon.ToList().Find(flag => flag))
+        {
+            return true;
+        }
+        // 存在していなければ
         return false;
     }
 }
