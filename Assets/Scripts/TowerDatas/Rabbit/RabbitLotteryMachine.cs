@@ -16,10 +16,10 @@ public class RabbitLotteryMachine : MonoBehaviour
     IEnumerable<RabbitData> rabbitDatas;
 
     // レアリティ抽選率の合計値
-    int totalRarityLotteryRate = 0;
+    float totalRarityLotteryRate = 0;
 
     // ウサギの出現率の合計値
-    int totalRabbitSpawnRate = 0;
+    float totalRabbitSpawnRate = 0;
 
     /// <summary>
     /// 開始
@@ -42,10 +42,10 @@ public class RabbitLotteryMachine : MonoBehaviour
     public string LotteryRarity()
     {
         // 複数のレアリティの抽選率の合計を算出
-        int totalRarityLotteryRate = GetTotalRarityRate(rabbitRarityDatas);
+        float totalRarityLotteryRate = GetTotalRarityRate(rabbitRarityDatas);
 
         // 乱数を生成（０～抽選率の合計）
-        int random = Random.Range(0, totalRarityLotteryRate);
+        float random = Random.Range(0, totalRarityLotteryRate);
 
         // 乱数をそれぞれのレアリティの抽選率で引いていく
         foreach (RabbitRarityData rarityData in rabbitRarityDatas)
@@ -86,10 +86,10 @@ public class RabbitLotteryMachine : MonoBehaviour
         }
 
         // ウサギの出現率の合計を取得する
-        int totalSpawnRate = GetTotalSpawnRate(belongRabbits);
+        float totalSpawnRate = GetTotalSpawnRate(belongRabbits);
 
         // 乱数を生成（０～出現率の合計）
-        int random = Random.Range(0, totalSpawnRate);
+        float random = Random.Range(0, totalSpawnRate);
 
         // 乱数をそれぞれのウサギの出現率で引いていく
         foreach (RabbitData rabbitData in belongRabbits)
@@ -204,9 +204,9 @@ public class RabbitLotteryMachine : MonoBehaviour
     /// </summary>
     /// <param name="rarityDatas">取得対象の複数のレアリティ</param>
     /// <returns>レアリティの抽選率の合計値</returns>
-    public int GetTotalRarityRate(IEnumerable<RabbitRarityData> rarityDatas)
+    public float GetTotalRarityRate(IEnumerable<RabbitRarityData> rarityDatas)
     {
-        int totalRarityLotteryRate = 0;
+        float totalRarityLotteryRate = 0;
         foreach (RabbitRarityData rarityData in rabbitRarityDatas)
         {
             totalRarityLotteryRate += rarityData.LotteryRate;
@@ -219,9 +219,9 @@ public class RabbitLotteryMachine : MonoBehaviour
     /// </summary>
     /// <param name="rabbitDatas">取得対象の複数のウサギ</param>
     /// <returns>出現率の合計を返す</returns>
-    public int GetTotalSpawnRate(IEnumerable<RabbitData> rabbitDatas)
+    public float GetTotalSpawnRate(IEnumerable<RabbitData> rabbitDatas)
     {
-        int totalSpawnRate = 0;
+        float totalSpawnRate = 0;
         foreach(RabbitData rabbit in rabbitDatas)
         {
             totalSpawnRate += rabbit.SpawnRate;
