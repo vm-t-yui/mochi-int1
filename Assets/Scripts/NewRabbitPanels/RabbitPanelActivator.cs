@@ -11,16 +11,45 @@ public class RabbitPanelActivator : MonoBehaviour
     [SerializeField]
     Transform panelObjectParent = default;
 
+    // スコアカウンター
+    [SerializeField]
+    ScoreCountUpper scoreCountUpper = default;
+
+    // 表示可能な状態になってからの待機時間
+    [SerializeField]
+    int activeWaitTime = 0;
+    // 待機時間のカウンタ
+    int waitTimeCounter = 0;
+
     /// <summary>
-    /// 開始
+    /// 更新
     /// </summary>
-    void OnEnable()
+    void Update()
     {
-        // 新たに救出したウサギがいれば、一覧のパネルを表示する
-        if (RabbitPictureBookFlagSwitcher.Inst.NewRescuedRabbits.Count != 0)
+        // カウントアップが終了したら、新規ウサギ一覧を表示
+        if (scoreCountUpper.IsEnd)
         {
-            // パネルのオブジェクトをオンにする
-            panelObjectParent.gameObject.SetActive(true);
+            // カウンターが指定時間を超えたら
+            if (waitTimeCounter > activeWaitTime)
+            {
+                // 新たに救出したウサギがいれば、一覧のパネルを表示する
+                if (RabbitPictureBookFlagSwitcher.Inst.NewRescuedRabbits.Count != 0)
+                {
+                    // パネルのオブジェクトをオンにする
+                    panelObjectParent.gameObject.SetActive(true);
+                }
+            }
+            // カウンター
+            waitTimeCounter++;
         }
+    }
+
+    /// <summary>
+    /// 終了
+    /// </summary>
+    void OnDisable()
+    {
+        // カウンターを初期化
+        waitTimeCounter++;
     }
 }

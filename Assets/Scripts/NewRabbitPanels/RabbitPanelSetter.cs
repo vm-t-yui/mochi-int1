@@ -30,8 +30,6 @@ public class RabbitPanelSetter : MonoBehaviour
         // 新しく救出したウサギのリストを取得
         IReadOnlyList<RabbitData> newRescuedRabbits = RabbitPictureBookFlagSwitcher.Inst.NewRescuedRabbits;
 
-        // 現在セット済みのパネルの数
-        int currentSetedPanelNum = 0;
         // パネルをセットする行
         int setPanelRowNum = 0;
 
@@ -41,16 +39,15 @@ public class RabbitPanelSetter : MonoBehaviour
             Transform panel = sourceRabbitPanelParent.Find(rabbit.Id);
             // 取得したパネルの親オブジェクトを変更してセットする
             panel.SetParent(setedRabbitPanelParent.GetChild(setPanelRowNum));
+            Debug.Log("A : " + panel);
+            Debug.Log("B : " + setedRabbitPanelParent.GetChild(setPanelRowNum));
             // セットしたパネルをオンにする
             panel.gameObject.SetActive(true);
             // セットしたパネルをリストに追加
             setedPanels.Add(panel);
-
-            // セット済みのパネルの数を増やす
-            currentSetedPanelNum++;
             
             // 同じ行のパネルが３つを超えようとした場合は次の行に移る
-            if (currentSetedPanelNum % horizontalPanelNum == 0)
+            if (setedRabbitPanelParent.GetChild(setPanelRowNum).childCount >= horizontalPanelNum)
             {
                 setPanelRowNum++;
             }
