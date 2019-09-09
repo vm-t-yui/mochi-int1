@@ -13,12 +13,13 @@ public class TouchEffectPlayer : MonoBehaviour
     SpawnPool effectPool = default;                                             // エフェクトのプール
 
     [SerializeField]
-    Camera    viewCamera = default;                                             // エフェクトを映すカメラ
-    
-    [SerializeField]
-    RawImage  rawImage   = default;                                             // RenderTextureを反映させるやつ
+    Camera viewCamera = default;                                             // エフェクトを映すカメラ
 
-    [SerializeField][Range(0.1f, 1f)]
+    [SerializeField]
+    RawImage rawImage = default;                                             // RenderTextureを反映させるやつ
+
+    [SerializeField]
+    [Range(0.1f, 1f)]
     float textureScale = 1;                                                     // 生成するRenderTextureのサイズの倍率
 
     RenderTexture renderTexture = default;                                      // RenderTextureのインスタンス
@@ -27,8 +28,8 @@ public class TouchEffectPlayer : MonoBehaviour
 
     ParticleSystem swipeEffect;                                                 // スワイプエフェクトのインスタンス
 
-    const string TapEffectID   = "TapEffect";                                   // タップエフェクトのID
-    const string SwipeEffectID = "SwipeEffect";                                 // スワイプエフェクトのID
+    public const string TapEffectID = "TapEffect";                                   // タップエフェクトのID
+    public const string SwipeEffectID = "SwipeEffect";                                 // スワイプエフェクトのID
 
     [SerializeField]
     float EffectZ = 7.0f;                                                       // エフェクトのZ軸座標
@@ -51,99 +52,53 @@ public class TouchEffectPlayer : MonoBehaviour
     }
 
     /// <summary>
-    /// 更新処理.
+    /// エフェクト再生
     /// </summary>
-    void Update()
+    public void PlayTapEffect()
     {
-#if UNITY_EDITOR
-        // マウスの位置からタップ位置を取得
-        Vector3 touchPos = viewCamera.ScreenToWorldPoint(Input.mousePosition * textureScale + Vector3.forward * EffectZ);
+        // idに応じたエフェクトを指定の位置にスポーン
+        Transform effectTrans = effectPool.Spawn(TapEffectID);
+        ParticleSystem effect = effectTrans.GetComponent<ParticleSystem>();
+        effectTrans.position = viewCamera.ScreenToWorldPoint(Input.mousePosition * textureScale + Vector3.forward * EffectZ);
 
-        // クリックされた時
-        if (Input.GetMouseButtonDown(0))
-        {
-            // タップ位置でエフェクト再生
-            PlayEffect(touchPos);
-        }
-        // 押し続けている間
-        if (Input.GetMouseButton(0))
-        {
-            // スワイプエフェクトの位置をタップ位置に固定
-            swipeEffect.transform.position = touchPos;
-        }
-        // ボタンが離された時
-        if (Input.GetMouseButtonUp(0))
-        {
-            // スワイプエフェクトを停止
-            swipeEffect.Stop();
-
-            // スワイプエフェクトをデスポーン
-            effectPool.Despawn(swipeEffect.transform);
-        }
-#else
-        // タッチカウントが0以上の時
-        if (Input.touchCount > 0)
-        {
-            // タップ位置取得
-            Vector3 touchPos = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position * textureScale) + Vector3.forward * EffectZ;
-
-            // タップされた時
-            if (Input.GetTouch(0).phase == TouchPhase.Began)
-            {
-                // タップ位置でエフェクト再生
-                PlayEffect(touchPos);
-            }
-            // スワイプ時
-            if (Input.GetTouch(0).phase == TouchPhase.Moved)
-            {
-                // スワイプエフェクトの位置をタップ位置に固定
-                swipeEffect.transform.position = touchPos;
-            }
-            // 指が離された時
-            if (Input.GetTouch(0).phase == TouchPhase.Ended)
-            {
-                // スワイプエフェクトを停止
-                swipeEffect.Stop();
-
-                // スワイプエフェクトをデスポーン
-                effectPool.Despawn(swipeEffect.transform);
-            }
-        }
-        // タッチしていない時
-        else
-        {
-            // 再生中なら消す
-            if (swipeEffect.isPlaying)
-            {
-                swipeEffect.Stop();
-            }
-        }
-#endif
+        // 再生した後、終了検知リストに追加
+        effect.Play();
+        endWatchTapEffectList.Add(effect);
     }
 
     /// <summary>
-    /// エフェクト再生.
+    /// エフェクト再生
     /// </summary>
-    void PlayEffect(Vector3 pos)
+    public void PlaySwipeEffect()
     {
-        // 各エフェクトをスポーン
-        Transform tapEffectTrans = effectPool.Spawn(TapEffectID);
-        Transform swipeEffectTrans = effectPool.Spawn(SwipeEffectID);
-
-        // 各エフェクトのコンポーネントを取得
-        ParticleSystem tapEffect = tapEffectTrans.GetComponent<ParticleSystem>();
-        swipeEffect = swipeEffectTrans.GetComponent<ParticleSystem>();
-
-        // 指定された位置に各エフェクトを配置
-        tapEffectTrans.position = pos;
-        swipeEffectTrans.position = pos;
+        // idに応じたエフェクトを指定の位置にスポーン
+        Transform effectTrans = effectPool.Spawn(SwipeEffectID);
+        swipeEffect = effectTrans.GetComponent<ParticleSystem>();
+        effectTrans.position = viewCamera.ScreenToWorldPoint(Input.mousePosition * textureScale + Vector3.forward * EffectZ);
 
         // 再生
-        tapEffect.Play();
         swipeEffect.Play();
+    }
 
-        // 終了検知リストに追加
-        endWatchTapEffectList.Add(tapEffect);
+    /// <summary>
+    /// スワイプのポジションを更新
+    /// </summary>
+    public void UpdateSwipePosition()
+    {
+        // スワイプエフェクトの位置をタップ位置に固定
+        swipeEffect.transform.position = viewCamera.ScreenToWorldPoint(Input.mousePosition * textureScale + Vector3.forward * EffectZ);
+    }
+
+    /// <summary>
+    /// エフェクト停止
+    /// </summary>
+    public void StopEffect()
+    {
+        // スワイプエフェクトを停止
+        swipeEffect.Stop();
+
+        // スワイプエフェクトをデスポーン
+        effectPool.Despawn(swipeEffect.transform);
     }
 
     /// <summary>

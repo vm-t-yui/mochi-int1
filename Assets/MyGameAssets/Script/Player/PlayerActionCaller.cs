@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
-using System.Linq;
+using VMUnityLib;
 
 /// <summary>
 /// プレイヤーのアクションのコールクラス
 /// </summary>
-public class PlayerActionCaller : MonoBehaviour
+public class PlayerActionCaller : SingletonMonoBehaviour<PlayerActionCaller>
 {
     [SerializeField]
     Timer timer = default;                      // タイマークラス
@@ -30,7 +30,6 @@ public class PlayerActionCaller : MonoBehaviour
     {
         // フラグリセット
         isEnd = false;
-        touch.Init();
     }
 
     /// <summary>
@@ -39,28 +38,33 @@ public class PlayerActionCaller : MonoBehaviour
     void Update()
     {
         // タイムアップになったら
-        if (timer.IsTimeup)
+        if (timer.IsTimeup && !isEnd)
         {
-            if (!isEnd)
-            {
-                // 大技開始
-                specialArts.Invoke();
-                isEnd = true;
-            }
+            // 大技開始
+            specialArts.Invoke();
+            isEnd = true;
         }
-        // まだ時間が余っていたら
-        else if(timer.IsStart)
+    }
+
+    /// <summary>
+    /// 救助
+    /// </summary>
+    public void OnRescue()
+    {
+        if (timer.IsStart && !timer.IsTimeup)
         {
-            // スワイプされたらうさぎ救助開始
-            if (touch.GetIsSwipe() || Input.GetKeyDown(KeyCode.S))
-            {
-                rescue.Invoke();
-            }
-            // タッチされたらパンチ開始
-            else if (touch.GetIsTouch() || Input.GetKeyDown(KeyCode.A))
-            {
-                punch.Invoke();
-            }
+            rescue.Invoke();
+        }
+    }
+
+    /// <summary>
+    /// パンチ
+    /// </summary>
+    public void OnPunch()
+    {
+        if (timer.IsStart && !timer.IsTimeup)
+        {
+            punch.Invoke();
         }
     }
 }

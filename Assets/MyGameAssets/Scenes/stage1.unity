@@ -338,6 +338,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2959937862547402835, guid: 1d6d75639b191479d866916a3792d35e,
         type: 3}
+      propertyPath: timerGauge
+      value: 
+      objectReference: {fileID: 1149858038699816222}
+    - target: {fileID: 2959937862547402835, guid: 1d6d75639b191479d866916a3792d35e,
+        type: 3}
       propertyPath: feverTimeController
       value: 
       objectReference: {fileID: 333409356}
@@ -346,16 +351,6 @@ PrefabInstance:
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 582405134}
-    - target: {fileID: 2959937862547402835, guid: 1d6d75639b191479d866916a3792d35e,
-        type: 3}
-      propertyPath: targetCamera
-      value: 
-      objectReference: {fileID: 1790435632}
-    - target: {fileID: 2959937862547402835, guid: 1d6d75639b191479d866916a3792d35e,
-        type: 3}
-      propertyPath: timerGauge
-      value: 
-      objectReference: {fileID: 1149858038699816222}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d6d75639b191479d866916a3792d35e, type: 3}
 --- !u!1 &333409354
@@ -387,7 +382,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1080134910}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &333409356
 MonoBehaviour:
@@ -2821,53 +2816,6 @@ Transform:
   m_Father: {fileID: 1080134910}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &1046922538
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1046922540}
-  - component: {fileID: 1046922539}
-  m_Layer: 0
-  m_Name: TouchController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1046922539
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1046922538}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d34089b59592452dbed8cd9d5e46f90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 582405132}
-  timer: {fileID: 1474329050}
-  swipeSensitivity: 7.5
-  maxJudgeCount: 5
---- !u!4 &1046922540
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1046922538}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.903267, y: 6.069466, z: 2.246674}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1080134910}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1069323589
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3287,7 +3235,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1080134910}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1123132945
 MonoBehaviour:
@@ -3302,7 +3250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: {fileID: 1474329050}
-  touch: {fileID: 1046922539}
+  touch: {fileID: 0}
   towerObjectSpawner: {fileID: 1069323592}
   punch:
     m_PersistentCalls:
@@ -4171,6 +4119,26 @@ PrefabInstance:
     - target: {fileID: 741307113, guid: 07ec3564d426a43d380ffd2521cb580d, type: 3}
       propertyPath: m_sharedMaterial
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 741307113, guid: 07ec3564d426a43d380ffd2521cb580d, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
+        type: 2}
+    - target: {fileID: 1176046006810580543, guid: 07ec3564d426a43d380ffd2521cb580d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -19.999939
+      objectReference: {fileID: 0}
+    - target: {fileID: 1176046006902389609, guid: 07ec3564d426a43d380ffd2521cb580d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -19.999939
+      objectReference: {fileID: 0}
+    - target: {fileID: 1176046006501270533, guid: 07ec3564d426a43d380ffd2521cb580d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -19.999939
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07ec3564d426a43d380ffd2521cb580d, type: 3}

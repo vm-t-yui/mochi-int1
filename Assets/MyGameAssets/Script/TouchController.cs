@@ -1,150 +1,165 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.Events;
+using VMUnityLib;
 
 /// <summary>
-/// タッチクラス
+/// 画面入力クラス
 /// </summary>
-public class TouchController : MonoBehaviour
+public class TouchController : SingletonMonoBehaviour<TouchController>
 {
-    // 入力の種類
-    enum InputKind
+    /// <summary>
+    /// 入力の種類
+    /// </summary>
+    public enum Touch
     {
-        Touch,      // タッチ
-        Swipe,      // スワイプ
-        Lenght      // enumの長さ
+        Tap,            // タップ
+        DraggingStart,  // ドラック開始
+        Dragging,       // ドラック中
+        DraggingEnd,    // ドラック後
     }
 
-    Touch touch = default;                                  // 入力のクラス
-
     [SerializeField]
-    PlayerController player = default;                      // プレイヤークラス
-
+    TouchEffectPlayer touchEffect = default;        // タッチエフェクト
     [SerializeField]
-    Timer timer = default;                                  // タイマークラス
-
+    UnityEvent onTap = new UnityEvent();            // タップの関数リスト
     [SerializeField]
-    float swipeSensitivity = 0;                             // スワイプの感度
-
+    UnityEvent onDraggingStart = new UnityEvent();  // ドラック開始の関数リスト
     [SerializeField]
-    int maxJudgeCount = 0;                                  // ジャッジ処理の最大カウント
+    UnityEvent onDragging = new UnityEvent();       // ドラック中の関数リスト
+    [SerializeField]
+    UnityEvent onDraggingEnd = new UnityEvent();    // ドラック後の関数リスト
 
-    int nowJudgeCount = 0;                                  // ジャッジ処理の経過カウント
+    int dragFrame = 0;                              // ドラック処理のフレーム数
+    bool isTap = false;                             // タップの制御フラグ
+    bool isRescue = false;                          // うさぎ救助の制御フラグ
 
-    bool isInputJudge = false;                              // タッチかスワイプかを判断する開始フラグ
-    bool[] isInput = new bool[(int)InputKind.Lenght];       // 判断中のどちらの入力が入ったかを入れるフラグ
-    bool isTouch = false;                                   // タッチフラグ
-    bool isSwipe = false;                                   // スワイプフラグ
+    /// <summary>
+    /// 起動処理
+    /// </summary>
+    void OnEnable()
+    {
+        // Input.Touchesの初期化
+        IT_Gesture.onMultiTapE += OnTap;
+        IT_Gesture.onDraggingStartE += OnDraggingStart;
+        IT_Gesture.onDraggingE += OnDragging;
+        IT_Gesture.onDraggingEndE += OnDraggingEnd;
+
+        AddEvent((int)Touch.Tap, PlayerActionCaller.Inst.OnPunch);
+    }
+
+    /// <summary>
+    /// 停止処理
+    /// </summary>
+    void OnDisable()
+    {
+        // Input.Touchesの後処理
+        IT_Gesture.onMultiTapE -= OnTap;
+        IT_Gesture.onDraggingStartE -= OnDraggingStart;
+        IT_Gesture.onDraggingE -= OnDragging;
+        IT_Gesture.onDraggingEndE -= OnDraggingEnd;
+    }
 
     /// <summary>
     /// 更新処理
     /// </summary>
     void Update()
     {
-        // 入力を受けたら入力情報を取得し、入力処理のジャッジに移行
-        if (Input.touchCount == 1 && timer.IsStart && !isInputJudge)
+        // 何も入力されていなかったら初期化
+        if (Input.touchCount == 0)
         {
-            touch = Input.GetTouch(0);
-
-            // 入力直後ならジャッジに入る
-            if (touch.phase == TouchPhase.Began)
-            {
-                // 入力処理のジャッジ開始
-                StartCoroutine(InputJudge());
-            }
+            Init();
         }
     }
 
     /// <summary>
-    /// 入力がタッチなのかスワイプなのか判断
+    /// タップ開始
     /// </summary>
-    IEnumerator InputJudge()
+    void OnTap(Tap tap)
     {
-        // タッチフラグON
-        isInput[(int)InputKind.Touch] = true;
-
-        // ジャッジの経過時間が最大を超えるまで
-        while (nowJudgeCount < maxJudgeCount)
+        // NOTE:２本の指で同時にタップすると2回呼ばれてしまうので１回になるよう、isTapで制御
+        if (!isTap)
         {
-            // ジャッジの経過時間をカウント
-            nowJudgeCount++;
+            Debug.Log("タップ開始");
+            onTap.Invoke();
 
-            // タッチフラグをOFFにしてスワイプフラグON
-            if (touch.deltaPosition.magnitude > swipeSensitivity)
-            {
-                isInput[(int)InputKind.Touch] = false;
-                isInput[(int)InputKind.Swipe] = true;
-                nowJudgeCount = maxJudgeCount;
-            }
-            // 途中で指が離れたらその時点で判定終了
-            if (touch.phase == TouchPhase.Ended)
-            {
-                nowJudgeCount = maxJudgeCount;
-            }
-
-            yield return new WaitForSeconds(0.001f);
+            isTap = true;
         }
-
-        // 超えたらフラグを出力
-        if (isInput[(int)InputKind.Touch])
-        {
-            isTouch = true;
-            isSwipe = false;
-        }
-        else
-        {
-            isTouch = false;
-            isSwipe = true;
-        }
-
-        // 各フラグのリセット
-        FlagReset();
     }
 
     /// <summary>
-    /// 各フラグのリセット
+    /// ドラック開始
     /// </summary>
-    void FlagReset()
+    void OnDraggingStart(DragInfo dragInfo)
     {
-        isInputJudge = false;
-        isInput[(int)InputKind.Touch] = false;
-        isInput[(int)InputKind.Swipe] = false;
-        nowJudgeCount = 0;
+        Debug.Log("長押し開始");
+        onDraggingStart.Invoke();
     }
 
     /// <summary>
-    /// タッチフラグのゲット＋リセット関数
+    /// ドラック中
     /// </summary>
-    /// <returns>タッチフラグの値</returns>
-    public bool GetIsTouch()
+    void OnDragging(DragInfo dragInfo)
     {
-        bool returnflg = isTouch;
-        isTouch = false;
+        Debug.Log("長押し中");
+        onDragging.Invoke();
 
-        return returnflg;
+        // ドラックのフレーム数をカウント
+        dragFrame++;
+
+        // うさぎ救助
+        OnRescue();
     }
 
     /// <summary>
-    /// スワイプフラグのゲット＋リセット関数
+    /// ドラック終了
     /// </summary>
-    /// <returns>スワイプフラグの値</returns>
-    public bool GetIsSwipe()
+    void OnDraggingEnd(DragInfo dragInfo)
     {
-        bool returnflg = isSwipe;
-        isSwipe = false;
-
-        return returnflg;
+        Debug.Log("長押し終了");
+        onDraggingEnd.Invoke();
     }
 
-    // 初期化
-    public void Init()
+    /// <summary>
+    /// うさぎ救助
+    /// </summary>
+    /// HACK:複数の指で連続タップするとどうしてもドラック処理に1フレームだけ入り込んでしまう時があり、
+    ///      2フレーム以上ドラックをし続けていればうさぎ救助を始めるようにしたら、一応動くようにはなりました。
+    ///      ただ場合によっては2フレーム以上になる可能性も０ではないし、コード的にも汚いので今後修正していく予定です。
+    void OnRescue()
     {
-        isTouch = false;
-        isSwipe = false;
-        isInputJudge = false;
-        isInput[(int)InputKind.Touch] = false;
-        isInput[(int)InputKind.Swipe] = false;
-        nowJudgeCount = 0;
+        // ドラックが２フレーム続いているならうさぎ救助開始
+        if (dragFrame >= 2 && !isRescue)
+        {
+           PlayerActionCaller.Inst.OnRescue();
+           isRescue = true;
+        }
+    }
+
+    /// <summary>
+    /// 各値初期化
+    /// </summary>
+    void Init()
+    {
+        dragFrame = 0;
+        isRescue = false;
+        isTap = false;
+    }
+
+    /// <summary>
+    /// UnityEvent追加
+    /// </summary>
+    /// <param name="num">追加するUnityEventの種類</param>
+    /// <param name="action">追加する関数</param>
+    public void AddEvent(int num, UnityAction action) 
+    {
+        switch(num)
+        {
+            case (int)Touch.Tap: onTap.AddListener(() => action()); break;
+            case (int)Touch.DraggingStart: onDraggingStart.AddListener(() => action()); break;
+            case (int)Touch.Dragging: onDragging.AddListener(() => action()); break;
+            case (int)Touch.DraggingEnd: onDraggingEnd.AddListener(() => action()); break;
+        }
     }
 }

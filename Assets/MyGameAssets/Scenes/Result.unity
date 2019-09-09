@@ -251,6 +251,14 @@ PrefabInstance:
       propertyPath: mochiFall
       value: 
       objectReference: {fileID: 1055376877}
+    - target: {fileID: 321589431, guid: e3708c942552346639722a502ab9495b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 682178450, guid: e3708c942552346639722a502ab9495b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3708c942552346639722a502ab9495b, type: 3}
 --- !u!224 &82080621 stripped
