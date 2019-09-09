@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
-using System.Linq;
+using VMUnityLib;
 
 /// <summary>
 /// プレイヤーのアクションのコールクラス
 /// </summary>
-public class PlayerActionCaller : MonoBehaviour
+public class PlayerActionCaller : SingletonMonoBehaviour<PlayerActionCaller>
 {
     [SerializeField]
     Timer timer = default;                      // タイマークラス
@@ -22,15 +22,6 @@ public class PlayerActionCaller : MonoBehaviour
     UnityEvent specialArts = new UnityEvent();  // 大技の関数リスト
 
     bool isEnd = false;                         // 処理終了フラグ
-
-    /// <summary>
-    /// 開始処理
-    /// </summary>
-    void Awake()
-    {
-        TouchController.Inst.AddEvent((int)TouchController.Touch.Tap, OnPunch);
-        TouchController.Inst.AddEvent((int)TouchController.Touch.DraggingStart, OnRescue);
-    }
 
     /// <summary>
     /// 起動処理
@@ -58,7 +49,7 @@ public class PlayerActionCaller : MonoBehaviour
     /// <summary>
     /// 救助
     /// </summary>
-    void OnRescue()
+    public void OnRescue()
     {
         if (timer.IsStart && !timer.IsTimeup)
         {
@@ -69,7 +60,7 @@ public class PlayerActionCaller : MonoBehaviour
     /// <summary>
     /// パンチ
     /// </summary>
-    void OnPunch()
+    public void OnPunch()
     {
         if (timer.IsStart && !timer.IsTimeup)
         {

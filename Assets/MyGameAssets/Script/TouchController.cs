@@ -31,7 +31,9 @@ public class TouchController : SingletonMonoBehaviour<TouchController>
     [SerializeField]
     UnityEvent onDraggingEnd = new UnityEvent();    // ドラック後の関数リスト
 
-    Vector3 touchPos = Vector3.zero;                // タッチしたポジション
+    int dragNum = 0;
+    bool isTap = false;
+    bool isRescue = false;
 
     /// <summary>
     /// 起動処理
@@ -43,6 +45,8 @@ public class TouchController : SingletonMonoBehaviour<TouchController>
         IT_Gesture.onDraggingStartE += OnDraggingStart;
         IT_Gesture.onDraggingE += OnDragging;
         IT_Gesture.onDraggingEndE += OnDraggingEnd;
+
+        AddEvent((int)Touch.Tap, PlayerActionCaller.Inst.OnPunch);
     }
 
     /// <summary>
@@ -58,13 +62,30 @@ public class TouchController : SingletonMonoBehaviour<TouchController>
     }
 
     /// <summary>
+    /// 更新処理
+    /// </summary>
+    void Update()
+    {
+        // 何も入力されていなかったら初期化
+        if (Input.touchCount == 0)
+        {
+            Init();
+        }
+    }
+
+    /// <summary>
     /// タップ開始
     /// </summary>
     void OnTap(Tap tap)
     {
-        Debug.Log("タップ開始");
+        // NOTE:２本の指で同時にタップすると2回呼ばれてしまうので１回になるよう、isTapで制御
+        if (!isTap)
+        {
+            Debug.Log("タップ開始");
+            onTap.Invoke();
 
-        onTap.Invoke();
+            isTap = true;
+        }
     }
 
     /// <summary>
@@ -73,7 +94,6 @@ public class TouchController : SingletonMonoBehaviour<TouchController>
     void OnDraggingStart(DragInfo dragInfo)
     {
         Debug.Log("長押し開始");
-
         onDraggingStart.Invoke();
     }
 
@@ -83,8 +103,10 @@ public class TouchController : SingletonMonoBehaviour<TouchController>
     void OnDragging(DragInfo dragInfo)
     {
         Debug.Log("長押し中");
-
         onDragging.Invoke();
+
+        // うさぎ救助
+        OnRescue();
     }
 
     /// <summary>
@@ -93,8 +115,34 @@ public class TouchController : SingletonMonoBehaviour<TouchController>
     void OnDraggingEnd(DragInfo dragInfo)
     {
         Debug.Log("長押し終了");
-
         onDraggingEnd.Invoke();
+    }
+
+    /// <summary>
+    /// うさぎ救助
+    /// </summary>
+    /// HACK:複数の指で連続タップするとどうしてもドラック処理に1フレームだけ入り込んでしまう時があり、
+    ///      2フレーム以上ドラックをし続けていればうさぎ救助を始めるようにしたら、一応動くようにはなりました。
+    ///      ただ場合によっては2フレーム以上になる可能性も０ではないし、コード的にも汚いので今後修正していく予定です。
+    void OnRescue()
+    {
+        dragNum++;
+
+        if (dragNum >= 2 && !isRescue)
+        {
+           PlayerActionCaller.Inst.OnRescue();
+           isRescue = true;
+        }
+    }
+
+    /// <summary>
+    /// 初期化
+    /// </summary>
+    void Init()
+    {
+        dragNum = 0;
+        isRescue = false;
+        isTap = false;
     }
 
     /// <summary>

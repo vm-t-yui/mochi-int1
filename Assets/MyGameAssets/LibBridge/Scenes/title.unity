@@ -3660,9 +3660,13 @@ PrefabInstance:
       propertyPath: maxTapDisplacementAllowance
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 11400008, guid: 98e68c057badd6848ac979be1fd7eb24, type: 3}
+      propertyPath: chargeMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 11400006, guid: 98e68c057badd6848ac979be1fd7eb24, type: 3}
       propertyPath: minDragDistance
-      value: 15
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 11400006, guid: 98e68c057badd6848ac979be1fd7eb24, type: 3}
       propertyPath: enableMultiDrag
@@ -3670,11 +3674,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11400004, guid: 98e68c057badd6848ac979be1fd7eb24, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11400004, guid: 98e68c057badd6848ac979be1fd7eb24, type: 3}
       propertyPath: maxSwipeDuration
       value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: 98e68c057badd6848ac979be1fd7eb24, type: 3}
+      propertyPath: onlyFireWhenLiftCursor
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: 98e68c057badd6848ac979be1fd7eb24, type: 3}
+      propertyPath: enableMultiSwipe
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: 98e68c057badd6848ac979be1fd7eb24, type: 3}
       propertyPath: m_Enabled
@@ -5952,6 +5964,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TouchController
+      objectReference: {fileID: 0}
+    - target: {fileID: 2311088934343667455, guid: 3b02d6456bed5445fa33ae56c0da0ebf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2311088934343667449, guid: 3b02d6456bed5445fa33ae56c0da0ebf,
         type: 3}
