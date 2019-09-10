@@ -40,13 +40,22 @@ public class ScoreManager : SingletonMonoBehaviour<ScoreManager>
     /// </summary>
     public void Save()
     {
-        // 前回のスコアとハイスコアを更新
-        if (GameDataManager.Inst.PlayData.HighScore < NowBreakNum)
-        {
-            GameDataManager.Inst.PlayData.HighScore = NowBreakNum;
-        }
+        // プレイデータのインスタンスを取得
+        PlayData playData = GameDataManager.Inst.PlayData;
 
-        GameDataManager.Inst.PlayData.LastScore = NowBreakNum;
+        // 前回のスコアとハイスコアを更新
+        if (playData.HighScore < NowBreakNum)
+        {
+            playData.HighScore = NowBreakNum;
+        }
+        playData.LastScore = NowBreakNum;
+
+        // 合計スコアを加算
+        playData.TotalScore += NowBreakNum;
+        if (playData.TotalScore > PlayData.MaxTotalScore)
+        {
+            playData.TotalScore = PlayData.MaxTotalScore;
+        }
 
         // データセーブ
         JsonDataSaver.Save(GameDataManager.Inst.PlayData);

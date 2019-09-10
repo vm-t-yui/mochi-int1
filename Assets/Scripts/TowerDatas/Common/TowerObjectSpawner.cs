@@ -95,6 +95,9 @@ public class TowerObjectSpawner : MonoBehaviour
                 spawnedObject = rabbitSpawnPool.Spawn(rabbitId, spawnPos, Quaternion.identity);
                 // 前回スポーンしたオブジェクトをウサギとして登録する
                 prevSpawnObjectType = TagName.Rabbit;
+
+                // スポーンしたウサギをログに表示
+                Debug.Log("RabbitSpawned [Rarity : " + rarityId.Substring(("RabbitRarity").Length,1));
             }
 
             // 生成したオブジェクトをオンにする

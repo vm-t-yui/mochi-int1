@@ -11,12 +11,12 @@ public class ObjectTypeLotteryMachine : MonoBehaviour
     // モチの出現率
     [SerializeField]
     [Range(0,100)]
-    int mochiSpawnRate = 0;
+    float mochiSpawnRate = 0;
 
     // ウサギの出現率
     [SerializeField]
     [Range(0, 100)]
-    int rabbitSpawnRate = 0;
+    float rabbitSpawnRate = 0;
 
     /// <summary>
     /// モチとウサギの出現抽選を行う
@@ -24,10 +24,10 @@ public class ObjectTypeLotteryMachine : MonoBehaviour
     public string SpawnLotteryMochiAndRabbit()
     {
         // それぞれの出現率の合計を算出
-        int totalRate = mochiSpawnRate + rabbitSpawnRate;
+        float totalRate = mochiSpawnRate + rabbitSpawnRate;
 
         // 乱数を生成（０～出現率の合計）
-        int random = Random.Range(0, totalRate);
+        float random = Random.Range(0, totalRate);
 
         // 乱数をモチの出現率で引く
         random -= mochiSpawnRate;

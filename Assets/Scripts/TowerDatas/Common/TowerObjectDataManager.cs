@@ -45,6 +45,11 @@ public class TowerObjectDataManager : SingletonMonoBehaviour<TowerObjectDataMana
         // ウサギのレアリティのアセットデータを読み込む
         RabbitRarityDataManager = new IdentifiedDataManager<RabbitRarityData>(rabbitRarityDataPath);
         RabbitRarityDataManager.LoadData();
+
+#if UNITY_EDITOR
+        // 各レアリティの抽選確率をログに表示する
+        DrawRarityPercentLog();
+# endif
     }
 
     /// <summary>
@@ -65,5 +70,29 @@ public class TowerObjectDataManager : SingletonMonoBehaviour<TowerObjectDataMana
         }
         // 見つからなかったらnullを返す
         return null;
+    }
+
+    /// <summary>
+    /// 各レアリティの抽選確率をログに表示する
+    /// </summary>
+    void DrawRarityPercentLog()
+    {
+        // 各確率の合計値
+        float totalRate = 0;
+
+        // 各確率の合計値を算出
+        foreach(RabbitRarityData rarityData in RabbitRarityDataManager.GetAllData())
+        {
+            totalRate += rarityData.LotteryRate;
+        }
+
+        foreach (RabbitRarityData rarityData in RabbitRarityDataManager.GetAllData())
+        {
+            // 確率のパーセントを計算
+            float percent = (rarityData.LotteryRate / totalRate) * 100;
+
+            // 計算結果をログに表示
+            Debug.Log("RabbitRarity : " + rarityData.Id.Substring(("RabbitRarity").Length,1) + " , RatePercent : " + percent.ToString("f2"));
+        }
     }
 }

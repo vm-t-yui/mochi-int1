@@ -5443,8 +5443,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: {fileID: 0}
   MaxEnduranceTime: 5
-  MinEnduranceTime: 0.5
-  ReachTime: 30
+  MinEnduranceTime: 0.2
+  ReachTime: 5
   DivisionNum: 3
 --- !u!114 &8720066317175066205
 MonoBehaviour:
@@ -5517,8 +5517,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbf8856c2f692bb4aaca38774e01cc27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mochiSpawnRate: 90
-  rabbitSpawnRate: 15
+  mochiSpawnRate: 100
+  rabbitSpawnRate: 10
 --- !u!114 &1006552312545117513
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -44,7 +44,6 @@ public class RabbitMoveController : MoveControllerBase
 
         // オブジェクトの名前（ID）から管理クラスのウサギのデータを取得
         towerObjectDataManager.RabbitDataManager.GetData(sourceName, out rabbitData);
-        Debug.Log("name : " + rabbitData.name + "[Number : " + rabbitData.Number + "]");
 
         // アタッチされているアニメーターを取得
         animator = GetComponent<Animator>();
