@@ -164,10 +164,10 @@ public class TouchController : SingletonMonoBehaviour<TouchController>
     }
 
     /// <summary>
-    /// UnityEvent追加
+    /// UnityEvent削除
     /// </summary>
-    /// <param name="num">追加するUnityEventの種類</param>
-    /// <param name="action">追加する関数</param>
+    /// <param name="num">削除するUnityEventの種類</param>
+    /// <param name="action">削除する関数</param>
     public void RemoveEvent(int num, UnityAction action)
     {
         switch (num)
