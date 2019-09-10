@@ -27,12 +27,15 @@ public class TitleSpriteSetter : MonoBehaviour
     [SerializeField]
     Image offerWallButton   = default;    // おすすめアプリボタン
     [SerializeField]
+    Image achievementButton = default;    // 実績ボタン
+
+    [SerializeField]
     Image page              = default;    // うさぎ図鑑用ノート
     [SerializeField]
     Image dish              = default;    // スキン画面用お皿
+
     [SerializeField]
     Image[] memo            = default;    // メモ
-
     [SerializeField]
     Image[] window          = default;    // ウィンドウ     
 
@@ -54,6 +57,7 @@ public class TitleSpriteSetter : MonoBehaviour
         pictureBookButton.sprite = atlas.GetSprite(SpriteName.PictureBookButton);
         settingButton.sprite     = atlas.GetSprite(SpriteName.SettingButton);
         leaderboardButton.sprite = atlas.GetSprite(SpriteName.LeaderboardButton);
+        achievementButton.sprite = atlas.GetSprite(SpriteName.Achievement);
         shareButton.sprite       = atlas.GetSprite(SpriteName.ShareButton);
         skinButton.sprite        = atlas.GetSprite(SpriteName.SkinButton);
         offerWallButton.sprite   = atlas.GetSprite(SpriteName.OfferWallButton);

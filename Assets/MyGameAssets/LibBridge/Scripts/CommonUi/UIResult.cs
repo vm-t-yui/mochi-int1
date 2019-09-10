@@ -17,18 +17,17 @@ public class UIResult : CmnMonoBehaviour
 
     [SerializeField]
     ResultPlayerAnimator resultPlayerAnimator = default;    // リザルトプレイヤーアニメータークラス
-
     [SerializeField]
     SceneChanger sceneChanger = default;                    // シーンチェンジクラス
-
     [SerializeField]
-    ScoreCountUpper scoreCountUpper = default;                    // スコアカウントアップクラス
+    ScoreCountUpper scoreCountUpper = default;              // スコアカウントアップクラス
 
     [SerializeField]
     GameObject buttons = default;                           // リザルトのボタン達
-
     [SerializeField]
     GameObject newRabbitText = default;                     // うさぎ図鑑用Newテキスト
+    [SerializeField]
+    GameObject newSkinText = default;                       // もちスキン用Newテキスト
 
     [SerializeField]
     float showAdTime = 1;                                   // 広告表示までの待機時間
@@ -101,6 +100,11 @@ public class UIResult : CmnMonoBehaviour
         {
             newRabbitText.gameObject.SetActive(true);
         }
+        // もちスキン
+        if (GameDataManager.Inst.PlayData.IsNewSkin)
+        {
+            newSkinText.gameObject.SetActive(true);
+        }
     }
 
     /// <summary>
@@ -112,6 +116,18 @@ public class UIResult : CmnMonoBehaviour
 
         // データフラグをfalseにしてセーブ
         GameDataManager.Inst.PlayData.IsNewRabbit = false;
+        JsonDataSaver.Save(GameDataManager.Inst.PlayData);
+    }
+
+    /// <summary>
+    /// ボタン用もちスキンNewテキスト非表示関数
+    /// </summary>
+    public void HideSkinNewText()
+    {
+        newSkinText.gameObject.SetActive(false);
+
+        // データフラグをfalseにしてセーブ
+        GameDataManager.Inst.PlayData.IsNewSkin = false;
         JsonDataSaver.Save(GameDataManager.Inst.PlayData);
     }
 

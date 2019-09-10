@@ -21,8 +21,6 @@ public class TouchController : SingletonMonoBehaviour<TouchController>
     }
 
     [SerializeField]
-    TouchEffectPlayer touchEffect = default;        // タッチエフェクト
-    [SerializeField]
     UnityEvent onTap = new UnityEvent();            // タップの関数リスト
     [SerializeField]
     UnityEvent onDraggingStart = new UnityEvent();  // ドラック開始の関数リスト
@@ -45,8 +43,6 @@ public class TouchController : SingletonMonoBehaviour<TouchController>
         IT_Gesture.onDraggingStartE += OnDraggingStart;
         IT_Gesture.onDraggingE += OnDragging;
         IT_Gesture.onDraggingEndE += OnDraggingEnd;
-
-        AddEvent((int)Touch.Tap, PlayerActionCaller.Inst.OnPunch);
     }
 
     /// <summary>
@@ -67,7 +63,7 @@ public class TouchController : SingletonMonoBehaviour<TouchController>
     void Update()
     {
         // 何も入力されていなかったら初期化
-        if (Input.touchCount == 0)
+        if (Input.touchCount == 0 && !Input.GetMouseButton(0))
         {
             Init();
         }
@@ -78,12 +74,13 @@ public class TouchController : SingletonMonoBehaviour<TouchController>
     /// </summary>
     void OnTap(Tap tap)
     {
-        // NOTE:２本の指で同時にタップすると2回呼ばれてしまうので１回になるよう、isTapで制御
+        Debug.Log("タップ開始");
+
         if (!isTap)
         {
-            Debug.Log("タップ開始");
             onTap.Invoke();
 
+            // 連続で呼ばれないようにフラグ制御
             isTap = true;
         }
     }
@@ -107,9 +104,6 @@ public class TouchController : SingletonMonoBehaviour<TouchController>
 
         // ドラックのフレーム数をカウント
         dragFrame++;
-
-        // うさぎ救助
-        OnRescue();
     }
 
     /// <summary>
@@ -122,18 +116,24 @@ public class TouchController : SingletonMonoBehaviour<TouchController>
     }
 
     /// <summary>
-    /// うさぎ救助
+    /// うさぎ救助のタイミング検知
     /// </summary>
     /// HACK:複数の指で連続タップするとどうしてもドラック処理に1フレームだけ入り込んでしまう時があり、
     ///      2フレーム以上ドラックをし続けていればうさぎ救助を始めるようにしたら、一応動くようにはなりました。
     ///      ただ場合によっては2フレーム以上になる可能性も０ではないし、コード的にも汚いので今後修正していく予定です。
-    void OnRescue()
+    public bool StartRescue()
     {
         // ドラックが２フレーム続いているならうさぎ救助開始
         if (dragFrame >= 2 && !isRescue)
         {
-           PlayerActionCaller.Inst.OnRescue();
-           isRescue = true;
+            // 連続で呼ばれないようにフラグ制御
+            isRescue = true;
+
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 
@@ -156,10 +156,26 @@ public class TouchController : SingletonMonoBehaviour<TouchController>
     {
         switch(num)
         {
-            case (int)Touch.Tap: onTap.AddListener(() => action()); break;
-            case (int)Touch.DraggingStart: onDraggingStart.AddListener(() => action()); break;
-            case (int)Touch.Dragging: onDragging.AddListener(() => action()); break;
-            case (int)Touch.DraggingEnd: onDraggingEnd.AddListener(() => action()); break;
+            case (int)Touch.Tap: onTap.AddListener(action); break;
+            case (int)Touch.DraggingStart: onDraggingStart.AddListener(action); break;
+            case (int)Touch.Dragging: onDragging.AddListener(action); break;
+            case (int)Touch.DraggingEnd: onDraggingEnd.AddListener(action); break;
+        }
+    }
+
+    /// <summary>
+    /// UnityEvent削除
+    /// </summary>
+    /// <param name="num">削除するUnityEventの種類</param>
+    /// <param name="action">削除する関数</param>
+    public void RemoveEvent(int num, UnityAction action)
+    {
+        switch (num)
+        {
+            case (int)Touch.Tap: onTap.RemoveListener(action); break;
+            case (int)Touch.DraggingStart: onDraggingStart.RemoveListener(action); break;
+            case (int)Touch.Dragging: onDragging.RemoveListener(action); break;
+            case (int)Touch.DraggingEnd: onDraggingEnd.RemoveListener(action); break;
         }
     }
 }

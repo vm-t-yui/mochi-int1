@@ -17,7 +17,16 @@ public class ResultSpriteSetter : MonoBehaviour
     [SerializeField]
     Image shareButton = default;        // 共有ボタン
     [SerializeField]
+    Image skinButton = default;         // スキンボタン
+    [SerializeField]
+    Image achievementButton = default;  // 実績ボタン
+    [SerializeField]
+    Image[] menuButton = default;    // メニューロゴ
+
+    [SerializeField]
     Image page = default;               // ノート
+    [SerializeField]
+    Image dish = default;               // スキン画面用お皿
 
     [SerializeField]
     Image[] memo = default;             // うさぎ図鑑用メモ
@@ -44,7 +53,11 @@ public class ResultSpriteSetter : MonoBehaviour
         pictureBookButton.sprite = atlas.GetSprite(SpriteName.PictureBookButton);
         leaderboardButton.sprite = atlas.GetSprite(SpriteName.LeaderboardButton);
         shareButton.sprite = atlas.GetSprite(SpriteName.ShareButton);
+        achievementButton.sprite = atlas.GetSprite(SpriteName.Achievement);
+        skinButton.sprite = atlas.GetSprite(SpriteName.SkinButton);
         page.sprite = atlas.GetSprite(SpriteName.Page);
+        dish.sprite = atlas.GetSprite(SpriteName.Dish);
+
         scoreMochi[(int)ScoreManager.Score.Low].sprite = atlas.GetSprite(SpriteName.LowScoreMochi);
         scoreMochi[(int)ScoreManager.Score.Normal].sprite = atlas.GetSprite(SpriteName.NormalScoreMochi);
         scoreMochi[(int)ScoreManager.Score.Good].sprite = atlas.GetSprite(SpriteName.GoodScoreMochi);
@@ -56,6 +69,11 @@ public class ResultSpriteSetter : MonoBehaviour
         SetRaritySprite(rarity3, SpriteName.Rarity3);
         SetRaritySprite(rarity4, SpriteName.Rarity4);
         SetRaritySprite(rarity5, SpriteName.Rarity5);
+
+        for (int i = 0; i < menuButton.Length; i++)
+        {
+            menuButton[i].sprite = atlas.GetSprite(SpriteName.MenuButton);
+        }
 
         for (int i = 0; i < window.Length; i++)
         {
