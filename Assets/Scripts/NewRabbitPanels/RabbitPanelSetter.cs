@@ -39,8 +39,6 @@ public class RabbitPanelSetter : MonoBehaviour
             Transform panel = sourceRabbitPanelParent.Find(rabbit.Id);
             // 取得したパネルの親オブジェクトを変更してセットする
             panel.SetParent(setedRabbitPanelParent.GetChild(setPanelRowNum));
-            Debug.Log("A : " + panel);
-            Debug.Log("B : " + setedRabbitPanelParent.GetChild(setPanelRowNum));
             // セットしたパネルをオンにする
             panel.gameObject.SetActive(true);
             // セットしたパネルをリストに追加

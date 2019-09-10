@@ -15,6 +15,10 @@ public class RabbitPanelActivator : MonoBehaviour
     [SerializeField]
     ScoreCountUpper scoreCountUpper = default;
 
+    // フェードアニメーター
+    [SerializeField]
+    Animator fadeAnimator = default;
+
     // 表示可能な状態になってからの待機時間
     [SerializeField]
     int activeWaitTime = 0;
@@ -35,8 +39,8 @@ public class RabbitPanelActivator : MonoBehaviour
                 // 新たに救出したウサギがいれば、一覧のパネルを表示する
                 if (RabbitPictureBookFlagSwitcher.Inst.NewRescuedRabbits.Count != 0)
                 {
-                    // パネルのオブジェクトをオンにする
-                    panelObjectParent.gameObject.SetActive(true);
+                    // アニメーションの再生を開始する
+                    fadeAnimator.SetTrigger("FadeIn");
                 }
             }
             // カウンター
@@ -50,6 +54,6 @@ public class RabbitPanelActivator : MonoBehaviour
     void OnDisable()
     {
         // カウンターを初期化
-        waitTimeCounter++;
+        waitTimeCounter = 0; ;
     }
 }
