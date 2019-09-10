@@ -4140,22 +4140,13 @@ PrefabInstance:
       propertyPath: mLocalizeTarget
       value: 
       objectReference: {fileID: 1523869700}
-    - target: {fileID: 1027750784, guid: bd1df978bfc2efd42a396a490575694f, type: 3}
-      propertyPath: m_Enabled
-      value: 1
+    - target: {fileID: 1267623867, guid: bd1df978bfc2efd42a396a490575694f, type: 3}
+      propertyPath: m_Material
+      value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 1865666934937687745, guid: bd1df978bfc2efd42a396a490575694f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 976309714, guid: bd1df978bfc2efd42a396a490575694f, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 976309714, guid: bd1df978bfc2efd42a396a490575694f, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 50
+    - target: {fileID: 1267623867, guid: bd1df978bfc2efd42a396a490575694f, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd1df978bfc2efd42a396a490575694f, type: 3}

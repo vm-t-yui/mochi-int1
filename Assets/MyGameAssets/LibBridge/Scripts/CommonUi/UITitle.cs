@@ -12,9 +12,6 @@ using VMUnityLib;
 /// </summary>
 public sealed class UITitle : CmnMonoBehaviour
 {
-#if USE_TWEEN
-    uTweenAlpha tweenAlphe;
-#endif
     [SerializeField]
     GameObject newRabbitText = default;     // うさぎ図鑑用Newテキスト
     [SerializeField]
