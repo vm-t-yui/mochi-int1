@@ -37,7 +37,9 @@ public class TitleSpriteSetter : MonoBehaviour
     [SerializeField]
     Image[] memo            = default;    // メモ
     [SerializeField]
-    Image[] window          = default;    // ウィンドウ     
+    Image[] window          = default;    // ウィンドウ
+    [SerializeField]
+    Image[] newIcon = default;            // 新たに手に入れた時にボタンの上に表示するのアイコン
 
     [SerializeField]
     Image   rarity0         = default;    // 非解放用レアリティ
@@ -83,6 +85,11 @@ public class TitleSpriteSetter : MonoBehaviour
         for (int i = 0; i < memo.Length; i++)
         {
             memo[i].sprite = atlas.GetSprite(SpriteName.Memo);
+        }
+
+        for (int i = 0; i < newIcon.Length; i++)
+        {
+            newIcon[i].sprite = atlas.GetSprite(SpriteName.NewIcon);
         }
     }
 

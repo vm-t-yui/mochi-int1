@@ -58,7 +58,8 @@ SpriteAtlas:
     - {fileID: 2800000, guid: c14016f50ab1c4fef844ef23cf6ea087, type: 3}
     - {fileID: 2800000, guid: e5b7972914dc243c49b0996e4f8f18b5, type: 3}
     - {fileID: 2800000, guid: 5880f91e9557d4ef2ad061e99c67d24d, type: 3}
-    totalSpriteSurfaceArea: 4344576
+    - {fileID: 2800000, guid: db46289dfbc29452e8816227aa52e731, type: 3}
+    totalSpriteSurfaceArea: 4410112
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -85,6 +86,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 6203e47c22a324c3c84d1122a39fa88d, type: 3}
   - {fileID: 21300000, guid: 861e330db24773a468df26f6ef0813ce, type: 3}
   - {fileID: 21300000, guid: 0647bb0dbe154428eb23bc4ebbedb1c7, type: 3}
+  - {fileID: 21300000, guid: db46289dfbc29452e8816227aa52e731, type: 3}
   - {fileID: 21300000, guid: 5880f91e9557d4ef2ad061e99c67d24d, type: 3}
   - {fileID: 21300000, guid: 4604f8aee3a59b840924963f808f34b1, type: 3}
   - {fileID: 21300000, guid: 4a425caec57e4471f931beae3b05c8d6, type: 3}
@@ -114,6 +116,7 @@ SpriteAtlas:
   - yomogiMochi
   - rarity2
   - normalScoreMochi
+  - newIcon
   - achievement
   - rarity4
   - redMochi

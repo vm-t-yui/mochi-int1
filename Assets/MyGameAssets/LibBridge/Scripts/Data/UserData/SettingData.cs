@@ -33,6 +33,7 @@ public class SettingData
         IchigoDaihuku,    // いちご大福
         KashiwaMochi,     // 柏餅
         IsobeMochi,       // 磯部餅
+        Length,           // enumの長さ
     }
 
     [SerializeField]

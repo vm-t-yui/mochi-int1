@@ -74,29 +74,16 @@ public class SceneAdNativeController : MonoBehaviour
     /// <returns>終了フラグ</returns>
     public bool EndFade()
     {
-        // return用のフラグ
-        bool returnflg = false;
-
-        // NOTE:リトライするとこの広告は表示されないため、
-        //      表示されない時はそのまま終了させるようにしました。
-
-        // 表示しているなら
-        if (isDisplay)
+        // 表示しているならフェードアウトが終わったタイミングで検知
+        if (isDisplay && IsEnd)
         {
-            // フェードアウトが終わったタイミングで検知
-            if (IsEnd)
-            {
-                returnflg = IsEnd;
-                isDisplay = false;
-                IsEnd = false;
-            }
+            isDisplay = false;
+            IsEnd = false;
+            return true;
         }
-        // 表示していないのならそのまま終了検知
         else
         {
-            returnflg = true;
+            return false;
         }
-
-        return returnflg;
     }
 }

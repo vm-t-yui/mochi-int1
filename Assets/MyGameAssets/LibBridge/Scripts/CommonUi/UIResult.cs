@@ -10,6 +10,21 @@ using TMPro;
 /// </summary>
 public class UIResult : CmnMonoBehaviour
 {
+    /// <summary>
+    /// 新しく手に入れた時に表示されるNewアイコンの種類
+    /// </summary>
+    enum NewIcon
+    {
+        Rabbit,         // うさぎ
+        Skin,           // スキン
+        Achieve,        // 実績
+        Menu,           // メニュー
+        Length,         // enumの長さ
+    }
+
+    [SerializeField]
+    GameObject[] newIcon = new GameObject[(int)NewIcon.Length];　// 新しく手に入れた時に表示されるNewアイコン
+
     // 処理なし。メッセージ受信エラー避け.
     protected override void InitSceneChange() { }
     protected override void OnSceneDeactive() { }
@@ -24,10 +39,6 @@ public class UIResult : CmnMonoBehaviour
 
     [SerializeField]
     GameObject buttons = default;                           // リザルトのボタン達
-    [SerializeField]
-    GameObject newRabbitText = default;                     // うさぎ図鑑用Newテキスト
-    [SerializeField]
-    GameObject newSkinText = default;                       // もちスキン用Newテキスト
 
     [SerializeField]
     float showAdTime = 1;                                   // 広告表示までの待機時間
@@ -46,7 +57,7 @@ public class UIResult : CmnMonoBehaviour
         AdManager.Inst.ShowBanner((int)AdBannerController.BANNER.TOP);
 
         // Newテキスト表示
-        ShowNewText();
+        ShowNewIcon();
     }
 
     /// <summary>
@@ -91,43 +102,50 @@ public class UIResult : CmnMonoBehaviour
     }
 
     /// <summary>
-    /// Newテキスト表示
+    /// Newアイコン表示
     /// </summary>
-    void ShowNewText()
+    void ShowNewIcon()
     {
-        // うさぎ図鑑
+        // 新たにうさぎ図鑑のページが解放されたらNewアイコンを表示
         if (GameDataManager.Inst.PlayData.IsNewRabbit)
         {
-            newRabbitText.gameObject.SetActive(true);
+            newIcon[(int)NewIcon.Rabbit].gameObject.SetActive(true);
         }
-        // もちスキン
+        // 新たにもちスキンが解放されたらNewアイコンを表示
         if (GameDataManager.Inst.PlayData.IsNewSkin)
         {
-            newSkinText.gameObject.SetActive(true);
+            newIcon[(int)NewIcon.Skin].gameObject.SetActive(true);
+        }
+
+        // 新たに実績解除されたらNewアイコンを表示
+        if (GameDataManager.Inst.PlayData.IsNewReleasedAchieve)
+        {
+            newIcon[(int)NewIcon.Achieve].gameObject.SetActive(true);
+            newIcon[(int)NewIcon.Menu].gameObject.SetActive(true);
         }
     }
 
     /// <summary>
-    /// ボタン用うさぎ図鑑Newテキスト非表示関数
+    /// Newアイコン非表示
     /// </summary>
-    public void HideRabbitNewText()
+    public void HideNewIcon(int num)
     {
-        newRabbitText.gameObject.SetActive(false);
+        // 番号に応じたNewアイコンを非表示、フラグをリセット
+        newIcon[num].gameObject.SetActive(false);
+        switch (num)
+        {
+            case (int)NewIcon.Rabbit:
+                GameDataManager.Inst.PlayData.IsNewRabbit = false; break;
 
-        // データフラグをfalseにしてセーブ
-        GameDataManager.Inst.PlayData.IsNewRabbit = false;
-        JsonDataSaver.Save(GameDataManager.Inst.PlayData);
-    }
+            case (int)NewIcon.Skin:
+                GameDataManager.Inst.PlayData.IsNewSkin = false; break;
 
-    /// <summary>
-    /// ボタン用もちスキンNewテキスト非表示関数
-    /// </summary>
-    public void HideSkinNewText()
-    {
-        newSkinText.gameObject.SetActive(false);
+            case (int)NewIcon.Achieve:
+                GameDataManager.Inst.PlayData.IsNewReleasedAchieve = false;
+                newIcon[(int)NewIcon.Menu].gameObject.SetActive(false); break;
+        }
 
-        // データフラグをfalseにしてセーブ
-        GameDataManager.Inst.PlayData.IsNewSkin = false;
+        // 処理が終わったらデータをセーブ
         JsonDataSaver.Save(GameDataManager.Inst.PlayData);
     }
 
@@ -182,5 +200,13 @@ public class UIResult : CmnMonoBehaviour
     public void HideBanner()
     {
         AdManager.Inst.HideBanner();
+    }
+
+    /// <summary>
+    /// シーン切り替えようネイティブ広告
+    /// </summary>
+    public void ShowSceneAdNative()
+    {
+        AdManager.Inst.ShowSceneAdNative();
     }
 }
