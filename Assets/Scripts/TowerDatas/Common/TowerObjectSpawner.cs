@@ -47,9 +47,9 @@ public class TowerObjectSpawner : MonoBehaviour
     SettingData.SkinType mochiSkinType = SettingData.SkinType.NormalMochi;
 
     /// <summary>
-    /// 開始
+    /// 起動処理
     /// </summary>
-    void Start()
+    void OnEnable()
     {
         // 現在のモチのスキンを取得する
         mochiSkinType = GameDataManager.Inst.SettingData.UseSkin;
