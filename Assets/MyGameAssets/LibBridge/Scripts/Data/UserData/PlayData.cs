@@ -13,6 +13,11 @@ public class PlayData
     public const int MaxTotalRescueCount = 9999;              // うさぎの合計救出回数の最大値
     public const long MaxTotalScore = 99999999;               // 合計スコアの最大値
     public const int AllAchievementNum = 4;                   // 実績の総数
+    public const float ReleaseKouhakuSkinScore = 1000;        // 紅白餅のスキン解放スコア
+    public const float ReleaseYomogiSkinScore = 3000;         // よもぎ餅のスキン解放スコア     
+    public const float ReleaseIchigoSkinScore = 5000;         // いちご大福のスキン解放スコア
+    public const float ReleaseKashiwaSkinScore = 8000;        // かしわ餅のスキン解放スコア
+    public const float ReleaseIsobeSkinScore = 10000;         // 磯部餅のスキン解放スコア
 
     [SerializeField]
     int playCount = 0;                                        // プレイ回数
@@ -38,6 +43,8 @@ public class PlayData
     bool isNewSkin = false;                                   // 新しいスキンフラグ
     [SerializeField]
     bool[] isReleasedAchieve = new bool[AllAchievementNum];   // 実績の解除状況
+    [SerializeField]
+    bool isNewReleasedAchieve = false;                        // 新しく実績を解放したときのフラグ
 
     /// <summary>
     /// 各データのプロパティ
@@ -51,6 +58,7 @@ public class PlayData
     public bool IsReward              { get { return isReward; }            set { isReward = value; } }
     public bool IsNewRabbit           { get { return isNewRabbit; }         set { isNewRabbit = value; } }
     public bool IsNewSkin             { get { return isNewSkin; }           set { isNewSkin = value; } }
+    public bool IsNewReleasedAchieve  { get { return isNewReleasedAchieve; }set { isNewReleasedAchieve = value; } }
     public bool[] IsReleasedRabbit    { get { return isReleasedRabbit; }    set { isReleasedRabbit = value; } }
     public bool[] IsDrawRabbitNewIcon { get { return isDrawRabbitNewIcon; } set { isDrawRabbitNewIcon = value; } }
     public bool[] IsReleasedAchieve   { get { return isReleasedAchieve; }   set { isReleasedAchieve = value; } }

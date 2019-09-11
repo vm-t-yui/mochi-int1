@@ -336,6 +336,16 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6046388828096715422, guid: 1d6d75639b191479d866916a3792d35e,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6046388828096715422, guid: 1d6d75639b191479d866916a3792d35e,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2959937862547402835, guid: 1d6d75639b191479d866916a3792d35e,
         type: 3}
       propertyPath: timerGauge
@@ -3250,7 +3260,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: {fileID: 1474329050}
-  touch: {fileID: 0}
   towerObjectSpawner: {fileID: 1069323592}
   punch:
     m_PersistentCalls:

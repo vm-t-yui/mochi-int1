@@ -47,6 +47,7 @@ public class ScoreManager : SingletonMonoBehaviour<ScoreManager>
         if (playData.HighScore < NowBreakNum)
         {
             playData.HighScore = NowBreakNum;
+     //       GameServiceUtil.ReportScore(playData.HighScore, 0);
         }
         playData.LastScore = NowBreakNum;
 
@@ -56,6 +57,7 @@ public class ScoreManager : SingletonMonoBehaviour<ScoreManager>
         {
             playData.TotalScore = PlayData.MaxTotalScore;
         }
+//        GameServiceUtil.ReportScore(playData.TotalScore, 1);
 
         // データセーブ
         JsonDataSaver.Save(GameDataManager.Inst.PlayData);

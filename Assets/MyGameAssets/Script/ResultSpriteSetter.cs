@@ -20,8 +20,6 @@ public class ResultSpriteSetter : MonoBehaviour
     Image skinButton = default;         // スキンボタン
     [SerializeField]
     Image achievementButton = default;  // 実績ボタン
-    [SerializeField]
-    Image[] menuButton = default;    // メニューロゴ
 
     [SerializeField]
     Image page = default;               // ノート
@@ -29,11 +27,15 @@ public class ResultSpriteSetter : MonoBehaviour
     Image dish = default;               // スキン画面用お皿
 
     [SerializeField]
+    Image[] menuButton = default;       // メニューロゴ
+    [SerializeField]
     Image[] memo = default;             // うさぎ図鑑用メモ
     [SerializeField]
     Image[] window = default;           // ウィンドウ     
     [SerializeField]
     Image[] scoreMochi = default;       // カウントアップ時にスコアに応じて増減するもち
+    [SerializeField]
+    Image[] newIcon = default;          // 新たに手に入れた時にボタンの上に表示するのアイコン
 
     [SerializeField]
     Image rarity0 = default;            // 非解放用レアリティ
@@ -83,6 +85,11 @@ public class ResultSpriteSetter : MonoBehaviour
         for (int i = 0; i < memo.Length; i++)
         {
             memo[i].sprite = atlas.GetSprite(SpriteName.Memo);
+        }
+
+        for (int i = 0; i < newIcon.Length; i++)
+        {
+            newIcon[i].sprite = atlas.GetSprite(SpriteName.NewIcon);
         }
     }
 

@@ -27,7 +27,7 @@ public class AchievementReleaser : Singleton<AchievementReleaser>
             // 解除条件を満たしていれば解除する
             if (releaseCondisions[i])
             {
-                GameServiceUtil.ReportProgress(i);
+//                GameServiceUtil.ReportProgress(i);
                 // 実績解除状況を更新
                 playData.IsReleasedAchieve[i] = true;
             }

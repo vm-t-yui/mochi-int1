@@ -47,6 +47,9 @@ public class RabbitPictureBookFlagSwitcher : SingletonMonoBehaviour<RabbitPictur
         {
             // ウサギの番号をリストに追加
             rescuedRabbitNumbers.Add(rescuedRabbitData.Number);
+
+            // うさぎの新規取得フラグをON
+            GameDataManager.Inst.PlayData.IsNewRabbit = true;
         }
     }
 

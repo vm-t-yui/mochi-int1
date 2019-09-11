@@ -33,4 +33,5 @@ public class SpriteName
     public const string Timer = "timer";
     public const string Window = "window";
     public const string Achievement = "achievement";
+    public const string NewIcon = "newIcon";
 }

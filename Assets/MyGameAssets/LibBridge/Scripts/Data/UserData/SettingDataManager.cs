@@ -20,9 +20,6 @@ public class SettingDataManager : MonoBehaviour
     [SerializeField]
     TMP_Dropdown LanguageSelect = default;    // 使用言語切替ドロップダウン
 
-    [SerializeField]
-    TextMeshProUGUI UseSkin     = default;    // 使用中の餅スキン表示テキスト
-
     /// <summary>
     /// 起動処理
     /// </summary>
@@ -34,7 +31,6 @@ public class SettingDataManager : MonoBehaviour
         BgmMute.isOn         = GameDataManager.Inst.SettingData.IsBgmMute;           // BGMミュート
         SeMute.isOn          = GameDataManager.Inst.SettingData.IsSeMute;            // SEミュート
         LanguageSelect.value = (int)GameDataManager.Inst.SettingData.UseLanguage;    // 使用言語
-        ChangeUseSkinText(GameDataManager.Inst.SettingData.UseSkin);                 // 使用スキン
     }
 
     /// <summary>
@@ -51,20 +47,6 @@ public class SettingDataManager : MonoBehaviour
 
         // 設定データをJSON形式でセーブ
         JsonDataSaver.Save(GameDataManager.Inst.SettingData);
-    }
-
-    /// <summary>
-    /// 餅スキンセット
-    /// NOTE: m.tanaka 餅スキン設定ウィンドウのボタンで呼ぶ関数です
-    /// </summary>
-    /// <param name="skin">セットするスキン番号</param>
-    public void SetMochiSkin(int skin)
-    {
-        // 指定されたスキンにデータを変更
-        GameDataManager.Inst.SettingData.UseSkin = (SettingData.SkinType)skin;
-
-        // 表示テキスト変更
-        ChangeUseSkinText(GameDataManager.Inst.SettingData.UseSkin);
     }
 
     /// NOTE: m.tanaka 以下4つの関数はスライダー等のValue Changedで呼んでください
@@ -100,37 +82,6 @@ public class SettingDataManager : MonoBehaviour
     public void SetSeMute(Toggle toggle)
     {
         GameDataManager.Inst.SettingData.IsSeMute = toggle.isOn;
-    }
-
-    /// <summary>
-    /// 使用中スキン表示テキスト変更
-    /// </summary>
-    /// <param name="skinType">餅スキンの種類</param>
-    void ChangeUseSkinText(SettingData.SkinType skinType)
-    {
-        // 受け取った餅スキンによって表示テキスト変更
-        // TODO: 仮で作った機能なので要らない場合は削除します。そのまま使えそうならローカライズにも対応させます。
-        switch (skinType)
-        {
-            case SettingData.SkinType.NormalMochi:
-                UseSkin.text = "普通の餅";
-                break;
-            case SettingData.SkinType.KouhakuMochi:
-                UseSkin.text = "紅白餅";
-                break;
-            case SettingData.SkinType.YomogiMochi:
-                UseSkin.text = "よもぎ餅";
-                break;
-            case SettingData.SkinType.IchigoDaihuku:
-                UseSkin.text = "いちご大福";
-                break;
-            case SettingData.SkinType.KashiwaMochi:
-                UseSkin.text = "柏餅";
-                break;
-            case SettingData.SkinType.IsobeMochi:
-                UseSkin.text = "磯部餅";
-                break;
-        }
     }
 
     /// <summary>
