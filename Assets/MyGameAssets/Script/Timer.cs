@@ -8,16 +8,16 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
     [SerializeField]
-    Animator animator = default;                    // アニメーター
+    Animator animator = default;                           // アニメーター
     [SerializeField]
-    TextMeshProUGUI timer = default;                    // タイマー用テキスト
+    TextMeshProUGUI timer = default;                       // タイマー用テキスト
     [SerializeField]
     FeverTimeController feverTime = default;               // フィーバータイム管理クラス
     [SerializeField]
     Slider slider = default;                               // タイマーのゲージ
 
     [SerializeField]
-    float gameTime = 0;                                 // ゲーム内の秒数
+    float gameTime = 0;                                    // ゲーム内の秒数
     [SerializeField]
     float plusSeconds = 0;                                 // プラスする秒数
 
@@ -30,9 +30,9 @@ public class Timer : MonoBehaviour
     bool isAble = false;                                   // 処理許可フラグ
 
     public bool IsTimeup { get; private set; } = false;    // タイムアップフラグ
-    public bool IsStart { get; private set; } = false;    // ゲームスタートまでのカウントダウンフラグ
+    public bool IsStart  { get; private set; } = false;    // ゲームスタートまでのカウントダウンフラグ
 
-    bool isStop = false;                                   // タイマーストップフラグ
+    public bool IsStop   { get; private set; } = false;    // タイマーストップフラグ
 
     /// <summary>
     /// 起動処理
@@ -83,7 +83,7 @@ public class Timer : MonoBehaviour
         FeverTimeTimer();
 
         // 処理が許可されていない or タイムアップ or タイマーがストップしているならしているなら処理を抜ける
-        if (!isAble || IsTimeup || isStop) { return; }
+        if (!isAble || IsTimeup || IsStop) { return; }
 
         // カウントダウン
         CountTime -= Time.deltaTime;
@@ -133,15 +133,15 @@ public class Timer : MonoBehaviour
     void FeverTimeTimer()
     {
         // フィーバータイム中はタイマーをストップ、終わればリスタート
-        if (feverTime.IsFever && !isStop)
+        if (feverTime.IsFever && !IsStop)
         {
-            isStop = true;
+            IsStop = true;
             animator.SetBool("IsFever", true);
             timer.text = "Fever!!!";
         }
-        else if (!feverTime.IsFever && isStop)
+        else if (!feverTime.IsFever && IsStop)
         {
-            isStop = false;
+            IsStop = false;
             animator.SetBool("IsFever", false);
         }
     }

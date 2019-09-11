@@ -54,7 +54,7 @@ public class RabbitEndureTimeCalculator : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (timer.IsStart)
+        if (timer.IsStart && !timer.isStop)
         {
             // 終了フラグがtrueならここで処理を抜ける
             if (isEnd) { return; }
@@ -72,6 +72,7 @@ public class RabbitEndureTimeCalculator : MonoBehaviour
             // 耐久時間が最小まで達したら計算を終了
             if (NowEnduranceTime <= MinEnduranceTime)
             {
+                NowEnduranceTime = MinEnduranceTime;
                 isEnd = true;
             }
         }
