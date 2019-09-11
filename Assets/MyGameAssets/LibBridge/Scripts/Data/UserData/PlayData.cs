@@ -9,15 +9,16 @@ using System.Linq;
 
 public class PlayData
 {
-    public const int AllRabbitNum = 25;                       // うさぎの種類の総数
-    public const int MaxTotalRescueCount = 9999;              // うさぎの合計救出回数の最大値
-    public const long MaxTotalScore = 99999999;               // 合計スコアの最大値
-    public const int AllAchievementNum = 4;                   // 実績の総数
-    public const float ReleaseKouhakuSkinScore = 1000;        // 紅白餅のスキン解放スコア
-    public const float ReleaseYomogiSkinScore = 3000;         // よもぎ餅のスキン解放スコア     
-    public const float ReleaseIchigoSkinScore = 5000;         // いちご大福のスキン解放スコア
-    public const float ReleaseKashiwaSkinScore = 8000;        // かしわ餅のスキン解放スコア
-    public const float ReleaseIsobeSkinScore = 10000;         // 磯部餅のスキン解放スコア
+    public const int  AllRabbitNum            = 25;           // うさぎの種類の総数
+    public const int  MaxTotalRescueCount     = 9999;         // うさぎの合計救出回数の最大値
+    public const long MaxTotalScore           = 99999999;     // 合計スコアの最大値
+    public const int  AllAchievementNum       = 4;            // 実績の総数
+    public const int  ReleaseNormalSkinScore  = 0;            // 普通の餅のスキン解放スコア
+    public const int  ReleaseKouhakuSkinScore = 1000;         // 紅白餅のスキン解放スコア
+    public const int  ReleaseYomogiSkinScore  = 3000;         // よもぎ餅のスキン解放スコア     
+    public const int  ReleaseIchigoSkinScore  = 5000;         // いちご大福のスキン解放スコア
+    public const int  ReleaseKashiwaSkinScore = 8000;         // かしわ餅のスキン解放スコア
+    public const int  ReleaseIsobeSkinScore   = 10000;        // 磯部餅のスキン解放スコア
 
     [SerializeField]
     int playCount = 0;                                        // プレイ回数

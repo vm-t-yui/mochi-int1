@@ -9,13 +9,14 @@ using TMPro;
 public class SkinController : MonoBehaviour
 {
     [SerializeField]
-    TextMeshProUGUI UseSkin = default;                                                          // 使用中の餅スキン表示テキスト
+    TextMeshProUGUI UseSkin = default;                               // 使用中の餅スキン表示テキスト
 
-    bool[] isRelease = new bool[(int)SettingData.SkinType.Length];                              // 各スキンの解放フラグ
+    bool[] isRelease = new bool[(int)SettingData.SkinType.Length];   // 各スキンの解放フラグ
 
     // 各スキンの解放スコア
-    float[] releaseScore =
+    int[] releaseScore =
     {
+        PlayData.ReleaseNormalSkinScore,
         PlayData.ReleaseKouhakuSkinScore,
         PlayData.ReleaseYomogiSkinScore,
         PlayData.ReleaseIchigoSkinScore,
