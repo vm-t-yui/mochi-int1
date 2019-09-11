@@ -12,26 +12,21 @@ using VMUnityLib;
 public class RarityViewer : EditorWindow
 {
     // ウサギのデータマネージャー
-    public IdentifiedDataManager<RabbitData> RabbitDataManager { get; private set; }
-    IEnumerable<RabbitRarityData> rarityDatas = null;
+    static public IdentifiedDataManager<RabbitData> RabbitDataManager { get; private set; }
+    static IEnumerable<RabbitRarityData> rarityDatas = null;
 
     // ウサギのレアリティのデータマネージャー
-    public IdentifiedDataManager<RabbitRarityData> RabbitRarityDataManager { get; private set; }
-    IEnumerable<RabbitData> rabbitDatas = null;
+    static public IdentifiedDataManager<RabbitRarityData> RabbitRarityDataManager { get; private set; }
+    static IEnumerable<RabbitData> rabbitDatas = null;
+
+    // スクロール位置
+    Vector2 scrollPos = Vector2.zero;
 
     [MenuItem("Window/RarityViewer")]
     /// <summary>
     /// GUIのインスタンス取得
     /// /// </summary>
     private static void Open()
-    {
-        GetWindow<RarityViewer>("RarityViewer");
-    }
-
-    /// <summary>
-    /// GUI全般処理
-    /// </summary>
-    void OnGUI()
     {
         // ウサギのレアリティを読み込む
         RabbitRarityDataManager = new IdentifiedDataManager<RabbitRarityData>("TowerObjectDatas/Rabbit/RarityDatas");
@@ -43,8 +38,22 @@ public class RarityViewer : EditorWindow
         RabbitDataManager.LoadData();
         rabbitDatas = RabbitDataManager.GetAllData();
 
+        GetWindow<RarityViewer>("RarityViewer");
+    }
+
+    /// <summary>
+    /// GUI全般処理
+    /// </summary>
+    void OnGUI()
+    {
+        // スクロール開始位置
+        scrollPos = EditorGUILayout.BeginScrollView(scrollPos);
+
         // レアリティを表示
         ShowRarity();
+
+        // スクロール終了位置
+        EditorGUILayout.EndScrollView();
     }
 
     /// <summary>
@@ -65,8 +74,11 @@ public class RarityViewer : EditorWindow
         {
             // 確率のパーセントを計算
             float percent = (rarityData.LotteryRate / totalRate) * 100;
+            GUILayout.BeginHorizontal();
             // 計算結果をログに表示
-            EditorGUILayout.LabelField("RabbitRarity : " + rarityData.Id.Substring(("RabbitRarity").Length, 1) + " , RatePercent : " + percent.ToString("f2"));
+            EditorGUILayout.LabelField("RabbitRarity : " + rarityData.Id.Substring(("RabbitRarity").Length, 1), EditorStyles.boldLabel);
+            EditorGUILayout.LabelField(percent.ToString("f2"), EditorStyles.boldLabel);
+            GUILayout.EndHorizontal();
 
             // レアリティに属しているウサギの確率を表示
             ShowRabbitSpawnRate(rarityData);
@@ -109,8 +121,11 @@ public class RarityViewer : EditorWindow
         {
             // 確率のパーセントを計算
             float percent = (belongRabbit.SpawnRate / totalRate) * 100;
+            GUILayout.BeginHorizontal();
             // 計算結果をログに表示
-            EditorGUILayout.LabelField("Rabbit : " + belongRabbit.Id + (" , RatePercent : " + percent.ToString("f2")).PadLeft(20));
+            EditorGUILayout.LabelField(belongRabbit.Id);
+            EditorGUILayout.LabelField(percent.ToString("f2"));
+            GUILayout.EndHorizontal();
         }
     }
 }
