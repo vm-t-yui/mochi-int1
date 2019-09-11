@@ -673,7 +673,7 @@ MonoBehaviour:
   timer: {fileID: 803827602}
   feverTime: {fileID: 0}
   slider: {fileID: 1774318202}
-  gameTime: 15
+  gameTime: 20
   plusSeconds: 1.5
 --- !u!95 &1707312890
 Animator:
@@ -1560,9 +1560,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d431dbda496d2da449943000743e3d8f, type: 3}
---- !u!1 &1176046006501270532 stripped
+--- !u!1 &1176046006902389608 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 2280855884742481144, guid: d431dbda496d2da449943000743e3d8f,
+  m_CorrespondingSourceObject: {fileID: 2280855885113183124, guid: d431dbda496d2da449943000743e3d8f,
     type: 3}
   m_PrefabInstance: {fileID: 1149858037862314236}
   m_PrefabAsset: {fileID: 0}
@@ -1578,9 +1578,9 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1176046006902389608 stripped
+--- !u!1 &1176046006501270532 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 2280855885113183124, guid: d431dbda496d2da449943000743e3d8f,
+  m_CorrespondingSourceObject: {fileID: 2280855884742481144, guid: d431dbda496d2da449943000743e3d8f,
     type: 3}
   m_PrefabInstance: {fileID: 1149858037862314236}
   m_PrefabAsset: {fileID: 0}

@@ -8,16 +8,16 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
     [SerializeField]
-    Animator animator = default;                    // アニメーター
+    Animator animator = default;                           // アニメーター
     [SerializeField]
-    TextMeshProUGUI timer = default;                    // タイマー用テキスト
+    TextMeshProUGUI timer = default;                       // タイマー用テキスト
     [SerializeField]
     FeverTimeController feverTime = default;               // フィーバータイム管理クラス
     [SerializeField]
     Slider slider = default;                               // タイマーのゲージ
 
     [SerializeField]
-    float gameTime = 0;                                 // ゲーム内の秒数
+    float gameTime = 0;                                    // ゲーム内の秒数
     [SerializeField]
     float plusSeconds = 0;                                 // プラスする秒数
 
@@ -30,9 +30,9 @@ public class Timer : MonoBehaviour
     bool isAble = false;                                   // 処理許可フラグ
 
     public bool IsTimeup { get; private set; } = false;    // タイムアップフラグ
-    public bool IsStart { get; private set; } = false;    // ゲームスタートまでのカウントダウンフラグ
+    public bool IsStart  { get; private set; } = false;    // ゲームスタートまでのカウントダウンフラグ
 
-    bool isStop = false;                                   // タイマーストップフラグ
+    public bool isStop   { get; private set; } = false;    // タイマーストップフラグ
 
     /// <summary>
     /// 起動処理

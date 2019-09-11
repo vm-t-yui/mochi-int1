@@ -5443,9 +5443,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: {fileID: 0}
   MaxEnduranceTime: 5
-  MinEnduranceTime: 0.2
-  ReachTime: 5
-  DivisionNum: 3
+  MinEnduranceTime: 0.25
+  ReachTime: 30
+  DivisionNum: 10
 --- !u!114 &8720066317175066205
 MonoBehaviour:
   m_ObjectHideFlags: 0
