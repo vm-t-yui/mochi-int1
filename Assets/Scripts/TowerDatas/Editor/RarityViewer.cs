@@ -68,7 +68,9 @@ public class RarityViewer : EditorWindow
             // 計算結果をログに表示
             EditorGUILayout.LabelField("RabbitRarity : " + rarityData.Id.Substring(("RabbitRarity").Length, 1) + " , RatePercent : " + percent.ToString("f2"));
 
+            // レアリティに属しているウサギの確率を表示
             ShowRabbitSpawnRate(rarityData);
+            // 一行あける
             EditorGUILayout.LabelField("");
         }
     }
