@@ -32,7 +32,7 @@ public class Timer : MonoBehaviour
     public bool IsTimeup { get; private set; } = false;    // タイムアップフラグ
     public bool IsStart  { get; private set; } = false;    // ゲームスタートまでのカウントダウンフラグ
 
-    public bool isStop   { get; private set; } = false;    // タイマーストップフラグ
+    public bool IsStop   { get; private set; } = false;    // タイマーストップフラグ
 
     /// <summary>
     /// 起動処理
