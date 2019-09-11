@@ -23,7 +23,7 @@ public class KouhakuMaterialSetter : MonoBehaviour
         foreach (Transform item in mochiPool.transform)
         {
             // 名前に"Kouhaku"が含まれている子のみ設定対象にする
-            if (item.ToString().Contains("KouhakuMochi"))
+            if (item.ToString().Contains(SettingData.SkinType.KouhakuMochi.ToString()))
             {
                 // 「num % 2 == 0 ? 1 : 0」この式により交互にマテリアルを設定
                 item.GetChild(0).GetComponent<Renderer>().material = kouhakuMaterials[num % 2 == 0 ? 1 : 0];
