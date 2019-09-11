@@ -16,7 +16,8 @@ namespace VMUnityLib
         AudioSource spawnedBgm = new AudioSource();    // 再生中のBGM
         AudioSource pauseBGM   = new AudioSource();    // 一時停止中のBGM
 
-        bool isResult       = false;                   // リザルトフラグ
+        bool isFade   = false;                         // フェード中フラグ
+        bool isResult = false;                         // リザルトフラグ
 
         /// <summary>
         /// 再生.
@@ -92,6 +93,8 @@ namespace VMUnityLib
             if (GameDataManager.Inst.SettingData.IsBgmMute) { return; }
 
             StartCoroutine(_FadeIn(fadeTime));
+
+            isFade = true;
         }
         IEnumerator _FadeIn(float fadeTime)
         {
@@ -105,6 +108,8 @@ namespace VMUnityLib
 
             // 設定データの値を超えてしまっていた時のために代入処理
             spawnedBgm.volume = GameDataManager.Inst.SettingData.BgmVolume;
+
+            isFade = false;
         }
 
         /// <summary>
@@ -114,6 +119,8 @@ namespace VMUnityLib
         public void FadeOut(float fadeTime)
         {
             StartCoroutine(_FadeOut(fadeTime));
+
+            isFade = true;
         }
         IEnumerator _FadeOut(float fadeTime)
         {
@@ -130,6 +137,8 @@ namespace VMUnityLib
 
             // BGMを停止
             StopBgm();
+
+            isFade = false;
         }
 
         /// <summary>
@@ -140,6 +149,8 @@ namespace VMUnityLib
         public void ChangeBgm(string id, float fadeTime)
         {
             StartCoroutine(_ChangeBgm(id, fadeTime));
+
+            isFade = true;
         }
         IEnumerator _ChangeBgm(string id, float fadeTime)
         {
@@ -171,6 +182,8 @@ namespace VMUnityLib
         public void ReturnBgm(float fadeTime)
         {
             StartCoroutine(_ReturnBgm(fadeTime));
+
+            isFade = true;
         }
         IEnumerator _ReturnBgm(float fadeTime)
         {
@@ -211,12 +224,24 @@ namespace VMUnityLib
         }
 
         /// <summary>
-        /// ミュート時はボリューム0、非ミュート時は設定データの値を反映.
+        /// 更新処理
         /// </summary>
         void LateUpdate()
         {
             // まだBGMが再生されていないなら処理を抜ける
             if (!spawnedBgm) { return; }
+
+            if (!isFade)
+            {
+                if (GameDataManager.Inst.SettingData.IsBgmMute)
+                {
+                    spawnedBgm.volume = 0;
+                }
+                else
+                {
+                    spawnedBgm.volume = GameDataManager.Inst.SettingData.BgmVolume;
+                }
+            }
 
             // リザルト時
             if (isResult)
