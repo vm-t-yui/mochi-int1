@@ -83,7 +83,7 @@ public class Timer : MonoBehaviour
         FeverTimeTimer();
 
         // 処理が許可されていない or タイムアップ or タイマーがストップしているならしているなら処理を抜ける
-        if (!isAble || IsTimeup || isStop) { return; }
+        if (!isAble || IsTimeup || IsStop) { return; }
 
         // カウントダウン
         CountTime -= Time.deltaTime;
@@ -133,15 +133,15 @@ public class Timer : MonoBehaviour
     void FeverTimeTimer()
     {
         // フィーバータイム中はタイマーをストップ、終わればリスタート
-        if (feverTime.IsFever && !isStop)
+        if (feverTime.IsFever && !IsStop)
         {
-            isStop = true;
+            IsStop = true;
             animator.SetBool("IsFever", true);
             timer.text = "Fever!!!";
         }
-        else if (!feverTime.IsFever && isStop)
+        else if (!feverTime.IsFever && IsStop)
         {
-            isStop = false;
+            IsStop = false;
             animator.SetBool("IsFever", false);
         }
     }
