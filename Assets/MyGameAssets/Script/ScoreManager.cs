@@ -98,7 +98,7 @@ public class ScoreManager : SingletonMonoBehaviour<ScoreManager>
     /// <summary>
     /// スキンの解放
     /// </summary>
-    void ReleSkin(PlayData playData)
+    void ReleaseSkin(PlayData playData)
     {
         for (int i = 1; i < (int)SettingData.SkinType.Length; i++)
         {
