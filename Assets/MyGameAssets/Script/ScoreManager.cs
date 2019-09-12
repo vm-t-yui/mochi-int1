@@ -61,7 +61,7 @@ public class ScoreManager : SingletonMonoBehaviour<ScoreManager>
         UpdateTotalScore(playData);
 
         // スキン解放
-        ReleSkin(playData);
+        ReleaseSkin(playData);
 
         // データセーブ
         JsonDataSaver.Save(GameDataManager.Inst.PlayData);
