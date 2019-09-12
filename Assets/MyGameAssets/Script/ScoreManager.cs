@@ -25,7 +25,18 @@ public class ScoreManager : SingletonMonoBehaviour<ScoreManager>
     public const int LowScore = 10;                       // 低スコアの基準
     public const int NormalScore = 30;                    // 良スコアの基準
     public const int GoodScore = 60;                      // 高スコアの基準
-    public const int VeryGoodScore = 100;                      // 高スコアの基準
+    public const int VeryGoodScore = 100;                 // 高スコアの基準
+
+    // 各スキンの解放スコア
+    int[] releaseScore =
+    {
+        PlayData.ReleaseNormalSkinScore,
+        PlayData.ReleaseKouhakuSkinScore,
+        PlayData.ReleaseYomogiSkinScore,
+        PlayData.ReleaseIchigoSkinScore,
+        PlayData.ReleaseKashiwaSkinScore,
+        PlayData.ReleaseIsobeSkinScore
+    };
 
     /// <summary>
     /// 起動処理
@@ -44,23 +55,64 @@ public class ScoreManager : SingletonMonoBehaviour<ScoreManager>
         PlayData playData = GameDataManager.Inst.PlayData;
 
         // 前回のスコアとハイスコアを更新
+        UpdateHighScore(playData);
+
+        // 合計スコアを加算
+        UpdateTotalScore(playData);
+
+        // スキン解放
+        ReleaseSkin(playData);
+
+        // データセーブ
+        JsonDataSaver.Save(GameDataManager.Inst.PlayData);
+    }
+
+    /// <summary>
+    /// ハイスコア更新
+    /// </summary>
+    /// <param name="playData">プレイデータのインスタンス</param>
+    void UpdateHighScore(PlayData playData)
+    {
         if (playData.HighScore < NowBreakNum)
         {
             playData.HighScore = NowBreakNum;
             GameServiceUtil.ReportScore(playData.HighScore, 0);
         }
         playData.LastScore = NowBreakNum;
+    }
 
-        // 合計スコアを加算
+    /// <summary>
+    /// トータルスコア更新
+    /// </summary>
+    /// <param name="playData">プレイデータのインスタンス</param>
+    void UpdateTotalScore(PlayData playData)
+    {
         playData.TotalScore += NowBreakNum;
         if (playData.TotalScore > PlayData.MaxTotalScore)
         {
             playData.TotalScore = PlayData.MaxTotalScore;
         }
         GameServiceUtil.ReportScore(playData.TotalScore, 1);
+    }
 
-        // データセーブ
-        JsonDataSaver.Save(GameDataManager.Inst.PlayData);
+    /// <summary>
+    /// スキンの解放
+    /// </summary>
+    void ReleaseSkin(PlayData playData)
+    {
+        for (int i = 1; i < (int)SettingData.SkinType.Length; i++)
+        {
+            // 目標スコアを達成するとスキン解放
+            if (playData.TotalScore >= releaseScore[i])
+            {
+                if (!playData.IsReleasedSkin[i])
+                {
+                    playData.IsNewReleasedSkin = true;
+                    playData.IsReleasedSkin[i] = true;
+                    playData.IsDrawSkinNewIcon[i] = true;
+                }
+            }
+        }
     }
 
     /// <summary>

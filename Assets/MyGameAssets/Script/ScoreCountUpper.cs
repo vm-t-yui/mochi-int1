@@ -67,7 +67,7 @@ public class ScoreCountUpper : MonoBehaviour
                 {
                     highScoreText.SetActive(true);
                 }
-
+                
                 // スコアリセット
                 ScoreManager.Inst.Reset();
             }

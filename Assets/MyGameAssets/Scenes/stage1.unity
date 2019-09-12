@@ -482,11 +482,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1080134910}
     m_Modifications:
-    - target: {fileID: 6560399705807217421, guid: b504b33812ff544f1ac2b51128ececcb,
-        type: 3}
-      propertyPath: m_Name
-      value: Map
-      objectReference: {fileID: 0}
     - target: {fileID: 8905905394379126084, guid: b504b33812ff544f1ac2b51128ececcb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -541,6 +536,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6560399705807217421, guid: b504b33812ff544f1ac2b51128ececcb,
+        type: 3}
+      propertyPath: m_Name
+      value: Map
+      objectReference: {fileID: 0}
+    - target: {fileID: 6560399705807217421, guid: b504b33812ff544f1ac2b51128ececcb,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2135677823, guid: b504b33812ff544f1ac2b51128ececcb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3127,6 +3132,11 @@ PrefabInstance:
       propertyPath: mainCameraAnim
       value: 
       objectReference: {fileID: 1790435634}
+    - target: {fileID: 4504281614842031130, guid: 34e60736b952eee4dba2263ecaaa2597,
+        type: 3}
+      propertyPath: rabbitSpawnRate
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34e60736b952eee4dba2263ecaaa2597, type: 3}
 --- !u!114 &1069323590 stripped

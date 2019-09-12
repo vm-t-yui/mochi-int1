@@ -10,6 +10,7 @@ using System.Linq;
 public class PlayData
 {
     public const int  AllRabbitNum            = 25;           // うさぎの種類の総数
+    public const int  AllSkinNum              = 6;            // スキンの種類の総数
     public const int  MaxTotalRescueCount     = 9999;         // うさぎの合計救出回数の最大値
     public const long MaxTotalScore           = 99999999;     // 合計スコアの最大値
     public const int  AllAchievementNum       = 4;            // 実績の総数
@@ -35,13 +36,17 @@ public class PlayData
     [SerializeField]
     bool[] isReleasedRabbit = new bool[AllRabbitNum];         // うさぎの解放フラグ（図鑑用）
     [SerializeField]
-    bool[] isDrawRabbitNewIcon = new bool[AllRabbitNum];      // ウサギのNewアイコン表示フラグ
+    bool[] isReleasedSkin = new bool[AllSkinNum];             // スキンの解放フラグ（スキンウィンドウ用）
+    [SerializeField]
+    bool[] isDrawRabbitNewIcon = new bool[AllRabbitNum];      // ウサギのNewアイコン表示フラグ(項目別)
+    [SerializeField]
+    bool[] isDrawSkinNewIcon = new bool[AllSkinNum];          // スキンのNewアイコン表示フラグ(項目別)
     [SerializeField]
     bool isReward = false;                                    // リワードフラグ
     [SerializeField]
-    bool isNewRabbit = false;                                 // 新しいうさぎフラグ
+    bool isNewReleasedRabbit = false;                         // ウサギのNewアイコン表示フラグ(図鑑自体)
     [SerializeField]
-    bool isNewSkin = false;                                   // 新しいスキンフラグ
+    bool isNewReleasedSkin = false;                           // スキンのNewアイコン表示フラグ(スキン画面自体)
     [SerializeField]
     bool[] isReleasedAchieve = new bool[AllAchievementNum];   // 実績の解除状況
     [SerializeField]
@@ -57,13 +62,15 @@ public class PlayData
     public int TotalRescueCount       { get { return totalRescueCount; }    set { totalRescueCount = value; } }
     public long TotalScore            { get { return totalScore; }          set { totalScore = value; } }
     public bool IsReward              { get { return isReward; }            set { isReward = value; } }
-    public bool IsNewRabbit           { get { return isNewRabbit; }         set { isNewRabbit = value; } }
-    public bool IsNewSkin             { get { return isNewSkin; }           set { isNewSkin = value; } }
+    public bool IsNewReleasedRabbit   { get { return isNewReleasedRabbit; } set { isNewReleasedRabbit = value; } }
+    public bool IsNewReleasedSkin     { get { return isNewReleasedSkin; }   set { isNewReleasedSkin = value; } }
     public bool IsNewReleasedAchieve  { get { return isNewReleasedAchieve; }set { isNewReleasedAchieve = value; } }
     public bool[] IsReleasedRabbit    { get { return isReleasedRabbit; }    set { isReleasedRabbit = value; } }
+    public bool[] IsReleasedSkin      { get { return isReleasedSkin; }      set { isReleasedSkin = value; } }
     public bool[] IsDrawRabbitNewIcon { get { return isDrawRabbitNewIcon; } set { isDrawRabbitNewIcon = value; } }
+    public bool[] IsDrawSkinNewIcon   { get { return isDrawSkinNewIcon; }   set { isDrawSkinNewIcon = value; } }
     public bool[] IsReleasedAchieve   { get { return isReleasedAchieve; }   set { isReleasedAchieve = value; } }
-    
+
     /// <summary>
     /// うさぎをコンプリートしているかどうか
     /// </summary>

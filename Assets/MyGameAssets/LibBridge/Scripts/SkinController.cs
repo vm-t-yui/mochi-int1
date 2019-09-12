@@ -11,18 +11,10 @@ public class SkinController : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI UseSkin = default;                               // 使用中の餅スキン表示テキスト
 
-    bool[] isRelease = new bool[(int)SettingData.SkinType.Length];   // 各スキンの解放フラグ
+    [SerializeField]
+    Transform skinButtons = default;                                 // スキンのボタン
 
-    // 各スキンの解放スコア
-    int[] releaseScore =
-    {
-        PlayData.ReleaseNormalSkinScore,
-        PlayData.ReleaseKouhakuSkinScore,
-        PlayData.ReleaseYomogiSkinScore,
-        PlayData.ReleaseIchigoSkinScore,
-        PlayData.ReleaseKashiwaSkinScore,
-        PlayData.ReleaseIsobeSkinScore
-    };
+    bool[] isRelease = new bool[(int)SettingData.SkinType.Length];   // 各スキンの解放フラグ
 
     /// <summary>
 	/// 起動処理
@@ -32,22 +24,33 @@ public class SkinController : MonoBehaviour
         // 使用スキンを表示
         ChangeUseSkinText(GameDataManager.Inst.SettingData.UseSkin);
 
-        // 条件を満たしているスキンを解放
+        // スキンの解放
         ReleaseSkin();
-
     }
 
     /// <summary>
-    /// 餅スキンの解放
+    /// スキンの解放
     /// </summary>
     void ReleaseSkin()
     {
+        // 最初の餅を解放されていなかったら解放させる
+        if(!GameDataManager.Inst.PlayData.IsReleasedSkin[0])
+        {
+            GameDataManager.Inst.PlayData.IsReleasedSkin[0] = true;
+        }
+
+        // それぞれのスキン解放フラグがONになっていたらスキンを解放させる
         for (int i = 0; i < (int)SettingData.SkinType.Length; i++)
         {
-            // 目標スコアを達成するとスキン解放
-            if (GameDataManager.Inst.PlayData.TotalScore >= releaseScore[i])
+            if (GameDataManager.Inst.PlayData.IsReleasedSkin[i])
             {
                 isRelease[i] = true;
+            }
+
+            // Newアイコンが表示されていないなら表示
+            if (GameDataManager.Inst.PlayData.IsDrawSkinNewIcon[i])
+            {
+                gameObject.transform.GetChild(i).GetChild(1).gameObject.SetActive(true);
             }
         }
     }
@@ -56,14 +59,18 @@ public class SkinController : MonoBehaviour
     /// 餅スキンセット
     /// NOTE: m.tanaka 餅スキン設定ウィンドウのボタンで呼ぶ関数です
     /// </summary>
-    /// <param name="skin">セットするスキン番号</param>
-    public void SetMochiSkin(int skin)
+    /// <param name="num">セットするスキン番号</param>
+    public void SetMochiSkin(int num)
     {
         // 解放されている状態ならスキン変更
-        if (isRelease[skin])
+        if (isRelease[num])
         {
             // 指定されたスキンにデータを変更
-            GameDataManager.Inst.SettingData.UseSkin = (SettingData.SkinType)skin;
+            GameDataManager.Inst.SettingData.UseSkin = (SettingData.SkinType)num;
+
+            // Newアイコンを非表示
+            GameDataManager.Inst.PlayData.IsDrawSkinNewIcon[num] = false;
+            gameObject.transform.GetChild(num).GetChild(1).gameObject.SetActive(false);
 
             // 表示テキスト変更
             ChangeUseSkinText(GameDataManager.Inst.SettingData.UseSkin);

@@ -49,7 +49,7 @@ public class RabbitPictureBookFlagSwitcher : SingletonMonoBehaviour<RabbitPictur
             rescuedRabbitNumbers.Add(rescuedRabbitData.Number);
 
             // うさぎの新規取得フラグをON
-            GameDataManager.Inst.PlayData.IsNewRabbit = true;
+            GameDataManager.Inst.PlayData.IsNewReleasedRabbit = true;
         }
     }
 
@@ -77,7 +77,7 @@ public class RabbitPictureBookFlagSwitcher : SingletonMonoBehaviour<RabbitPictur
             {
                 // 救出フラグをオンにする
                 isReleasedRabbits[rabbitNumber] = true;
-                // Newアイコンの表示フラグをオンぬする
+                // Newアイコンの表示フラグをオンにする
                 GameDataManager.Inst.PlayData.IsDrawRabbitNewIcon[rabbitNumber] = true;
                 // ウサギの番号からデータを取得
                 RabbitData rabbitData = towerObjectDataManager.GetRabbitDataFromNumber(rabbitNumber);

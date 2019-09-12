@@ -40,8 +40,6 @@ public class Timer : MonoBehaviour
     void OnEnable()
     {
         isAble = false;
-
-        slider.value = 0;
     }
 
     /// <summary>
@@ -94,6 +92,8 @@ public class Timer : MonoBehaviour
         // ゲームスタートまでのカウントダウン
         if (!IsStart)
         {
+            slider.value = 0;
+
             // カウントダウンが終わったらゲーム開始
             FinishCountDown();
         }

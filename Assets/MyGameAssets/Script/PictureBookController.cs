@@ -54,6 +54,12 @@ public class PictureBookController : MonoBehaviour
             // 解放済みなら1つ目の子を表示（０が解放済み、１が非解放）
             if (isReleasedRabbit[i])
             {
+                // Newアイコンが表示フラグがOFFなら1つ目の子の子(Newアイコン)を消す
+                if (!GameDataManager.Inst.PlayData.IsDrawRabbitNewIcon[i])
+                {
+                    item.GetChild(0).GetChild(0).gameObject.SetActive(false);
+                }
+
                 item.GetChild(0).gameObject.SetActive(true);
                 item.GetChild(1).gameObject.SetActive(false);
             }
@@ -77,19 +83,21 @@ public class PictureBookController : MonoBehaviour
         // 指定した番号のうさぎが解放済みの場合
         if (isReleasedRabbit[num] || IsDebug)
         {
-            // 非解放用の説明を表示中なら、非解放用の説明を非表示に
-            if (nowOpenNum == NotReleaseNum)
-            {
-                notReleaseDescription.SetActive(false);
-            }
-            // それ以外なら、表示中の説明を非表示に
-            else
+            // 非解放用の説明を非表示に
+            notReleaseDescription.SetActive(false);
+
+            // 非表示中の説明を非表示に
+            if (nowOpenNum != NotReleaseNum)
             {
                 descriptions[nowOpenNum].SetActive(false);
             }
 
             // 指定された説明を表示
             descriptions[num].SetActive(true);
+
+            // Newアイコンが表示フラグをオフにして非表示にする
+            GameDataManager.Inst.PlayData.IsDrawRabbitNewIcon[num] = false;
+            rabbitButtons.GetChild(num).GetChild(0).GetChild(0).gameObject.SetActive(false);
 
             // 表示中の説明番号を更新
             nowOpenNum = num;
@@ -110,9 +118,6 @@ public class PictureBookController : MonoBehaviour
                 nowOpenNum = NotReleaseNum;
             }
         }
-
-        // Newアイコンが表示フラグをオフにして非表示にする
-        GameDataManager.Inst.PlayData.IsDrawRabbitNewIcon[num] = false;
     }
 
     /// <summary>
