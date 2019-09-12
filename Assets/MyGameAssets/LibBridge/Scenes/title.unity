@@ -3864,16 +3864,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 5442062710283459788, guid: bd1df978bfc2efd42a396a490575694f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1412502203}
-    - target: {fileID: 7755317336603162521, guid: bd1df978bfc2efd42a396a490575694f,
-        type: 3}
-      propertyPath: mLocalizeTarget
-      value: 
-      objectReference: {fileID: 1004768081}
     - target: {fileID: 291773743, guid: bd1df978bfc2efd42a396a490575694f, type: 3}
       propertyPath: window.Array.data[15]
       value: 
@@ -3886,21 +3876,21 @@ PrefabInstance:
       propertyPath: window.Array.data[17]
       value: 
       objectReference: {fileID: 1578751339}
+    - target: {fileID: 5442062710283459788, guid: bd1df978bfc2efd42a396a490575694f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1412502203}
+    - target: {fileID: 7755317336603162521, guid: bd1df978bfc2efd42a396a490575694f,
+        type: 3}
+      propertyPath: mLocalizeTarget
+      value: 
+      objectReference: {fileID: 1004768081}
     - target: {fileID: 4755443765107409210, guid: bd1df978bfc2efd42a396a490575694f,
         type: 3}
       propertyPath: mLocalizeTarget
       value: 
       objectReference: {fileID: 444161737}
-    - target: {fileID: 9115774514556412141, guid: bd1df978bfc2efd42a396a490575694f,
-        type: 3}
-      propertyPath: mLocalizeTarget
-      value: 
-      objectReference: {fileID: 2044936736}
-    - target: {fileID: 8358897041052291746, guid: bd1df978bfc2efd42a396a490575694f,
-        type: 3}
-      propertyPath: mLocalizeTarget
-      value: 
-      objectReference: {fileID: 84847889}
     - target: {fileID: 2270465727551297938, guid: bd1df978bfc2efd42a396a490575694f,
         type: 3}
       propertyPath: mLocalizeTarget
@@ -3926,6 +3916,11 @@ PrefabInstance:
       propertyPath: mLocalizeTarget
       value: 
       objectReference: {fileID: 1257925320}
+    - target: {fileID: 9115774514556412141, guid: bd1df978bfc2efd42a396a490575694f,
+        type: 3}
+      propertyPath: mLocalizeTarget
+      value: 
+      objectReference: {fileID: 2044936736}
     - target: {fileID: 5755785541633767019, guid: bd1df978bfc2efd42a396a490575694f,
         type: 3}
       propertyPath: mLocalizeTarget
@@ -4016,6 +4011,11 @@ PrefabInstance:
       propertyPath: mLocalizeTarget
       value: 
       objectReference: {fileID: 1075313746}
+    - target: {fileID: 8358897041052291746, guid: bd1df978bfc2efd42a396a490575694f,
+        type: 3}
+      propertyPath: mLocalizeTarget
+      value: 
+      objectReference: {fileID: 84847889}
     - target: {fileID: 1231913697387080085, guid: bd1df978bfc2efd42a396a490575694f,
         type: 3}
       propertyPath: mLocalizeTarget

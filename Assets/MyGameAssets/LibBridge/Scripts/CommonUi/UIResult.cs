@@ -107,12 +107,12 @@ public class UIResult : CmnMonoBehaviour
     void ShowNewIcon()
     {
         // 新たにうさぎ図鑑のページが解放されたらNewアイコンを表示
-        if (GameDataManager.Inst.PlayData.IsNewRabbit)
+        if (GameDataManager.Inst.PlayData.IsNewReleasedRabbit)
         {
             newIcon[(int)NewIcon.Rabbit].gameObject.SetActive(true);
         }
         // 新たにもちスキンが解放されたらNewアイコンを表示
-        if (GameDataManager.Inst.PlayData.IsNewSkin)
+        if (GameDataManager.Inst.PlayData.IsNewReleasedSkin)
         {
             newIcon[(int)NewIcon.Skin].gameObject.SetActive(true);
         }
@@ -135,10 +135,10 @@ public class UIResult : CmnMonoBehaviour
         switch (num)
         {
             case (int)NewIcon.Rabbit:
-                GameDataManager.Inst.PlayData.IsNewRabbit = false; break;
+                GameDataManager.Inst.PlayData.IsNewReleasedRabbit = false; break;
 
             case (int)NewIcon.Skin:
-                GameDataManager.Inst.PlayData.IsNewSkin = false; break;
+                GameDataManager.Inst.PlayData.IsNewReleasedSkin = false; break;
 
             case (int)NewIcon.Achieve:
                 GameDataManager.Inst.PlayData.IsNewReleasedAchieve = false;

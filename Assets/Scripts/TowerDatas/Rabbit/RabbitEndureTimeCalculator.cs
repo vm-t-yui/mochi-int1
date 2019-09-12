@@ -54,7 +54,7 @@ public class RabbitEndureTimeCalculator : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (timer.IsStart && !timer.isStop)
+        if (timer.IsStart && !timer.IsStop)
         {
             // 終了フラグがtrueならここで処理を抜ける
             if (isEnd) { return; }

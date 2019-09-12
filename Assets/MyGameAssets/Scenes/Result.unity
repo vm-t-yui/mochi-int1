@@ -251,6 +251,11 @@ PrefabInstance:
       propertyPath: mochiFall
       value: 
       objectReference: {fileID: 1055376877}
+    - target: {fileID: 3424320672168770191, guid: e3708c942552346639722a502ab9495b,
+        type: 3}
+      propertyPath: mLocalizeTarget
+      value: 
+      objectReference: {fileID: 1406635411}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3708c942552346639722a502ab9495b, type: 3}
 --- !u!224 &82080621 stripped
@@ -389,6 +394,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &82080658 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 61122852964891686, guid: e3708c942552346639722a502ab9495b,
+    type: 3}
+  m_PrefabInstance: {fileID: 82080620}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &269954883 stripped
@@ -5489,6 +5506,23 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 9115723302928334030}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1406635411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 481ab606793a67349be805c13febeba0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mTarget: {fileID: 82080658}
+  mAlignment_RTL: 516
+  mAlignment_LTR: 513
+  mAlignmentWasRTL: 0
+  mInitializeAlignment: 1
 --- !u!1001 &1416773457
 PrefabInstance:
   m_ObjectHideFlags: 0
