@@ -67,7 +67,14 @@ public class ScoreCountUpper : MonoBehaviour
                 {
                     highScoreText.SetActive(true);
                 }
-
+                for (int i = 0; i < GameDataManager.Inst.PlayData.IsDrawSkinNewIcon.Length; i++)
+                {
+                    if (!GameDataManager.Inst.PlayData.IsDrawSkinNewIcon[i])
+                    {
+                        GameDataManager.Inst.PlayData.IsNewReleasedSkin = true;
+                        GameDataManager.Inst.PlayData.IsDrawSkinNewIcon[i] = true;
+                    }
+                }
                 // スコアリセット
                 ScoreManager.Inst.Reset();
             }

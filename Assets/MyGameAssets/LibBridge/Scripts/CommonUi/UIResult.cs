@@ -180,6 +180,9 @@ public class UIResult : CmnMonoBehaviour
     /// </summary>
     void ShowAd()
     {
+        // 広告表示前にスクショをとる
+        ShareHelper.Inst.CaptureScreenShot();
+
         // 広告を表示したらボタンを出す
         AdManager.Inst.ShowResultAd();
         buttons.SetActive(true);
