@@ -92,9 +92,9 @@ public class RabbitPictureBookFlagSwitcher : Singleton<RabbitPictureBookFlagSwit
     }
 
     /// <summary>
-    /// 終了
+    /// データの終了処理
     /// </summary>
-    void OnDisable()
+    public void FinalizeData()
     {
         // リストに登録されているウサギをもとにフラグを切り替える
         SwitchPictureBookFlag();
