@@ -49,14 +49,16 @@ public class SkinController : MonoBehaviour
             if (GameDataManager.Inst.PlayData.IsReleasedSkin[i])
             {
                 isRelease[i] = true;
-                
+
                 // スキンを表示
+                skinImages.GetChild(0).gameObject.SetActive(false);
                 skinImages.GetChild(1).gameObject.SetActive(true);
             }
             else
             {
                 // シルエットを表示
                 skinImages.GetChild(0).gameObject.SetActive(true);
+                skinImages.GetChild(1).gameObject.SetActive(false);
             }
 
             // Newアイコンが表示されていないなら表示

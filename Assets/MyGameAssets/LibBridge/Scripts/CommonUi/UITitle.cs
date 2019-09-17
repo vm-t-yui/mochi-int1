@@ -95,10 +95,20 @@ public sealed class UITitle : CmnMonoBehaviour
         switch (num)
         {
             case (int)NewIcon.Rabbit:
-                GameDataManager.Inst.PlayData.IsNewReleasedRabbit = false; break;
+                // 全項目がNewアイコン表示中ではなかったら
+                if (!GameDataManager.Inst.PlayData.ExistDrawNewIconRabbit())
+                {
+                    GameDataManager.Inst.PlayData.IsNewReleasedRabbit = false;
+                }
+                break;
 
             case (int)NewIcon.Skin:
-                GameDataManager.Inst.PlayData.IsNewReleasedSkin = false; break;
+                // 全項目がNewアイコン表示中ではなかったら
+                if (!GameDataManager.Inst.PlayData.ExistDrawNewIconSkin())
+                {
+                    GameDataManager.Inst.PlayData.IsNewReleasedSkin = false;
+                }
+                break;
 
             case (int)NewIcon.Achieve:
                 GameDataManager.Inst.PlayData.IsNewReleasedAchieve = false;

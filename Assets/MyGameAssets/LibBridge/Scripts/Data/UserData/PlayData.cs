@@ -104,4 +104,19 @@ public class PlayData
         // 存在していなければ
         return false;
     }
+
+    /// <summary>
+    /// Newアイコン表示中のスキンが存在するか
+    /// </summary>
+    /// <returns>存在しているかどうかのフラグを返す</returns>
+    public bool ExistDrawNewIconSkin()
+    {
+        // 存在している場合
+        if (isDrawSkinNewIcon.ToList().Find(flag => flag))
+        {
+            return true;
+        }
+        // 存在していなければ
+        return false;
+    }
 }
