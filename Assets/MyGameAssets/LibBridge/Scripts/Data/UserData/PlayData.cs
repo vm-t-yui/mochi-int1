@@ -9,17 +9,18 @@ using System.Linq;
 
 public class PlayData
 {
-    public const int  AllRabbitNum            = 25;           // うさぎの種類の総数
-    public const int  AllSkinNum              = 6;            // スキンの種類の総数
-    public const int  MaxTotalRescueCount     = 9999;         // うさぎの合計救出回数の最大値
-    public const long MaxTotalScore           = 99999999;     // 合計スコアの最大値
-    public const int  AllAchievementNum       = 4;            // 実績の総数
-    public const int  ReleaseNormalSkinScore  = 0;            // 普通の餅のスキン解放スコア
-    public const int  ReleaseKouhakuSkinScore = 1000;         // 紅白餅のスキン解放スコア
-    public const int  ReleaseYomogiSkinScore  = 3000;         // よもぎ餅のスキン解放スコア     
-    public const int  ReleaseIchigoSkinScore  = 5000;         // いちご大福のスキン解放スコア
-    public const int  ReleaseKashiwaSkinScore = 8000;         // かしわ餅のスキン解放スコア
-    public const int  ReleaseIsobeSkinScore   = 10000;        // 磯部餅のスキン解放スコア
+    public const int AllRabbitNum             = 25;           // うさぎの種類の総数
+    public const int AllSkinNum               = 6;            // スキンの種類の総数
+    public const int AllAchievementNum        = 4;            // 実績の総数
+    public const int ReleaseNormalSkinScore   = 0;            // 普通の餅のスキン解放スコア
+    public const int ReleaseKouhakuSkinScore  = 1000;         // 紅白餅のスキン解放スコア
+    public const int ReleaseYomogiSkinScore   = 3000;         // よもぎ餅のスキン解放スコア     
+    public const int ReleaseIchigoSkinScore   = 5000;         // いちご大福のスキン解放スコア
+    public const int ReleaseKashiwaSkinScore  = 8000;         // かしわ餅のスキン解放スコア
+    public const int ReleaseIsobeSkinScore    = 10000;        // 磯部餅のスキン解放スコア
+
+    public const int CountStopValue           = 999;          // データのカンスト値
+    public const int TotalScoreCountStopValue = 9999999;      // 合計スコア用のカンスト値
 
     [SerializeField]
     int playCount = 0;                                        // プレイ回数
@@ -30,9 +31,11 @@ public class PlayData
     [SerializeField]
     int punchCount = 0;                                       // パンチされたうさぎの数
     [SerializeField]
+    int totalPunchCount = 0;                                  // パンチされたウサギの数の合計
+    [SerializeField]
     int totalRescueCount = 0;                                 // うさぎの合計救出回数
     [SerializeField]
-    long totalScore = 0;                                      // 合計スコア
+    int totalScore = 0;                                       // 合計スコア
     [SerializeField]
     bool[] isReleasedRabbit = new bool[AllRabbitNum];         // うさぎの解放フラグ（図鑑用）
     [SerializeField]
@@ -55,12 +58,13 @@ public class PlayData
     /// <summary>
     /// 各データのプロパティ
     /// </summary>
-    public int PlayCount              { get { return playCount; }           set { playCount++; } }
+    public int PlayCount              { get { return playCount; }           set { playCount++; if (playCount > CountStopValue) playCount = CountStopValue; } }
     public int HighScore              { get { return highScore; }           set { highScore = value; } }
     public int LastScore              { get { return lastScore; }           set { lastScore = value; } }
     public int PunchCount             { get { return punchCount; }          set { punchCount = value; } }
-    public int TotalRescueCount       { get { return totalRescueCount; }    set { totalRescueCount = value; } }
-    public long TotalScore            { get { return totalScore; }          set { totalScore = value; } }
+    public int TotalPunchCount        { get { return totalPunchCount; }     set { totalPunchCount = value; if (totalPunchCount > CountStopValue) totalPunchCount = CountStopValue; } }
+    public int TotalRescueCount       { get { return totalRescueCount; }    set { totalRescueCount = value; if (totalRescueCount > CountStopValue) totalRescueCount = CountStopValue; } }
+    public int TotalScore             { get { return totalScore; }          set { totalScore = value; if (totalScore > TotalScoreCountStopValue) totalScore = TotalScoreCountStopValue; } }
     public bool IsReward              { get { return isReward; }            set { isReward = value; } }
     public bool IsNewReleasedRabbit   { get { return isNewReleasedRabbit; } set { isNewReleasedRabbit = value; } }
     public bool IsNewReleasedSkin     { get { return isNewReleasedSkin; }   set { isNewReleasedSkin = value; } }

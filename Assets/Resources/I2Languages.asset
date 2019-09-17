@@ -70,7 +70,7 @@ MonoBehaviour:
       Flags: 00000000000000
       Languages_Touch: []
     - Term: Font/UsedFont
-      TermType: 9
+      TermType: 1
       Description: 
       Languages:
       - Fonts/NotoSansCJKjp-Regular SDF
@@ -860,6 +860,84 @@ MonoBehaviour:
       - 
       - 
       - 
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Record/HighScore
+      TermType: 0
+      Description: 
+      Languages:
+      - High Score
+      - High Score
+      - High Score
+      - High Score
+      - High Score
+      - High Score
+      - High Score
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Record/PlayCount
+      TermType: 0
+      Description: 
+      Languages:
+      - Play Count
+      - Play Count
+      - Play Count
+      - Play Count
+      - Play Count
+      - Play Count
+      - Play Count
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Record/TotalScore
+      TermType: 0
+      Description: 
+      Languages:
+      - Total Score
+      - Total Score
+      - Total Score
+      - Total Score
+      - Total Score
+      - Total Score
+      - Total Score
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Record/RabbitPunchedCount
+      TermType: 0
+      Description: 
+      Languages:
+      - Rabbit Punched Count
+      - Rabbit Punched Count
+      - Rabbit Punched Count
+      - Rabbit Punched Count
+      - Rabbit Punched Count
+      - Rabbit Punched Count
+      - Rabbit Punched Count
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Record/RabbitRescuedCount
+      TermType: 0
+      Description: 
+      Languages:
+      - Rabbit Rescued Count
+      - Rabbit Rescued Count
+      - Rabbit Rescued Count
+      - Rabbit Rescued Count
+      - Rabbit Rescued Count
+      - Rabbit Rescued Count
+      - Rabbit Rescued Count
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Record/Record
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u30EC\u30B3\u30FC\u30C9"
+      - Record
+      - Record
+      - Record
+      - Record
+      - Record
+      - Record
       Flags: 00000000000000
       Languages_Touch: []
     CaseInsensitiveTerms: 0
