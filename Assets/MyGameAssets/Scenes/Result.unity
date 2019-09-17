@@ -258,8 +258,12 @@ PrefabInstance:
       objectReference: {fileID: 1406635411}
     - target: {fileID: 876045769, guid: e3708c942552346639722a502ab9495b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PushScene
+      value: ChangeScene
       objectReference: {fileID: 0}
+    - target: {fileID: 876045769, guid: e3708c942552346639722a502ab9495b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 82080633}
     - target: {fileID: 934590523, guid: e3708c942552346639722a502ab9495b, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0.00012207031
@@ -450,6 +454,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &82080633 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 876045772, guid: e3708c942552346639722a502ab9495b,
+    type: 3}
+  m_PrefabInstance: {fileID: 82080620}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef79f8545565bf14ba0028a1ea869f36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &82080658 stripped

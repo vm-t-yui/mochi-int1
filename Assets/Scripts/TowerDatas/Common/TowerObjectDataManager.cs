@@ -6,19 +6,16 @@ using VMUnityLib;
 /// <summary>
 /// タワー関連のオブジェクトを保存しておくコンテナクラス
 /// </summary>
-public class TowerObjectDataManager : SingletonMonoBehaviour<TowerObjectDataManager>
+public class TowerObjectDataManager : Singleton<TowerObjectDataManager>
 {
     // モチのデータパス
-    [SerializeField]
-    string mochiDataPath = default;
+    const string MochiDataPath = "TowerObjectDatas/Mochi/MochiDatas";
 
     // ウサギのデータパス
-    [SerializeField]
-    string rabbitDataPath = default;
+    const string RabbitDataPath = "TowerObjectDatas/Rabbit/RabbitDatas";
 
     // ウサギのレアリティのデータパス
-    [SerializeField]
-    string rabbitRarityDataPath = default;
+    const string RabbitRarityDataPath = "TowerObjectDatas/Rabbit/RarityDatas";
 
     // モチのデータマネージャー
     public IdentifiedDataManager<MochiData> MochiDataManager { get; private set; }
@@ -32,18 +29,18 @@ public class TowerObjectDataManager : SingletonMonoBehaviour<TowerObjectDataMana
     /// <summary>
     /// 全てのデータを読み込む
     /// </summary>
-    void Awake()
+    public void LoadAllData()
     {
         // モチのアセットデータを読み込む
-        MochiDataManager = new IdentifiedDataManager<MochiData>(mochiDataPath);
+        MochiDataManager = new IdentifiedDataManager<MochiData>(MochiDataPath);
         MochiDataManager.LoadData();
 
         // ウサギのアセットデータを読み込む
-        RabbitDataManager = new IdentifiedDataManager<RabbitData>(rabbitDataPath);
+        RabbitDataManager = new IdentifiedDataManager<RabbitData>(RabbitDataPath);
         RabbitDataManager.LoadData();
 
         // ウサギのレアリティのアセットデータを読み込む
-        RabbitRarityDataManager = new IdentifiedDataManager<RabbitRarityData>(rabbitRarityDataPath);
+        RabbitRarityDataManager = new IdentifiedDataManager<RabbitRarityData>(RabbitRarityDataPath);
         RabbitRarityDataManager.LoadData();
 
 #if UNITY_EDITOR

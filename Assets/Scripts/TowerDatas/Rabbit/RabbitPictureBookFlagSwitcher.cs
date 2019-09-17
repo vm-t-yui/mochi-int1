@@ -6,12 +6,8 @@ using VMUnityLib;
 /// <summary>
 /// ウサギ図鑑のフラグを切り替えるクラス
 /// </summary>
-public class RabbitPictureBookFlagSwitcher : SingletonMonoBehaviour<RabbitPictureBookFlagSwitcher>
+public class RabbitPictureBookFlagSwitcher : Singleton<RabbitPictureBookFlagSwitcher>
 {
-    // タワーオブジェクトデータ管理クラス
-    [SerializeField]
-    TowerObjectDataManager towerObjectDataManager = default;
-
     // 新しく救出したウサギ
     List<RabbitData> newRescuedRabbits = new List<RabbitData>();
     public IReadOnlyList<RabbitData> NewRescuedRabbits
@@ -40,7 +36,7 @@ public class RabbitPictureBookFlagSwitcher : SingletonMonoBehaviour<RabbitPictur
     {
         // ウサギの名前からデータを取得
         RabbitData rescuedRabbitData;
-        towerObjectDataManager.RabbitDataManager.GetData(rabbitName, out rescuedRabbitData);
+        TowerObjectDataManager.Inst.RabbitDataManager.GetData(rabbitName, out rescuedRabbitData);
 
         // まだ登録されていなければ、登録を行う
         if (rescuedRabbitNumbers.Find(rabbit => rabbit == rescuedRabbitData.Number) == 0)
@@ -80,7 +76,7 @@ public class RabbitPictureBookFlagSwitcher : SingletonMonoBehaviour<RabbitPictur
                 // Newアイコンの表示フラグをオンにする
                 GameDataManager.Inst.PlayData.IsDrawRabbitNewIcon[rabbitNumber] = true;
                 // ウサギの番号からデータを取得
-                RabbitData rabbitData = towerObjectDataManager.GetRabbitDataFromNumber(rabbitNumber);
+                RabbitData rabbitData = TowerObjectDataManager.Inst.GetRabbitDataFromNumber(rabbitNumber);
                 // 新しく救出したウサギとしてリストに登録
                 newRescuedRabbits.Add(rabbitData);
             }

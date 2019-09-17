@@ -9,10 +9,6 @@ using VMUnityLib;
 /// </summary>
 public class RabbitMoveController : MoveControllerBase
 {
-    // タワーオブジェクト管理クラス
-    [SerializeField]
-    TowerObjectDataManager towerObjectDataManager = default;
-
     // オブジェクトのスポーンクラス
     [SerializeField]
     TowerObjectSpawner towerObjectSpawner = default;
@@ -43,7 +39,7 @@ public class RabbitMoveController : MoveControllerBase
         }
 
         // オブジェクトの名前（ID）から管理クラスのウサギのデータを取得
-        towerObjectDataManager.RabbitDataManager.GetData(sourceName, out rabbitData);
+        TowerObjectDataManager.Inst.RabbitDataManager.GetData(sourceName, out rabbitData);
 
         // アタッチされているアニメーターを取得
         animator = GetComponent<Animator>();
