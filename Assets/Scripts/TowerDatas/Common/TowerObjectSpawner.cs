@@ -273,6 +273,9 @@ public class TowerObjectSpawner : MonoBehaviour
     /// </summary>
     void OnDisable()
     {
+        // ウサギの図鑑のフラグ関連の終了処理を行う
+        RabbitPictureBookFlagSwitcher.Inst.FinalizeData();
+
         // 積み上げられたオブジェクトを全てデスポーンする
         mochiSpawnPool.DespawnAll();
         rabbitSpawnPool.DespawnAll();
