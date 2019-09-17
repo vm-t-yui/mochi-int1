@@ -88,9 +88,9 @@ public class ScoreManager : SingletonMonoBehaviour<ScoreManager>
     void UpdateTotalScore(PlayData playData)
     {
         playData.TotalScore += NowBreakNum;
-        if (playData.TotalScore > PlayData.MaxTotalScore)
+        if (playData.TotalScore > PlayData.TotalScoreCountStopValue)
         {
-            playData.TotalScore = PlayData.MaxTotalScore;
+            playData.TotalScore = PlayData.TotalScoreCountStopValue;
         }
         GameServiceUtil.ReportScore(playData.TotalScore, 1);
     }

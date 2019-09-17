@@ -256,6 +256,62 @@ PrefabInstance:
       propertyPath: mLocalizeTarget
       value: 
       objectReference: {fileID: 1406635411}
+    - target: {fileID: 876045769, guid: e3708c942552346639722a502ab9495b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PushScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 934590523, guid: e3708c942552346639722a502ab9495b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.00012207031
+      objectReference: {fileID: 0}
+    - target: {fileID: 682178450, guid: e3708c942552346639722a502ab9495b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82080635, guid: e3708c942552346639722a502ab9495b, type: 3}
+      propertyPath: skinButtons
+      value: 
+      objectReference: {fileID: 1076048875}
+    - target: {fileID: 876045772, guid: e3708c942552346639722a502ab9495b, type: 3}
+      propertyPath: SceneName
+      value: title
+      objectReference: {fileID: 0}
+    - target: {fileID: 1934354127567432355, guid: e3708c942552346639722a502ab9495b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: SlideOut
+      objectReference: {fileID: 0}
+    - target: {fileID: 4360020810195121464, guid: e3708c942552346639722a502ab9495b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: SlideOut
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294297783857877352, guid: e3708c942552346639722a502ab9495b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: SlideOut
+      objectReference: {fileID: 0}
+    - target: {fileID: 934590522, guid: e3708c942552346639722a502ab9495b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7058422103104796484, guid: e3708c942552346639722a502ab9495b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 640
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020364257, guid: e3708c942552346639722a502ab9495b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020364257, guid: e3708c942552346639722a502ab9495b, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020364257, guid: e3708c942552346639722a502ab9495b, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3708c942552346639722a502ab9495b, type: 3}
 --- !u!224 &82080621 stripped
@@ -5322,6 +5378,12 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!224 &1076048875 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 317120312, guid: e3708c942552346639722a502ab9495b,
+    type: 3}
+  m_PrefabInstance: {fileID: 82080620}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1107590643 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1485568440799908849, guid: e3708c942552346639722a502ab9495b,

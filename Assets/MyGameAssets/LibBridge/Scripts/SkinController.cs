@@ -39,18 +39,30 @@ public class SkinController : MonoBehaviour
             GameDataManager.Inst.PlayData.IsReleasedSkin[0] = true;
         }
 
-        // それぞれのスキン解放フラグがONになっていたらスキンを解放させる
+
         for (int i = 0; i < (int)SettingData.SkinType.Length; i++)
         {
+            // スキンのイメージの親 (子(0)がシルエット、子(1)がスキン)
+            Transform skinImages = skinButtons.GetChild(i).GetChild(2);
+
+            // それぞれのスキン解放フラグがONになっていたらスキンを解放させる
             if (GameDataManager.Inst.PlayData.IsReleasedSkin[i])
             {
                 isRelease[i] = true;
+                
+                // スキンを表示
+                skinImages.GetChild(1).gameObject.SetActive(true);
+            }
+            else
+            {
+                // シルエットを表示
+                skinImages.GetChild(0).gameObject.SetActive(true);
             }
 
             // Newアイコンが表示されていないなら表示
             if (GameDataManager.Inst.PlayData.IsDrawSkinNewIcon[i])
             {
-                gameObject.transform.GetChild(i).GetChild(1).gameObject.SetActive(true);
+                skinButtons.GetChild(i).GetChild(1).gameObject.SetActive(true);
             }
         }
     }
@@ -70,7 +82,7 @@ public class SkinController : MonoBehaviour
 
             // Newアイコンを非表示
             GameDataManager.Inst.PlayData.IsDrawSkinNewIcon[num] = false;
-            gameObject.transform.GetChild(num).GetChild(1).gameObject.SetActive(false);
+            skinButtons.GetChild(num).GetChild(1).gameObject.SetActive(false);
 
             // 表示テキスト変更
             ChangeUseSkinText(GameDataManager.Inst.SettingData.UseSkin);
