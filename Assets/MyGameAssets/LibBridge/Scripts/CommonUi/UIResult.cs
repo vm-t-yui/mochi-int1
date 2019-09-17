@@ -200,7 +200,7 @@ public class UIResult : CmnMonoBehaviour
         // 広告表示前にスクショをとる
         ShareHelper.Inst.CaptureScreenShot();
 
-        // 広告を表示したらボタンと新規うさぎのウィンドウを出す。
+        // 広告を表示したらボタン表示
         AdManager.Inst.ShowResultAd();
         buttons.SetActive(true);  
     }

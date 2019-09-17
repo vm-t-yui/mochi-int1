@@ -106,7 +106,7 @@ public class PlayData
     }
 
     /// <summary>
-    /// Newアイコン表示中のウサギが存在するか
+    /// Newアイコン表示中のスキンが存在するか
     /// </summary>
     /// <returns>存在しているかどうかのフラグを返す</returns>
     public bool ExistDrawNewIconSkin()
