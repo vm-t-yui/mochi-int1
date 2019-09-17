@@ -940,6 +940,32 @@ MonoBehaviour:
       - Record
       Flags: 00000000000000
       Languages_Touch: []
+    - Term: New Text
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Share
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u30B7\u30A7\u30A2\u3057\u3088\u3046\uFF01"
+      - Let's share!
+      - Lass uns teilen!
+      - Dividiamo!
+      - Partageons!
+      - "\u4E00\u8D77\u5206\u4EAB\u5427\uFF01"
+      - "\xA1Compartamos!"
+      Flags: 00000000000000
+      Languages_Touch: []
     CaseInsensitiveTerms: 0
     OnMissingTranslation: 1
     mTerm_AppName: 

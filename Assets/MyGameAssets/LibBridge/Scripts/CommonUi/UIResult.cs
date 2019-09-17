@@ -41,6 +41,11 @@ public class UIResult : CmnMonoBehaviour
     GameObject buttons = default;                           // リザルトのボタン達
 
     [SerializeField]
+    GameObject highScoreText = default;                     // ハイスコアテキスト
+    [SerializeField]
+    GameObject shareText = default;                         // シェア促しのテキスト
+
+    [SerializeField]
     float showAdTime = 1;                                   // 広告表示までの待機時間
 
     bool isShowAd = false;                                  // リザルト広告表示フラグ
@@ -50,7 +55,9 @@ public class UIResult : CmnMonoBehaviour
     /// </summary>
     void OnEnable()
     {
-        // 表示フラグをリセット
+        // 一旦非表示にさせる
+        shareText.gameObject.SetActive(false);
+        highScoreText.SetActive(false);
         isShowAd = false;
 
         // バナー表示
@@ -135,10 +142,20 @@ public class UIResult : CmnMonoBehaviour
         switch (num)
         {
             case (int)NewIcon.Rabbit:
-                GameDataManager.Inst.PlayData.IsNewReleasedRabbit = false; break;
+                // 全項目がNewアイコン表示中ではなかったら
+                if (!GameDataManager.Inst.PlayData.ExistDrawNewIconRabbit())
+                {
+                    GameDataManager.Inst.PlayData.IsNewReleasedRabbit = false;
+                }
+                break;
 
             case (int)NewIcon.Skin:
-                GameDataManager.Inst.PlayData.IsNewReleasedSkin = false; break;
+                // 全項目がNewアイコン表示中ではなかったら
+                if (!GameDataManager.Inst.PlayData.ExistDrawNewIconSkin())
+                {
+                    GameDataManager.Inst.PlayData.IsNewReleasedSkin = false;
+                }
+                break;
 
             case (int)NewIcon.Achieve:
                 GameDataManager.Inst.PlayData.IsNewReleasedAchieve = false;
@@ -183,9 +200,9 @@ public class UIResult : CmnMonoBehaviour
         // 広告表示前にスクショをとる
         ShareHelper.Inst.CaptureScreenShot();
 
-        // 広告を表示したらボタンを出す
+        // 広告を表示したらボタンと新規うさぎのウィンドウを出す。
         AdManager.Inst.ShowResultAd();
-        buttons.SetActive(true);
+        buttons.SetActive(true);  
     }
 
     /// <summary>
@@ -211,5 +228,16 @@ public class UIResult : CmnMonoBehaviour
     public void ShowSceneAdNative()
     {
         AdManager.Inst.ShowSceneAdNative();
+    }
+
+    /// <summary>
+    /// ハイスコア時のテキスト表示
+    /// </summary>
+    public void ShowHighScoreText()
+    {
+        // メニューのNewアイコン、シェア促しアイコン、ハイスコアテキストを表示
+        shareText.gameObject.SetActive(true);
+        highScoreText.SetActive(true);
+        newIcon[(int)NewIcon.Menu].gameObject.SetActive(true);
     }
 }

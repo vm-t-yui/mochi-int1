@@ -25,6 +25,8 @@ public class ResultSpriteSetter : MonoBehaviour
     Image page = default;               // ノート
     [SerializeField]
     Image dish = default;               // スキン画面用お皿
+    [SerializeField]
+    Image shareIcon = default;          // シェア促しテキスト用アイコン
 
     [SerializeField]
     Image[] menuButton = default;       // メニューロゴ
@@ -59,6 +61,7 @@ public class ResultSpriteSetter : MonoBehaviour
         skinButton.sprite = atlas.GetSprite(SpriteName.SkinButton);
         page.sprite = atlas.GetSprite(SpriteName.Page);
         dish.sprite = atlas.GetSprite(SpriteName.Dish);
+        shareIcon.sprite = atlas.GetSprite(SpriteName.ShareIcon);
 
         scoreMochi[(int)ScoreManager.Score.Low].sprite = atlas.GetSprite(SpriteName.LowScoreMochi);
         scoreMochi[(int)ScoreManager.Score.Normal].sprite = atlas.GetSprite(SpriteName.NormalScoreMochi);
