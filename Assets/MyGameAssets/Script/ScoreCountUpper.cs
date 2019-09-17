@@ -64,8 +64,11 @@ public class ScoreCountUpper : MonoBehaviour
                     uIResult.ShowHighScoreText();
                 }
 
-                // スコアリセット
-                ScoreManager.Inst.Reset();
+				// スコアのセーブ
+				ScoreManager.Inst.Save();
+
+				// スコアリセット
+				ScoreManager.Inst.Reset();
             }
         }
 

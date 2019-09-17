@@ -18,9 +18,6 @@ public class SpriteName
     public const string Rarity4 = "rarity4";
     public const string Rarity5 = "rarity5";
     public const string Rarity0 = "rarity0";
-    public const string NormalMochi = "normalMochi";
-    public const string RedMochi = "redMochi";
-    public const string YomogiMochi = "yomogiMochi";
     public const string Galley = "rabbitGallery";
     public const string Page = "page";
     public const string Memo = "memo";
@@ -35,4 +32,17 @@ public class SpriteName
     public const string Achievement = "achievement";
     public const string NewIcon = "newIcon";
     public const string ShareIcon = "shareIcon";
+
+    public const string NormalMochi = "normalMochi";
+    public const string KouhakuMochi = "kouhakuMochi";
+    public const string YomogiMochi = "yomogiMochi";
+	public const string IchigoDaihuku = "ichigoDaihuku";
+	public const string KashiwaMochi = "kashiwaMochi";
+	public const string IsobeMochi = "isobeMochi";   
+	public const string NormalMochiButton = "normalMochiButton";
+	public const string KouhakuMochiButton = "kouhakuMochiButton";
+	public const string YomogiMochiButton = "yomogiMochiButton";
+	public const string IchigoDaihukuButton = "ichigoDaihukuButton";
+	public const string KashiwaMochiButton = "kashiwaMochiButton";
+	public const string IsobeMochiButton = "isobeMochiButton";
 }

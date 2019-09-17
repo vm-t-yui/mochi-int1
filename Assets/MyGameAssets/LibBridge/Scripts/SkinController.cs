@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 /// <summary>
 /// スキンクラス
@@ -9,7 +10,7 @@ using TMPro;
 public class SkinController : MonoBehaviour
 {
     [SerializeField]
-    TextMeshProUGUI UseSkin = default;                               // 使用中の餅スキン表示テキスト
+    SkinSpriteSetter skinSpriteSetter = default;
 
     [SerializeField]
     Transform skinButtons = default;                                 // スキンのボタン
@@ -22,7 +23,7 @@ public class SkinController : MonoBehaviour
     void OnEnable()
     {
         // 使用スキンを表示
-        ChangeUseSkinText(GameDataManager.Inst.SettingData.UseSkin);
+        skinSpriteSetter.ChangeUseSkin(GameDataManager.Inst.SettingData.UseSkin);
 
         // スキンの解放
         ReleaseSkin();
@@ -43,7 +44,7 @@ public class SkinController : MonoBehaviour
         for (int i = 0; i < (int)SettingData.SkinType.Length; i++)
         {
             // スキンのイメージの親 (子(0)がシルエット、子(1)がスキン)
-            Transform skinImages = skinButtons.GetChild(i).GetChild(2);
+            Transform skinImages = skinButtons.GetChild(i).GetChild(1);
 
             // それぞれのスキン解放フラグがONになっていたらスキンを解放させる
             if (GameDataManager.Inst.PlayData.IsReleasedSkin[i])
@@ -87,38 +88,7 @@ public class SkinController : MonoBehaviour
             skinButtons.GetChild(num).GetChild(1).gameObject.SetActive(false);
 
             // 表示テキスト変更
-            ChangeUseSkinText(GameDataManager.Inst.SettingData.UseSkin);
-        }
-    }
-
-    /// <summary>
-    /// 使用中スキン表示テキスト変更
-    /// </summary>
-    /// <param name="skinType">餅スキンの種類</param>
-    void ChangeUseSkinText(SettingData.SkinType skinType)
-    {
-        // 受け取った餅スキンによって表示テキスト変更
-        // TODO: 仮で作った機能なので要らない場合は削除します。そのまま使えそうならローカライズにも対応させます。
-        switch (skinType)
-        {
-            case SettingData.SkinType.NormalMochi:
-                UseSkin.text = "普通の餅";
-                break;
-            case SettingData.SkinType.KouhakuMochi:
-                UseSkin.text = "紅白餅";
-                break;
-            case SettingData.SkinType.YomogiMochi:
-                UseSkin.text = "よもぎ餅";
-                break;
-            case SettingData.SkinType.IchigoDaihuku:
-                UseSkin.text = "いちご大福";
-                break;
-            case SettingData.SkinType.KashiwaMochi:
-                UseSkin.text = "柏餅";
-                break;
-            case SettingData.SkinType.IsobeMochi:
-                UseSkin.text = "磯部餅";
-                break;
+            skinSpriteSetter.ChangeUseSkin(GameDataManager.Inst.SettingData.UseSkin);
         }
     }
 }
