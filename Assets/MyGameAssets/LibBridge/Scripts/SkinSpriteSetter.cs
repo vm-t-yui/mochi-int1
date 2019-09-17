@@ -2,6 +2,9 @@
 using UnityEngine.U2D;
 using UnityEngine.UI;
 
+/// <summary>
+/// スキン画面のスプライトセット
+/// </summary>
 public class SkinSpriteSetter : MonoBehaviour
 {
     [SerializeField]
