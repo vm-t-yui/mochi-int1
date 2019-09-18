@@ -29,7 +29,7 @@ public class RabbitPanelData : MonoBehaviour
         rabbitNameLocalize.SetTerm("Rabbit/" + name);
 
         // レアリティのイメージを取得
-        rarityImage = transform.GetChild(0).GetChild(0).GetChild(1).GetComponent<Image>();
+        rarityImage = transform.GetChild(1).GetChild(0).GetChild(1).GetComponent<Image>();
         // イメージのスプライトをセットする
         rarityImage.sprite = raritySprite;
     }
