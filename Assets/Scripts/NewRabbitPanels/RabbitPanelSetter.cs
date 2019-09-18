@@ -30,6 +30,9 @@ public class RabbitPanelSetter : MonoBehaviour
         // 新しく救出したウサギのリストを取得
         IReadOnlyList<RabbitData> newRescuedRabbits = RabbitPictureBookFlagSwitcher.Inst.NewRescuedRabbits;
 
+        // NULLじゃなければ以下の処理を行う
+        if (newRescuedRabbits == null) { return; }
+
         // パネルをセットする行
         int setPanelRowNum = 0;
 
@@ -49,7 +52,6 @@ public class RabbitPanelSetter : MonoBehaviour
             {
                 setPanelRowNum++;
             }
-
         }
     }
 
