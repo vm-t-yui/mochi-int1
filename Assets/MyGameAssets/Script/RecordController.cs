@@ -27,6 +27,6 @@ public class RecordController : MonoBehaviour
         highScoreText.text = playData.HighScore.ToString("N0");
         totalScoreText.text = playData.TotalScore.ToString("N0");
         rescuedCountText.text = playData.TotalRescueCount.ToString("N0");
-        punchedCountText.text = playData.PunchCount.ToString("N0");
+        punchedCountText.text = playData.TotalPunchCount.ToString("N0");
     }
 }

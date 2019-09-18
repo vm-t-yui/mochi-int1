@@ -54,6 +54,7 @@ public class RabbitMoveController : MoveControllerBase
     {
         // ウサギがパンチされた回数をカウントしていく
         GameDataManager.Inst.PlayData.PunchCount++;
+        GameDataManager.Inst.PlayData.TotalPunchCount++;
         // ウサギが吹っ飛ぶアニメーションを再生
         animator.SetTrigger("RabbitFling");
         // ウサギがパンチされた時の効果音再生
@@ -65,6 +66,8 @@ public class RabbitMoveController : MoveControllerBase
     /// </summary>
     public override void OnPlayerRescued()
     {
+        // ウサギが助けられた回数をカウント
+        GameDataManager.Inst.PlayData.TotalRescueCount++;
         // オブジェクトの名前を取得
         string nameText = transform.name;
         // 全体の名前から"(clone)***"を除いたもとの名前のみを取得
