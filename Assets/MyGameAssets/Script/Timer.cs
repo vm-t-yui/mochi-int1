@@ -168,9 +168,6 @@ public class Timer : MonoBehaviour
                 animator.SetTrigger("IsTimeUp");
                 timer.text = "Time UP";
                 IsTimeup = true;
-
-                // スコアのセーブ
-                ScoreManager.Inst.Save();
             }
         }
     }

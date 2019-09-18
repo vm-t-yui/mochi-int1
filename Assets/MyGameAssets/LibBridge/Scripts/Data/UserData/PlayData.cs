@@ -58,13 +58,13 @@ public class PlayData
     /// <summary>
     /// 各データのプロパティ
     /// </summary>
-    public int PlayCount              { get { return playCount; }           set { playCount++; if (playCount > CountStopValue) playCount = CountStopValue; } }
+    public int PlayCount              { get { return playCount; }           set { playCount = value; } }
     public int HighScore              { get { return highScore; }           set { highScore = value; } }
     public int LastScore              { get { return lastScore; }           set { lastScore = value; } }
     public int PunchCount             { get { return punchCount; }          set { punchCount = value; } }
-    public int TotalPunchCount        { get { return totalPunchCount; }     set { totalPunchCount = value; if (totalPunchCount > CountStopValue) totalPunchCount = CountStopValue; } }
-    public int TotalRescueCount       { get { return totalRescueCount; }    set { totalRescueCount = value; if (totalRescueCount > CountStopValue) totalRescueCount = CountStopValue; } }
-    public int TotalScore             { get { return totalScore; }          set { totalScore = value; if (totalScore > TotalScoreCountStopValue) totalScore = TotalScoreCountStopValue; } }
+    public int TotalPunchCount        { get { return totalPunchCount; }     set { totalPunchCount = value; } }
+    public int TotalRescueCount       { get { return totalRescueCount; }    set { totalRescueCount = value; } }
+    public int TotalScore             { get { return totalScore; }          set { totalScore = value; } }
     public bool IsReward              { get { return isReward; }            set { isReward = value; } }
     public bool IsNewReleasedRabbit   { get { return isNewReleasedRabbit; } set { isNewReleasedRabbit = value; } }
     public bool IsNewReleasedSkin     { get { return isNewReleasedSkin; }   set { isNewReleasedSkin = value; } }

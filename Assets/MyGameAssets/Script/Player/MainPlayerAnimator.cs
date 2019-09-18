@@ -88,7 +88,7 @@ public class MainPlayerAnimator : SingletonMonoBehaviour<MainPlayerAnimator>
         sceneChanger.ChangeScene();
 
         // プレイ回数をセーブ
-        GameDataManager.Inst.PlayData.PlayCount = GameDataManager.Inst.PlayData.PlayCount++;
+        GameDataManager.Inst.PlayData.PlayCount++;
         JsonDataSaver.Save(GameDataManager.Inst.PlayData);
     }
 
