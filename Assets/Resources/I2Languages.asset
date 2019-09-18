@@ -940,19 +940,6 @@ MonoBehaviour:
       - Record
       Flags: 00000000000000
       Languages_Touch: []
-    - Term: New Text
-      TermType: 0
-      Description: 
-      Languages:
-      - 
-      - 
-      - 
-      - 
-      - 
-      - 
-      - 
-      Flags: 00000000000000
-      Languages_Touch: []
     - Term: Share
       TermType: 0
       Description: 
@@ -964,6 +951,97 @@ MonoBehaviour:
       - Partageons!
       - "\u4E00\u8D77\u5206\u4EAB\u5427\uFF01"
       - "\xA1Compartamos!"
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Mochi/Normal
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u9905"
+      - Mochi
+      - Mochi
+      - Mochi
+      - Mochi
+      - Mochi
+      - Mochi
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Mochi/Kouhaku
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u7D05\u767D\u9905"
+      - Red and white Mochi
+      - "Rotes und wei\xDFes Mochi"
+      - Mochi rosso e bianco
+      - Mochi rouge et blanc
+      - "\u7EA2\u8272\u548C\u767D\u8272\u7684\u9EBB"
+      - Mochi rojo y blanco
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Mochi/Yomogi
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u3088\u3082\u304E\u9905"
+      - Yomogi Mochi
+      - Yomogi Mochi
+      - Yomogi Mochi
+      - Yomogi Mochi
+      - Yomogi Mochi
+      - Yomogi Mochi
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Mochi/Ichigo
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u3044\u3061\u3054\u5927\u798F"
+      - Strawberry Daifuku
+      - Erdbeer-Daifuku
+      - Daifuku alla fragola
+      - Fraise Daifuku
+      - "\u8349\u8393\u5927\u798F"
+      - Daifuku de fresa
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Mochi/Kashiwa
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u67CF\u9905"
+      - Kashiwa Mochi
+      - Kashiwa Mochi
+      - Kashiwa Mochi
+      - Kashiwa Mochi
+      - Kashiwa Mochi
+      - Kashiwa Mochi
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Mochi/Isobe
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u78EF\u90E8\u9905"
+      - Isobe Mochi
+      - Isobe Mochi
+      - Isobe Mochi
+      - Isobe Mochi
+      - Isobe Mochi
+      - Isobe Mochi
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Mochi/UseSkin
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u4ECA\u306E\u30B9\u30AD\u30F3"
+      - Now Skin
+      - Jetzt Haut
+      - Now Skin
+      - Maintenant la peau
+      - "\u73B0\u5728\u76AE\u80A4"
+      - Ahora piel
       Flags: 00000000000000
       Languages_Touch: []
     CaseInsensitiveTerms: 0
