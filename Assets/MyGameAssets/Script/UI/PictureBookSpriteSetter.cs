@@ -94,8 +94,10 @@ public class PictureBookSpriteSetter : MonoBehaviour
         // 解放前と解放後用に各ボタンの子２つにスプライトをセット
         for (int i = 0; i < images.Length; i++)
         {
-            images[i].transform.GetChild(0).GetComponent<Image>().sprite = atlas.GetSprite(rabbitSpriteName[i]);
-            images[i].transform.GetChild(1).GetComponent<Image>().sprite = atlas.GetSprite(rabbitSpriteName[i]);
+            string spriteName = TowerObjectDataManager.Inst.GetRabbitDataFromNumber(i).name;
+
+            images[i].transform.GetChild(0).GetComponent<Image>().sprite = atlas.GetSprite(spriteName);
+            images[i].transform.GetChild(1).GetComponent<Image>().sprite = atlas.GetSprite(spriteName);
         }
     }
 }

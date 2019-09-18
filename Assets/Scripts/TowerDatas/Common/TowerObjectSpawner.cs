@@ -47,15 +47,6 @@ public class TowerObjectSpawner : MonoBehaviour
     SettingData.SkinType mochiSkinType = SettingData.SkinType.NormalMochi;
 
     /// <summary>
-    /// 開始
-    /// </summary>
-    void Awake()
-    {
-        // タワーのデータをロードする
-        TowerObjectDataManager.Inst.LoadAllData();
-    }
-
-    /// <summary>
     /// 起動処理
     /// </summary>
     void OnEnable()
