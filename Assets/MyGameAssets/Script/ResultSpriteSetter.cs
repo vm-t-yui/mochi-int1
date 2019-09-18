@@ -31,22 +31,11 @@ public class ResultSpriteSetter : MonoBehaviour
     [SerializeField]
     Image[] menuButton = default;       // メニューロゴ
     [SerializeField]
-    Image[] memo = default;             // うさぎ図鑑用メモ
-    [SerializeField]
     Image[] window = default;           // ウィンドウ     
     [SerializeField]
     Image[] scoreMochi = default;       // カウントアップ時にスコアに応じて増減するもち
     [SerializeField]
     Image[] newIcon = default;          // 新たに手に入れた時にボタンの上に表示するのアイコン
-
-    [SerializeField]
-    Image rarity0 = default;            // 非解放用レアリティ
-    [SerializeField]
-    Image[] rarity1 = default,          // ★１群
-            rarity2 = default,          // ★２群
-            rarity3 = default,          // ★３群
-            rarity4 = default,          // ★４群
-            rarity5 = default;          // ★５群
 
     /// <summary>
     /// 起動処理.
@@ -68,13 +57,6 @@ public class ResultSpriteSetter : MonoBehaviour
         scoreMochi[(int)ScoreManager.Score.Good].sprite = atlas.GetSprite(SpriteName.GoodScoreMochi);
         scoreMochi[(int)ScoreManager.Score.VeryGood].sprite = atlas.GetSprite(SpriteName.VeryGoodScoreMochi);
 
-        rarity0.sprite = atlas.GetSprite(SpriteName.Rarity0);
-        SetRaritySprite(rarity1, SpriteName.Rarity1);
-        SetRaritySprite(rarity2, SpriteName.Rarity2);
-        SetRaritySprite(rarity3, SpriteName.Rarity3);
-        SetRaritySprite(rarity4, SpriteName.Rarity4);
-        SetRaritySprite(rarity5, SpriteName.Rarity5);
-
         for (int i = 0; i < menuButton.Length; i++)
         {
             menuButton[i].sprite = atlas.GetSprite(SpriteName.MenuButton);
@@ -84,12 +66,6 @@ public class ResultSpriteSetter : MonoBehaviour
         {
             window[i].sprite = atlas.GetSprite(SpriteName.Window);
         }
-
-        for (int i = 0; i < memo.Length; i++)
-        {
-            memo[i].sprite = atlas.GetSprite(SpriteName.Memo);
-        }
-
         for (int i = 0; i < newIcon.Length; i++)
         {
             newIcon[i].sprite = atlas.GetSprite(SpriteName.NewIcon);
