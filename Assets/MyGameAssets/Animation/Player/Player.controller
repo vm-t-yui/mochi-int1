@@ -22,7 +22,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -3957497901638700480, guid: 10f987fec1e7d4855bae2ac43aab4e1e,
+  m_Motion: {fileID: 1827226128182048838, guid: 8a9df982bf9224d9a8ad2bf5ee468946,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -1066,7 +1066,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ialArtsArts
+  m_Name: isSpecialArts
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -1080,7 +1080,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -5824029492533181423, guid: d48581ae020d7418ab744e682dc12276,
+  m_Motion: {fileID: 1827226128182048838, guid: cdd945b96a2fe43e8980ee5977a7382b,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -1146,7 +1146,7 @@ AnimatorStateMachine:
     m_Position: {x: -70, y: -410, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -9012456369655376025}
-    m_Position: {x: -60, y: -770, z: 0}
+    m_Position: {x: -70, y: -760, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
