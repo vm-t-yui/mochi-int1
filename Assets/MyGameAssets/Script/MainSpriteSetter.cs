@@ -25,7 +25,7 @@ public class MainSpriteSetter : MonoBehaviour
     void Awake()
     {
         // 各スプライトをアタッチ
-        mochi.sprite = atlas.GetSprite(SpriteName.NormalMochi);
+        mochi.sprite = atlas.GetSprite(SpriteName.NormalMochiButton);
         timer.sprite = atlas.GetSprite(SpriteName.Timer);
         window.sprite = atlas.GetSprite(SpriteName.Window);
 

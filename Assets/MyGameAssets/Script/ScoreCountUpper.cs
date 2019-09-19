@@ -33,6 +33,10 @@ public class ScoreCountUpper : MonoBehaviour
         NowCount = 0;
         IsEnd = false;
         IsStart = true;
+
+        // カウントダウン開始時にスコアのセーブをしてから実績解除
+        ScoreManager.Inst.Save();
+        AchievementReleaser.ReleaseAchievement();
     }
 
     /// <summary>
