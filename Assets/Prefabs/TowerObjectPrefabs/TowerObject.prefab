@@ -257,6 +257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCameraAnim: {fileID: 0}
+  playerFeverAura: []
   maxFeverTimeCount: 10
   ChangeBgmFadeTime: 0.8
   ReturnBgmFadeTime: 1.2
@@ -12128,7 +12129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerObjectSpawner: {fileID: 6233680672232218299}
   towerObjectRendererList: {fileID: 2822577924656766377}
-  objectFlySpeed: 5
+  objectFlySpeed: 2
 --- !u!1 &7488554835131360139
 GameObject:
   m_ObjectHideFlags: 0

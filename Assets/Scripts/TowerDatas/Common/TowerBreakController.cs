@@ -32,8 +32,8 @@ public class TowerBreakController : MonoBehaviour
         for (int i = 0; i < towerObjectSpawner.StackedObjects.Count; i++)
         {
             // 飛ぶ方向をランダムに生成
-            Vector3 flyDirection = new Vector3(Random.Range(-1.0f, 1.0f),
-                                               Random.Range(-1.0f, 1.0f),
+            Vector3 flyDirection = new Vector3(Random.Range(-1.0f,1.0f),
+                                               Random.Range(1, 1),
                                                Random.Range(-1.0f, 1.0f));
 
             // 決定した方向をリストに追加
