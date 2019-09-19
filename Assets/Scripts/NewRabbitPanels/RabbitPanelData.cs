@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.U2D;
 using I2.Loc;
 
 /// <summary>
@@ -20,11 +21,22 @@ public class RabbitPanelData : MonoBehaviour
     // レアリティの星のイメージ
     Image rarityImage = default;
 
+    // ウサギのアイコンイメージ
+    [SerializeField]
+    Image rabbitIconImage = default;
+
+    // スプライトアトラス
+    [SerializeField]
+    SpriteAtlas spriteAtlas = default;
+
     /// <summary>
     /// 開始
     /// </summary>
     void Start()
     {
+        // アトラスからウサギのアイコンをセットする
+        rabbitIconImage.sprite = spriteAtlas.GetSprite(name);
+
         // ウサギごとに名前のローカライズをセットする
         rabbitNameLocalize.SetTerm("Rabbit/" + name);
 
