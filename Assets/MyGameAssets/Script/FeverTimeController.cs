@@ -11,8 +11,8 @@ public class FeverTimeController : MonoBehaviour
     [SerializeField]
     MainCameraAnimator mainCameraAnim = default;          // メインカメラアニメーター
     [SerializeField]
-    ParticleSystem[] playerFeverAura = default;             // フィーバータイム中のプレイヤーのオーラ
-    
+    ParticleSystem[] playerFeverAura = default;           // フィーバータイム中のプレイヤーのオーラパーティクル
+
     [SerializeField]
     float maxFeverTimeCount = 0;                          // フィーバータイムの最大時間
     // フィーバータイムの最大値を取得
@@ -24,7 +24,7 @@ public class FeverTimeController : MonoBehaviour
     float ReturnBgmFadeTime = 1.2f;                       // メインBGMに戻すときのフェードにかかる時間
 
     public float CurrentFeverTimeCount { get; private set; } = 0;                      // フィーバータイムの継続時間
-    
+
 
     public bool IsFever { get; private set; } = default;  // フィーバーフラグ
 
@@ -38,8 +38,9 @@ public class FeverTimeController : MonoBehaviour
 
         // フィーバータイム開始
         IsFever = true;
-		mainCameraAnim.AnimStart((int)MainCameraAnimator.AnimKind.FeverIn);
+        mainCameraAnim.AnimStart((int)MainCameraAnimator.AnimKind.FeverIn);
 
+        // オーラパーティクル再生
         for (int i = 0; i < playerFeverAura.Length; i++)
         {
             playerFeverAura[i].Play();
@@ -47,7 +48,7 @@ public class FeverTimeController : MonoBehaviour
 
         // フィーバータイムのBGMに切り替え
         BgmPlayer.Inst.ChangeBgm(BgmID.FeverTime, ChangeBgmFadeTime);
-	}
+    }
 
     /// <summary>
     /// 更新処理
@@ -71,8 +72,9 @@ public class FeverTimeController : MonoBehaviour
     {
         // フィーバータイム終了
         IsFever = false;
-		mainCameraAnim.AnimStart((int)MainCameraAnimator.AnimKind.FeverOut);
+        mainCameraAnim.AnimStart((int)MainCameraAnimator.AnimKind.FeverOut);
 
+        // オーラパーティクル停止
         for (int i = 0; i < playerFeverAura.Length; i++)
         {
             playerFeverAura[i].Stop();
@@ -80,5 +82,5 @@ public class FeverTimeController : MonoBehaviour
 
         // 元のBGMに戻す
         BgmPlayer.Inst.ReturnBgm(ReturnBgmFadeTime);
-	}
+    }
 }
