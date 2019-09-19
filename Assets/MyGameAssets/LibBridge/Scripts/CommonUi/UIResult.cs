@@ -36,6 +36,8 @@ public class UIResult : CmnMonoBehaviour
     SceneChanger sceneChanger = default;                    // シーンチェンジクラス
     [SerializeField]
     ScoreCountUpper scoreCountUpper = default;              // スコアカウントアップクラス
+    [SerializeField]
+    Animator fadeAnimator = default;                        // フェードアニメーター
 
     [SerializeField]
     GameObject buttons = default;                           // リザルトのボタン達
@@ -203,7 +205,14 @@ public class UIResult : CmnMonoBehaviour
 
         // 広告を表示したらボタン表示
         AdManager.Inst.ShowResultAd();
-        buttons.SetActive(true);  
+        buttons.SetActive(true);
+
+        // 新たに救出したウサギがいれば、一覧のパネルを表示する
+        if (RabbitPictureBookFlagSwitcher.Inst.NewRescuedRabbits.Count != 0)
+        {
+            // アニメーションの再生を開始する
+            fadeAnimator.SetTrigger("FadeIn");
+        }
     }
 
     /// <summary>
