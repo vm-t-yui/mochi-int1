@@ -116,15 +116,6 @@ public class ScoreManager : SingletonMonoBehaviour<ScoreManager>
     }
 
     /// <summary>
-    /// 終了処理
-    /// </summary>
-    void OnDisable()
-    {
-        // スコアのセーブ
-        Save();
-    }
-
-    /// <summary>
     /// スコアリセット
     /// </summary>
     public void Reset()

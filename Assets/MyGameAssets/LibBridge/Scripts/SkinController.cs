@@ -65,7 +65,7 @@ public class SkinController : MonoBehaviour
             // Newアイコンが表示されていないなら表示
             if (GameDataManager.Inst.PlayData.IsDrawSkinNewIcon[i])
             {
-                skinButtons.GetChild(i).GetChild(1).gameObject.SetActive(true);
+                skinButtons.GetChild(i).GetChild(0).gameObject.SetActive(true);
             }
         }
     }
@@ -85,7 +85,7 @@ public class SkinController : MonoBehaviour
 
             // Newアイコンを非表示
             GameDataManager.Inst.PlayData.IsDrawSkinNewIcon[num] = false;
-            skinButtons.GetChild(num).GetChild(1).gameObject.SetActive(false);
+            skinButtons.GetChild(num).GetChild(0).gameObject.SetActive(false);
 
             // 表示テキスト変更
             skinSpriteSetter.ChangeUseSkin(GameDataManager.Inst.SettingData.UseSkin);

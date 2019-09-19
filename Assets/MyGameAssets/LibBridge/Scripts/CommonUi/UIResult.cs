@@ -138,7 +138,6 @@ public class UIResult : CmnMonoBehaviour
     public void HideNewIcon(int num)
     {
         // 番号に応じたNewアイコンを非表示、フラグをリセット
-        newIcon[num].gameObject.SetActive(false);
         switch (num)
         {
             case (int)NewIcon.Rabbit:
@@ -146,6 +145,7 @@ public class UIResult : CmnMonoBehaviour
                 if (!GameDataManager.Inst.PlayData.ExistDrawNewIconRabbit())
                 {
                     GameDataManager.Inst.PlayData.IsNewReleasedRabbit = false;
+                    newIcon[num].gameObject.SetActive(false);
                 }
                 break;
 
@@ -154,6 +154,7 @@ public class UIResult : CmnMonoBehaviour
                 if (!GameDataManager.Inst.PlayData.ExistDrawNewIconSkin())
                 {
                     GameDataManager.Inst.PlayData.IsNewReleasedSkin = false;
+                    newIcon[num].gameObject.SetActive(false);
                 }
                 break;
 
