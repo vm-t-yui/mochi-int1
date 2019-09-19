@@ -17,6 +17,18 @@ public class MochiMoveController : MoveControllerBase
     [SerializeField]
     TowerObjectParticlePlayer particlePlayer = default;
 
+    // アニメーター
+    Animator animator = default;
+
+    /// <summary>
+    /// 開始
+    /// </summary>
+    void Start()
+    {
+        // アニメーターを取得
+        animator = GetComponent<Animator>();
+    }
+
     // NOTE : モチのほうにはクラッシュの処理はなし（エラー除け）
     public override void OnCrashed() { }
 
@@ -44,8 +56,8 @@ public class MochiMoveController : MoveControllerBase
     /// </summary>
     public override void OnPlayerRescued()
     {
-        // モチの終了処理
-        OnControlFinished();
+        // 助けられたときのアニメーションを再生
+        animator.SetTrigger("MochiSlide");
     }
 
     /// <summary>

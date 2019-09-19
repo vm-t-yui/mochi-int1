@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4225019358296419732}
   - component: {fileID: 6306764193405592317}
+  - component: {fileID: 7239016239841947149}
   m_Layer: 0
   m_Name: KouhakuMochi
   m_TagString: Mochi
@@ -46,6 +47,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerObjectSpawner: {fileID: 0}
   particlePlayer: {fileID: 0}
+--- !u!95 &7239016239841947149
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8814307937171578455}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &909856230188221912
 PrefabInstance:
   m_ObjectHideFlags: 0
