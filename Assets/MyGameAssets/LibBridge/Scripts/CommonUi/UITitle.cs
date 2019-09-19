@@ -27,6 +27,9 @@ public sealed class UITitle : CmnMonoBehaviour
     [SerializeField]
     GameObject[] newIcon = new GameObject[(int)NewIcon.Length];　// 新しく手に入れた時に表示されるNewアイコン
 
+    [SerializeField]
+    GameObject howToPlay = default;                       // ゲームスタートボタン
+
     // 処理なし。メッセージ受信エラー避け.
     protected override void InitSceneChange() { }
     protected override void OnSceneDeactive() { }
@@ -160,5 +163,24 @@ public sealed class UITitle : CmnMonoBehaviour
     public void Share()
     {
         ShareHelper.Inst.Share(LibBridgeInfo.SHARE_TEXT + LibBridgeInfo.TWITTER_TAG, LibBridgeInfo.APP_URL);
+    }
+
+    /// <summary>
+    /// やり方説明ウィンドウ表示
+    /// </summary>
+    /// <param name="gameStartButton">ゲームスタートボタン</param>
+    public void ShowGameStartButton(GameObject gameStartButton)
+    {
+        // 初回プレイ時にのみ自動的表示
+        if (GameDataManager.Inst.PlayData.PlayCount == 0)
+        {
+            howToPlay.SetActive(true);
+            gameStartButton.SetActive(true);
+        }
+        // それ以外はそのままゲームスタート
+        else
+        {
+            AdManager.Inst.ShowSceneAdNative();
+        }
     }
 }
