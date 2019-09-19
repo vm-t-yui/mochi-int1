@@ -87,6 +87,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4225019358296419732}
   - component: {fileID: -890642982436201253}
+  - component: {fileID: 2264086103967889245}
   m_Layer: 0
   m_Name: KashiwaMochi
   m_TagString: Mochi
@@ -123,6 +124,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerObjectSpawner: {fileID: 0}
   particlePlayer: {fileID: 0}
+--- !u!95 &2264086103967889245
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8814307937171578455}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &5854968943228209173
 PrefabInstance:
   m_ObjectHideFlags: 0
