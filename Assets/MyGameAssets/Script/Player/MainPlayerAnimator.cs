@@ -18,24 +18,28 @@ public class MainPlayerAnimator : SingletonMonoBehaviour<MainPlayerAnimator>
         Rescue,                             // うさぎ救助
         SpecialArts,                        // 最後の大技
         OrangeCatch,                        // ハイスコア時のみかんキャッチ
+        Chage,                              // 大技チャージ
         Lenght,                             // enumの長さ
     }
 
     [SerializeField]
-    Animator playerAnim = default;          // アニメーター
+    Animator playerAnim = default;                  // アニメーター
 
     [SerializeField]
-    Animator orangeAnim = default;          // アニメーター
+    Animator orangeAnim = default;                  // アニメーター
 
     [SerializeField]
-    SceneChanger sceneChanger = default;    // シーンチェンジャー
+    SceneChanger sceneChanger = default;            // シーンチェンジャー
 
     [SerializeField]
-    MainCameraAnimator mainCameraAnim = default;          // カメラのアニメーター
+    MainCameraAnimator mainCameraAnim = default;    // カメラのアニメーター
 
     [SerializeField]
-    TowerBreakController towerBreak = default;  // タワーを吹っ飛ばすクラス
+    TowerBreakController towerBreak = default;      // タワーを吹っ飛ばすクラス
 
+    [SerializeField]
+    float chageTime = default;                      // 大技のチャージ時間
+        
     /// <summary>
     ///  アニメーション再生
     /// </summary>
@@ -49,7 +53,11 @@ public class MainPlayerAnimator : SingletonMonoBehaviour<MainPlayerAnimator>
             case (int)AnimKind.RightPunch: playerAnim.SetTrigger("RPunch"); break;
             case (int)AnimKind.LeftPunch: playerAnim.SetTrigger("LPunch"); break;
             case (int)AnimKind.Rescue: playerAnim.SetTrigger("Rescue"); break;
-            case (int)AnimKind.SpecialArts: playerAnim.SetTrigger("SpecialArts"); break;
+            case (int)AnimKind.Chage:
+                // 指定の秒数がたったら大技に移行
+                Invoke("StartSpecialArts", chageTime);
+                playerAnim.SetTrigger("Chage");
+                break;
             case (int)AnimKind.OrangeCatch:
                 if (ScoreManager.Inst.NowBreakNum < ScoreManager.NormalScore)
                 {
@@ -67,6 +75,14 @@ public class MainPlayerAnimator : SingletonMonoBehaviour<MainPlayerAnimator>
                 //      トリガーが残ってしまっているのでここでリセットを挟んでいます。
                 playerAnim.ResetTrigger("Main"); break;
         }
+    }
+
+    /// <summary>
+    /// Invoke用大技アニメーション再生関数
+    /// </summary>
+    void StartSpecialArts()
+    {
+        playerAnim.SetTrigger("SpecialArts");
     }
 
     /// <summary>
