@@ -32,7 +32,7 @@ public class RabbitPanelData : MonoBehaviour
     /// <summary>
     /// 開始
     /// </summary>
-    void Start()
+    void Awake()
     {
         // アトラスからウサギのアイコンをセットする
         rabbitIconImage.sprite = spriteAtlas.GetSprite(name);

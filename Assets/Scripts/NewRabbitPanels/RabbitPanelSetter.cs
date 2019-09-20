@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PathologicalGames;
 
 /// <summary>
 /// ウサギのパネルをセットする
@@ -15,9 +16,19 @@ public class RabbitPanelSetter : MonoBehaviour
     [SerializeField]
     Transform setedRabbitPanelParent = default;
 
+    // HorizontalLayoutのプール
+    [SerializeField]
+    SpawnPool horizontalLayoutPool = default;
+
+    // HorizontalLayoutのプレハブ名
+    const string HorizontalLayoutName = "RowRabbitPanels";
+
     // 横方向のパネルの数
     [SerializeField]
     int horizontalPanelNum = 0;
+
+    // スポーンしたHorizontalLayoutのリスト
+    List<Transform> spawnedLayouts = new List<Transform>();
 
     // セットされたパネルのリスト
     List<Transform> setedPanels = new List<Transform>();
@@ -35,6 +46,15 @@ public class RabbitPanelSetter : MonoBehaviour
 
         // パネルをセットする行
         int setPanelRowNum = 0;
+
+        Transform spawnedLayout;
+        // （新しく救出したウサギの数 / 横方向のパネルの数）個のHorizontalLayoutをスポーン
+        for (int i = 0; i < Mathf.CeilToInt((float)newRescuedRabbits.Count / horizontalPanelNum); i++)
+        {
+            spawnedLayout = horizontalLayoutPool.Spawn(HorizontalLayoutName);
+            spawnedLayouts.Add(spawnedLayout);
+            spawnedLayout.SetParent(setedRabbitPanelParent);
+        }
 
         foreach(RabbitData rabbit in newRescuedRabbits)
         {
@@ -66,6 +86,15 @@ public class RabbitPanelSetter : MonoBehaviour
             panel.SetParent(sourceRabbitPanelParent);
             // 戻したパネルをオフにする
             panel.gameObject.SetActive(false);
+        }
+
+        foreach (Transform layout in spawnedLayouts)
+        {
+            // HorizontalLayoutの親をプールに戻す
+            layout.SetParent(horizontalLayoutPool.transform);
+
+            // デスポーンする
+            horizontalLayoutPool.Despawn(layout);
         }
 
         // リストを削除する
