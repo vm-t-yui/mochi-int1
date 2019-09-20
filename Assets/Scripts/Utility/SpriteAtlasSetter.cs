@@ -22,9 +22,11 @@ public class SpriteData
 /// </summary>
 public class SpriteAtlasSetter : MonoBehaviour
 {
+    // スプライトアトラス
     [SerializeField]
     SpriteAtlas spriteAtlas = default;
 
+    // スプライトデータのリスト
     [SerializeField]
     List<SpriteData> spriteDatas = default;
 
