@@ -92,11 +92,12 @@ public class TowerBreakController : MonoBehaviour
             else
             {
                 // ウサギのレンダラーを取得
-                MeshRenderer rabbitRenderer = towerObjectRendererList.MeshRenderers[stackedObject[i].name];
+                MeshRenderer[] rabbitRenderer = towerObjectRendererList.MeshRenderers[stackedObject[i].name];
 
-                // ウサギをモチに置き換える
-                if (stackedObject[i].tag == TagName.Rabbit && !rabbitRenderer.isVisible)
+                // タワーのウサギで全てのメッシュが画面の範囲外だったら
+                if (stackedObject[i].tag == TagName.Rabbit && rabbitRenderer.ToList().FindIndex(renderer => renderer.isVisible) == -1)
                 {
+                    // ウサギをモチに置き換える
                     towerObjectSpawner.ReplaceRabbitToMochi(i);
                 }
             }

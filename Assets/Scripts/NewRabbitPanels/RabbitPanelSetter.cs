@@ -93,8 +93,11 @@ public class RabbitPanelSetter : MonoBehaviour
             // HorizontalLayoutの親をプールに戻す
             layout.SetParent(horizontalLayoutPool.transform);
 
-            // デスポーンする
-            horizontalLayoutPool.Despawn(layout);
+            // 残っているオブジェクトをデスポーンする
+            if (horizontalLayoutPool.IsSpawned(layout))
+            {
+                horizontalLayoutPool.Despawn(layout);
+            }
         }
 
         // リストを削除する
