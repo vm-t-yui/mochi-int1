@@ -46,6 +46,6 @@ public class PlayerController : MonoBehaviour
     public void OnSpecialArts()
     {
         // アニメーション開始
-        MainPlayerAnimator.Inst.AnimStart((int)MainAnim.SpecialArts);
+        MainPlayerAnimator.Inst.AnimStart((int)MainAnim.Chage);
     }
 }
