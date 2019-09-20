@@ -32,8 +32,9 @@ public class TowerObjectSpawnController : MonoBehaviour
         // 現在のオブジェクトの数が最低個数を下回っていれば、新たにオブジェクトを生成する
         if (towerObjectSpawner.StackedObjects.Count < objectKeepNum)
         {
-            // フィーバータイムはモチのみをスポーンする
-            if (feverTimeController.IsFever)
+            // 最初のスポーンとフィーバータイム中はモチのみをスポーンする
+            if (towerObjectSpawner.StackedObjects.Count == 0 ||
+                feverTimeController.IsFever)
             {
                 // オブジェクトをスポーンする
                 towerObjectSpawner.SpawnMochiOnly(spawnNum);
