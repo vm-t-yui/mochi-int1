@@ -51,7 +51,7 @@ public class MainPlayerAnimator : SingletonMonoBehaviour<MainPlayerAnimator>
             case (int)AnimKind.Rescue: playerAnim.SetTrigger("Rescue"); break;
             case (int)AnimKind.SpecialArts: playerAnim.SetTrigger("SpecialArts"); break;
             case (int)AnimKind.OrangeCatch:
-                if (GameDataManager.Inst.PlayData.LastScore < ScoreManager.NormalScore)
+                if (ScoreManager.Inst.NowBreakNum < ScoreManager.NormalScore)
                 {
                     playerAnim.SetTrigger("LowScore");
                     // オレンジの皮落下
