@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// エフェクト再生クラス
 /// </summary>
-public class PlayerEffectPlayer : MonoBehaviour
+public class EffectPlayer : MonoBehaviour
 {
     enum EffectKind
     {
