@@ -23568,7 +23568,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: "\u3068\u3042\u308B\u4F1A\u793E\u306E\u9670\u8B00\u306B\u3088\u308A\u30BE\u30F3\u30D3\u306B\u306A\u3063\u3066\u3057\u307E\u3063\u305F\u3046\u3055\u304E\u3002\n\u3082\u3061\u3057\u304B\u565B\u307E\u306A\u3044\u306E\u3067\u5272\u3068\u7121\u5BB3\u3002"
+  m_text: "\u7531\u4E8E\u516C\u53F8\u9634\u8C0B\u800C\u53D8\u6210\u50F5\u5C38\u7684\u5154\u3002\r\n\u4ED6\u662F\u65E0\u5BB3\u7684\u56E0\u4E3A\u4ED6\u53EA\u54AC\u4E86\u957F\u77DB\u3002"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e6b9e7a825d79f941aef970b11457400, type: 2}
   m_sharedMaterial: {fileID: -1230497131987590505, guid: e6b9e7a825d79f941aef970b11457400,
@@ -23673,7 +23673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 344445a89b4f74a0e9a0a766903df87e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mTerm: Rabbit/ZombieText
+  mTerm: Rabbit/ZombieRabbitText
   mTermSecondary: Font/UsedFont
   PrimaryTermModifier: 0
   SecondaryTermModifier: 0

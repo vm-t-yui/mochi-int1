@@ -70,16 +70,16 @@ MonoBehaviour:
       Flags: 00000000000000
       Languages_Touch: []
     - Term: Font/UsedFont
-      TermType: 1
+      TermType: 9
       Description: 
       Languages:
       - Fonts/NotoSansCJKjp-Regular SDF
-      - 
-      - 
-      - 
-      - 
-      - 
-      - 
+      - Fonts/NotoSansCJKjp-Regular SDF
+      - Fonts/NotoSansCJKjp-Regular SDF
+      - Fonts/NotoSansCJKjp-Regular SDF
+      - Fonts/NotoSansCJKjp-Regular SDF
+      - Fonts/NotoSansCJKjp-Regular SDF
+      - Fonts/NotoSansCJKjp-Regular SDF
       Flags: 00000000000000
       Languages_Touch: []
     - Term: OfferWall/ButtonText
@@ -148,7 +148,7 @@ MonoBehaviour:
         grezzi meglio della pasta di fagioli dolci liscia."
       - "Un lapin noir qui vit sur la lune.\r\nIl pr\xE9f\xE8re la p\xE2te de haricots
         sucr\xE9e grossi\xE8re \xE0 la p\xE2te de haricots sucr\xE9e lisse."
-      - "\u4E00\u53EA\u751F\u6D3B\u5728\u6708\u7403\u4E0A\u7684\u9ED1\u5154\u3002\r\n\u4ED6\u559C\u6B22\u7C97\u7CD9\u7684\u751C\u8C46\u9171\u6BD4\u5149\u6ED1\u7684\u751C\u8C46\u9171\u66F4\u597D\u3002"
+      - "\u4E00\u53EA\u6816\u606F\u5728\u6708\u7403\u4E0A\u7684\u9ED1\u5154\u3002\r\n\u4ED6\u559C\u6B22\u7C97\u7CD9\u7684\u751C\u8C46\u9171\u6BD4\u5149\u6ED1\u7684\u751C\u8C46\u9171\u66F4\u597D\u3002"
       - "Un conejo negro que vive en la luna.\r\nLe gusta la pasta de frijol dulce
         grueso mejor que la pasta de frijol dulce suave."
       Flags: 00000000000000
@@ -584,7 +584,7 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - "\u4E0A\u304B\u3089\u964D\u3063\u3066\u304D\u305F\u93E1\u3082\u3061\u306B\u306F\u307E\u3063\u3066\u3057\u307E\u3063\u305F\u3046\u3055\u304E\u3002\n\u610F\u5916\u3068\u5FEB\u9069\u3002"
+      - "\u4E0A\u304B\u3089\u964D\u3063\u3066\u304D\u305F\u93E1\u3082\u3061\u306B\u306F\u307E\u3063\u3066\u3057\u307E\u3063\u305F\u3046\u3055\u304E\u3002\r\n\u4E2D\u306F\u7A7A\u8ABF\u5B8C\u5099\u3067\u610F\u5916\u3068\u5FEB\u9069\u3002"
       - "A rabbit wearing Kagami mochi.\r\nThe interior is completely air-conditioned
         and comfortable."
       - "Ein Kaninchen, das Kagami Mochi tr\xE4gt.\r\nDer Innenraum ist komplett klimatisiert
@@ -615,7 +615,7 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - "\u4E0A\u304B\u3089\u964D\u3063\u3066\u304D\u305F\u93E1\u3082\u3061\u306B\u306F\u307E\u3063\u3066\u3057\u307E\u3063\u305F\u3046\u3055\u304E\u3002\n\u4E2D\u306F\u7A7A\u8ABF\u5B8C\u5099\u3067\u610F\u5916\u3068\u5FEB\u9069\u3002"
+      - "\u5263\u306E\u9053\u3092\u6975\u3081\u308B\u3046\u3055\u304E\u3002\r\n\u6700\u5F37\u306E\u5263\u58EB\u306B\u306A\u308B\u3079\u304F\u4FEE\u884C\u4E2D\u3002"
       - "Rabbit who masters the path of swords.\r\nHe is training to become the strongest
         swordsman."
       - "Kaninchen, das den Weg der Schwerter meistert.\r\nEr trainiert, um der st\xE4rkste
@@ -962,7 +962,7 @@ MonoBehaviour:
       - Mochi
       - Mochi
       - Mochi
-      - Mochi
+      - "\u7C73\u7CD5"
       - Mochi
       Flags: 00000000000000
       Languages_Touch: []
@@ -975,7 +975,7 @@ MonoBehaviour:
       - "Rotes und wei\xDFes Mochi"
       - Mochi rosso e bianco
       - Mochi rouge et blanc
-      - "\u7EA2\u8272\u548C\u767D\u8272\u7684\u9EBB"
+      - "\u7EA2\u548C\u767D\u7C73\u7CD5"
       - Mochi rojo y blanco
       Flags: 00000000000000
       Languages_Touch: []
@@ -988,7 +988,7 @@ MonoBehaviour:
       - Yomogi Mochi
       - Yomogi Mochi
       - Yomogi Mochi
-      - Yomogi Mochi
+      - "\u827E\u84BF\u7C73\u7CD5"
       - Yomogi Mochi
       Flags: 00000000000000
       Languages_Touch: []
@@ -1014,7 +1014,7 @@ MonoBehaviour:
       - Kashiwa Mochi
       - Kashiwa Mochi
       - Kashiwa Mochi
-      - Kashiwa Mochi
+      - "\u67CF\u7C73\u7CD5"
       - Kashiwa Mochi
       Flags: 00000000000000
       Languages_Touch: []
@@ -1027,7 +1027,7 @@ MonoBehaviour:
       - Isobe Mochi
       - Isobe Mochi
       - Isobe Mochi
-      - Isobe Mochi
+      - "\u77F6\u90E8\u7C73\u7CD5"
       - Isobe Mochi
       Flags: 00000000000000
       Languages_Touch: []
@@ -1042,6 +1042,72 @@ MonoBehaviour:
       - "Fen\xEAtre de la peau"
       - "\u76AE\u80A4\u7A97\u53E3"
       - Ventana de la piel
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: ShareRecommend
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u307F\u3093\u306A\u306B\u81EA\u6162\u3057\u3088\u3046"
+      - Boast to everyone
+      - Prahlen Sie mit allen
+      - Vantare a tutti
+      - "Se vanter \xE0 tous"
+      - "\u5439\u5618\u6BCF\u4E2A\u4EBA"
+      - Alarde de todos
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: AdVideo/Watch
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u898B\u308B"
+      - WWatch
+      - Sehen
+      - Orologio
+      - Regarder
+      - "\u770B"
+      - Reloj
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: AdVideo/NotWatch
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u898B\u306A\u3044"
+      - Not watch
+      - Nicht zuschauen
+      - Non guardare
+      - Ne pas regarder
+      - "\u4E0D\u770B"
+      - No ver
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: AdVideo/Text1
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u898B\u305F\u3053\u3068\u304C\u306A\u3044\u3046\u3055\u304E\u304C\n\u52D5\u753B\u3092\u898B\u305F\u3089\u51FA\u3066\u304D\u305D\u3046\u3060\u2026\uFF01"
+      - A hare that you've never seen will come out if you watch the video!
+      - Ein Hase, den Sie noch nie gesehen haben, kommt heraus, wenn Sie das Video
+        anschauen!
+      - "Una lepre che non hai mai visto verr\xE0 fuori se guardi il video!"
+      - "Un li\xE8vre que vous n'avez jamais vu sortira si vous regardez la vid\xE9o!"
+      - "\u5982\u679C\u4F60\u89C2\u770B\u89C6\u9891\uFF0C\n\u4F60\u4F1A\u770B\u5230\u4E00\u53EA\u4F60\u4ECE\u672A\u89C1\u8FC7\u7684\u91CE\u5154\uFF01"
+      - "\xA1Si ves el video, saldr\xE1 una liebre que nunca has visto!"
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: AdVideo/Text2
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u52D5\u753B\u3092\u898B\u307E\u3059\u304B\uFF1F"
+      - Want to watch a video?
+      - Willst du ein Video sehen?
+      - Vuoi guardare un video?
+      - "Voulez-vous regarder une vid\xE9o?"
+      - "\u60F3\u89C2\u770B\u89C6\u9891\u5417\uFF1F"
+      - "\xBFQuieres ver un video?"
       Flags: 00000000000000
       Languages_Touch: []
     CaseInsensitiveTerms: 0

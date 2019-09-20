@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4371729668529831922}
   - component: {fileID: 8088706088919197565}
   - component: {fileID: 7124003668196886033}
+  - component: {fileID: 208335891169947600}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -67,8 +68,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: "\u898B\u306A\u3044"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1d2b930fd30ec454e9acc2cc038251e3, type: 2}
-  m_sharedMaterial: {fileID: 7329028192985003410, guid: 1d2b930fd30ec454e9acc2cc038251e3,
+  m_fontAsset: {fileID: 11400000, guid: e6b9e7a825d79f941aef970b11457400, type: 2}
+  m_sharedMaterial: {fileID: -1230497131987590505, guid: e6b9e7a825d79f941aef970b11457400,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -158,6 +159,46 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &208335891169947600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3371089884078836129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 344445a89b4f74a0e9a0a766903df87e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mTerm: AdVideo/NotWatch
+  mTermSecondary: Font/UsedFont
+  PrimaryTermModifier: 0
+  SecondaryTermModifier: 0
+  TermPrefix: 
+  TermSuffix: 
+  LocalizeOnAwake: 1
+  IgnoreRTL: 0
+  MaxCharactersInRTL: 0
+  IgnoreNumbersInRTL: 1
+  CorrectAlignmentForRTL: 1
+  AddSpacesToJoinedLanguages: 0
+  AllowLocalizedParameters: 1
+  TranslatedObjects: []
+  LocalizeEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  AlwaysForceLocalize: 0
+  LocalizeCallBack:
+    Target: {fileID: 0}
+    MethodName: 
+  mGUI_ShowReferences: 0
+  mGUI_ShowTems: 1
+  mGUI_ShowCallback: 0
+  mLocalizeTarget: {fileID: 0}
+  mLocalizeTargetName: I2.Loc.LocalizeTarget_TextMeshPro_UGUI
 --- !u!1 &3468395864264493416
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,6 +210,7 @@ GameObject:
   - component: {fileID: 1626028791563706398}
   - component: {fileID: 146512943183768990}
   - component: {fileID: 5616941886785015250}
+  - component: {fileID: 9157853615167697626}
   m_Layer: 0
   m_Name: Text (TMP) (1)
   m_TagString: Untagged
@@ -225,8 +267,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: "\u52D5\u753B\u3092\u898B\u307E\u3059\u304B\uFF1F"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1d2b930fd30ec454e9acc2cc038251e3, type: 2}
-  m_sharedMaterial: {fileID: 7329028192985003410, guid: 1d2b930fd30ec454e9acc2cc038251e3,
+  m_fontAsset: {fileID: 11400000, guid: e6b9e7a825d79f941aef970b11457400, type: 2}
+  m_sharedMaterial: {fileID: -1230497131987590505, guid: e6b9e7a825d79f941aef970b11457400,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -316,6 +358,46 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &9157853615167697626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3468395864264493416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 344445a89b4f74a0e9a0a766903df87e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mTerm: AdVideo/Text2
+  mTermSecondary: Font/UsedFont
+  PrimaryTermModifier: 0
+  SecondaryTermModifier: 0
+  TermPrefix: 
+  TermSuffix: 
+  LocalizeOnAwake: 1
+  IgnoreRTL: 0
+  MaxCharactersInRTL: 0
+  IgnoreNumbersInRTL: 1
+  CorrectAlignmentForRTL: 1
+  AddSpacesToJoinedLanguages: 0
+  AllowLocalizedParameters: 1
+  TranslatedObjects: []
+  LocalizeEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  AlwaysForceLocalize: 0
+  LocalizeCallBack:
+    Target: {fileID: 0}
+    MethodName: 
+  mGUI_ShowReferences: 0
+  mGUI_ShowTems: 1
+  mGUI_ShowCallback: 0
+  mLocalizeTarget: {fileID: 0}
+  mLocalizeTargetName: I2.Loc.LocalizeTarget_TextMeshPro_UGUI
 --- !u!1 &4701858465428502273
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,6 +832,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   adMobVideo: {fileID: 4749209265554219699}
   recommendWindow: {fileID: 4749209266575815363}
+  isEnd: 0
 --- !u!1 &4749209266499088005
 GameObject:
   m_ObjectHideFlags: 0
@@ -971,6 +1054,7 @@ GameObject:
   - component: {fileID: 8519637702021959382}
   - component: {fileID: 5629387540676085397}
   - component: {fileID: 5853419412303912190}
+  - component: {fileID: 8674517934602107202}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1025,10 +1109,10 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: "\u898B\u305F\u3053\u3068\u304C\u306A\u3044\u3046\u3055\u304E\u304C\n\u52D5\u753B\u3092\u898B\u305F\u3089\u51FA\u3066\u304D\u305D\u3046\u3060...\uFF01"
+  m_text: "\u898B\u305F\u3053\u3068\u304C\u306A\u3044\u3046\u3055\u304E\u304C\n\u52D5\u753B\u3092\u898B\u305F\u3089\u51FA\u3066\u304D\u305D\u3046\u3060\u2026\uFF01"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1d2b930fd30ec454e9acc2cc038251e3, type: 2}
-  m_sharedMaterial: {fileID: 7329028192985003410, guid: 1d2b930fd30ec454e9acc2cc038251e3,
+  m_fontAsset: {fileID: 11400000, guid: e6b9e7a825d79f941aef970b11457400, type: 2}
+  m_sharedMaterial: {fileID: -1230497131987590505, guid: e6b9e7a825d79f941aef970b11457400,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1118,6 +1202,46 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8674517934602107202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5389429666565113693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 344445a89b4f74a0e9a0a766903df87e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mTerm: AdVideo/Text1
+  mTermSecondary: Font/UsedFont
+  PrimaryTermModifier: 0
+  SecondaryTermModifier: 0
+  TermPrefix: 
+  TermSuffix: 
+  LocalizeOnAwake: 1
+  IgnoreRTL: 0
+  MaxCharactersInRTL: 0
+  IgnoreNumbersInRTL: 1
+  CorrectAlignmentForRTL: 1
+  AddSpacesToJoinedLanguages: 0
+  AllowLocalizedParameters: 1
+  TranslatedObjects: []
+  LocalizeEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  AlwaysForceLocalize: 0
+  LocalizeCallBack:
+    Target: {fileID: 0}
+    MethodName: 
+  mGUI_ShowReferences: 0
+  mGUI_ShowTems: 1
+  mGUI_ShowCallback: 0
+  mLocalizeTarget: {fileID: 0}
+  mLocalizeTargetName: I2.Loc.LocalizeTarget_TextMeshPro_UGUI
 --- !u!1 &6581738245576694184
 GameObject:
   m_ObjectHideFlags: 0
@@ -1129,6 +1253,7 @@ GameObject:
   - component: {fileID: 4987779095057469116}
   - component: {fileID: 8678878781702126139}
   - component: {fileID: 8362841446563006255}
+  - component: {fileID: 5176759126078243297}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1185,8 +1310,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: "\u898B\u308B"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1d2b930fd30ec454e9acc2cc038251e3, type: 2}
-  m_sharedMaterial: {fileID: 7329028192985003410, guid: 1d2b930fd30ec454e9acc2cc038251e3,
+  m_fontAsset: {fileID: 11400000, guid: e6b9e7a825d79f941aef970b11457400, type: 2}
+  m_sharedMaterial: {fileID: -1230497131987590505, guid: e6b9e7a825d79f941aef970b11457400,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1276,3 +1401,43 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5176759126078243297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6581738245576694184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 344445a89b4f74a0e9a0a766903df87e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mTerm: AdVideo/Watch
+  mTermSecondary: Font/UsedFont
+  PrimaryTermModifier: 0
+  SecondaryTermModifier: 0
+  TermPrefix: 
+  TermSuffix: 
+  LocalizeOnAwake: 1
+  IgnoreRTL: 0
+  MaxCharactersInRTL: 0
+  IgnoreNumbersInRTL: 1
+  CorrectAlignmentForRTL: 1
+  AddSpacesToJoinedLanguages: 0
+  AllowLocalizedParameters: 1
+  TranslatedObjects: []
+  LocalizeEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  AlwaysForceLocalize: 0
+  LocalizeCallBack:
+    Target: {fileID: 0}
+    MethodName: 
+  mGUI_ShowReferences: 0
+  mGUI_ShowTems: 1
+  mGUI_ShowCallback: 0
+  mLocalizeTarget: {fileID: 0}
+  mLocalizeTargetName: I2.Loc.LocalizeTarget_TextMeshPro_UGUI
