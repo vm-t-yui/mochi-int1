@@ -11,14 +11,15 @@ public class PictureBookSpriteSetter : MonoBehaviour
     SpriteAtlas atlas = default;      // スプライトアトラス
 
     [SerializeField]
-    Image[]     window  = default,    // 
-                memo    = default,    // 
-                newIcon = default,    // 
-                rarity1 = default,    // ★１群
-                rarity2 = default,    // ★２群
-                rarity3 = default,    // ★３群
-                rarity4 = default,    // ★４群
-                rarity5 = default;    // ★５群
+    Image[]     window     = default,    // 
+                windowDark = default,    // 
+                memo       = default,    // 
+                newIcon    = default,    // 
+                rarity1    = default,    // ★１群
+                rarity2    = default,    // ★２群
+                rarity3    = default,    // ★３群
+                rarity4    = default,    // ★４群
+                rarity5    = default;    // ★５群
 
     [SerializeField]
     Image       page    = default,    // 
@@ -34,6 +35,7 @@ public class PictureBookSpriteSetter : MonoBehaviour
     {
         // 各画像にスプライトをセット
         SetSpriteArray(window, SpriteName.Window);
+        SetSpriteArray(windowDark, SpriteName.WindowDark);
         SetSpriteArray(memo, SpriteName.Memo);
         SetSpriteArray(newIcon, SpriteName.NewIcon);
         SetSpriteArray(rarity1, SpriteName.Rarity1);
@@ -86,11 +88,13 @@ public class PictureBookSpriteSetter : MonoBehaviour
         foreach (Transform item in descriptions)
         {
             string spriteName = TowerObjectDataManager.Inst.GetRabbitDataFromNumber(num).name;
-            item.GetChild(1).GetComponent<Image>().sprite = atlas.GetSprite(spriteName);
+            item.GetChild(2).GetComponent<Image>().sprite = atlas.GetSprite(spriteName);
 
             Debug.Log(item.GetChild(1));
 
             num++;
+
+            if (num >= 25) break;
         }
     }
 }

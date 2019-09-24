@@ -94,7 +94,8 @@ SpriteAtlas:
     - {fileID: 2800000, guid: b2175784a1411cf4e9885092cae98252, type: 3}
     - {fileID: 2800000, guid: 6c90adbb9c2845e4ab47b0a1b4f5e141, type: 3}
     - {fileID: 2800000, guid: 09550a471d0cbd84e8aa07eb446d656b, type: 3}
-    totalSpriteSurfaceArea: 11484447
+    - {fileID: 2800000, guid: 8d5fbcce77214034a93ac8c849ce2dc1, type: 3}
+    totalSpriteSurfaceArea: 10610715
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -159,6 +160,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: f1aa072e24ea1447a9111b440bcbb137, type: 3}
   - {fileID: 21300000, guid: 7b90f47ed7fda485ea222ddc6ea01ee0, type: 3}
   - {fileID: 21300000, guid: 4604f8aee3a59b840924963f808f34b1, type: 3}
+  - {fileID: 21300000, guid: 8d5fbcce77214034a93ac8c849ce2dc1, type: 3}
   - {fileID: 21300000, guid: 6c419fde42444064ebe1a0316e676c6e, type: 3}
   - {fileID: 21300000, guid: 42748e6f5d2da1c448594aa5cbdd9f11, type: 3}
   - {fileID: 21300000, guid: 138e408fc7842784fafb414086d98950, type: 3}
@@ -224,6 +226,7 @@ SpriteAtlas:
   - kashiwaMochi
   - kouhakuMochi
   - rarity4
+  - windowDark
   - YellowRabbit
   - rarity0
   - rarity5
