@@ -868,11 +868,11 @@ MonoBehaviour:
       Languages:
       - "\u30CF\u30A4\u30B9\u30B3\u30A2"
       - High Score
-      - High Score
-      - High Score
-      - High Score
-      - High Score
-      - High Score
+      - "H\xF6chste Punktzahl"
+      - Punteggio alto
+      - "Score \xE9lev\xE9"
+      - "\u9AD8\u5206"
+      - "Puntuaci\xF3n m\xE1s alta"
       Flags: 00000000000000
       Languages_Touch: []
     - Term: Record/PlayCount
@@ -881,11 +881,11 @@ MonoBehaviour:
       Languages:
       - "\u30D7\u30EC\u30A4\u56DE\u6570"
       - Play Count
-      - Play Count
-      - Play Count
-      - Play Count
-      - Play Count
-      - Play Count
+      - "Spielz\xE4hler"
+      - Gioca conteggio
+      - Compte de jeu
+      - "\u64AD\u653E\u8BA1\u6570"
+      - Cuenta de juego
       Flags: 00000000000000
       Languages_Touch: []
     - Term: Record/TotalScore
@@ -894,11 +894,11 @@ MonoBehaviour:
       Languages:
       - "\u5408\u8A08\u30B9\u30B3\u30A2"
       - Total Score
-      - Total Score
-      - Total Score
-      - Total Score
-      - Total Score
-      - Total Score
+      - Gesamtpunktzahl
+      - Punteggio totale
+      - Score total
+      - "\u603B\u5F97\u5206"
+      - Puntaje total
       Flags: 00000000000000
       Languages_Touch: []
     - Term: Record/RabbitPunchedCount
@@ -907,11 +907,11 @@ MonoBehaviour:
       Languages:
       - "\u30D1\u30F3\u30C1\u3057\u305F\u3046\u3055\u304E\u306E\u6570"
       - Rabbit Punched Count
-      - Rabbit Punched Count
-      - Rabbit Punched Count
-      - Rabbit Punched Count
-      - Rabbit Punched Count
-      - Rabbit Punched Count
+      - Kaninchen gelocht Graf
+      - Conteggio perforato del coniglio
+      - "Compte poin\xE7on de lapin"
+      - "\u5154\u5B50\u6253\u5B54\u8BA1\u6570"
+      - Conejo Perforado Conde
       Flags: 00000000000000
       Languages_Touch: []
     - Term: Record/RabbitRescuedCount
@@ -920,24 +920,24 @@ MonoBehaviour:
       Languages:
       - "\u52A9\u3051\u305F\u3046\u3055\u304E\u306E\u6570"
       - Rabbit Rescued Count
-      - Rabbit Rescued Count
-      - Rabbit Rescued Count
-      - Rabbit Rescued Count
-      - Rabbit Rescued Count
-      - Rabbit Rescued Count
+      - Kaninchen gerettet Graf
+      - Coniglio salvato Conteggio
+      - "Lapin Sauv\xE9 Count"
+      - "\u5154\u5B50\u6551\u52A9\u8BA1\u6570"
+      - Conde Rescatado Conejo
       Flags: 00000000000000
       Languages_Touch: []
     - Term: Record/Record
       TermType: 0
       Description: 
       Languages:
-      - "\u30EC\u30B3\u30FC\u30C9"
+      - "\u8A18\u9332"
       - Record
+      - Aufzeichnung
+      - Disco
       - Record
-      - Record
-      - Record
-      - Record
-      - Record
+      - "\u8BB0\u5F55"
+      - Grabar
       Flags: 00000000000000
       Languages_Touch: []
     - Term: Share
@@ -1108,6 +1108,71 @@ MonoBehaviour:
       - "Voulez-vous regarder une vid\xE9o?"
       - "\u60F3\u89C2\u770B\u89C6\u9891\u5417\uFF1F"
       - "\xBFQuieres ver un video?"
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Skin/IchigoRelease
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u5408\u8A08\u30B9\u30B3\u30A25,000\u3067\u89E3\u653E"
+      - Released when total score exceeds 5,000
+      - "Wird freigegeben, wenn die Gesamtpunktzahl 5.000 \xFCberschreitet"
+      - Rilasciato quando il punteggio totale supera 5.000
+      - "Rel\xE2ch\xE9 lorsque le score total d\xE9passe 5,000"
+      - "\u5F53\u603B\u5206\u8D85\u8FC75,000\u65F6\u53D1\u5E03"
+      - Lanzado cuando el puntaje total excede 5,000
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Skin/KouhakuRelease
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u5408\u8A08\u30B9\u30B3\u30A21,000\u3067\u89E3\u653E"
+      - Released when total score exceeds 1,000
+      - "Wird freigegeben, wenn die Gesamtpunktzahl 1.000 \xFCberschreitet"
+      - Rilasciato quando il punteggio totale supera 1.000
+      - "Rel\xE2ch\xE9 lorsque le score total d\xE9passe 1,000"
+      - "\u5F53\u603B\u5206\u8D85\u8FC71,000\u65F6\u53D1\u5E03"
+      - Lanzado cuando el puntaje total excede 1,000
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Skin/YomogiRelease
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u5408\u8A08\u30B9\u30B3\u30A23,000\u3067\u89E3\u653E"
+      - Released when total score exceeds 3,000
+      - "Wird freigegeben, wenn die Gesamtpunktzahl 3.000 \xFCberschreitet"
+      - Rilasciato quando il punteggio totale supera 3.000
+      - "Rel\xE2ch\xE9 lorsque le score total d\xE9passe 3,000"
+      - "\u5F53\u603B\u5206\u8D85\u8FC73,000\u65F6\u53D1\u5E03"
+      - Lanzado cuando el puntaje total excede 3,000
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Skin/KashiwaReleaseKashiwaRelease
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u5408\u8A08\u30B9\u30B3\u30A28,000\u3067\u89E3\u653E"
+      - Released when total score exceeds 8,000
+      - "Wird freigegeben, wenn die Gesamtpunktzahl 8.000 \xFCberschreitet"
+      - Rilasciato quando il punteggio totale supera 8.000
+      - "Rel\xE2ch\xE9 lorsque le score total d\xE9passe 8,000"
+      - "\u5F53\u603B\u5206\u8D85\u8FC78,000\u65F6\u53D1\u5E03"
+      - Lanzado cuando el puntaje total excede 8,000
+      Flags: 00000000000000
+      Languages_Touch: []
+    - Term: Skin/IsobeRelease
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u5408\u8A08\u30B9\u30B3\u30A210,000\u3067\u89E3\u653E"
+      - Released when total score exceeds 10,000
+      - "Wird freigegeben, wenn die Gesamtpunktzahl 10.000 \xFCberschreitet"
+      - Rilasciato quando il punteggio totale supera 10.000
+      - "Rel\xE2ch\xE9 lorsque le score total d\xE9passe 10,000"
+      - "\u5F53\u603B\u5206\u8D85\u8FC710,000\u65F6\u53D1\u5E03"
+      - Lanzado cuando el puntaje total excede 10,000
       Flags: 00000000000000
       Languages_Touch: []
     CaseInsensitiveTerms: 0
