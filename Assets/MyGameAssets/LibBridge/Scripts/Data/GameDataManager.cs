@@ -30,6 +30,9 @@ public class GameDataManager : Singleton<GameDataManager>
         VoiceDataManager = new IdentifiedDataManager<VoiceData>("Data/VoiceData");
         EffectDataManager.LoadData();
         VoiceDataManager.LoadData();
+
+        // タワーのリソースをロードする
+        TowerObjectDataManager.Inst.LoadData();
     }
 
     /// <summary>

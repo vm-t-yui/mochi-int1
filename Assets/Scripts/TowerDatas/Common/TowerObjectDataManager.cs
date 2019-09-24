@@ -29,7 +29,7 @@ public class TowerObjectDataManager : Singleton<TowerObjectDataManager>
     /// <summary>
     /// 全てのデータを読み込む
     /// </summary>
-    public TowerObjectDataManager()
+    public void LoadData()
     {
         // モチのアセットデータを読み込む
         MochiDataManager = new IdentifiedDataManager<MochiData>(MochiDataPath);
