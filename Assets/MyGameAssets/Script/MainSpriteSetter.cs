@@ -31,7 +31,7 @@ public class MainSpriteSetter : MonoBehaviour
 
         for (int i = 0; i < galley.Length; i++)
         {
-            galley[i].sprite = atlas.GetSprite(SpriteName.Galley);
+            galley[i].sprite = atlas.GetSprite(SpriteName.Galley + (i + 1).ToString());
         }
     }
 }
