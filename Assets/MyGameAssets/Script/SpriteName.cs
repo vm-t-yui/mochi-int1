@@ -29,6 +29,7 @@ public class SpriteName
     public const string VeryGoodScoreMochi = "veryGoodScoreMochi";
     public const string Timer = "timer";
     public const string Window = "window";
+    public const string WindowDark = "windowDark";
     public const string Achievement = "achievement";
     public const string NewIcon = "newIcon";
     public const string ShareIcon = "shareIcon";
