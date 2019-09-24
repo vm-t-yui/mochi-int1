@@ -7,35 +7,6 @@ using UnityEngine.UI;
 /// </summary>
 public class PictureBookSpriteSetter : MonoBehaviour
 {
-    // ウサギのスプライト名
-    string[] rabbitSpriteName = {
-        "NormalRabbit",
-        "BlackRabbit",
-        "LehmanRabbit",
-        "SumouRabbit",
-        "WoodRabbit",
-        "JoysonRabbit",
-        "ZombieRabbit",
-        "GhostRabbit",
-        "SpaceRabbit",
-        "RedRabbit",
-        "BlueRabbit",
-        "YellowRabbit",
-        "GreenRabbit",
-        "PinkRabbit",
-        "MechaRabbit",
-        "ZariganRabbit",
-        "KagamimochiRabbit",
-        "WarriorRabbit",
-        "ChocosoftRabbit",
-        "DiamondRabbit",
-        "BossRabbit",
-        "JusaburoRabbit",
-        "OgisanRabbit",
-        "MaidRabbit",
-        "RabbitMan",
-        };
-
     [SerializeField]
     SpriteAtlas atlas = default;      // スプライトアトラス
 
@@ -52,6 +23,9 @@ public class PictureBookSpriteSetter : MonoBehaviour
     [SerializeField]
     Image       page    = default,    // 
                 rarity0 = default;    // 非解放用レアリティ
+
+    [SerializeField]
+    Transform descriptions = default; // 図鑑説明欄の親オブジェクト
 
     /// <summary>
     /// 起動処理
@@ -72,6 +46,8 @@ public class PictureBookSpriteSetter : MonoBehaviour
         rarity0.sprite = atlas.GetSprite(SpriteName.Rarity0);
 
         SetRabbitSprite(memo);
+
+        SetDescriptionsSprite();
     }
 
     /// <summary>
@@ -98,6 +74,23 @@ public class PictureBookSpriteSetter : MonoBehaviour
 
             images[i].transform.GetChild(0).GetComponent<Image>().sprite = atlas.GetSprite(spriteName);
             images[i].transform.GetChild(1).GetComponent<Image>().sprite = atlas.GetSprite(spriteName);
+        }
+    }
+
+    /// <summary>
+    /// 図鑑説明欄のスプライトセット関数
+    /// </summary>
+    void SetDescriptionsSprite()
+    {
+        int num = 0;
+        foreach (Transform item in descriptions)
+        {
+            string spriteName = TowerObjectDataManager.Inst.GetRabbitDataFromNumber(num).name;
+            item.GetChild(1).GetComponent<Image>().sprite = atlas.GetSprite(spriteName);
+
+            Debug.Log(item.GetChild(1));
+
+            num++;
         }
     }
 }
