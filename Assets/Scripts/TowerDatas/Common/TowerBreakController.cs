@@ -20,6 +20,10 @@ public class TowerBreakController : MonoBehaviour
     [SerializeField]
     float objectFlySpeed = 0;
 
+    // 台座のオブジェクト
+    [SerializeField]
+    GameObject pedestal = default;
+
     // 全てのオブジェクトの飛ぶ方向
     List<Vector3> objectFlyDirections = new List<Vector3>();
 
@@ -41,6 +45,9 @@ public class TowerBreakController : MonoBehaviour
 
             // 吹っ飛ばした分のモチをスコアに加える
             ScoreManager.Inst.UpdateGetNum();
+
+            // 台座を非表示にする
+            pedestal.SetActive(false);
         }
     }
 
@@ -67,6 +74,9 @@ public class TowerBreakController : MonoBehaviour
         objectFlyDirections.Clear();
         // 吹き飛ばしの処理を止める
         enabled = false;
+
+        // 台座を表示
+        pedestal.SetActive(true);
     }
 
     /// <summary>

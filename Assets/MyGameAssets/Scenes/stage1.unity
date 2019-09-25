@@ -3710,6 +3710,11 @@ PrefabInstance:
       propertyPath: timer
       value: 
       objectReference: {fileID: 1474329050}
+    - target: {fileID: 8096097067289301091, guid: 34e60736b952eee4dba2263ecaaa2597,
+        type: 3}
+      propertyPath: pedestal
+      value: 
+      objectReference: {fileID: 2087183693}
     - target: {fileID: 6434989072904517666, guid: 34e60736b952eee4dba2263ecaaa2597,
         type: 3}
       propertyPath: mainCameraAnim
@@ -5464,6 +5469,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ab2435164cd42a4cb326a12c8d806bd, type: 3}
+--- !u!1 &2087183693 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2611885003097507407, guid: 6ab2435164cd42a4cb326a12c8d806bd,
+    type: 3}
+  m_PrefabInstance: {fileID: 2087183692}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1149858038699816221
 PrefabInstance:
   m_ObjectHideFlags: 0
