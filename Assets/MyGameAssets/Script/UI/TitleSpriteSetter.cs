@@ -69,7 +69,7 @@ public class TitleSpriteSetter : MonoBehaviour
     }
 
     /// <summary>
-    /// HowToPlayセット関数
+    /// 遊び方説明ウィンドウのスプライトセット関数
     /// </summary>
     public void SetHowToPlay()
     {
