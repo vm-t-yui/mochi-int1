@@ -112,6 +112,12 @@ public class FeverTimeActiveGaugeController : MonoBehaviour
         // スライダーの値を更新
         // （ゲージの現在と最大の量からスライダーの値を計算）
         activeGauge.value = (1.0f * (GaugeCurrentAmount / gaugeAmountMax));
+
+        // 0以下になったら0に戻す
+        if (activeGauge.value < 0)
+        {
+            activeGauge.value = 0;
+        }
     }
 
     /// <summary>

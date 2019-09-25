@@ -23,6 +23,7 @@ public class DamageRabbitSpawer : MonoBehaviour
 
         // うさぎの表示非表示
         RabbitSetActive(true);
+
     }
 
     /// <summary>
@@ -39,9 +40,13 @@ public class DamageRabbitSpawer : MonoBehaviour
                 brokenRabbit[i].SetActive(false);
             }
             // flagがtrueならパンチされた数だけ表示
-            else if(GameDataManager.Inst.PlayData.PlayCount >= i)
+            else if(GameDataManager.Inst.PlayData.PunchCount >= i)
             {
                 brokenRabbit[i].SetActive(true);
+            }
+            else
+            {
+                brokenRabbit[i].SetActive(false);
             }
         }
     }
