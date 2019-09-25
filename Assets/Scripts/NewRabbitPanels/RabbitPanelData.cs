@@ -25,6 +25,10 @@ public class RabbitPanelData : MonoBehaviour
     [SerializeField]
     Image rabbitIconImage = default;
 
+    // ブラーの枠のイメージ
+    [SerializeField]
+    Image blurborderImage = default;
+
     // スプライトアトラス
     [SerializeField]
     SpriteAtlas spriteAtlas = default;
@@ -36,6 +40,8 @@ public class RabbitPanelData : MonoBehaviour
     {
         // アトラスからウサギのアイコンをセットする
         rabbitIconImage.sprite = spriteAtlas.GetSprite(name);
+        // ブラーの枠のイメージを作成
+        blurborderImage.sprite = spriteAtlas.GetSprite("blurborder");
 
         // ウサギごとに名前のローカライズをセットする
         rabbitNameLocalize.SetTerm("Rabbit/" + name);
