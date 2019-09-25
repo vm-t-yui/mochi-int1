@@ -78,6 +78,7 @@ public class PictureBookSpriteSetter : MonoBehaviour
             images[i].transform.GetChild(0).GetComponent<Image>().sprite = atlas.GetSprite(spriteName);
             images[i].transform.GetChild(1).GetComponent<Image>().sprite = atlas.GetSprite(spriteName);
 
+            // ウサギの拡大画像も同時にセット
             bigImages.GetChild(i).GetChild(0).GetComponent<Image>().sprite = atlas.GetSprite(spriteName);
         }
     }
