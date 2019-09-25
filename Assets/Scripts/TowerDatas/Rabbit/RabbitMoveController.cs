@@ -13,6 +13,10 @@ public class RabbitMoveController : MoveControllerBase
     [SerializeField]
     TowerObjectSpawner towerObjectSpawner = default;
 
+    // フィーバーゲージコントローラー
+    [SerializeField]
+    FeverTimeActiveGaugeController gaugeController = default;
+
     // ウサギのデータ
     RabbitData rabbitData = default;
 
@@ -55,6 +59,8 @@ public class RabbitMoveController : MoveControllerBase
         // ウサギがパンチされた回数をカウントしていく
         GameDataManager.Inst.PlayData.PunchCount++;
         GameDataManager.Inst.PlayData.TotalPunchCount++;
+        // ウサギをパンチしたらフィーバーゲージを減少させる
+        gaugeController.DecreaseGauge();
         // ウサギが吹っ飛ぶアニメーションを再生
         animator.SetTrigger("RabbitFling");
         // ウサギがパンチされた時の効果音再生

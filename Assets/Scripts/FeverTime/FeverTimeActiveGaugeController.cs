@@ -33,6 +33,10 @@ public class FeverTimeActiveGaugeController : MonoBehaviour
     [SerializeField]
     float gaugeIncrement = 0;
 
+    // ウサギをパンチしたときの減少値
+    [SerializeField]
+    int rabbitPunchDecreaseNum = 0;
+
     // ゲージの現在の量
     public float GaugeCurrentAmount { get; private set; } = 0;
 
@@ -72,6 +76,12 @@ public class FeverTimeActiveGaugeController : MonoBehaviour
 
             enabled = false;
         }
+
+        // ゲージの現在の量が０以下になったら０を代入
+        if (GaugeCurrentAmount < 0)
+        {
+            GaugeCurrentAmount = 0;
+        }
     }
 
     /// <summary>
@@ -89,6 +99,19 @@ public class FeverTimeActiveGaugeController : MonoBehaviour
             // （ゲージの現在と最大の量からスライダーの値を計算）
             activeGauge.value = (1.0f * (GaugeCurrentAmount / gaugeAmountMax));
         }
+    }
+
+    /// <summary>
+    /// ゲージの減少
+    /// </summary>
+    /// <param name="num">減少値</param>
+    public void DecreaseGauge()
+    {
+        GaugeCurrentAmount -= rabbitPunchDecreaseNum;
+
+        // スライダーの値を更新
+        // （ゲージの現在と最大の量からスライダーの値を計算）
+        activeGauge.value = (1.0f * (GaugeCurrentAmount / gaugeAmountMax));
     }
 
     /// <summary>
