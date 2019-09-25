@@ -16,8 +16,8 @@ public class TowerObjectRendererList : MonoBehaviour
     Transform rabbitSpawnPool = default;
 
     // オブジェクトの制御クラスを管理するDictionary
-    Dictionary<string, MeshRenderer[]> meshRenderers = new Dictionary<string, MeshRenderer[]>();
-    public IReadOnlyDictionary<string, MeshRenderer[]> MeshRenderers { get { return meshRenderers; } }
+    Dictionary<string, SkinnedMeshRenderer[]> meshRenderers = new Dictionary<string, SkinnedMeshRenderer[]>();
+    public IReadOnlyDictionary<string, SkinnedMeshRenderer[]> MeshRenderers { get { return meshRenderers; } }
 
     /// <summary>
     /// 開始
@@ -28,7 +28,7 @@ public class TowerObjectRendererList : MonoBehaviour
         foreach (Transform mochi in mochiSpawnPool)
         {
             // モチにアタッチしているrレンダラーを取得する
-            MeshRenderer[] meshRenderer = mochi.GetChild(0).GetComponentsInChildren<MeshRenderer>();
+            SkinnedMeshRenderer[] meshRenderer = mochi.GetChild(0).GetComponentsInChildren<SkinnedMeshRenderer>();
             // 取得したレンダラーをオブジェクト名とセットで追加
             meshRenderers.Add(mochi.gameObject.name, meshRenderer);
         }
@@ -37,7 +37,7 @@ public class TowerObjectRendererList : MonoBehaviour
         foreach (Transform rabbit in rabbitSpawnPool)
         {
             // ウサギにアタッチしているレンダラーを取得する
-            MeshRenderer[] meshRenderer = rabbit.GetChild(0).GetComponentsInChildren<MeshRenderer>();
+            SkinnedMeshRenderer[] meshRenderer = rabbit.GetChild(0).GetComponentsInChildren<SkinnedMeshRenderer>();
             // 取得したレンダラーをオブジェクト名とセットで追加
             meshRenderers.Add(rabbit.gameObject.name, meshRenderer);
         }
