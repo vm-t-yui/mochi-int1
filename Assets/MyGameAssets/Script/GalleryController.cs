@@ -23,6 +23,8 @@ public class GalleryController : MonoBehaviour
 
     bool  isStart         = false;       // ジャンプ開始フラグ
 
+    public float GroundY  = -40f;        // ギャラリーの着地位置
+
     /// <summary>
     /// 起動処理
     /// </summary>
@@ -72,7 +74,7 @@ public class GalleryController : MonoBehaviour
         rect.position += Vector3.up * vec;
         vec -= Gravity;
 
-        if (rect.position.y < -20)
+        if (rect.position.y < GroundY)
         {
             vec = jumpVec;
         }
