@@ -26,7 +26,8 @@ public class PictureBookSpriteSetter : MonoBehaviour
                 rarity0 = default;    // 非解放用レアリティ
 
     [SerializeField]
-    Transform descriptions = default; // 図鑑説明欄の親オブジェクト
+    Transform descriptions = default,    // 図鑑説明欄の親オブジェクト
+              bigImages    = default;    // ウサギの拡大画像の親オブジェクト
 
     /// <summary>
     /// 起動処理
@@ -76,6 +77,9 @@ public class PictureBookSpriteSetter : MonoBehaviour
 
             images[i].transform.GetChild(0).GetComponent<Image>().sprite = atlas.GetSprite(spriteName);
             images[i].transform.GetChild(1).GetComponent<Image>().sprite = atlas.GetSprite(spriteName);
+
+            // ウサギの拡大画像も同時にセット
+            bigImages.GetChild(i).GetChild(0).GetComponent<Image>().sprite = atlas.GetSprite(spriteName);
         }
     }
 
