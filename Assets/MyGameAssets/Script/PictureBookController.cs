@@ -18,6 +18,10 @@ public class PictureBookController : MonoBehaviour
     [SerializeField]
     Transform rabbitButtons = default;
 
+    // スクロールバー
+    [SerializeField]
+    Scrollbar scrollbar = default;
+
     const int NotReleaseNum = -1;    // 非解放用の説明ウィンドウ番号
     int       nowOpenNum    = 0;     // 表示中の説明ウィンドウ番号
 
@@ -72,6 +76,8 @@ public class PictureBookController : MonoBehaviour
 
             i++;
         }
+
+        scrollbar.value = 0;
     }
 
     /// <summary>

@@ -15,6 +15,8 @@ public class Timer : MonoBehaviour
     FeverTimeController feverTime = default;               // フィーバータイム管理クラス
     [SerializeField]
     Slider slider = default;                               // タイマーのゲージ
+    [SerializeField]
+    MainCameraAnimator cameraAnimator = default;           // メインカメラのアニメーター
 
     [SerializeField]
     float gameTime = 0;                                    // ゲーム内の秒数
@@ -59,6 +61,9 @@ public class Timer : MonoBehaviour
 
         // カウントダウンアニメーション再生
         animator.SetBool("IsCountDown", true);
+
+        // カメラのカウントダウンアニメーション再生
+        cameraAnimator.AnimStart((int)MainCameraAnimator.AnimKind.CountDown);
     }
 
     /// <summary>
