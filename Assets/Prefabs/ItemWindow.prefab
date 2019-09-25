@@ -3895,8 +3895,8 @@ RectTransform:
   m_Father: {fileID: 2081817430875741048}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.40979382, y: 0}
-  m_AnchorMax: {x: 0.5902062, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.18041237, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5416,6 +5416,7 @@ MonoBehaviour:
   - {fileID: 1971163068580750144}
   notReleaseDescription: {fileID: 2624894160038754181}
   rabbitButtons: {fileID: 4407228043060142068}
+  scrollbar: {fileID: 6910102842781266613}
   IsDebug: 0
 --- !u!114 &1364527865673374395
 MonoBehaviour:
@@ -25618,7 +25619,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 1590, y: 0}
   m_SizeDelta: {x: 3180, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7753207455446363540
@@ -30166,7 +30167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 1
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -30195,7 +30196,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8988765326389563901}
   m_HandleRect: {fileID: 3640214057641222130}
   m_Direction: 0
-  m_Value: 0.5
+  m_Value: 0
   m_Size: 0.18041237
   m_NumberOfSteps: 0
   m_OnValueChanged:

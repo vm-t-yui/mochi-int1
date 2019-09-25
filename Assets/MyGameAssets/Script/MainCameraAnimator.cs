@@ -14,6 +14,7 @@ public class MainCameraAnimator : MonoBehaviour
         FeverIn,                                // 右パンチ
         FeverOut,                               // 左パンチ
         SpecialArts,                            // 最後の大技
+        CountDown,                              // 最初のカウントダウン
     }
 
     [SerializeField]
@@ -30,6 +31,7 @@ public class MainCameraAnimator : MonoBehaviour
             case (int)AnimKind.FeverIn: mainCameraAnim.SetTrigger("FeverIn"); break;
             case (int)AnimKind.FeverOut: mainCameraAnim.SetTrigger("FeverOut"); break;
             case (int)AnimKind.SpecialArts: mainCameraAnim.SetTrigger("SpecialArts"); break;
+            case (int)AnimKind.CountDown: mainCameraAnim.SetTrigger("CountDown"); break;
         }
     }
 }
