@@ -46,4 +46,7 @@ public class SpriteName
 	public const string IchigoDaihukuButton = "ichigoDaihukuButton";
 	public const string KashiwaMochiButton = "kashiwaMochiButton";
 	public const string IsobeMochiButton = "isobeMochiButton";
+
+    public const string HowToPlayJapanese = "howToPlayJap";
+    public const string HowToPlayEnglish = "howToPlayEng";
 }

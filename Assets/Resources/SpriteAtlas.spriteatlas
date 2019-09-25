@@ -96,7 +96,9 @@ SpriteAtlas:
     - {fileID: 2800000, guid: 09550a471d0cbd84e8aa07eb446d656b, type: 3}
     - {fileID: 2800000, guid: aa51dac843d316246954b2d60657ccf5, type: 3}
     - {fileID: 2800000, guid: 2451305a3c181094e884823129aafaea, type: 3}
-    totalSpriteSurfaceArea: 10611515
+    - {fileID: 2800000, guid: 9e7cf0d70c4844ef3bf721899f31a1b4, type: 3}
+    - {fileID: 2800000, guid: 8a01f9d99f1c14b9cb1671ddf596cfe8, type: 3}
+    totalSpriteSurfaceArea: 12771515
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -125,6 +127,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 09550a471d0cbd84e8aa07eb446d656b, type: 3}
   - {fileID: 21300000, guid: fa1d7e67c550e43fb8c7a9ffc9eaa793, type: 3}
   - {fileID: 21300000, guid: c3ae3eb70f0b5e6438b4642e0cff125c, type: 3}
+  - {fileID: 21300000, guid: 9e7cf0d70c4844ef3bf721899f31a1b4, type: 3}
   - {fileID: 21300000, guid: 99c901e70eef44640b6cfe6e81bec4a6, type: 3}
   - {fileID: 21300000, guid: 5edb95e7b21bc41e48d298b4c7cb5036, type: 3}
   - {fileID: 21300000, guid: 22481ce71507fbd4fbe198dc230cd6aa, type: 3}
@@ -138,6 +141,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 78acf339949d0d04fa4b8aa249996435, type: 3}
   - {fileID: 21300000, guid: ddd1ae9901fb8495884f96b09df71869, type: 3}
   - {fileID: 21300000, guid: 094fe5d92800ad4468595016313a29e1, type: 3}
+  - {fileID: 21300000, guid: 8a01f9d99f1c14b9cb1671ddf596cfe8, type: 3}
   - {fileID: 21300000, guid: 62d0d61a371d2432e8b7223b7ed82ef1, type: 3}
   - {fileID: 21300000, guid: 9c0bdb3ac9c057f42ac7ef2e25ed577a, type: 3}
   - {fileID: 21300000, guid: 9b4d934ac33212540b44926d75eeb359, type: 3}
@@ -192,6 +196,7 @@ SpriteAtlas:
   - ZombieRabbit
   - page
   - rarity1
+  - howToPlayEng
   - memo
   - goodScoreMochi
   - RabbitMan
@@ -205,6 +210,7 @@ SpriteAtlas:
   - NormalRabbit
   - dish
   - WarriorRabbit
+  - howToPlayJap
   - normalMochiButton
   - JusaburoRabbit
   - LehmanRabbit

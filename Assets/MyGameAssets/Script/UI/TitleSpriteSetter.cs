@@ -33,6 +33,8 @@ public class TitleSpriteSetter : MonoBehaviour
     Image[] window          = default;    // ウィンドウ
     [SerializeField]
     Image[] newIcon         = default;    // 新たに手に入れた時にボタンの上に表示するのアイコン
+    [SerializeField]
+    Image howToPlay       = default;    // やり方説明ウィンドウ
 
     /// <summary>
     /// 起動処理.
@@ -61,6 +63,26 @@ public class TitleSpriteSetter : MonoBehaviour
         for (int i = 0; i < newIcon.Length; i++)
         {
             newIcon[i].sprite = atlas.GetSprite(SpriteName.NewIcon);
+        }
+
+
+    }
+
+    /// <summary>
+    /// HowToPlayセット関数
+    /// </summary>
+    public void SetHowToPlay()
+    {
+        // 使用している言語によってやり方説明ウィンドウを変更
+        if (GameDataManager.Inst.SettingData.UseLanguage == SettingData.LanguageType.Japanese)
+        {
+            // 日本語用
+            howToPlay.sprite = atlas.GetSprite(SpriteName.HowToPlayJapanese);
+        }
+        else
+        {
+            // 日本語以外は英語
+            howToPlay.sprite = atlas.GetSprite(SpriteName.HowToPlayEnglish);
         }
     }
 }
