@@ -49,10 +49,10 @@ public static class LibBridgeInfo
     // レビュー用url.
 #if UNITY_IPHONE
     //public const string REVIEW_URL = "itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=xxxxxxxxxxxxx";
-    public const string REVIEW_URL = "itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=1127234473";
+    public const string REVIEW_URL = "https://itunes.apple.com/jp/app/id1478378442?mt=8";
 #else
     //public const string REVIEW_URL = "market://details?id=xxxxxxxxxxxxxxxx";
-    public const string REVIEW_URL = "http://play.google.com/store/apps/details?id=com.vikingmaxx.btmanKick";
+    public const string REVIEW_URL = "https://play.google.com/store/apps/details?id=com.vikingmaxx.mcmanPunch";
 #endif
 
     // シェア用テキスト.
@@ -62,17 +62,17 @@ public static class LibBridgeInfo
         {
             if (Application.systemLanguage == SystemLanguage.Japanese)
             {
-                return "田園の救世主!?害虫どもを必殺キックで撃退！";
+                return "うさぎ達に美味しいお餅を届けるため...砕け！モチもっちんパンチ！！";
             }
             else
             {
-                return "A HERO of rice paddy!? Let's use HISSATSU KICK to defeat pest insects!";
+                return "To deliver delicious rice cakes to the rabbits ...Break! MochiMotchinPunch!!";
             }
         }
     }
 
     // ツイッター用タグ.
-    public const string TWITTER_TAG = " #BattaManKick";
+    public const string TWITTER_TAG = " #MotchinPunch";
 
     /// <summary>
     /// アンカー名を定数で管理するクラス
