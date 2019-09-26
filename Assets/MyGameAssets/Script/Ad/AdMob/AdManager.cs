@@ -4,35 +4,35 @@ using UnityEngine;
 using VMUnityLib;
 
 //== ID一覧 ================================================================================//
-// アプリID               : Android
-// アプリID               : ios
+// アプリID              : Android    ca-app-pub-7073050807259252~9091757973
+// アプリID              : ios        ca-app-pub-7073050807259252~3188694607
 
-// アプリID（サンプル）     : Android    ca-app-pub-3940256099942544~3347511713
-// アプリID（サンプル）     : ios        ca-app-pub-3940256099942544~1458002511
+// アプリID（サンプル）  : Android    ca-app-pub-3940256099942544~3347511713
+// アプリID（サンプル）  : ios        ca-app-pub-3940256099942544~1458002511
 
-// AdMob banner          : Android    ca-app-pub-3940256099942544/6300978111
-// AdMob banner          : ios        ca-app-pub-3940256099942544/2934735716
+// AdMob banner          : Android    ca-app-pub-7073050807259252/4089337954
+// AdMob banner          : ios        ca-app-pub-7073050807259252/9433642902
 
-// AdMob Interstitial    : Android    ca-app-pub-3940256099942544/1033173712
-// AdMob Interstitial    : ios        ca-app-pub-3940256099942544/4411468910
+// AdMob Interstitial    : Android    ca-app-pub-7073050807259252/4827704556
+// AdMob Interstitial    : ios        ca-app-pub-7073050807259252/1555152888
 
-// Nend Native (small)   : Android    Key : 16cb170982088d81712e63087061378c71e8aa5c
-//                                    ID  : 485516
-// Nend Native (small)   : ios        Key : 10d9088b5bd36cf43b295b0774e5dcf7d20a4071
-//                                    ID  : 485500
+// Nend Native (small)   : Android    Key : ce8ac21d194e35fbc3f1e226023d83160f679392
+//                                    ID  : 974417
+// Nend Native (small)   : ios        Key : 5b1c911a26bf65047debed3c460fe6b14e5eb519
+//                                    ID  : 974413
 
-// Nend Native (large)   : Android    Key : a88c0bcaa2646c4ef8b2b656fd38d6785762f2ff
-//                                    ID  : 485520
-// Nend Native (large)   : ios        Key : 30fda4b3386e793a14b27bedb4dcd29f03d638e5
-//                                    ID  : 485504
+// Nend Native (large)   : Android    Key : 7fd308d53b80fc92fbeef68816c5781a167c1634
+//                                    ID  : 974416
+// Nend Native (large)   : ios        Key : bc08e4d0e39a8591ccf974cfe2bf284cf89fc663
+//                                    ID  : 974412
 
-// Nend Interstitial     : Android    Key : 8c278673ac6f676dae60a1f56d16dad122e23516
-//                                    ID  : 213206
-// Nend Interstitial     : ios        Key : 308c2499c75c4a192f03c02b2fcebd16dcb45cc9
-//                                    ID  : 213208
+// Nend Interstitial     : Android    Key : 93acaf823cb61686fd0974a3d25d7f3957449b33
+//                                    ID  : 974415
+// Nend Interstitial     : ios        Key : 518baa8cd707b10d41f6ef0b4a69a8aa70eeb975
+//                                    ID  : 974411
 
-// AdMob Rewarded Video  : Android    ca-app-pub-3940256099942544/5224354917
-// AdMob Rewarded Video  : ios        ca-app-pub-3940256099942544/1712485313
+// AdMob Rewarded Video  : Android    ca-app-pub-7073050807259252/9190100326
+// AdMob Rewarded Video  : ios        ca-app-pub-7073050807259252/5677751791
 //=========================================================================================//
 
 // 必要な広告
