@@ -27,8 +27,8 @@ public class MainCameraAnimator : MonoBehaviour
     float SlowTimeScale = 0.1f;                 // スローモーション時のタイムスケール
 
     [SerializeField]
-    GameObject mainCanvasObj  = default,        // メインカンバス
-               guageCanvasObj = default;        // ゲージのカンバス
+    GameObject scoreUI = default,               // スコアUI
+               guageUI = default;               // ゲージUI
 
     bool isEnd = false;                         // 処理終了フラグ
 
@@ -81,9 +81,9 @@ public class MainCameraAnimator : MonoBehaviour
                 mainCameraAnim.SetTrigger("SpecialArts");
             }
 
-            // カンバスを非表示にする
-            mainCanvasObj.GetComponent<Canvas>().enabled = false;
-            guageCanvasObj.GetComponent<Canvas>().enabled = false;
+            // ゲージとスコアを非表示にする
+            scoreUI.SetActive(false);
+            guageUI.SetActive(false);
 
             isEnd = true;
         }
@@ -97,9 +97,9 @@ public class MainCameraAnimator : MonoBehaviour
         // アニメーションステートを待機に戻す
         mainCameraAnim.SetTrigger("Wait");
 
-        // カンバスを表示させておく
-        mainCanvasObj.GetComponent<Canvas>().enabled = true;
-        guageCanvasObj.GetComponent<Canvas>().enabled = true;
+        // ゲージとスコアを表示させておく
+        scoreUI.SetActive(true);
+        guageUI.SetActive(true);
 
         isEnd = false;
     }
