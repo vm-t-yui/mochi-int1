@@ -20,6 +20,18 @@ public class MainCameraAnimator : MonoBehaviour
     [SerializeField]
     Animator mainCameraAnim = default;          // カメラのアニメーター
 
+    [SerializeField]
+    Timer timer = default;                      // タイマークラス
+
+    [SerializeField]
+    float SlowTimeScale = 0.1f;                 // スローモーション時のタイムスケール
+
+    [SerializeField]
+    GameObject mainCanvasObj  = default,        // メインカンバス
+               guageCanvasObj = default;        // ゲージのカンバス
+
+    bool isEnd = false;                         // 処理終了フラグ
+
     /// <summary>
     ///  アニメーション再生
     /// </summary>
@@ -33,5 +45,62 @@ public class MainCameraAnimator : MonoBehaviour
             case (int)AnimKind.SpecialArts: mainCameraAnim.SetTrigger("SpecialArts"); break;
             case (int)AnimKind.CountDown: mainCameraAnim.SetTrigger("CountDown"); break;
         }
+    }
+
+    /// <summary>
+    /// タイムスケール変更
+    /// </summary>
+    void ChangeTimeScale()
+    {
+        Time.timeScale = SlowTimeScale;
+    }
+
+    /// <summary>
+    /// タイムスケールリセット
+    /// </summary>
+    void ResetTimeScale()
+    {
+        Time.timeScale = 1;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    void Update()
+    {
+        // タイムアップ時
+        if (timer.IsTimeup && !isEnd)
+        {
+            // スコアによってカメラアニメーションを分岐
+            if (ScoreManager.Inst.NowBreakNum < ScoreManager.NormalScore)
+            {
+                mainCameraAnim.SetTrigger("LowScore");
+            }
+            else
+            {
+                mainCameraAnim.SetTrigger("SpecialArts");
+            }
+
+            // カンバスを非表示にする
+            mainCanvasObj.GetComponent<Canvas>().enabled = false;
+            guageCanvasObj.GetComponent<Canvas>().enabled = false;
+
+            isEnd = true;
+        }
+    }
+
+    /// <summary>
+    /// 終了処理
+    /// </summary>
+    void OnDisable()
+    {
+        // アニメーションステートを待機に戻す
+        mainCameraAnim.SetTrigger("Wait");
+
+        // カンバスを表示させておく
+        mainCanvasObj.GetComponent<Canvas>().enabled = true;
+        guageCanvasObj.GetComponent<Canvas>().enabled = true;
+
+        isEnd = false;
     }
 }
