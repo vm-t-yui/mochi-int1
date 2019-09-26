@@ -5073,8 +5073,8 @@ MonoBehaviour:
   mainCameraAnim: {fileID: 1790435633}
   timer: {fileID: 1474329050}
   SlowTimeScale: 0.1
-  mainCanvasObj: {fileID: 1429386335}
-  guageCanvasObj: {fileID: 245553806}
+  scoreUI: {fileID: 1149858038699816223}
+  guageUI: {fileID: 245553806}
 --- !u!1 &1847764358
 GameObject:
   m_ObjectHideFlags: 0
@@ -5720,3 +5720,9 @@ MonoBehaviour:
   m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1149858038699816223 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1149858038292067443, guid: 07ec3564d426a43d380ffd2521cb580d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1149858038699816221}
+  m_PrefabAsset: {fileID: 0}
