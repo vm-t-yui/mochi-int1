@@ -149,4 +149,19 @@ public class MainPlayerAnimator : SingletonMonoBehaviour<MainPlayerAnimator>
     {
         SePlayer.Inst.PlaySeRandomPitch(id);
     }
+
+    /// <summary>
+    /// オレンジのキャッチ音
+    /// </summary>
+    public void PlayCatchSound()
+    {
+        if (ScoreManager.Inst.NowBreakNum < ScoreManager.NormalScore)
+        {
+            PlaySe(SeID.OrangeCrush);
+        }
+        else
+        {
+            PlaySe(SeID.OrangeCatch);
+        }
+    }
 }

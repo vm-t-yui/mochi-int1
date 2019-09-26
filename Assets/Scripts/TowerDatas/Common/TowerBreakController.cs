@@ -24,6 +24,10 @@ public class TowerBreakController : MonoBehaviour
     [SerializeField]
     GameObject pedestal = default;
 
+    // タワーパーティクル再生クラス
+    [SerializeField]
+    TowerObjectParticlePlayer particlePlayer = default;
+
     // 全てのオブジェクトの飛ぶ方向
     List<Vector3> objectFlyDirections = new List<Vector3>();
 
@@ -48,6 +52,11 @@ public class TowerBreakController : MonoBehaviour
 
             // 台座を非表示にする
             pedestal.SetActive(false);
+
+            // 破壊パーティクル再生
+            // NOTE: m.tanaka 使用しているスキンをもとに再生するパーティクルのIDを作成
+            string particleID = GameDataManager.Inst.SettingData.UseSkin.ToString() + "Break";
+            particlePlayer.Play(particleID, transform.position, transform.rotation);
         }
     }
 
