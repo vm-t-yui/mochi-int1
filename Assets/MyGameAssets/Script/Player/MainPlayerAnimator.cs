@@ -65,6 +65,7 @@ public class MainPlayerAnimator : SingletonMonoBehaviour<MainPlayerAnimator>
                     // オレンジの皮落下
                     orangeAnim.SetTrigger("PeelFall");
                 }
+                else
                 {
                     playerAnim.SetTrigger("HighScore");
                     // オレンジ落下
