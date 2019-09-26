@@ -146,7 +146,7 @@ public sealed class UITitle : CmnMonoBehaviour
     /// </summary>
     public void ShowBanner()
     {
-        AdManager.Inst.ShowBanner((int)AdBannerController.BANNER.TOP);
+        AdManager.Inst.ShowBanner();
     }
 
     /// <summary>

@@ -141,12 +141,12 @@ public class AdManager : SingletonMonoBehaviour<AdManager>
     /// <summary>
     /// バナー広告表示
     /// </summary>
-    public void ShowBanner(int posNum)
+    public void ShowBanner()
     {
         // オフラインなら処理を抜ける
         if (!isOnline) { return; }
 
-        adMob.ShowBanner(posNum);
+        adMob.ShowBanner();
     }
 
     /// <summary>

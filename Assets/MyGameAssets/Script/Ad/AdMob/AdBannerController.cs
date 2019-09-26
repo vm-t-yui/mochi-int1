@@ -59,16 +59,9 @@ public class AdBannerController : MonoBehaviour
     /// <summary>
     /// 表示
     /// </summary>
-    public void Show(int posNum)
+    public void Show()
     {
-        if (posNum == (int)BANNER.TOP)
-        {
-            bannerViewTop.Show();
-        }
-        else
-        {
-            bannerViewBottom.Show();
-        }
+        bannerViewTop.Show();
     }
 
     /// <summary>
