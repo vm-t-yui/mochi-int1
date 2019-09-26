@@ -23,9 +23,9 @@ public class ScoreManager : SingletonMonoBehaviour<ScoreManager>
     public int MaxBreakNum { get; private set; } = 0;     // 壊した数の合計(表示用)
 
     public const int LowScore = 10;                       // 低スコアの基準
-    public const int NormalScore = 30;                    // 良スコアの基準
-    public const int GoodScore = 60;                      // 高スコアの基準
-    public const int VeryGoodScore = 100;                 // 高スコアの基準
+    public const int NormalScore = 100;                    // 良スコアの基準
+    public const int GoodScore = 200;                      // 高スコアの基準
+    public const int VeryGoodScore = 300;                 // 高スコアの基準
 
     // 各スキンの解放スコア
     int[] releaseScore =

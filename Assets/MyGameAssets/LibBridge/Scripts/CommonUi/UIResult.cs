@@ -63,7 +63,7 @@ public class UIResult : CmnMonoBehaviour
         isShowAd = false;
 
         // バナー表示
-        AdManager.Inst.ShowBanner((int)AdBannerController.BANNER.TOP);
+        AdManager.Inst.ShowBanner();
 
         // Newテキスト表示
         ShowNewIcon();

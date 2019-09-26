@@ -65,18 +65,16 @@ public class AdMobManager : MonoBehaviour
     /// <summary>
     /// バナー広告表示
     /// </summary>
-    /// <param name="posNum">バナーの位置番号</param>
-    public void ShowBanner(int posNum)
+    public void ShowBanner()
     {
         // ロードし終わるまで待機、ロード完了時バナー表示
-        StartCoroutine(LoadBanner(posNum));
+        StartCoroutine(LoadBanner());
     }
 
     /// <summary>
     /// バナーがロードし終わるまでのコルーチン
     /// </summary>
-    /// <param name="posNum">バナーの位置番号</param>
-    IEnumerator LoadBanner(int posNum)
+    IEnumerator LoadBanner()
     {
         while (!adBanner.IsLoaded)
         {
@@ -84,7 +82,7 @@ public class AdMobManager : MonoBehaviour
         }
 
         // ロードが完了時したら表示
-        adBanner.Show(posNum);
+        adBanner.Show();
     }
 
     /// <summary>

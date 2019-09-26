@@ -40,7 +40,7 @@ public class DamageRabbitSpawer : MonoBehaviour
                 brokenRabbit[i].SetActive(false);
             }
             // flagがtrueならパンチされた数だけ表示
-            else if(GameDataManager.Inst.PlayData.PunchCount >= i)
+            else if(GameDataManager.Inst.PlayData.PunchCount >= i + 1)
             {
                 brokenRabbit[i].SetActive(true);
             }
