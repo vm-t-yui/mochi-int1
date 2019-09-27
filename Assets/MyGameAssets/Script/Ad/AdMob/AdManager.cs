@@ -72,15 +72,15 @@ public class AdManager : SingletonMonoBehaviour<AdManager>
     int showCount = 0;                                                // インタースティシャル用表示回数
     const string ShowCountKey = "ShowCount";                          // 表示回数データのキー
 
-    const int OwnCompAdCount = 4;                                     // 自社広告使用時の表示回数
     const int AdMobCount = 3;                                         // AdMob使用時の表示回数
+    const int OwnCompAdCount = 4;                                     // 自社広告使用時の表示回数
     const int RewardCount = 5;                                        // 動画リワード使用時の表示回数
 
     const string AppId =                                              // アプリID
 #if UNITY_ANDROID
-        "ca-app-pub-7073050807259252~7297201289";
+        "ca-app-pub-7073050807259252~9091757973";
 #elif UNITY_IOS
-        "ca-app-pub-7073050807259252~7875785788";
+        "ca-app-pub-7073050807259252~3188694607";
 #else
         "unexpected_platform";
 #endif
@@ -172,9 +172,12 @@ public class AdManager : SingletonMonoBehaviour<AdManager>
         showCount = GameDataManager.Inst.PlayData.PlayCount;
 
         // うさぎをコンプリートいなかったら5回毎に動画リワードを表示
-        if (showCount % RewardCount == 0 && GameDataManager.Inst.PlayData.RabbitComplete())
+        if (showCount % RewardCount == 0)
         {
-            adVideoRecommender.Recommend();
+            if (!GameDataManager.Inst.PlayData.RabbitComplete())
+            {
+                adVideoRecommender.Recommend();
+            }
         }
         // 4回毎に自社広告を使用
         else if (showCount % OwnCompAdCount == 0)

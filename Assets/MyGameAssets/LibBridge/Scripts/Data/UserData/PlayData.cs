@@ -80,14 +80,14 @@ public class PlayData
     /// </summary>
     public bool RabbitComplete()
     {
-        // NOTE:Distinct().Count() == 1は重複が1つなら(配列の全ての要素が同じ値なら)trueを返すという条件式で
-        //      うさぎをコンプリートしていれば配列のすべてがtrueなり、重複が1となるのでこの条件式が通る
-        if (IsReleasedRabbit.Distinct().Count() == 1)
+        foreach (var item in IsReleasedRabbit)
         {
-            return true;
+            if (!item)
+            {
+                return false;
+            }
         }
-
-        return false;
+        return true;
     }
 
     /// <summary>

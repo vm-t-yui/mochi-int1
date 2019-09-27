@@ -15,18 +15,18 @@ public class NendInterstitialController : MonoBehaviour
 
     const string ApiKey =                                   // APIキー
 #if UNITY_ANDROID
-        "8c278673ac6f676dae60a1f56d16dad122e23516";
+        "93acaf823cb61686fd0974a3d25d7f3957449b33";
 #elif UNITY_IOS
-        "308c2499c75c4a192f03c02b2fcebd16dcb45cc9";
+        "518baa8cd707b10d41f6ef0b4a69a8aa70eeb975";
 #else
         "unexpected_platform";
 #endif
 
     const string SpotID =                                   // スポットID
 #if UNITY_ANDROID
-        "213206";
+        "974415";
 #elif UNITY_IOS
-        "213208";
+        "974411";
 #else
         "unexpected_platform";
 #endif
