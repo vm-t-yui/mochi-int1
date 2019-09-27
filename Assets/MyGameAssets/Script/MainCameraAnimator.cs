@@ -30,6 +30,8 @@ public class MainCameraAnimator : MonoBehaviour
     GameObject scoreUI = default,               // スコアUI
                guageUI = default;               // ゲージUI
 
+    bool isLowScore = false;
+
     bool isEnd = false;                         // 処理終了フラグ
 
     /// <summary>
@@ -64,22 +66,25 @@ public class MainCameraAnimator : MonoBehaviour
     }
 
     /// <summary>
-    /// 
+    /// ロースコア時のアニメーション再生
+    /// </summary>
+    void StartLowScoreAnim()
+    {
+        if (ScoreManager.Inst.NowBreakNum < ScoreManager.NormalScore)
+        {
+            mainCameraAnim.SetTrigger("LowScore");
+        }
+    }
+
+    /// <summary>
+    /// 更新処理
     /// </summary>
     void Update()
     {
         // タイムアップ時
         if (timer.IsTimeup && !isEnd)
         {
-            // スコアによってカメラアニメーションを分岐
-            if (ScoreManager.Inst.NowBreakNum < ScoreManager.NormalScore)
-            {
-                mainCameraAnim.SetTrigger("LowScore");
-            }
-            else
-            {
-                mainCameraAnim.SetTrigger("SpecialArts");
-            }
+            mainCameraAnim.SetTrigger("SpecialArts");
 
             // ゲージとスコアを非表示にする
             scoreUI.SetActive(false);

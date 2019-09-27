@@ -24,9 +24,9 @@ public class AdBannerController : MonoBehaviour
 
     const string AdUnitId =                                             // 広告ユニットID（テスト用ID）
 #if UNITY_ANDROID
-        "ca-app-pub-3940256099942544/6300978111";
+        "ca-app-pub-7073050807259252/4089337954";
 #elif UNITY_IOS
-        "ca-app-pub-3940256099942544/2934735716";
+        "ca-app-pub-7073050807259252/9433642902";
 #else
         "unexpected_platform";
 #endif
